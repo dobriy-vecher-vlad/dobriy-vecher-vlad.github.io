@@ -1,0 +1,125 @@
+		   h1 {
+			font-family: Arial;
+			font-size: 26px;
+			margin-left: 25px;
+			text-transform: uppercase;
+		   }
+		   h2 {
+			font-family: Arial;
+			font-size: 16px;
+			margin-left: 25px;
+			margin-bottom: -15px;
+			text-transform: uppercase;
+			color: #ccc;
+			user-select: none;
+		   }
+		   h3 {
+			font-family: Arial;
+			font-size: 16px;
+			margin-left: 25px;
+			margin-top: -10px;
+			text-transform: uppercase;
+			color: #ccc;
+			user-select: none;
+		   }
+		   #body { 
+			font-family: Arial;
+			font-size: 10px;
+			color: grey;
+			background: #edeef0;
+			text-align: center;
+		   }
+		   #global {
+			font-size: 16px;
+			color: black;
+			width: 750px;
+			background: #fff;
+			border-radius: 4px;
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			margin: 15px 15px 15px 580px;
+			padding: 15px;
+			text-align: left;
+		   }
+		   #parag {
+			position: relative;
+			background: #fff;
+			border-radius: 4px;
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			margin: 25px 25px 25px 25px;
+			padding: 15px;
+			line-height: 1.2;
+		   }
+		   img {
+		   }
+		   pre {
+			max-width: 750px;
+			max-width: 750px;
+			white-space: pre-line;
+			word-wrap: break-word;
+		   }
+		   .btn_sc {
+			background: #fff;
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			padding: 10px;
+			border-radius: 4px;
+			margin: 25px -10px 25px 25px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 12px;
+			user-select: none;
+		   }
+		   .btn_sc_activ {
+			background: #fff;
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			padding: 10px;
+			border-radius: 4px;
+			margin: 25px -10px 25px 25px;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 12px;
+			user-select: none;
+			background: #F2F2F2;
+		   }
+		   .btn_sc:hover {
+			background: #F2F2F2;
+		   }
+		   a {
+			text-decoration: none;
+			color: black;
+		   }
+		   .leftimg {
+			width: 170px;
+			float:left; 
+			margin: 7px 7px 7px 0;
+			border-radius: 4px;
+		   }
+		   .navig {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: -25px;
+			padding-top: 15px;
+			padding-bottom: 25px;
+		   }
+		   .imgshapka {
+			width: 670px;
+			height: 100px;
+			border-radius: 4px;
+			background-size: cover;
+		   }
+		   .kr1 {
+			background-image: url(shapka1st.jpg);
+			background-position: 0px -50px;
+		   }
+		   .kr2 {
+			background-image: url(shapka2st.jpg);
+			background-position: 0px -100px;
+		   }
+		   .kr3 {
+			background-image: url(shapka3st.jpg);
+			background-position: 0px -100px;
+		   }
+		   .kr4 {
+			background-image: url(shapka4st.jpg);
+			background-position: 0px -150px;
+		   }

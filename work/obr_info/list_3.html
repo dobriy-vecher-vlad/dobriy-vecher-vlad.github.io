@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html oncontextmenu="r1eturn false">
+	<head>
+	    <link rel="shortcut icon" href="http://h91222sp.beget.tech/image/favicon.ico" type="image/x-icon"/>
+	    <meta charset="utf-8">
+		<title>Обработка информации</title>
+		<style>
+		@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Russo+One');
+		body {
+			font-family: -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Segoe WP,Helvetica Neue,Lucida Grande,Verdana,Tahoma,Arial,sans-serif!important;
+			user-select: none;
+			background-color: #edeef0;
+			transition: 0.2s;
+		}
+		.main {
+			margin: auto;
+			width: 1000px;
+			font-size: 14px;
+			padding: 25px;
+			background: #fff;
+			border-radius: 4px;
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			line-height: 35px;
+			color: black;
+			transition: 0.2s;
+		}
+		table {
+			margin: auto;
+			border-collapse: collapse;
+		}
+		.btn_otvet {
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			padding: 3px;
+			border-radius: 4px;
+		}
+		.name_page {
+			font-size: 25px;
+			color: #000;
+			font-weight: bold;
+		}
+		.next_glav {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+			border-bottom: 1px solid transparent;
+			transition: 0.2s;
+			padding: 2px;
+		}
+		.next_glav:hover {
+			transition: 0.2s;
+			border-bottom: 1px solid #555;
+		}
+		.next {
+			font-family: 'Fira Sans Condensed', sans-serif;
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+			padding: 2px;
+			margin-left: 10px;
+			margin-right: 10px;
+			border-bottom: 1px solid transparent;
+			transition: 0.2s;
+			opacity: 0.5;
+		}
+		.next:hover {
+			transition: 0.2s;
+			opacity: 1;
+			border-bottom: 1px solid #555;
+		}
+		.next_activ {
+			font-family: 'Fira Sans Condensed', sans-serif;
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+			padding: 2px;
+			margin-left: 10px;
+			margin-right: 10px;
+			border-bottom: 1px solid #555;
+			transition: 0.2s;
+			opacity: 1;
+		}
+		hr {
+			border: 0.5px solid #e3e4e8;
+			width: 325px;
+			transition: 0.2s;
+		}
+		.image {
+			width: 100%;
+			height: 200px;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-image: url("https://prominn.ru/wp-content/uploads/2018/06/mainpicioi2.png");
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+			border-radius: 4px;
+		}
+		.spoiler input[type=checkbox] {
+			display: none;
+		}
+		.spoiler input[type=checkbox] ~ .otvet {
+			opacity: 0;
+			transition: 0.2s;
+			visibility: hidden;
+			max-height: 0px;
+		}
+		.spoiler input[type=checkbox]:checked ~ .otvet {
+			opacity: 1;
+			transition: 0.2s;
+			visibility: visible;
+			max-height: 500px;
+		}
+		.otvet {
+			border-radius: 4px;
+			padding: 10px;
+			box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+		}
+		.im1 {
+			background-image: url("http://rumedix.ru/upload/medialibrary/0c5/18.png");
+		}
+		.im2 {
+			background-image: url("https://prominn.ru/wp-content/uploads/2018/06/mainpicioi2.png");
+		}
+		.im3 {
+			background-image: url("http://arprime.ru/uploads_articles/2017/12/avtomatizirovannyye-sistemy-obrabotka-informatsii-i-upravleniya.jpg");
+		}
+		.im4 {
+			background-image: url("https://www.kv.by/sites/default/files/pictures/mainimage/2016/11/it-specialist.jpg");
+		}
+		</style>
+	</head>
+	<body>
+		<div class="main" style="margin-top: 2%;">
+			<table style="padding: 0px; margin: 0px;"><tr><td style="width: auto; font-size: 20px; font-family: 'Russo One', sans-serif;">
+			<a class="next_glav" href="list.html">ОБРАБОТКА ИНФОРМАЦИИ</a>
+			</td><td style="width: auto; font-size: 14px; font-family: 'Arial', sans-serif;">
+			<a class="next" href="list_1.html">Концепции информации</a>
+			<a class="next" href="list_2.html">Основные определения</a>
+			<a class="next_activ" href="list_3.html">Классификация информации</a>
+			<a class="next" href="list_4.html">Контрольные вопросы</a>
+			</td></tr></table>
+		</div>
+		<div class="main" style="margin-top: 2%;">
+		<div class="name_page">Классификация информации</div><br>
+		<t style="font-weight: 600">1. Информация подразделяется по форме представления на 2 вида:</t><br>
+		- дискретная форма представления информации - это последовательность символов, характеризующая прерывистую, изменяющуюся величину (количество дорожно-транспортных происшествий, количество тяжких преступлений и т.п.);<br>
+		- аналоговая или непрерывная форма представления информации - это величина, характеризующая процесс, не имеющий перерывов или промежутков (температура тела человека, скорость автомобиля на определенном участке пути и т.п.).<br><br><hr><br>
+		<t style="font-weight: 600">2. По области возникновения выделяют информацию:</t><br>
+		- элементарную (механическую), которая отражает процессы, явления неодушевленной природы;<br>
+		- биологическую, которая отражает процессы животного и растительного мира;<br>
+		- социальную, которая отражает процессы человеческого общества.<br><br><hr><br>
+		<t style="font-weight: 600">3. По способу передачи и восприятия различают следующие виды информации:</t><br>
+		- визуальную, передаваемую видимыми образами и символами;<br>
+		- аудиальную, передаваемую звуками;<br>
+		- тактильную, передаваемую ощущениями;<br>
+		- органолептическую, передаваемую запахами и вкусами;<br>
+		- машинную, выдаваемую и воспринимаемую средствами вычислительной техники.<br><br><hr><br>
+		<t style="font-weight: 600">4. Информацию, создаваемую и используемую человеком, по общественному назначению можно разбить на три вида:</t><br>
+		- личную, предназначенную для конкретного человека;<br>
+		- массовую, предназначенную для любого желающего ее пользоваться (общественно-политическая, научно-популярная и т.д.) ;<br>
+		- специальную, предназначенную для использования узким кругом лиц, занимающихся решением сложных специальных задач в области науки, техники, экономики.<br><br><hr><br>
+		<t style="font-weight: 600">5. По способам кодирования выделяют следующие типы информации:</t><br>
+		- символьную, основанную на использовании символов - букв, цифр, знаков и т. д. Она является наиболее простой, но практически применяется только для передачи несложных сигналов о различных событиях. Примером может служить зеленый свет уличного светофора, который сообщает о возможности начала движения пешеходам или водителям автотранспорта.<br>
+		- текстовую, основанную на использовании комбинаций символов. Здесь так же, как и в предыдущей форме, используются символы: буквы, цифры, математические знаки. Однако информация заложена не только в этих символах, но и в их сочетании, порядке следования. Так, слова КОТ и ТОК имеют одинаковые буквы, но содержат различную информацию. Благодаря взаимосвязи символов и отображению речи человека текстовая информация чрезвычайно удобна и широко используется в деятельности человека: книги, брошюры, журналы, различного рода документы, аудиозаписи кодируются в текстовой форме.<br>
+		- графическую, основанную на использовании произвольного сочетания в пространстве графических примитивов. К этой форме относятся фотографии, схемы, чертежи, рисунки, играющие большое значение в деятельности человек.<br><br><hr><br>
+		Свойства информации можно рассматривать в трех аспектах: техническом - это точность, надежность, скорость передачи сигналов и т.д.; семантическом - это передача смысла текста с помощью кодов и прагматическом - это насколько эффективно информация влияет на поведение объекта.<br><br>
+		<div class="image im3"></div>
+		</div>
+	</body>
+</html>

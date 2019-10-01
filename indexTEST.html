@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html oncontextmenu="r1eturn false">
+	<head>
+	    <link rel="shortcut icon" href="https://dobriy-vecher-vlad.github.io/image/favicon.ico" type="image/x-icon"/>
+	    <meta charset="utf-8">
+		<title>HTML / CSS / JS / FLASH</title>
+		<link id="stylesheet" href="theme_light.css" rel="stylesheet" type="text/css">
+	</head>
+	<body><div id="particles-js" style="transition: 0.5s; opacity: 0;"></div><table class="table">
+		<tr>
+			<td><div class="zag zag_left"></div></td>
+			<td><div class="zag zag_top">HTML / CSS / JS / FLASH</div></td>
+			<td><div class="zag zag_right"></div></td>
+		</tr>
+		<tr>
+			<td><div class="slide" style="right: 16px;">
+				<div class="options_left">
+					<img id="ava"/>
+				</div><div class="options_left_write">
+					<div class="write" onclick="window.open('https://vk.com/im?sel=153968505', '_blank')" href="#">Написать сообщение</div>
+				</div>
+			</div></td>
+			<td><div id="head">
+				<div id="name" style="margin-top: -10px"><hr><t id="name_zag">ИГРА: WARLORD</t><hr></div>
+				Warlord Wiki — <a href="http://h91222sp.beget.tech/warlord/wiki/warlord-wiki.html" target="_blank">warlord/wiki/warlord-wiki.html</a><br>
+				Калькулятор Руин и Пещер — <a href="http://h91222sp.beget.tech/warlord/calculator/ruins.html" target="_blank">warlord/calculator/ruins.html</a><br>
+				<br><div id="name"><hr><t id="name_zag">ИГРА: НАШЕСТВИЕ</t><hr></div>
+				Invasion Script — <a href="http://h91222sp.beget.tech/invasion/script.html" target="_blank">invasion/script.html</a><br>
+				<br><div id="name"><hr><t id="name_zag">КЛАССНЫЕ ЗАНЯТИЯ</t><hr></div>
+				Классная работа №1 — <a href="http://h91222sp.beget.tech/work/gavno1.html" target="_blank">work/gavno1.html</a><br>
+				Классная работа №2 — <a href="http://h91222sp.beget.tech/work/gavno2.html" target="_blank">work/gavno2.html</a><br>
+				Классная работа №3 — <a href="http://h91222sp.beget.tech/work/gavno3.html" target="_blank">work/gavno3.html</a><br>
+				Классная работа №4 — <a href="http://h91222sp.beget.tech/work/gavno4.html" target="_blank">work/gavno4.html</a><br>
+				<br><div id="name"><hr><t id="name_zag">РАЗНОЕ</t><hr></div>
+				Красная Шапочка — <a href="http://h91222sp.beget.tech/work/red_head/ks.html" target="_blank">work/red_head/ks.html</a><br>
+				Баба-Яга — <a href="http://h91222sp.beget.tech/work/baba_yaga.html" target="_blank">work/baba_yaga.html</a><br>
+				Обработка информации — <a href="http://h91222sp.beget.tech/work/obr_info/list.html" target="_blank">work/obr_info/list.html</a><br>
+				Сайт КУРТ — <a href="http://h91222sp.beget.tech/work/kurt/index.html" target="_blank">work/kurt/index.html</a><br>
+			</div></td>
+			<td><div class="slide" style="left: 16px;"><div class="tip_btn"><div class="tip">Переключить тему</div><div class="options">
+					<div class="theme theme_light" onclick="setStyleSheet('theme_light.css')" href="#"></div>
+					<div class="theme theme_dark" onclick="setStyleSheet('theme_dark.css')" href="#"></div>
+				</div></div><div class="options"><div class="tip_btn"><div class="tip">Включить снег</div>
+					<div class="theme go_snow" onclick="document.getElementById('particles-js').style.opacity == '0' ? document.getElementById('particles-js').style.opacity = '1' : document.getElementById('particles-js').style.opacity = '0'" href="#"></div>
+				</div></div><div class="options"><div class="tip_btn"><div class="tip">Перейти на страницу ВКонтакте</div>
+					<div class="theme go_profile" onclick="window.open('https://vk.com/id153968505', '_blank')" href="#"></div>
+				</div></div><div class="options"><div class="tip_btn"><div class="tip">Подписаться на страницу в ВКонтакте</div>
+					<div class="theme go_addfrend" onclick="window.open('https://vk.com/widget_community.php?act=a_subscribe_box&oid=153968505&state=1&widget=4', '_blank')" href="#"></div>
+				</div></div><div class="options"><div class="tip_btn"><div class="tip">Поделиться сайтом в ВКонтакте</div>
+					<div class="theme go_repost" onclick="window.open('https://vk.com/share.php?url=http://h91222sp.beget.tech/', '_blank')" href="#"></div>
+			</div></td>
+		</tr></table>
+	<script>
+		function setStyleSheet(url){
+		var stylesheet = document.getElementById("stylesheet");
+		stylesheet.setAttribute('href', url);
+		}
+	</script>
+	<script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+		<div id="vk_community_messages"></div>
+		<script type="text/javascript">
+		VK.Widgets.CommunityMessages("vk_community_messages", 73853349, {disableExpandChatSound: "1",disableNewMessagesSound: "1",tooltipButtonText: "Есть вопрос?"});
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script>
+		function getAva(user_id) {
+			$.ajax({
+				url: 'https://api.vk.com/method/users.get?user_ids=153968505&fields=photo_400&access_token=27af1df427af1df427af1df46e27c552ac227af27af1df47b67845e29d5bbda714938b8&v=5.95',
+				type: 'GET',
+				dataType: 'jsonp',
+				crossDomain: true,
+				success: function(data) {
+					var ava = data.response[0].photo_400;
+					document.getElementById("ava").setAttribute("src", ava);
+				}
+			});
+		}
+		getAva();
+	</script>
+	<script src="js/particles.min.js"></script>
+	<script src="js/snow.js"></script>
+	</body>
+</html>
