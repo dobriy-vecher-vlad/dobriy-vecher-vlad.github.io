@@ -1,3 +1,11 @@
+@font-face {
+    font-family: Roboto;
+    src: url(font/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Gotham Pro Black;
+    src: url(font/GothamPro-Black.ttf);
+}
 html {
 	background-color: var(--bg-grey-color);
 	--border-radius: 4px;
