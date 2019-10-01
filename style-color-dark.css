@@ -1,0 +1,14 @@
+html {
+	--bg-white-color: #363636;
+	--bg-grey-color: #2b2b2b;
+	--bg-pink-color: rgba(253, 57, 122, 0.75);
+	--bg-spink-color: rgba(253, 57, 122, 0.1);
+	--footer-black-color: #2B2B2B;
+	--footer-grey-color: #363636;
+	--text-white-color: #fff;
+	--text-black-color: #fff;
+	--text-grey-color: #ccc;
+	--text-red-color: rgba(253,57,122,.7);
+	--text-pink-color: rgba(253, 57, 122, 0.7);
+	--text-blue-color: #008dcd;
+}
