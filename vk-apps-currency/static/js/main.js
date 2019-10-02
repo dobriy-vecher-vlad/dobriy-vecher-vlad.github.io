@@ -2,6 +2,7 @@
     [0], {
         103: function(e, t, a) {
             e.exports = a.p + "static/media/Persik.png" //Persik
+            e.exports = a.p + "static/media/dura.png" //Persik
         },
         185: function(e, t, a) {
             e.exports = a(290)
@@ -53,6 +54,13 @@
                         }) : null,
                         description: n.city && n.city.title ? n.city.title : ""
                     }, "".concat(n.first_name, " ").concat(n.last_name))), c.a.createElement(O.a, {
+                        title: "Алло долбоёб ты что пэрсик?"
+                    }, c.a.createElement(U.a, null, c.a.createElement(y.a, {
+                        size: "xl",
+                        level: "2",
+                        onClick: a,
+                        "data-to": "dura"
+                    }, "Мда ну ты хотя бы помойся, воняешь через монитор"))), c.a.createElement(O.a, {
                         title: "Navigation Example"
                     }, c.a.createElement(U.a, null, c.a.createElement(y.a, {
                         size: "xl",
