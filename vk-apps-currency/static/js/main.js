@@ -65,7 +65,7 @@
                         level: "2",
                         onClick: a,
                         "data-to": "girl"
-                    }, "Хочу и воняю! Да! Да!"))))
+                    }, "Хочу и воняю! Да! Да! Да!"))))
                 },
                 K = a(69),
                 S = a(104),
@@ -89,6 +89,10 @@
                         className: "persik",
                         src: B.a,
                         alt: "dura.png"
+                    }), "girl"), c.a.createElement("img", {
+                        className: "persik",
+                        src: B.a,
+                        alt: "girl.png"
                     }))
                 },
                 G = function() {
@@ -148,6 +152,9 @@
                         go: g
                     }), c.a.createElement(F, {
                         id: "dura",
+                        go: g
+                    }), c.a.createElement(F, {
+                        id: "girl",
                         go: g
                     }))
                 };
