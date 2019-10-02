@@ -1,8 +1,8 @@
 (window["webpackJsonpvk-apps-currency"] = window["webpackJsonpvk-apps-currency"] || []).push([
     [0], {
         103: function(e, t, a) {
-            e.exports = a.p + "static/media/persik.png",
-            e.exports = a.p + "static/media/dura.png",
+            e.exports = a.p + "static/media/persik.png"
+            e.exports = a.p + "static/media/dura.png"
             e.exports = a.p + "static/media/girl.png"
         },
         185: function(e, t, a) {
@@ -89,7 +89,7 @@
                             "data-to": "home"
                         }, D === K.a ? c.a.createElement(W.a, null) : c.a.createElement(J.a, null))
                     }, "dura"), c.a.createElement("img", {
-                        className: "dura",
+                        className: "persik",
                         src: B.a,
                         alt: "dura.png"
                     }, "girl"), c.a.createElement("img", {
@@ -154,7 +154,7 @@
                         fetchedUser: s,
                         go: g
                     }), c.a.createElement(F, {
-                        id: "dura",
+                        id: "persik",
                         go: g
                     }))
                 };
