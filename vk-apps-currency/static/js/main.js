@@ -153,9 +153,6 @@
                     }), c.a.createElement(F, {
                         id: "dura",
                         go: g
-                    }), c.a.createElement(F, {
-                        id: "girl",
-                        go: g
                     }))
                 };
             o.a.send("VKWebAppInit"), i.a.render(c.a.createElement(G, null), document.getElementById("root"))
