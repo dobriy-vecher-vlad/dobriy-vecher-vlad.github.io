@@ -1,7 +1,7 @@
 (window["webpackJsonpvk-apps-currency"] = window["webpackJsonpvk-apps-currency"] || []).push([
     [0], {
         103: function(e, t, a) {
-            e.exports = a.p + "static/media/Persik.png"
+            e.exports = a.p + "static/media/persik.png"
         },
         185: function(e, t, a) {
             e.exports = a(290)
@@ -58,8 +58,8 @@
                         size: "xl",
                         level: "2",
                         onClick: a,
-                        "data-to": "Persik"
-                    }, "Show me the Persik, please"))))
+                        "data-to": "persik"
+                    }, "Show me the persik, please"))))
                 },
                 K = a(69),
                 S = a(104),
@@ -79,10 +79,10 @@
                             onClick: e.go,
                             "data-to": "home"
                         }, D === K.a ? c.a.createElement(W.a, null) : c.a.createElement(J.a, null))
-                    }, "Persik"), c.a.createElement("img", {
-                        className: "Persik",
+                    }, "persik"), c.a.createElement("img", {
+                        className: "persik",
                         src: B.a,
-                        alt: "Persik The Cat"
+                        alt: "persik The Cat"
                     }))
                 },
                 G = function() {
@@ -141,7 +141,7 @@
                         fetchedUser: s,
                         go: g
                     }), c.a.createElement(F, {
-                        id: "Persik",
+                        id: "persik",
                         go: g
                     }))
                 };
@@ -152,4 +152,3 @@
         [185, 1, 2]
     ]
 ]);
-//# sourceMappingURL=main.6046d5b8.chunk.js.map
