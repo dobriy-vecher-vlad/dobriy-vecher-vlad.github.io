@@ -1,9 +1,7 @@
 (window["webpackJsonpvk-apps-currency"] = window["webpackJsonpvk-apps-currency"] || []).push([
     [0], {
         103: function(e, t, a) {
-            e.exports = a.p + "static/media/persik.png"
             e.exports = a.p + "static/media/dura.png"
-            e.exports = a.p + "static/media/girl.png"
         },
         185: function(e, t, a) {
             e.exports = a(290)
@@ -92,10 +90,6 @@
                         className: "persik",
                         src: B.a,
                         alt: "dura.png"
-                    }, "girl"), c.a.createElement("img", {
-                        className: "persik",
-                        src: B.a,
-                        alt: "girl.png"
                     }))
                 },
                 G = function() {
