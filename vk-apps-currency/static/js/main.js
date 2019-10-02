@@ -89,7 +89,7 @@
                         className: "persik",
                         src: B.a,
                         alt: "dura.png"
-                    })
+                    }))
                 },
                 G = function() {
                     var e = Object(n.useState)("home"),
