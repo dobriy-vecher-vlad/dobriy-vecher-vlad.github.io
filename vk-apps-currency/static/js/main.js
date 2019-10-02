@@ -59,14 +59,7 @@
                         level: "2",
                         onClick: a,
                         "data-to": "dura"
-                    }, "Мда ну ты хотя бы помойся, воняешь через монитор"))), c.a.createElement(O.a, {
-                        title: "Ты не понял?"
-                    }, c.a.createElement(U.a, null, c.a.createElement(y.a, {
-                        size: "xl",
-                        level: "2",
-                        onClick: a,
-                        "data-to": "girl"
-                    }, "Иди мойся, дебил!"))))
+                    }, "Мда ну ты хотя бы помойся, воняешь через монитор"))))
                 },
                 K = a(69),
                 S = a(104),
