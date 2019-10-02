@@ -89,7 +89,7 @@
                             "data-to": "home"
                         }, D === K.a ? c.a.createElement(W.a, null) : c.a.createElement(J.a, null))
                     }, "dura"), c.a.createElement("img", {
-                        className: "persik",
+                        className: "dura",
                         src: B.a,
                         alt: "dura.png"
                     }, "girl"), c.a.createElement("img", {
