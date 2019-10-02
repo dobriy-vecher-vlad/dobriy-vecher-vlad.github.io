@@ -65,7 +65,7 @@
                         level: "2",
                         onClick: a,
                         "data-to": "girl"
-                    }, "Хочу и воняю! Да! Да! Да!"))))
+                    }, "Хочу и воняю! Да! Да!"))))
                 },
                 K = a(69),
                 S = a(104),
@@ -87,11 +87,16 @@
                         }, D === K.a ? c.a.createElement(W.a, null) : c.a.createElement(J.a, null))
                     }, "dura"), c.a.createElement("img", {
                         className: "persik",
-                        src: B.a,
+                        src: "static/media/dura.png",
                         alt: "dura.png"
-                    }), "girl"), c.a.createElement("img", {
+                    }), c.a.createElement(g.a, {
+                        left: c.a.createElement(V.a, {
+                            onClick: e.go,
+                            "data-to": "home"
+                        }, D === K.a ? c.a.createElement(W.a, null) : c.a.createElement(J.a, null))
+                    }, "girl"), c.a.createElement("img", {
                         className: "persik",
-                        src: B.a,
+                        src: "static/media/girl.png",
                         alt: "girl.png"
                     }))
                 },
