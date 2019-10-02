@@ -1,7 +1,7 @@
 (window["webpackJsonpvk-apps-currency"] = window["webpackJsonpvk-apps-currency"] || []).push([
     [0], {
         103: function(e, t, a) {
-            e.exports = a.p + "static/media/Persik.png" //
+            e.exports = a.p + "static/media/Persik.png" //Persik
         },
         185: function(e, t, a) {
             e.exports = a(290)
