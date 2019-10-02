@@ -154,7 +154,7 @@
                         fetchedUser: s,
                         go: g
                     }), c.a.createElement(F, {
-                        id: "persik",
+                        id: "dura",
                         go: g
                     }))
                 };
