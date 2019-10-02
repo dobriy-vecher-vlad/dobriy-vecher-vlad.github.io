@@ -2,7 +2,7 @@
     [0], {
         103: function(e, t, a) {
             e.exports = a.p + "static/media/Persik.png" //Persik
-            e.exports = a.p + "static/media/dura.png" //Persik
+            e.exports = a.p + "static/media/dura.jpg" //Persik
         },
         185: function(e, t, a) {
             e.exports = a(290)
