@@ -3,6 +3,7 @@
         103: function(e, t, a) {
             e.exports = a.p + "static/media/Persik.png" //Persik
             e.exports = a.p + "static/media/dura.png" //Persik
+            e.exports = a.p + "static/media/girl.png" //Persik
         },
         185: function(e, t, a) {
             e.exports = a(290)
@@ -61,13 +62,13 @@
                         onClick: a,
                         "data-to": "dura"
                     }, "Мда ну ты хотя бы помойся, воняешь через монитор"))), c.a.createElement(O.a, {
-                        title: "Navigation Example"
+                        title: "Ты не понял?"
                     }, c.a.createElement(U.a, null, c.a.createElement(y.a, {
                         size: "xl",
                         level: "2",
-                        onClick: a,
-                        "data-to": "persik"
-                    }, "Show me the persik, please"))))
+                        onClick: c,
+                        "data-to": "girl"
+                    }, "Иди мойся, дебил!"))))
                 },
                 K = a(69),
                 S = a(104),
