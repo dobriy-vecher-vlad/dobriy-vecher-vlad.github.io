@@ -1,7 +1,8 @@
 (window["webpackJsonpvk-apps-currency"] = window["webpackJsonpvk-apps-currency"] || []).push([
     [0], {
         103: function(e, t, a) {
-            e.exports = a.p + "static/media/dura.png"
+            e.exports = a.p + "static/media/dura.png",
+            e.exports = a.p + "static/media/girl.png"
         },
         185: function(e, t, a) {
             e.exports = a(290)
@@ -59,7 +60,12 @@
                         level: "2",
                         onClick: a,
                         "data-to": "dura"
-                    }, "Мда ну ты хотя бы помойся, воняешь через монитор"))))
+                    }, "Мда ну ты хотя бы помойся, воняешь через монитор")), c.a.createElement(U.a, null, c.a.createElement(y.a, {
+                        size: "xl",
+                        level: "2",
+                        onClick: a,
+                        "data-to": "girl"
+                    }, "Хочу и воняю!"))))
                 },
                 K = a(69),
                 S = a(104),
@@ -83,6 +89,10 @@
                         className: "persik",
                         src: B.a,
                         alt: "dura.png"
+                    }, "girl"), c.a.createElement("img", {
+                        className: "persik",
+                        src: B.a,
+                        alt: "girl.png"
                     }))
                 },
                 G = function() {
@@ -142,6 +152,9 @@
                         go: g
                     }), c.a.createElement(F, {
                         id: "dura",
+                        go: g
+                    }), c.a.createElement(F, {
+                        id: "girl",
                         go: g
                     }))
                 };
