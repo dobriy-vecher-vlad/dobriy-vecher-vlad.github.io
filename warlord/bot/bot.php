@@ -4,7 +4,7 @@
 	$u_id = $data->object->user_id;
 	$mess = $data->object->body;
 	$user_info = json_decode(file_get_contents($conf['apiurl'].'users.get?user_id='.$conf['u_id'].'&v='.$conf['v'].'&access_token='.$conf['standalone']));
-	$user_name = $user_info->$respone[0]->$first_name;
+	$user_name = $user_info->respone[0]->first_name;
 	$temp_link = file($conf['temp_link']);
 	if($temp_link[0] != $album) {
 		file_put_contents($conf['temp_link'], $album);
