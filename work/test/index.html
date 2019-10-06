@@ -1,0 +1,46 @@
+<html>
+	<head>
+	    <link rel="shortcut icon" href="https://dobriy-vecher-vlad.github.io/image/favicon.ico" type="image/x-icon"/>
+		<title>clicker</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link id="stylesheet" href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	</head>
+	<body>
+		<div id="wr">
+			<div>
+				<input type="text" id="count" value="0" index-tap="1"/><span onclick="GetTap();" id="plus">+</span>
+			</div>
+		</div>
+		<div id="wr">
+			<div>
+				<input id="tap"/><span id="plus">В секунду</span>
+			</div>
+		</div>
+		<div onclick="ByTapLVL(20);" id="buyTh">
+			<p>Купить за 20 очков</p>
+			<span>Увеличит доход на 2 очка</span>
+		</div>
+		<div onclick="ByTapLVL(50);" id="buyTh">
+			<p>Купить за 50 очков</p>
+			<span>Увеличит доход на 5 очков</span>
+		</div>
+		<div onclick="ByTapLVL(100);" id="buyTh">
+			<p>Купить за 100 очков</p>
+			<span>Увеличит доход на 10 очков</span>
+		</div>
+		<div onclick="setData();" id="buyTh">
+			<p>Сохранить прогресс</p>
+		</div>
+		<div onclick="ClearResult();" id="buyTh">
+			<p>Стереть прогресс</p>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="script.js"></script>
+		<script>
+		//setData(12, 'Привет, Мир!');
+		//getData(12);
+		getData();
+		</script>
+	</body>
+</html>

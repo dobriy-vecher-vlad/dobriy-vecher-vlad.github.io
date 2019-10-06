@@ -1,10 +1,4 @@
 <?php
-	public function beforeAction($action) {
-		if (in_array($action->id, ['message_new'])) {
-			$this->enableCsrfValidation = false;
-		}
-		return parent::beforeAction($action);
-	}
 	require "config.php";
 	$data = json_decode(file_get_contents('php://input'));
 	$u_id = $data->object->user_id;

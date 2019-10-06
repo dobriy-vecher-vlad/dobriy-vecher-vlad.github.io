@@ -1,0 +1,55 @@
+html {
+	font-family: Arial;
+}
+#wr {
+    margin-top: 2%;
+    position: relative;
+    padding: 5px 0px;
+    width: 250px;
+    overflow: hidden;
+}
+#wr input {
+	display: block;
+    padding: 8px;
+    width: 100px;
+    text-align: center;
+    border: 2px solid #c00;
+    outline: none;
+    float: left;
+}
+#plus {
+    float: left;
+    display: block;
+    font-size: 26px;
+    padding: 5px 5px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #d00;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+}
+#minus {
+	float: left;
+    display: block;
+	font-size: 32px;
+	padding: 0px 5px;
+	margin-top: -4px;
+	font-weight: bolder;
+	cursor: pointer;
+	color: #d00;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#buyTh {
+	cursor: pointer;
+	line-height: 1px;
+	margin-top: 40px;
+}
+#buyTh p {
+	color: #d00;
+	font-size: 1.2em;
+}
