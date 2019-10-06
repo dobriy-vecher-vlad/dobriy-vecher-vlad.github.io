@@ -15,7 +15,7 @@
 		'album_id' => $album_id,
 		'group_id' => '187299468',
 		'apiurl' => 'https://api.vk.com/method/',
-		//'path' => substr($_SERVER['PHP_SELF'], 0, -7),
+		'path' => substr($_SERVER['PHP_SELF'], 0, -2),
 		'photos' => 'photos.txt',
 		'temp_link' => 'temp_album.txt',
 		'random_id' => mt_rand(0000000000, 9999999999),
