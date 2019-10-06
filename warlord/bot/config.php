@@ -6,7 +6,7 @@
 	$owner_id = $arr[0];
 	$album_id = $arr[1];
 	$conf = [
-		'standalone' => 'fc0d29c92ea2743eb77a7d8238f61c00ad9556fb047354022bef7c6d1ecf8a2262d9ef27ee619188a533c',
+		'standalone' => 'fb97f583727f7c113ebe2140dfce39ee5819871e6c58fcb9827ccdeb5cf96786ccf5ebfc25d82a5aec9a4',
 		'group_token' => 'fc0d29c92ea2743eb77a7d8238f61c00ad9556fb047354022bef7c6d1ecf8a2262d9ef27ee619188a533c',
 		'contorm_token' => 'd50c1cd1',
 		'mess' => 'Тест',
