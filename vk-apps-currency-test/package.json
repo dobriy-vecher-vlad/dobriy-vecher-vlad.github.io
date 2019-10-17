@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://dobriy-vecher-vlad.github.io/vk-apps-currency/"
+  "homepage": "https://dobriy-vecher-vlad.github.io/vk-apps-currency/",
   "scripts": {
     "start": "cross-env PORT=10888 react-scripts start",
     "build": "react-scripts build",
-	"predeploy": "npm run build",
-	"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "keywords": [],
   "author": "",
