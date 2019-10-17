@@ -8,6 +8,9 @@ import Home from './panels/Home';
 import Persik from './panels/Persik';
 import Ua from './panels/Ua';
 
+import Quest1 from './panels/quest1';
+import Quest2 from './panels/quest2';
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
@@ -32,12 +35,20 @@ const App = () => {
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};
+	
+	const next = e => {
+		setActivePanel(e.currentTarget.dataset.to);
+	};
 
 	return (
 		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' go={go} />
-			<Persik id='persik' fetchedUser={fetchedUser} go={go} />
-			<Ua id='ua' go={go} />
+			<Home id='home' go={go} next={next} />
+			
+			<Quest1 id='quest1' go={go} next={next} />
+			<Quest2 id='quest2' go={go} next={next} />
+			
+			<Persik id='persik' fetchedUser={fetchedUser} go={go} next={next} />
+			<Ua id='ua' go={go} next={next} />
 		</View>
 	);
 }

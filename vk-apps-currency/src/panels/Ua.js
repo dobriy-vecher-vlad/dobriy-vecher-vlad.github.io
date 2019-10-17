@@ -12,10 +12,10 @@ import './Persik.css';
 
 const osName = platform();
 
-const Ua = props => (
-	<Panel id={props.id}>
+const Ua = ({ id, go }) => (
+	<Panel id={id}>
 		<PanelHeader
-			left={<HeaderButton onClick={props.go} data-to="home">
+			left={<HeaderButton onClick={go} data-to="home">
 				{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 			</HeaderButton>}
 		>

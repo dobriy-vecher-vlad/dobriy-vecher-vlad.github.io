@@ -17,7 +17,7 @@ import './Persik.css';
 
 const osName = platform();
 
-const Persik = ({ id, go, fetchedUser }) => (
+const Persik = ({ id, go, fetchedUser, next }) => (
 	<Panel id={id}>
 		<PanelHeader
 			left={<HeaderButton onClick={go} data-to="home">
@@ -41,6 +41,7 @@ const Persik = ({ id, go, fetchedUser }) => (
 Persik.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
+	next: PropTypes.func.isRequired,
 	fetchedUser: PropTypes.shape({
 		photo_200: PropTypes.string,
 		first_name: PropTypes.string,
