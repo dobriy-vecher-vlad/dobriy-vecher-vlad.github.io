@@ -17,6 +17,15 @@ const Home = ({ id, go, next }) => (
 				<Button size="xl" onClick={go} data-to="quest2" level="secondary">Button to Quest 2</Button>
 			</Div>
 			<Div>
+				<Button size="xl" onClick={go} data-to="quest3" level="secondary">Button to Quest 3</Button>
+			</Div>
+			<Div>
+				<Button size="xl" onClick={go} data-to="quest4" level="secondary">Button to Quest 4</Button>
+			</Div>
+			<Div>
+				<Button size="xl" onClick={go} data-to="quest_finish" level="secondary">Button to Quest Finish</Button>
+			</Div>
+			<Div>
 				<Button size="xl" onClick={go} data-to="persik" level="secondary">Button to Persik</Button>
 			</Div>
 			<Div>

@@ -10,6 +10,9 @@ import Ua from './panels/Ua';
 
 import Quest1 from './panels/quest1';
 import Quest2 from './panels/quest2';
+import Quest3 from './panels/quest3';
+import Quest4 from './panels/quest4';
+import QuestFinish from './panels/quest_finish';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
@@ -46,6 +49,9 @@ const App = () => {
 			
 			<Quest1 id='quest1' go={go} next={next} />
 			<Quest2 id='quest2' go={go} next={next} />
+			<Quest3 id='quest3' go={go} next={next} />
+			<Quest4 id='quest4' go={go} next={next} />
+			<QuestFinish id='quest_finish' go={go} next={next} />
 			
 			<Persik id='persik' fetchedUser={fetchedUser} go={go} next={next} />
 			<Ua id='ua' go={go} next={next} />
@@ -54,4 +60,3 @@ const App = () => {
 }
 
 export default App;
-

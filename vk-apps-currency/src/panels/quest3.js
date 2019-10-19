@@ -17,10 +17,10 @@ import Icon24Back from '@vkontakte/icons/dist/24/back';
 
 const osName = platform();
 
-const Quest2 = ({ id, go, next }) => (
+const Quest3 = ({ id, go, next }) => (
 	<Panel id={id} theme="white">
 		<PanelHeader left={<HeaderButton onClick={go} data-to="home">{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}>
-			VK Test » 2
+			VK Test » 3
 		</PanelHeader>
 		<Group>
 		  <Gallery slideWidth="90%" style={{ height: 150 }} bullets="dark">
@@ -41,17 +41,17 @@ const Quest2 = ({ id, go, next }) => (
 			<Radio name="radio" value="4" description="Дополнительное описание ответа, если необходимо.">Четвёртый</Radio>
 		</FormLayoutGroup>
 		<Div>
-			<Button size="xl" onClick={next} data-to="quest3" level="secondary">Следующий вопрос</Button>
+			<Button size="xl" onClick={next} data-to="quest4" level="secondary">Следующий вопрос</Button>
 			<Button size="xl" onClick={go} data-to="quest_finish" level="tertiary">Дополнительная информация</Button>
 		</Div>
 	</Panel>
 );
 
 
-Quest2.propTypes = {
+Quest3.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
 	next: PropTypes.func.isRequired,
 };
 
-export default Quest2;
+export default Quest3;

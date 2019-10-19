@@ -20,7 +20,7 @@ const osName = platform();
 const Quest1 = ({ id, go, next }) => (
 	<Panel id={id} theme="white">
 		<PanelHeader left={<HeaderButton onClick={go} data-to="home">{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}>
-			VK Test &#62; 1
+			VK Test » 1
 		</PanelHeader>
 		<Group>
 		  <Gallery slideWidth="90%" style={{ height: 150 }} bullets="dark">
@@ -42,7 +42,7 @@ const Quest1 = ({ id, go, next }) => (
 		</FormLayoutGroup>
 		<Div>
 			<Button size="xl" onClick={next} data-to="quest2" level="secondary">Следующий вопрос</Button>
-			<Button size="xl" onClick={go} data-to="ua" level="tertiary">Дополнительная информация</Button>
+			<Button size="xl" onClick={go} data-to="quest_finish" level="tertiary">Дополнительная информация</Button>
 		</Div>
 	</Panel>
 );
