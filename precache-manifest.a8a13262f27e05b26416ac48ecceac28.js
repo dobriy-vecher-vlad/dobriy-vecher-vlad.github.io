@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3c5c326b4586a9d1d934e38d5b67054e",
+    "revision": "2f769f5f6c01a8f7faddf6842508204b",
     "url": "/vk-apps-currency/index.html"
   },
   {
-    "revision": "72ee09cd701ff5ee2996",
+    "revision": "efacd3ba0a206a325f1f",
     "url": "/vk-apps-currency/static/css/2.4e89ce74.chunk.css"
   },
   {
-    "revision": "a7bafe044d1de7144fc3",
-    "url": "/vk-apps-currency/static/css/main.3c8cd42f.chunk.css"
+    "revision": "2bc894fc3be4d2784eab",
+    "url": "/vk-apps-currency/static/css/main.9ba44708.chunk.css"
   },
   {
-    "revision": "72ee09cd701ff5ee2996",
-    "url": "/vk-apps-currency/static/js/2.a3481512.chunk.js"
+    "revision": "efacd3ba0a206a325f1f",
+    "url": "/vk-apps-currency/static/js/2.36e8a6f2.chunk.js"
   },
   {
-    "revision": "a7bafe044d1de7144fc3",
-    "url": "/vk-apps-currency/static/js/main.58059d97.chunk.js"
+    "revision": "2bc894fc3be4d2784eab",
+    "url": "/vk-apps-currency/static/js/main.224fc9f4.chunk.js"
   },
   {
     "revision": "dfcf6a026301db38190f",
