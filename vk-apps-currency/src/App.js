@@ -14,6 +14,8 @@ import Quest3 from './panels/quest3';
 import Quest4 from './panels/quest4';
 import QuestFinish from './panels/quest_finish';
 
+var checked = '';
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
@@ -37,21 +39,29 @@ const App = () => {
 
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);
+		checked = '';
 	};
 	
 	const next = e => {
+		var check = document.querySelector('input[name="radio"]:checked').value;
+		checked += check;
+		console.warn(checked);
 		setActivePanel(e.currentTarget.dataset.to);
+		document.querySelector('button[name="next"]').setAttribute('style', 'opacity:.5; pointer-events: none;');
+	};
+	const setCheck = e => {
+		document.querySelector('button[name="next"]').setAttribute('style', 'opacity:1; pointer-events: auto;');
 	};
 
 	return (
 		<View activePanel={activePanel} popout={popout}>
 			<Home id='home' go={go} next={next} />
 			
-			<Quest1 id='quest1' go={go} next={next} />
-			<Quest2 id='quest2' go={go} next={next} />
-			<Quest3 id='quest3' go={go} next={next} />
-			<Quest4 id='quest4' go={go} next={next} />
-			<QuestFinish id='quest_finish' go={go} next={next} />
+			<Quest1 id='quest1' go={go} next={next} setCheck={setCheck} />
+			<Quest2 id='quest2' go={go} next={next} setCheck={setCheck} />
+			<Quest3 id='quest3' go={go} next={next} setCheck={setCheck} />
+			<Quest4 id='quest4' go={go} next={next} setCheck={setCheck} />
+			<QuestFinish id='quest_finish' go={go} checked={checked} />
 			
 			<Persik id='persik' fetchedUser={fetchedUser} go={go} next={next} />
 			<Ua id='ua' go={go} next={next} />

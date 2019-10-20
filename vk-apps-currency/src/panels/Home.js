@@ -26,10 +26,10 @@ const Home = ({ id, go, next }) => (
 				<Button size="xl" onClick={go} data-to="quest_finish" level="secondary">Button to Quest Finish</Button>
 			</Div>
 			<Div>
-				<Button size="xl" onClick={go} data-to="persik" level="secondary">Button to Persik</Button>
+				<Button size="xl" onClick={go} data-to="persik" level="secondary">Button to Account Info</Button>
 			</Div>
 			<Div>
-				<Button size="xl" onClick={go} data-to="ua" level="secondary">Button to Ua</Button>
+				<Button size="xl" onClick={go} data-to="ua" level="secondary">Button to IMG Test</Button>
 			</Div>
 		</Panel>
 	</View>

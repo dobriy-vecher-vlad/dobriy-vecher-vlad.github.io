@@ -4,9 +4,14 @@ import { platform, IOS } from '@vkontakte/vkui';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
 import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderButton';
+import Separator from '@vkontakte/vkui/dist/components/Separator/Separator';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 
+import Icon24Users from '@vkontakte/icons/dist/24/users';
+import Icon24Globe from '@vkontakte/icons/dist/24/globe';
+import Icon24Phone from '@vkontakte/icons/dist/24/phone';
+import Icon24Smile from '@vkontakte/icons/dist/24/smile';
 
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
@@ -34,6 +39,11 @@ const Persik = ({ id, go, fetchedUser, next }) => (
 			>
 				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
 			</Cell>
+			<Separator style={{ margin: '12px 0' }} />
+			<Cell before={<Icon24Globe />}>Занят домен: {`${fetchedUser.domain}`}</Cell>
+			<Cell before={<Icon24Users />}>Подписчиков: {`${fetchedUser.followers_count}`}</Cell>
+			<Cell before={<Icon24Phone />}>Номер телефона: {`${fetchedUser.mobile_phone}`}</Cell>
+			<Cell before={<Icon24Smile />}>День рождения: {`${fetchedUser.bdate}`}</Cell>
 		</Group>}
 	</Panel>
 );
@@ -49,6 +59,10 @@ Persik.propTypes = {
 		city: PropTypes.shape({
 			title: PropTypes.string,
 		}),
+		domain: PropTypes.string,
+		followers_count: PropTypes.string,
+		mobile_phone: PropTypes.string,
+		bdate: PropTypes.string,
 	}),
 };
 

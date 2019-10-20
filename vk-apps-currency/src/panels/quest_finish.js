@@ -7,6 +7,7 @@ import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderBut
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Gallery from '@vkontakte/vkui/dist/components/Gallery/Gallery';
 import Div from '@vkontakte/vkui/dist/components/Div/Div';
+import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout';
 import FormLayoutGroup from '@vkontakte/vkui/dist/components/FormLayoutGroup/FormLayoutGroup';
 import FormStatus from '@vkontakte/vkui/dist/components/FormStatus/FormStatus';
 import Radio from '@vkontakte/vkui/dist/components/Radio/Radio';
@@ -17,32 +18,19 @@ import Icon24Back from '@vkontakte/icons/dist/24/back';
 
 const osName = platform();
 
-const QuestFinish = ({ id, go, next }) => (
+const QuestFinish = ({ id, go, checked }) => (
 	<Panel id={id} theme="white">
 		<PanelHeader left={<HeaderButton onClick={go} data-to="home">{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}>
 			VK Test » Finish
 		</PanelHeader>
-		<Group>
-		  <Gallery slideWidth="90%" style={{ height: 150 }} bullets="dark">
-			<div style={{ backgroundColor: 'var(--destructive)' }} />
-			<div style={{ backgroundColor: 'var(--button_commerce_background)' }} />
-			<div style={{ backgroundColor: 'var(--accent)' }} />
-		  </Gallery>
-		</Group>
-		<FormLayoutGroup>
-			<FormStatus title="Вопрос">
-				Очень длинное описание возможных вариантов ответа в данном тесте?
+		<FormLayout>
+			<FormStatus title={<b>Итог</b>}>
+				Ваш результат: {checked}
 			</FormStatus>
-		</FormLayoutGroup>
-		<FormLayoutGroup>
-			<Radio name="radio" value="1" description="Дополнительное описание ответа, если необходимо.">Первый</Radio>
-			<Radio name="radio" value="2" description="Дополнительное описание ответа, если необходимо.">Второй</Radio>
-			<Radio name="radio" value="3" description="Дополнительное описание ответа, если необходимо.">Третий</Radio>
-			<Radio name="radio" value="4" description="Дополнительное описание ответа, если необходимо.">Четвёртый</Radio>
-		</FormLayoutGroup>
+		</FormLayout>
 		<Div>
-			<Button size="xl" onClick={next} data-to="quest1" level="secondary">Заново</Button>
-			<Button size="xl" onClick={go} data-to="home" level="tertiary">Начальный экран</Button>
+			<Button size="xl" onClick={go} data-to="quest1" level="secondary">Заново</Button>
+			<Button size="xl" onClick={go} data-to="home" level="tertiary">Завершить</Button>
 		</Div>
 	</Panel>
 );
@@ -51,7 +39,7 @@ const QuestFinish = ({ id, go, next }) => (
 QuestFinish.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
-	next: PropTypes.func.isRequired,
+	checked: PropTypes.func.isRequired,
 };
 
 export default QuestFinish;
