@@ -17,33 +17,30 @@ import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
 import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
 
-import persik from '../img/persik.png';
-import './Persik.css';
-
 const osName = platform();
 
-const Persik = ({ id, go, fetchedUser, next }) => (
+const UserDataTest = ({ id, go, fetchedUser, next }) => (
 	<Panel id={id}>
 		<PanelHeader
 			left={<HeaderButton onClick={go} data-to="home">
 				{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
 			</HeaderButton>}
 		>
-			Persik
+			User Data Test
 		</PanelHeader>
 		{fetchedUser &&
-		<Group title="User Data Fetched with VK Connect">
+		<Group title="VK Connect">
 			<Cell description="Имя, фамилия" before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}>{`${fetchedUser.first_name} ${fetchedUser.last_name}`}</Cell>
 			<Separator style={{ margin: '12px 0' }} />
 			<Cell description="Занятый ID" before={<Icon24Globe />}>{fetchedUser.id}</Cell>
 			<Cell description="Страна, город" before={<Icon24Home />}>{fetchedUser.country && fetchedUser.country.title ? fetchedUser.country.title : ''}, {fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}</Cell>
-			<Cell description="Временная зона" before={<Icon24Locate />}>{fetchedUser.timezone}</Cell>
+			<Cell description="Временная зона" before={<Icon24Locate />}>ID {fetchedUser.timezone}</Cell>
 			<Cell description="День рождения" before={<Icon24Smile />}>{fetchedUser.bdate}</Cell>
 		</Group>}
 	</Panel>
 );
 
-Persik.propTypes = {
+UserDataTest.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
 	next: PropTypes.func.isRequired,
@@ -63,4 +60,4 @@ Persik.propTypes = {
 	}),
 };
 
-export default Persik;
+export default UserDataTest;

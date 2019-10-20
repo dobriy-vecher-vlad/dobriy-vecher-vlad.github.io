@@ -5,7 +5,7 @@ import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenS
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/Home';
-import Persik from './panels/Persik';
+import UserDataTest from './panels/UserDataTest';
 import Ua from './panels/Ua';
 
 import Quest1 from './panels/quest1';
@@ -63,7 +63,7 @@ const App = () => {
 			<Quest4 id='quest4' go={go} next={next} setCheck={setCheck} />
 			<QuestFinish id='quest_finish' go={go} checked={checked} />
 			
-			<Persik id='persik' fetchedUser={fetchedUser} go={go} next={next} />
+			<UserDataTest id='userdatatest' fetchedUser={fetchedUser} go={go} next={next} />
 			<Ua id='ua' go={go} next={next} />
 		</View>
 	);
