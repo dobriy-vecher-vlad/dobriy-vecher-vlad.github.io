@@ -33,12 +33,12 @@ const Persik = ({ id, go, fetchedUser, next }) => (
 		</PanelHeader>
 		{fetchedUser &&
 		<Group title="User Data Fetched with VK Connect">
-			<Cell before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}>{`${fetchedUser.first_name} ${fetchedUser.last_name}`}</Cell>
+			<Cell description="Имя, фамилия" before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}>{`${fetchedUser.first_name} ${fetchedUser.last_name}`}</Cell>
 			<Separator style={{ margin: '12px 0' }} />
-			<Cell before={<Icon24Globe />}>Занятый ID: {fetchedUser.id}</Cell>
-			<Cell before={<Icon24Home />}>Страна, город: {fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}, {fetchedUser.country && fetchedUser.country.title ? fetchedUser.country.title : ''}</Cell>
-			<Cell before={<Icon24Locate />}>Временная зона: {fetchedUser.timezone}</Cell>
-			<Cell before={<Icon24Smile />}>День рождения: {fetchedUser.bdate}</Cell>
+			<Cell description="Занятый ID" before={<Icon24Globe />}>{fetchedUser.id}</Cell>
+			<Cell description="Страна, город" before={<Icon24Home />}>{fetchedUser.country && fetchedUser.country.title ? fetchedUser.country.title : ''}, {fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}</Cell>
+			<Cell description="Временная зона" before={<Icon24Locate />}>{fetchedUser.timezone}</Cell>
+			<Cell description="День рождения" before={<Icon24Smile />}>{fetchedUser.bdate}</Cell>
 		</Group>}
 	</Panel>
 );
