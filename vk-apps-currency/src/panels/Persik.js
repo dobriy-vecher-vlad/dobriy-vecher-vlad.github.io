@@ -8,10 +8,10 @@ import Separator from '@vkontakte/vkui/dist/components/Separator/Separator';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 
-import Icon24Users from '@vkontakte/icons/dist/24/users';
 import Icon24Globe from '@vkontakte/icons/dist/24/globe';
-import Icon24Phone from '@vkontakte/icons/dist/24/phone';
 import Icon24Smile from '@vkontakte/icons/dist/24/smile';
+import Icon24Home from '@vkontakte/icons/dist/24/home';
+import Icon24Locate from '@vkontakte/icons/dist/24/locate';
 
 import Group from '@vkontakte/vkui/dist/components/Group/Group';
 import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
@@ -33,17 +33,12 @@ const Persik = ({ id, go, fetchedUser, next }) => (
 		</PanelHeader>
 		{fetchedUser &&
 		<Group title="User Data Fetched with VK Connect">
-			<Cell
-				before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-				description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
-			>
-				{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
-			</Cell>
+			<Cell before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}>{`${fetchedUser.first_name} ${fetchedUser.last_name}`}</Cell>
 			<Separator style={{ margin: '12px 0' }} />
-			<Cell before={<Icon24Globe />}>Занят домен: {`${fetchedUser.domain}`}</Cell>
-			<Cell before={<Icon24Users />}>Подписчиков: {`${fetchedUser.followers_count}`}</Cell>
-			<Cell before={<Icon24Phone />}>Номер телефона: {`${fetchedUser.mobile_phone}`}</Cell>
-			<Cell before={<Icon24Smile />}>День рождения: {`${fetchedUser.bdate}`}</Cell>
+			<Cell before={<Icon24Globe />}>Занятый ID: {fetchedUser.id}</Cell>
+			<Cell before={<Icon24Home />}>Страна, город: {fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}, {fetchedUser.country && fetchedUser.country.title ? fetchedUser.country.title : ''}</Cell>
+			<Cell before={<Icon24Locate />}>Временная зона: {fetchedUser.timezone}</Cell>
+			<Cell before={<Icon24Smile />}>День рождения: {fetchedUser.bdate}</Cell>
 		</Group>}
 	</Panel>
 );
@@ -59,9 +54,11 @@ Persik.propTypes = {
 		city: PropTypes.shape({
 			title: PropTypes.string,
 		}),
-		domain: PropTypes.string,
-		followers_count: PropTypes.string,
-		mobile_phone: PropTypes.string,
+		country: PropTypes.shape({
+			title: PropTypes.string,
+		}),
+		id: PropTypes.string,
+		timezone: PropTypes.string,
 		bdate: PropTypes.string,
 	}),
 };

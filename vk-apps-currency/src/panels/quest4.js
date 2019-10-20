@@ -44,7 +44,7 @@ const Quest4 = ({ id, go, next, setCheck }) => (
 		</FormLayoutGroup>
 		<Div>
 			<Button style={{opacity: .5, pointerEvents: 'none'}} name="next" size="xl" onClick={next} data-to="quest_finish" level="secondary">Результат</Button>
-			<Button size="xl" onClick={next} data-to="home" level="tertiary">Завершить</Button>
+			<Button size="xl" onClick={go} data-to="home" level="tertiary">Завершить</Button>
 		</Div>
 	</Panel>
 );
