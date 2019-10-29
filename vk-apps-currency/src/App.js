@@ -41,7 +41,6 @@ const App = () => {
 		setActivePanel(e.currentTarget.dataset.to);
 		checked = '';
 	};
-	
 	const next = e => {
 		var check = document.querySelector('input[name="radio"]:checked').value;
 		checked += check;
@@ -51,11 +50,19 @@ const App = () => {
 	};
 	const setCheck = e => {
 		document.querySelector('button[name="next"]').setAttribute('style', 'opacity:1; pointer-events: auto;');
+		var prc = (100/4);
+		var width_check = document.querySelector('.Progress').getAttribute('index')*prc > 100 ? 100 : document.querySelector('.Progress').getAttribute('index')*prc;
+		document.querySelector('.Progress__in').setAttribute('style', 'width: '+width_check+'%;');
+		
 	};
-
+	const changeTheme = e => {
+		var nametheme = document.querySelector('body').getAttribute('scheme') == null ? "client_dark" : document.querySelector('body').getAttribute('scheme') == "client_dark" ? "client_light" : "client_dark";
+		document.querySelector('body').setAttribute('scheme', nametheme);
+	};
+	
 	return (
 		<View activePanel={activePanel} popout={popout}>
-			<Home id='home' go={go} next={next} />
+			<Home id='home' go={go} next={next} changeTheme={changeTheme} />
 			
 			<Quest1 id='quest1' go={go} next={next} setCheck={setCheck} />
 			<Quest2 id='quest2' go={go} next={next} setCheck={setCheck} />
@@ -63,7 +70,8 @@ const App = () => {
 			<Quest4 id='quest4' go={go} next={next} setCheck={setCheck} />
 			<QuestFinish id='quest_finish' go={go} checked={checked} />
 			
-			<UserDataTest id='userdatatest' fetchedUser={fetchedUser} go={go} next={next} />
+			<UserDataTest id='userdatatest' fetchedUser={fetchedUser} go={go} />
+			
 			<Ua id='ua' go={go} next={next} />
 		</View>
 	);

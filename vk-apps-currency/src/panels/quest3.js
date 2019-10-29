@@ -10,6 +10,8 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout';
 import FormLayoutGroup from '@vkontakte/vkui/dist/components/FormLayoutGroup/FormLayoutGroup';
 import FormStatus from '@vkontakte/vkui/dist/components/FormStatus/FormStatus';
+import InfoRow from '@vkontakte/vkui/dist/components/InfoRow/InfoRow';
+import Progress from '@vkontakte/vkui/dist/components/Progress/Progress';
 import Radio from '@vkontakte/vkui/dist/components/Radio/Radio';
 import Button from '@vkontakte/vkui/dist/components/Button/Button';
 import View from '@vkontakte/vkui/dist/components/View/View';
@@ -25,12 +27,17 @@ const Quest3 = ({ id, go, next, setCheck }) => (
 			VK Test » 3
 		</PanelHeader>
 		<Group>
-		  <Gallery slideWidth="90%" style={{ height: 150 }} bullets="dark">
-			<div style={{ backgroundColor: 'var(--destructive)' }} />
-			<div style={{ backgroundColor: 'var(--button_commerce_background)' }} />
-			<div style={{ backgroundColor: 'var(--accent)' }} />
-		  </Gallery>
+			<Gallery slideWidth="90%" style={{ height: 150 }} bullets="dark">
+				<div style={{ backgroundColor: 'var(--destructive)' }} />
+				<div style={{ backgroundColor: 'var(--button_commerce_background)' }} />
+				<div style={{ backgroundColor: 'var(--accent)' }} />
+			</Gallery>
 		</Group>
+		<Div>
+			<InfoRow>
+				<Progress index="3" value={50} />
+			</InfoRow>
+		</Div>
 		<FormLayout>
 			<FormStatus title={<b>Вопрос</b>}>
 				Очень длинное описание возможных вариантов ответа в данном тесте?

@@ -21,11 +21,7 @@ const osName = platform();
 
 const UserDataTest = ({ id, go, fetchedUser, next }) => (
 	<Panel id={id}>
-		<PanelHeader
-			left={<HeaderButton onClick={go} data-to="home">
-				{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}
-			</HeaderButton>}
-		>
+		<PanelHeader left={<HeaderButton onClick={go} data-to="home">{osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}>
 			User Data Test
 		</PanelHeader>
 		{fetchedUser &&

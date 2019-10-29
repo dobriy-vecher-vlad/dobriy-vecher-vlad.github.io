@@ -8,11 +8,17 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import Separator from '@vkontakte/vkui/dist/components/Separator/Separator';
 import FormLayout from '@vkontakte/vkui/dist/components/FormLayout/FormLayout';
 import FormStatus from '@vkontakte/vkui/dist/components/FormStatus/FormStatus';
+import PanelHeaderContent from '@vkontakte/vkui/dist/components/PanelHeaderContent/PanelHeaderContent';
+import Icon12OnlineVkmobile from '@vkontakte/icons/dist/12/online_vkmobile';
 
-const Home = ({ id, go, next }) => (
+const Home = ({ id, go, next, changeTheme }) => (
 	<View activePanel={id}>
 		<Panel id={id} theme="white">
-			<PanelHeader>VK Test</PanelHeader>
+			<PanelHeader>
+				<PanelHeaderContent status={<Icon12OnlineVkmobile/>} onClick={changeTheme}>
+				VK Test
+            </PanelHeaderContent>
+			</PanelHeader>
 			<FormLayout>
 				<FormStatus title={<b>Квест</b>}>
 					Тестовый квест, собирающий ответы пользователей с итогом всех ответов.
@@ -47,7 +53,7 @@ const Home = ({ id, go, next }) => (
 			</Div>
 			<Separator style={{ margin: '12px 0' }} />
 			<Div>
-				<Button size="xl" component="a" href="https://vk.com/xolova" level="tertiary">Oleg Davydov</Button>
+				<Button size="xl" component="a" target="_blank" href="https://vk.com/xolova" level="tertiary">Oleg Davydov</Button>
 			</Div>
 		</Panel>
 	</View>
@@ -57,6 +63,7 @@ Home.propTypes = {
 	id: PropTypes.string.isRequired,
 	go: PropTypes.func.isRequired,
 	next: PropTypes.func.isRequired,
+	changeTheme: PropTypes.func.isRequired,
 };
 
 export default Home;
