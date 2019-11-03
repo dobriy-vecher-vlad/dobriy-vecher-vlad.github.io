@@ -1,3 +1,4 @@
+$('.body').fadeOut(0);
 $(window).on('load', function() {
 	$.when( check_style() )
 	.done(function(){
@@ -38,7 +39,7 @@ function change_style(type, old_type) {
 	document.querySelector('#change_style').removeAttribute('onclick');
 	$('.body').fadeOut(200);
 	setTimeout(function() {
-		document.querySelector('#style-color').setAttribute('href', 'style-color-'+type+'.css');
+		document.querySelector('body').setAttribute('theme', type);
 		localStorage.setItem('type_style', type);
 		localStorage.setItem('type_old_style', old_type);
 		$('.body').fadeIn(200);
