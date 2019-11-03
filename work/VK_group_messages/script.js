@@ -24,7 +24,7 @@ function getChat() {
 						var chat_members_count = 0;
 						var chat_photo = "https://vk.com/images/camera_200.png";
 					}
-					var tooltip_body = '<div class="chat_photo" style="background-image: url('+chat_photo+');"></div><div class="chat_data"><div class="chat_name">'+chat_title+'</div><div class="chat_members">'+chat_members_count+' участников, создатель <a href="https://vk.com/id'+chat_owner_id+'" target="_blank">'+chat_owner_id+'</a></div></div><textarea class="chat_messages" placeholder="Текстовое сообщение"></textarea><input class="chat_media" placeholder="Вложение"></input><div id="send" class="chat_button" onclick="sendMessage();">Отправить</div>';
+					var tooltip_body = '<div class="chat_photo" style="background-image: url('+chat_photo+');"></div><div class="chat_data"><div class="chat_name">'+chat_title+'</div><div class="chat_members">'+chat_members_count+' участников, создатель <a href="https://vk.com/id'+chat_owner_id+'" target="_blank">'+chat_owner_id+'</a></div></div><textarea class="chat_messages" placeholder="Текстовое сообщение"></textarea><input class="chat_media" placeholder="Вложение"></input><div id="send" class="button button_blue" onclick="sendMessage();">Отправить</div>';
 					document.querySelector('.chat_info').insertAdjacentHTML('beforeend', tooltip_body);
 				} catch(err) {
 					console.log("Ошибка получения данных беседы.\nОбъяснение: "+err+".");
@@ -56,9 +56,9 @@ function sendMessage() {
 		success: function(data) {
 			console.log(data);
 			document.querySelector('#send').innerHTML = "Отправлено";
-			document.querySelector('#send').className += " select";
+			document.querySelector('#send').className += " button_grey";
 			setTimeout(function() {
-				document.querySelector('#send').className = "chat_button";
+				document.querySelector('#send').className = "button button_blue";
 				document.querySelector('#send').innerHTML = "Отправить";
 			}, 2000);
 		}

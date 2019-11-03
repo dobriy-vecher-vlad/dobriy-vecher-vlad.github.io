@@ -143,23 +143,58 @@ input {
 	vertical-align: top;
 	margin-right: 10px;
 }
-.chat_button {
+.button {
 	display: inline-block;
 	font-size: 14px;
     font-weight: 400;
     border-radius: 4px;
 	cursor: pointer;
-	background-color: #5181b8;
-    color: #fff;
 	width: 200px;
 	height: 40px;
 	vertical-align: top;
     line-height: 40px;
 	text-align: center;
+	user-select: none;
+}
+.button_green {
+	background-color: #4BB34B;
+    color: #fff;
     transition: 0.2s;
 }
-.select {
+.button_green:hover {
+	background-color: #51B851;
+    transition: 0.2s;
+}
+.button_green:active {
+	background-color: #43A843;
+    transition: 0.2s;
+    line-height: 42px;
+}
+.button_blue {
+	background-color: #5181b8;
+    color: #fff;
+    transition: 0.2s;
+}
+.button_blue:hover {
+	background-color: #5B88BD;
+    transition: 0.2s;
+}
+.button_blue:active {
+	background-color: #4872A3;
+    transition: 0.2s;
+    line-height: 42px;
+}
+.button_grey {
 	background-color: #e5ebf1;
     color: #55677d;
     transition: 0.2s;
+}
+.button_grey:hover {
+	background-color: #DFE6ED;
+    transition: 0.2s;
+}
+.button_grey:active {
+	background-color: #DAE2EA;
+    transition: 0.2s;
+    line-height: 42px;
 }
