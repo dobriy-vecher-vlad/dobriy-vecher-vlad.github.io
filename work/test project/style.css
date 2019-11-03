@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+body {
+	font-family: Roboto, -apple-system, BlinkMacSystemFont;
+	margin: 0px;
+	padding: 0px;
+	background: #edeef0;
+	overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+	width: 12px;
+}
+body::-webkit-scrollbar-thumb:vertical {
+    background-color: #56575C;
+}
+body::-webkit-scrollbar-track {
+    background-color: #77787C;
+}
+.settings {
+	width: 400px;
+	color: #929eb0;
+	font-size: 14px;
+	margin: auto;
+	background: #fff;
+    padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+input {
+	display: inline-block;
+	border: 1px solid #d3d9de;
+	border-radius: 4px;
+    line-height: 17px;
+    padding: 9px 9px 10px 13px;
+	outline: none;
+	height: 40px;
+	vertical-align: top;
+	margin-bottom: 10px;
+}
+.txt_info {
+	width: 400px;
+	color: #929eb0;
+	font-size: 14px;
+	margin: auto;
+	background: #fff;
+    padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    transition: 0.2s;
+	margin-bottom: 2%;
+}
+.chat_info_more {
+	width: 400px;
+	color: #929eb0;
+	font-size: 14px;
+	margin: auto;
+	background: #fff;
+    padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    transition: 0.2s;
+	margin-bottom: 2%;
+}
+.chat_photo {
+	display: inline-block;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	width: 100px;
+	height: 100px;
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+    vertical-align: top;
+	margin-bottom: 10px;
+}
+.chat_data {
+	display: inline-block;
+	width: 290px;
+	height: 100px;
+	color: #000;
+    vertical-align: top;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.chat_name {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	font-weight: 500;
+	color: #000;
+    vertical-align: top;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+.chat_members, a {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #929eb0;
+    vertical-align: top;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+.chat_messages {
+	font-family: Roboto, -apple-system, BlinkMacSystemFont;
+	width: 100%;
+	border: 1px solid #d3d9de;
+	word-wrap: break-word;
+    box-sizing: border-box;
+	border-radius: 4px;
+    line-height: 17px;
+    padding: 9px 9px 10px 13px;
+	outline: none;
+	height: 100px;
+    overflow-y: scroll;
+	resize: none;
+	vertical-align: top;
+	margin-bottom: 10px;
+}
+.chat_messages::-webkit-scrollbar {
+	width: 0px;
+}
+.chat_messages::-webkit-scrollbar-thumb:vertical {
+    background-color: #000;
+}
+.chat_messages::-webkit-scrollbar-track {
+    background-color: #000;
+}
+.chat_media {
+	display: inline-block;
+	border: 1px solid #d3d9de;
+	border-radius: 4px;
+    line-height: 17px;
+    padding: 9px 9px 10px 13px;
+	outline: none;
+	height: 40px;
+	width: 190px;
+	vertical-align: top;
+	margin-right: 10px;
+}
+.button {
+	display: inline-block;
+	font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+	cursor: pointer;
+	width: 200px;
+	height: 40px;
+	vertical-align: top;
+    line-height: 40px;
+	text-align: center;
+	user-select: none;
+}
+.button_green {
+	background-color: #4BB34B;
+    color: #fff;
+    transition: 0.2s;
+}
+.button_green:hover {
+	background-color: #51B851;
+    transition: 0.2s;
+}
+.button_green:active {
+	background-color: #43A843;
+    transition: 0.2s;
+    line-height: 42px;
+}
+.button_blue {
+	background-color: #5181b8;
+    color: #fff;
+    transition: 0.2s;
+}
+.button_blue:hover {
+	background-color: #5B88BD;
+    transition: 0.2s;
+}
+.button_blue:active {
+	background-color: #4872A3;
+    transition: 0.2s;
+    line-height: 42px;
+}
+.button_grey {
+	background-color: #e5ebf1;
+    color: #55677d;
+    transition: 0.2s;
+}
+.button_grey:hover {
+	background-color: #DFE6ED;
+    transition: 0.2s;
+}
+.button_grey:active {
+	background-color: #DAE2EA;
+    transition: 0.2s;
+    line-height: 42px;
+}
