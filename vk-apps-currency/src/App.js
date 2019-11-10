@@ -25,7 +25,7 @@ const App = () => {
 		connect.subscribe(({ detail: { type, data }}) => {
 			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
-				schemeAttribute.value = data.scheme ? data.scheme : 'client_light';
+				schemeAttribute.value = data.scheme ? data.scheme : 'bright_light';
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
 		});
@@ -56,7 +56,7 @@ const App = () => {
 		
 	};
 	const changeTheme = e => {
-		var nametheme = document.querySelector('body').getAttribute('scheme') == null ? "client_dark" : document.querySelector('body').getAttribute('scheme') == "client_dark" ? "client_light" : "client_dark";
+		var nametheme = document.querySelector('body').getAttribute('scheme') == null ? "space_gray" : document.querySelector('body').getAttribute('scheme') == "space_gray" ? "bright_light" : "space_gray";
 		document.querySelector('body').setAttribute('scheme', nametheme);
 	};
 	

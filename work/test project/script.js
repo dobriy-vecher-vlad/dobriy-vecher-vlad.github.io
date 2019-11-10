@@ -114,15 +114,9 @@ function setChat(number) {
 
 function getTxt(name) {
 	try {
-		$.get('text.txt', function(data) {
-            //var fileDom = $(data);
-
-            var lines = data.split("\n");
-
-            $.each(lines, function(n, elem) {
-                $('.txt_info').append('<div>' + elem + '</div>');
-            });
-        });
+		fetch('text.txt')
+		.then(response => response.text())
+		.then(text => console.log(text))
 	} catch (err) { 
 		console.log(err); 
 	}
