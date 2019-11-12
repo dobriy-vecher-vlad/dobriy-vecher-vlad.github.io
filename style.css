@@ -69,35 +69,22 @@ body[theme=dark] {
 .body::-webkit-scrollbar-track {
     background-color: #77787C;
 }
-.panel {
-	width: 96%;
-	position: relative;
-    background: #1DE5E2;
-    box-shadow: inset -200px -200px 1000px -200px #B588F7, 0px 0px 100px 0px rgba(0,0,0,0.25);
-	border-radius: 30px;
-	overflow: hidden;
-	margin: auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	animation: background_anim 20s infinite alternate;
-}
-
 @keyframes background_anim {
   25% {
     background: #fa6977;
-    box-shadow: inset -200px -200px 1000px -200px #faec69, 0px 0px 100px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -200px -200px 1000px -200px #faec69;
   }
   50% {
     background: #fa698f;
-    box-shadow: inset -200px -200px 1000px -200px #d469fa, 0px 0px 100px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -200px -200px 1000px -200px #d469fa;
   }
   75% {
     background: #6977fa;
-    box-shadow: inset -200px -200px 1000px -200px #69faec, 0px 0px 100px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -200px -200px 1000px -200px #69faec;
   }
   100% {
     background: #69d8fa;
-    box-shadow: inset -200px -200px 1000px -200px #69fa8b, 0px 0px 100px 0px rgba(0,0,0,0.25);
+    box-shadow: inset -200px -200px 1000px -200px #69fa8b;
   }
 }
 
@@ -110,16 +97,14 @@ body[theme=dark] {
 	color: var(--text-white-color);
 	width: 100%;
 	text-align: center;
-	border-bottom: 2px dashed hsla(0,0%,100%,.35);
 	margin: 2% auto;
-	padding-bottom: 2%;
 }
 .myinfo {
 	position: relative;
 	width: 100%;
+	padding-top: 2%;
+	border-top: 2px dashed hsla(0,0%,100%,.35);
 	border-bottom: 2px dashed hsla(0,0%,100%,.35);
-	margin: 2% auto;
-	padding-bottom: 2%;
 }
 .myphoto_h1 {
 	position: relative;
@@ -162,12 +147,10 @@ body[theme=dark] {
 	position: relative;
 	width: 100%;
 	border-bottom: 2px dashed hsla(0,0%,100%,.35);
-	margin: 2% auto;
-	padding-bottom: 2%;
 }
 .nameprojects {
 	display: inline-block;
-	margin-top: 5%;
+	margin-top: 2%;
 	color: hsla(0,0%,100%,.35);
     width: 20%;
 	text-align: center;
