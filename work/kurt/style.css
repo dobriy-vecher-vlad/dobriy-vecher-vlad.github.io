@@ -1246,7 +1246,9 @@ body[theme=dark] {
 	.footer_end_help {
 		width: 90%!important;
 	}
-	
+	.main_left_content_page, .page_comments {
+		width: calc(100% - 55px)!important;
+	}
 	.scrollup {
 		display: none!important;
 	}
