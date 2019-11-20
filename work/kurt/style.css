@@ -145,7 +145,6 @@ body[theme=dark] {
 }
 .page_comments {
 	min-height: 190px;
-    overflow: hidden;
     position: relative;
     z-index: 1;
 	text-align: justify;
@@ -157,6 +156,7 @@ body[theme=dark] {
 	width: 844px;
     margin-right: -8px;
     margin-left: 8px;
+    margin-bottom: 16px;
 	padding: 20px;
 }
 .body {
