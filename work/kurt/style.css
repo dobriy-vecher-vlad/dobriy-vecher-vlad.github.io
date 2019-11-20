@@ -1123,15 +1123,23 @@ body[theme=dark] {
 	z-index: 9;
 }
 .mobile {
-	font-size: 2em;
 	display: none;
+	z-index: 100;
+	position: absolute;
 	justify-content: center;
+	background: var(--bg-grey-color);
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+.mobile_text {
+	font-size: 1em;
+	padding: 10px;
+	overflow: hidden;
+    box-shadow: 0 2px rgba(0,0,0,.05), 0 1px rgba(0,0,0,.02);
 	background: var(--bg-white-color);
 	border-radius: var(--border-radius);
     margin: auto;
-    box-shadow: 0 2px rgba(0,0,0,.05), 0 1px rgba(0,0,0,.02);
-	overflow: hidden;
-	padding: 30px;
 }
 @media screen and (max-width: 1168px) {
 	.container {
@@ -1177,6 +1185,44 @@ body[theme=dark] {
 	.main_right_menu {
 		width: 85%;
 	}
+	.main_right_menu_head, .main_right_menu_href, .main_left_content_date, .main_left_content_head, .main_left_content_text {
+		font-size: 0.75em!important;
+	}
+	.main_left_content_head {
+		line-height: 19px!important;
+		margin: 5px 10px 5px 10px;
+		width: calc(100% - 20px);
+	}
+	.main_left_content_text {
+		text-align: left;
+		-webkit-line-clamp: 7;
+		margin: 5px 10px 5px 10px;
+		width: calc(100% - 20px);
+	}
+	body[type=classic] .main_left_content:first-of-type .main_left_content_date, .main_left_content:nth-of-type(5n+2) .main_left_content_date, .main_left_content:nth-of-type(5n+3) .main_left_content_date {
+		margin: 5px 10px 5px 10px;
+		position: relative;
+		top: 0px;
+		left: 0px;
+	}
+	.main_left_content_date {
+		font-size: 0.5em!important;
+	}
+	.main_left_content_more {
+		width: 150px;
+	}
+	body[type=classic] .main_left_content:first-of-type {
+		height: 250px;
+	}
+	body[type=classic] .main_left_content:nth-of-type(5n+2) {
+		height: 130px;
+	}
+	body[type=classic] .main_left_content:nth-of-type(5n+3) {
+		height: 130px;
+	}
+	.main_left_content {
+		height: 350px;
+	}
 	.footer_help {
 		width: 90%;
 	}
@@ -1199,5 +1245,22 @@ body[theme=dark] {
 	
 	.scrollup {
 		display: none!important;
+	}
+}
+@media screen and (max-width: 948px) {
+	.menu_glav {
+		padding-right: 10px;
+		padding-left: 0px;
+	}
+	.main_right_menu {
+		width: 78%;
+	}
+}
+@media screen and (max-width: 756px) {
+	.mobile {
+		display: flex;
+	}
+	.body {
+		overflow-y: hidden!important;
 	}
 }
