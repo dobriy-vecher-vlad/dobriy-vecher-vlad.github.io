@@ -1223,9 +1223,9 @@ body[theme=dark] {
 	}
 	.main_left_content {
 		height: 350px!important;
-		margin-bottom: 0px!important;
-		margin-right: 0px!important;
-		margin-left: 0px!important;
+		margin-bottom: 16px!important;
+		margin-right: 8px!important;
+		margin-left: 8px!important;
 	}
 	.footer_help {
 		width: 90%!important;
