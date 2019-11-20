@@ -609,6 +609,7 @@ body[theme=dark] {
 	background-repeat: no-repeat;
 	cursor: pointer;
     color: var(--text-black-color);
+    vertical-align: top;
 }
 .main_left_content:hover {
 	box-shadow: 0 2px 8px rgba(0,0,0,.08), 0 0 1px rgba(0,0,0,.05);
