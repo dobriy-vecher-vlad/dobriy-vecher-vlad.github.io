@@ -1263,4 +1263,7 @@ body[theme=dark] {
 	.body {
 		overflow-y: hidden!important;
 	}
+	.container, .header, .main, .footer, .footer_end {
+		display: none;
+	}
 }
