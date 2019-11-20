@@ -360,11 +360,11 @@ var style = document.createElement('style');
 style.innerHTML = css;
 document.head.appendChild(style);
 
-var patch_log = "Изменения в версии 2.4.2:<br>- исправление ошибок;<br>- доработка интерфейса.<br><br>НАШЕСТВИЕ: БАЗА ЗНАНИЙ  —  VK-BOT.COM  —  v2.4.2";
-var donate_log = "Возможности:<br>- gif-баннеры в свой профиль;<br>- скрыть свой бой либо профиль целиком;<br>- скрыть казну клана либо его целиком (для глав).";
+var patch_log = "РР·РјРµРЅРµРЅРёСЏ РІ РІРµСЂСЃРёРё 2.4.2:<br>- РёСЃРїСЂР°РІР»РµРЅРёРµ РѕС€РёР±РѕРє;<br>- РґРѕСЂР°Р±РѕС‚РєР° РёРЅС‚РµСЂС„РµР№СЃР°.<br><br>РќРђРЁР•РЎРўР’РР•: Р‘РђР—Рђ Р—РќРђРќРР™В В вЂ”В В VK-BOT.COMВ В вЂ”В В v2.4.2";
+var donate_log = "Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё:<br>- gif-Р±Р°РЅРЅРµСЂС‹ РІ СЃРІРѕР№ РїСЂРѕС„РёР»СЊ;<br>- СЃРєСЂС‹С‚СЊ СЃРІРѕР№ Р±РѕР№ Р»РёР±Рѕ РїСЂРѕС„РёР»СЊ С†РµР»РёРєРѕРј;<br>- СЃРєСЂС‹С‚СЊ РєР°Р·РЅСѓ РєР»Р°РЅР° Р»РёР±Рѕ РµРіРѕ С†РµР»РёРєРѕРј (РґР»СЏ РіР»Р°РІ).";
 NodeList.prototype.forEach = Array.prototype.forEach;
 var buttounId = 'full_script',
-	buttonHtml = '<div class="head"><div class="headhelp"><button id="' + buttounId + '" class="flat_button btn_style1"><span class="mv_game_icon"></span>Нашествие: Мобильная версия</button><div id="' + buttounId + '_div" align="center"></div></div></div>',
+	buttonHtml = '<div class="head"><div class="headhelp"><button id="' + buttounId + '" class="flat_button btn_style1"><span class="mv_game_icon"></span>РќР°С€РµСЃС‚РІРёРµ: РњРѕР±РёР»СЊРЅР°СЏ РІРµСЂСЃРёСЏ</button><div id="' + buttounId + '_div" align="center"></div></div></div>',
 	progress = '<center><br><img class="vk_loader" src="https://vk.com/images/c_upload_2x.gif" width="16px"></center></center>';
 var qs = (selector) => {
     return document.querySelector(selector);
@@ -386,14 +386,14 @@ var showInfo = (insertDiv, id, myid) => {
 		var data = JSON.parse(xhr.responseText);
 		var random = Math.floor(Math.random() * (7 - 4)) + 4;
 		var idn = Number(data.id);
-		var clan_name = data.clan_id >= 1? data.clan.name: 'не состоит в клане'; 
-		var clan_job = data.clan_id >= 1? (['Глава клана','Офицер клана', 'Участник клана']) [data.clan_r-1] : 'Нет данных';
-		var the_loc = {21:"Редикс", 20:"Пул", 19:"Мелдон", 18:"Стокпорт", 17:"Под временных боссов", 16:"Уэрли", 15:"Стоунлет", 14:"Харвер", 13:"Дорборн", 12:"Таннбери", 11:"Канализация", 10:"Стоки", 9:"Грандтаун", 8:"Нортед", 7:"Кинтон", 6:"Ньютаун", 5:"Эндроу", 4:"Харрис", 3:"Рафилд", 2:"Бренс", 1:"Хейвен"};
+		var clan_name = data.clan_id >= 1? data.clan.name: 'РЅРµ СЃРѕСЃС‚РѕРёС‚ РІ РєР»Р°РЅРµ'; 
+		var clan_job = data.clan_id >= 1? (['Р“Р»Р°РІР°В РєР»Р°РЅР°','РћС„РёС†РµСЂВ РєР»Р°РЅР°', 'РЈС‡Р°СЃС‚РЅРёРєВ РєР»Р°РЅР°']) [data.clan_r-1] : 'РќРµС‚В РґР°РЅРЅС‹С…';
+		var the_loc = {21:"Р РµРґРёРєСЃ", 20:"РџСѓР»", 19:"РњРµР»РґРѕРЅ", 18:"РЎС‚РѕРєРїРѕСЂС‚", 17:"РџРѕРґ РІСЂРµРјРµРЅРЅС‹С… Р±РѕСЃСЃРѕРІ", 16:"РЈСЌСЂР»Рё", 15:"РЎС‚РѕСѓРЅР»РµС‚", 14:"РҐР°СЂРІРµСЂ", 13:"Р”РѕСЂР±РѕСЂРЅ", 12:"РўР°РЅРЅР±РµСЂРё", 11:"РљР°РЅР°Р»РёР·Р°С†РёСЏ", 10:"РЎС‚РѕРєРё", 9:"Р“СЂР°РЅРґС‚Р°СѓРЅ", 8:"РќРѕСЂС‚РµРґ", 7:"РљРёРЅС‚РѕРЅ", 6:"РќСЊСЋС‚Р°СѓРЅ", 5:"Р­РЅРґСЂРѕСѓ", 4:"РҐР°СЂСЂРёСЃ", 3:"Р Р°С„РёР»Рґ", 2:"Р‘СЂРµРЅСЃ", 1:"РҐРµР№РІРµРЅ"};
 		var loc = the_loc[data.loc];
-		var the_room = {7:"Укрепление", 6:"Метро", 5:"Озеро", 4:"Полиция", 3:"Госпиталь", 2:"Мини-маркет", 1:"Начальная комната"};
+		var the_room = {7:"РЈРєСЂРµРїР»РµРЅРёРµ", 6:"РњРµС‚СЂРѕ", 5:"РћР·РµСЂРѕ", 4:"РџРѕР»РёС†РёСЏ", 3:"Р“РѕСЃРїРёС‚Р°Р»СЊ", 2:"РњРёРЅРё-РјР°СЂРєРµС‚", 1:"РќР°С‡Р°Р»СЊРЅР°СЏ РєРѕРјРЅР°С‚Р°"};
 		var room = the_room[data.room];
 		var h0 = data.name;
-		var h0i = (h0).replace(/ /g," ");
+		var h0i = (h0).replace(/ /g,"В ");
 		var h1 = Math.round(data.s1);
 		var h1i = (h1+'').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.");
 		var h2 = Math.round(data.s2);
@@ -433,13 +433,13 @@ var showInfo = (insertDiv, id, myid) => {
 		var text = '<div class="global">';
 		if (data) {
 			if( statusRED.includes(idn) ) { 
-				text += '<div class="animateTable animateTable7"><div class="textStandart" align="center">Игрок ' + '<b>ID' + id + '</b> под ником <b>' + h0i + '</b>, имеет статус:<br>— замечен в суде, будьте осторожны —</div></div>'; }
+				text += '<div class="animateTable animateTable7"><div class="textStandart" align="center">РРіСЂРѕРє ' + '<b>ID' + id + '</b> РїРѕРґ РЅРёРєРѕРј <b>' + h0i + '</b>, РёРјРµРµС‚ СЃС‚Р°С‚СѓСЃ:<br>вЂ” Р·Р°РјРµС‡РµРЅ РІ СЃСѓРґРµ, Р±СѓРґСЊС‚Рµ РѕСЃС‚РѕСЂРѕР¶РЅС‹ вЂ”</div></div>'; }
 			if( statusGREEN.includes(idn) ) { 
-				text += '<div class="animateTable animateTable8"><div class="textStandart" align="center">Игрок ' + '<b>ID' + id + '</b> под ником <b>' + h0i + '</b>, имеет статус:<br>— доверенное и подтверждённое лицо —</div></div>'; }
+				text += '<div class="animateTable animateTable8"><div class="textStandart" align="center">РРіСЂРѕРє ' + '<b>ID' + id + '</b> РїРѕРґ РЅРёРєРѕРј <b>' + h0i + '</b>, РёРјРµРµС‚ СЃС‚Р°С‚СѓСЃ:<br>вЂ” РґРѕРІРµСЂРµРЅРЅРѕРµ Рё РїРѕРґС‚РІРµСЂР¶РґС‘РЅРЅРѕРµ Р»РёС†Рѕ вЂ”</div></div>'; }
 			if( statusORANGE.includes(idn) ) { 
-				text += '<div class="animateTable animateTable9"><div class="textStandart" align="center">Игрок ' + '<b>ID' + id + '</b> под ником <b>' + h0i + '</b>, имеет статус:<br>— замечен в суде, но претензии сняты —</div></div>'; }
+				text += '<div class="animateTable animateTable9"><div class="textStandart" align="center">РРіСЂРѕРє ' + '<b>ID' + id + '</b> РїРѕРґ РЅРёРєРѕРј <b>' + h0i + '</b>, РёРјРµРµС‚ СЃС‚Р°С‚СѓСЃ:<br>вЂ” Р·Р°РјРµС‡РµРЅ РІ СЃСѓРґРµ, РЅРѕ РїСЂРµС‚РµРЅР·РёРё СЃРЅСЏС‚С‹ вЂ”</div></div>'; }
 			if( statusYELLOW.includes(idn) ) { 
-				text += '<div class="animateTable animateTable10"><div class="textStandart" align="center">Игрок ' + '<b>ID' + id + '</b> под ником <b>' + h0i + '</b>, имеет статус:<br>— неадекватное поведение —</div></div>'; }
+				text += '<div class="animateTable animateTable10"><div class="textStandart" align="center">РРіСЂРѕРє ' + '<b>ID' + id + '</b> РїРѕРґ РЅРёРєРѕРј <b>' + h0i + '</b>, РёРјРµРµС‚ СЃС‚Р°С‚СѓСЃ:<br>вЂ” РЅРµР°РґРµРєРІР°С‚РЅРѕРµ РїРѕРІРµРґРµРЅРёРµ вЂ”</div></div>'; }
 			if( statusELITE.includes(idn) ) { 
 				text += '<div class="animateTable animateTable1"></div>'; }
 			if( statusAnimate1.includes(idn) ) { 
@@ -459,73 +459,73 @@ var showInfo = (insertDiv, id, myid) => {
 			if (idn == 390342468||idn == 292859277) {
 				text += '<div class="animateTable animateTable'+random+'"></div>'; }
 			if (statusBLOCK.includes(Number(myid))) {
-				text += '<div class="spoiler"><table><tr><td class="styleTableDesc">Для Вас доступ к скрипту ограничен</td></tr></table></div>';
+				text += '<div class="spoiler"><table><tr><td class="styleTableDesc">Р”Р»СЏ Р’Р°СЃ РґРѕСЃС‚СѓРї Рє СЃРєСЂРёРїС‚Сѓ РѕРіСЂР°РЅРёС‡РµРЅ</td></tr></table></div>';
 			} else { 
 				if (statusINVISIBLE.includes(Number(id)) &&! statusINVISIBLE.includes(Number(myid))) {
-					text += '<div class="spoiler"><table><tr><td class="styleTableDesc">Информация пользователя скрыта</td></tr></table></div>';
+					text += '<div class="spoiler"><table><tr><td class="styleTableDesc">РРЅС„РѕСЂРјР°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃРєСЂС‹С‚Р°</td></tr></table></div>';
 				} else {
 					text += '<div class="spoiler"><label><input type="checkbox"><table style="line-height: 1.2; border-collapse: collapse" width="454px"><tr>';
-					text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>  Основные характеристики игрока</div></td></tr></table>';
+					text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>В В РћСЃРЅРѕРІРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РёРіСЂРѕРєР°</div></td></tr></table>';
 					text += '<div class="text1"><table style="border-collapse: collapse"><tr>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">ID профиля ВКонтакте</t><br><b>' + idn + '</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Игровой ник</t><br><b>' + (h0i ? h0i : 'ник не определён') + '</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Уровень игрока</t><br><b>' + data.lvl + ' уровень</b> <div class="tooltip"><t class="tip">' + h9i + ' опыта</t>[...]</div></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">ID РїСЂРѕС„РёР»СЏ Р’РљРѕРЅС‚Р°РєС‚Рµ</t><br><b>' + idn + '</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РРіСЂРѕРІРѕР№ РЅРёРє</t><br><b>' + (h0i ? h0i : 'РЅРёРє РЅРµ РѕРїСЂРµРґРµР»С‘РЅ') + '</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РЈСЂРѕРІРµРЅСЊ РёРіСЂРѕРєР°</t><br><b>' + data.lvl + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + h9i + 'В РѕРїС‹С‚Р°</t>[...]</div></td></table></td>';
 					text += '</tr><tr>';
-					text += '<td><table class="styleTable Fix sWidth"><td><t class="styleTableText">Здоровье игрока</t><br><b><t style="color: green; font-weight: 700">' + h7i + '</t> единиц</b></td></table></td>';
-					text += '<td><table class="styleTable Fix sWidth"><td><t class="styleTableText">Урон игрока</t><br><b><t style="color: #E50000; font-weight: 700">' + h8i + '</t> единиц</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Состоит в клане</t><br><b>' + clan_name + '</b> <div class="tooltip"><t class="tip">' + clan_job + '</t>[...]</div></td></table></td></tr></table></div></label></div>';
+					text += '<td><table class="styleTable Fix sWidth"><td><t class="styleTableText">Р—РґРѕСЂРѕРІСЊРµ РёРіСЂРѕРєР°</t><br><b><t style="color: green; font-weight: 700">' + h7i + '</t> РµРґРёРЅРёС†</b></td></table></td>';
+					text += '<td><table class="styleTable Fix sWidth"><td><t class="styleTableText">РЈСЂРѕРЅ РёРіСЂРѕРєР°</t><br><b><t style="color: #E50000; font-weight: 700">' + h8i + '</t> РµРґРёРЅРёС†</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РЎРѕСЃС‚РѕРёС‚ РІ РєР»Р°РЅРµ</t><br><b>' + clan_name + '</b>В <div class="tooltip"><t class="tip">' + clan_job + '</t>[...]</div></td></table></td></tr></table></div></label></div>';
 					if (data.clan_id > 0) {
 						var clan = data.clan;
 						var clanID = Number(data.clan_id);
-						var clan_descr = (clan.descr).replace(/ /g, " ");
+						var clan_descr = (clan.descr).replace(/ /g, "В ");
 						var fullclanlvl = Number(clan.u1)+Number(clan.u2)+Number(clan.u3)+Number(clan.u4)+Number(clan.u5)+Number(clan.u6)+Number(clan.u7);
 						text += '<div class="spoiler"><label><input type="checkbox"><table style="line-height: 1.2; border-collapse: collapse" width="454px"><tr>';
-						text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>  Информация клана — <div class="tooltip"><t class="tip tip_clan">Описание клана '+clan.name+':<br><br>'+clan_descr+'</t>' + clan.name + '</div> — LVL '+fullclanlvl+' — ' + 'ID ' + clan.id + '</div></td></tr></table>';
+						text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>В В РРЅС„РѕСЂРјР°С†РёСЏ РєР»Р°РЅР° вЂ” <div class="tooltip"><t class="tip tip_clan">РћРїРёСЃР°РЅРёРµВ РєР»Р°РЅР°В '+clan.name+':<br><br>'+clan_descr+'</t>' + clan.name + '</div> вЂ” LVL '+fullclanlvl+' вЂ” ' + 'ID ' + clan.id + '</div></td></tr></table>';
 						text += '<div class="text2"><table style="border-collapse: collapse"><tr>';
 						if (clanBLOCK.includes(clanID) && myid != 153968505) {
-							text += '<td><table class="styleTable" width="454px" height="38px"><td align="center"><t class="styleTableText">Информация клана скрыта</t><br><b>-</b></td></table></td>';
+							text += '<td><table class="styleTable" width="454px" height="38px"><td align="center"><t class="styleTableText">РРЅС„РѕСЂРјР°С†РёСЏ РєР»Р°РЅР° СЃРєСЂС‹С‚Р°</t><br><b>-</b></td></table></td>';
 						} else {
-							text += '<td><table class="styleTable" width="140px"><td><t class="styleTableText">ID лидера клана</t><br><b><a style="text-decoration: none; color: #cbcbcb" href="http://vk.com/id' + clan.leader + '" target="_blank">' + clan.leader + '</a></b></td></table></td>';
-							text += '<td><table class="styleTable" width="160px"><td><t class="styleTableText">Суммарно опыта в клане</t><br><b>' + (clan.r1 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' опыта</b></td></table></td>';
-							text += '<td><table class="styleTable" width="80px"><td><t class="styleTableText">Ранг. очков</t><br><b>' + (clan.m7 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' шт.</b></td></table></td>';
-							text += '<td><table class="styleTable" width="68px"><td><t class="styleTableText">Людей</t><br><b>' + clan.mcnt + '/' + (clan.u1*10+10) + '</b></td></table></td>';
+							text += '<td><table class="styleTable" width="140px"><td><t class="styleTableText">ID Р»РёРґРµСЂР° РєР»Р°РЅР°</t><br><b><a style="text-decoration: none; color: #cbcbcb" href="http://vk.com/id' + clan.leader + '" target="_blank">' + clan.leader + '</a></b></td></table></td>';
+							text += '<td><table class="styleTable" width="160px"><td><t class="styleTableText">РЎСѓРјРјР°СЂРЅРѕ РѕРїС‹С‚Р° РІ РєР»Р°РЅРµ</t><br><b>' + (clan.r1 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' РѕРїС‹С‚Р°</b></td></table></td>';
+							text += '<td><table class="styleTable" width="80px"><td><t class="styleTableText">Р Р°РЅРі. РѕС‡РєРѕРІ</t><br><b>' + (clan.m7 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' С€С‚.</b></td></table></td>';
+							text += '<td><table class="styleTable" width="68px"><td><t class="styleTableText">Р›СЋРґРµР№</t><br><b>' + clan.mcnt + '/' + (clan.u1*10+10) + '</b></td></table></td>';
 							text += '</tr></table><table style="border-collapse: collapse"><tr>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Казна: Патроны</t><br><b>' + (clan.m1 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' шт.</b></td></table></td>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Казна: Золото</t><br><b>' + (clan.m2 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' шт.</b></td></table></td>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Казна: Жетоны</t><br><b>' + (clan.m3 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' шт.</b></td></table></td>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Казна: Спички</t><br><b>' + (clan.m4 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' шт.</b></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">РљР°Р·РЅР°: РџР°С‚СЂРѕРЅС‹</t><br><b>' + (clan.m1 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' С€С‚.</b></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">РљР°Р·РЅР°: Р—РѕР»РѕС‚Рѕ</t><br><b>' + (clan.m2 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' С€С‚.</b></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">РљР°Р·РЅР°: Р–РµС‚РѕРЅС‹</t><br><b>' + (clan.m3 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' С€С‚.</b></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">РљР°Р·РЅР°: РЎРїРёС‡РєРё</t><br><b>' + (clan.m4 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' С€С‚.</b></td></table></td>';
 							text += '</tr></table><table style="border-collapse: collapse"><tr>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">База: Казармы</t><br><b>' + clan.u1 + ' уровень</b> <div class="tooltip"><t class="tip">' + (clan.u1*10+10) + ' людей вмещается в клане</t>[...]</div></td></table></td>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">База: Наставник</t><br><b>' + clan.u2 + ' уровень</b> <div class="tooltip"><t class="tip">' + (clan.u2*1) + '% больше опыта в клановых боях</t>[...]</div></td></table></td>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">База: Собиратель</t><br><b>' + clan.u3 + ' уровень</b> <div class="tooltip"><t class="tip">' + (clan.u3*1) + '% больше патрон в клановых боях</t>[...]</div></td></table></td>';
-							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">База: Оружейная</t><br><b>' + clan.u4 + ' уровень</b> <div class="tooltip"><t class="tip">' + (clan.u4*500+1000+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' урона от РПГ</t>[...]</div></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Р‘Р°Р·Р°: РљР°Р·Р°СЂРјС‹</t><br><b>' + clan.u1 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + (clan.u1*10+10) + 'В Р»СЋРґРµР№В РІРјРµС‰Р°РµС‚СЃСЏВ РІВ РєР»Р°РЅРµ</t>[...]</div></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Р‘Р°Р·Р°: РќР°СЃС‚Р°РІРЅРёРє</t><br><b>' + clan.u2 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + (clan.u2*1) + '%В Р±РѕР»СЊС€РµВ РѕРїС‹С‚Р°В РІВ РєР»Р°РЅРѕРІС‹С…В Р±РѕСЏС…</t>[...]</div></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Р‘Р°Р·Р°: РЎРѕР±РёСЂР°С‚РµР»СЊ</t><br><b>' + clan.u3 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + (clan.u3*1) + '%В Р±РѕР»СЊС€РµВ РїР°С‚СЂРѕРЅВ РІВ РєР»Р°РЅРѕРІС‹С…В Р±РѕСЏС…</t>[...]</div></td></table></td>';
+							text += '<td><table class="styleTable" width="112.5px"><td><t class="styleTableText">Р‘Р°Р·Р°: РћСЂСѓР¶РµР№РЅР°СЏ</t><br><b>' + clan.u4 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + (clan.u4*500+1000+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + 'В СѓСЂРѕРЅР°В РѕС‚В Р РџР“</t>[...]</div></td></table></td>';
 							text += '</tr></table><table style="border-collapse: collapse"><tr>';
-							text += '<td><table class="styleTable" width="150px"><td><t class="styleTableText">База: Медпункт</t><br><b>' + clan.u5 + ' уровень</b> <div class="tooltip"><t class="tip">' + (clan.u5*50+250+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + ' здоровья от аптеки</t>[...]</div></td></table></td>';
-							text += '<td><table class="styleTable" width="150px"><td><t class="styleTableText">База: Оборона</t><br><b>' + clan.u6 + ' уровень</b> <div class="tooltip"><t class="tip">' + new Date(clan.u6*30*60*1000).toUTCString().split(' ')[4] + ' действует защита</t>[...]</div></td></table></td>';
-							text += '<td><table class="styleTable" width="150px"><td><t class="styleTableText">База: Транспортёр</t><br><b>' + clan.u7 + ' уровень</b> <div class="tooltip"><t class="tip">' + (clan.u7*1) + '% грабит от казны клана</t>[...]</div></td></table></td></tr></table>';
+							text += '<td><table class="styleTable" width="150px"><td><t class="styleTableText">Р‘Р°Р·Р°: РњРµРґРїСѓРЅРєС‚</t><br><b>' + clan.u5 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + (clan.u5*50+250+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.") + 'В Р·РґРѕСЂРѕРІСЊСЏВ РѕС‚В Р°РїС‚РµРєРё</t>[...]</div></td></table></td>';
+							text += '<td><table class="styleTable" width="150px"><td><t class="styleTableText">Р‘Р°Р·Р°: РћР±РѕСЂРѕРЅР°</t><br><b>' + clan.u6 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + new Date(clan.u6*30*60*1000).toUTCString().split(' ')[4] + 'В РґРµР№СЃС‚РІСѓРµС‚В Р·Р°С‰РёС‚Р°</t>[...]</div></td></table></td>';
+							text += '<td><table class="styleTable" width="150px"><td><t class="styleTableText">Р‘Р°Р·Р°: РўСЂР°РЅСЃРїРѕСЂС‚С‘СЂ</t><br><b>' + clan.u7 + ' СѓСЂРѕРІРµРЅСЊ</b>В <div class="tooltip"><t class="tip">' + (clan.u7*1) + '%В РіСЂР°Р±РёС‚В РѕС‚В РєР°Р·РЅС‹В РєР»Р°РЅР°</t>[...]</div></td></table></td></tr></table>';
 						}
 						text += '</tr></table></div></label></div>';
 					}
 					text += '<div class="spoiler"><label><input type="checkbox"><table style="line-height: 1.2; border-collapse: collapse" width="454px"><tr>';
-					text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>  Навыки игрока</div></td></tr></table>';
+					text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>В В РќР°РІС‹РєРё РёРіСЂРѕРєР°</div></td></tr></table>';
 					text += '<div class="text3"><table style="border-collapse: collapse"><tr>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Навык: Выносливость</t><br><b>' + h6i + ' единиц</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Навык: Удача</t><br><b>' + h5i + ' единиц</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Навык: Вломить</t><br><b>' + h1i + ' единиц</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°РІС‹Рє: Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</t><br><b>' + h6i + ' РµРґРёРЅРёС†</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°РІС‹Рє: РЈРґР°С‡Р°</t><br><b>' + h5i + ' РµРґРёРЅРёС†</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°РІС‹Рє: Р’Р»РѕРјРёС‚СЊ</t><br><b>' + h1i + ' РµРґРёРЅРёС†</b></td></table></td>';
 					text += '</tr><tr>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Навык: Прикрыться</t><br><b>' + h2i + ' единиц</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Навык: Подлый удар</t><br><b>' + h3i + ' единиц</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Навык: Отдышаться</t><br><b>' + h4i + ' единиц</b></td></table></td></tr></table></div></label></div>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°РІС‹Рє: РџСЂРёРєСЂС‹С‚СЊСЃСЏ</t><br><b>' + h2i + ' РµРґРёРЅРёС†</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°РІС‹Рє: РџРѕРґР»С‹Р№ СѓРґР°СЂ</t><br><b>' + h3i + ' РµРґРёРЅРёС†</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°РІС‹Рє: РћС‚РґС‹С€Р°С‚СЊСЃСЏ</t><br><b>' + h4i + ' РµРґРёРЅРёС†</b></td></table></td></tr></table></div></label></div>';
 					text += '<div class="spoiler"><label><input type="checkbox"><table style="line-height: 1.2; border-collapse: collapse" width="454px"><tr>';
-					text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>  Прочие характеристики игрока</div></td></tr></table>';
+					text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>В В РџСЂРѕС‡РёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РёРіСЂРѕРєР°</div></td></tr></table>';
 					text += '<div class="text4"><table style="border-collapse: collapse"><tr>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Уровень машины</t><br><b>' + data.car1_lvl + ' уровень</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Дней в игре</t><br><b>' + h14i + ' дней</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Дата создания профиля</t><br><b>' + h17i + '</b> <div class="tooltip"><t class="tip">В ' + h18i + '</t>[...]</div></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РЈСЂРѕРІРµРЅСЊ РјР°С€РёРЅС‹</t><br><b>' + data.car1_lvl + ' СѓСЂРѕРІРµРЅСЊ</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Р”РЅРµР№ РІ РёРіСЂРµ</t><br><b>' + h14i + ' РґРЅРµР№</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ РїСЂРѕС„РёР»СЏ</t><br><b>' + h17i + '</b>В <div class="tooltip"><t class="tip">Р’В ' + h18i + '</t>[...]</div></td></table></td>';
 					text += '</tr><tr>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Находится в комнате</t><br><b>' + room + '</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Находится в локации</t><br><b>' + loc + '</b></td></table></td>';
-					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">Последний вход в игру</t><br><b>' + h15i + '</b> <div class="tooltip"><t class="tip">В ' + h16i + '</t>[...]</div></td></table></td></tr></table></div></label></div>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°С…РѕРґРёС‚СЃСЏ РІ РєРѕРјРЅР°С‚Рµ</t><br><b>' + room + '</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РќР°С…РѕРґРёС‚СЃСЏ РІ Р»РѕРєР°С†РёРё</t><br><b>' + loc + '</b></td></table></td>';
+					text += '<td><table class="styleTable sWidth"><td><t class="styleTableText">РџРѕСЃР»РµРґРЅРёР№ РІС…РѕРґ РІ РёРіСЂСѓ</t><br><b>' + h15i + '</b>В <div class="tooltip"><t class="tip">Р’В ' + h16i + '</t>[...]</div></td></table></td></tr></table></div></label></div>';
 					if (data.fight) {
 						var fight = data.fight;
 						var id_boss = Number(fight.eid);
@@ -539,7 +539,7 @@ var showInfo = (insertDiv, id, myid) => {
 						var h19 = ((id_boss == 18) ? "?" : Math.round(fight.mhp/h19h));
 						var h19i = (h19 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.");
 						var h20 = Math.round(fight.hp / (fight.mhp / 100));
-						if (fight.hp >= 0) { var h20i = h20 + '%'; } else { var h20i = 'убит'; }
+						if (fight.hp >= 0) { var h20i = h20 + '%'; } else { var h20i = 'СѓР±РёС‚'; }
 						var h21 = (new Date(2 * 60 * 60 * 1000 - (fight.time * 1000))).toUTCString().split(' ')[4];
 						if (fight.time <= 7200) { var h21i = h21; } else { var h21i = '00:00:00'; }
 						var h22 = Math.round(fight.dmg);
@@ -547,54 +547,54 @@ var showInfo = (insertDiv, id, myid) => {
 						var num = 0;
 						var cu = fight.users[0].id;
 						var cun_help = fight.users[0].n;
-						var cun = (cun_help).replace(/ /g, " ");
+						var cun = (cun_help).replace(/ /g, "В ");
 						var gold_bosses = [52,53,54,55,56,66,70];
 						var gold_bosses_tokens = {52:50, 53:80, 54:110, 55:150, 56:215, 66:250, 70:100};
 						var gbt = gold_bosses_tokens[id_boss];
 						var min_gbt = Math.round(h11/gbt);
-						var gold_tokens_info_description = "Расчёт золотых жетонов для босса: "+fight.name+"<br><br><table><tr><td>2 жетона — "+(Math.round(min_gbt*1.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>3 жетона — "+(Math.round(min_gbt*2.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>4 жетона — "+(Math.round(min_gbt*3.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>5 жетонов — "+(Math.round(min_gbt*4.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>6 жетонов — "+(Math.round(min_gbt*5.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>7 жетонов — "+(Math.round(min_gbt*6.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>8 жетонов — "+(Math.round(min_gbt*7.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br></td><td>    </td><td>9 жетонов — "+(Math.round(min_gbt*8.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>10 жетонов — "+(Math.round(min_gbt*9.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>11 жетонов — "+(Math.round(min_gbt*10.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>12 жетонов — "+(Math.round(min_gbt*11.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>13 жетонов — "+(Math.round(min_gbt*12.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>14 жетонов — "+(Math.round(min_gbt*13.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона<br>15 жетонов — "+(Math.round(min_gbt*14.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" урона</td></tr></table>";
-						var gold_tokens_info = gold_bosses.includes(id_boss) ?  " — <div class='tooltip'><t class='tip' style='left: 83px;'>"+gold_tokens_info_description+"</t><t style='text-decoration:underline'>ЗОЛОТЫЕ ЖЕТОНЫ</t> [...]</t></div>" : "";
+						var gold_tokens_info_description = "Р Р°СЃС‡С‘С‚ Р·РѕР»РѕС‚С‹С… Р¶РµС‚РѕРЅРѕРІ РґР»СЏ Р±РѕСЃСЃР°: "+fight.name+"<br><br><table><tr><td>2 Р¶РµС‚РѕРЅР° вЂ” "+(Math.round(min_gbt*1.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>3 Р¶РµС‚РѕРЅР° вЂ” "+(Math.round(min_gbt*2.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>4 Р¶РµС‚РѕРЅР° вЂ” "+(Math.round(min_gbt*3.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>5 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*4.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>6 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*5.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>7 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*6.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>8 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*7.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br></td><td>В В В В </td><td>9 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*8.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>10 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*9.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>11 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*10.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>12 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*11.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>13 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*12.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>14 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*13.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°<br>15 Р¶РµС‚РѕРЅРѕРІ вЂ” "+(Math.round(min_gbt*14.5)+ '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.")+" СѓСЂРѕРЅР°</td></tr></table>";
+						var gold_tokens_info = gold_bosses.includes(id_boss) ?  "В вЂ”В <div class='tooltip'><t class='tip' style='left: 83px;'>"+gold_tokens_info_description+"</t><t style='text-decoration:underline'>Р—РћР›РћРўР«Р• Р–Р•РўРћРќР«</t> [...]</t></div>" : "";
 						fight.users.sort(function(a, b) { 
 							return Number(a.dd) < Number(b.dd) ? 1 : -1;
 						});
 						text += '<div class="spoiler"><label><input type="checkbox"><table style="line-height: 1.2; border-collapse: collapse" width="454px"><tr>';
-						text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>  Информация по боссу — ' + fight.name + gold_tokens_info + '</div></td></tr></table>';
+						text += '<td><div class="styleTableDesc styleTableDescHelp"><div class="spoilericon"></div>В В РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ Р±РѕСЃСЃСѓВ вЂ”В ' + fight.name + gold_tokens_info + '</div></td></tr></table>';
 						text += '<div class="text5"><table style="border-collapse: collapse"><tr>';
-						text += '<td align="center" style="line-height: 1.4"><div class="styleTable Fix" style="width: 452px; height: 60px; line-height: 1.4; display: flex; align-items: center; justify-content: center"><t class="styleTableText">Босс  <div class="tooltip"><t class="tip" style="left: 0px;">Имя босса: ' + fight.name + ', ID: ' + id_boss + '<br>Здоровья: ' + h11i + ', урона: ' + h22i + '<br><br>Создатель боя: ' + cun + ' (id' + cu + ')<br>Людей на боссе: ' + fight.users.length + '/'+h19h+'</t><b style="font-size:13px">' + fight.name + '</b></div>  до конца боя осталось  ' + '<b style="font-size:13px">' + h21i + '</b>';
-						text += '<br>Здоровье  <b style="font-size:13px">' + h10i + ' / ' + h11i + '</b>,  ' + h20i + '';
-						text += '<br>Урон игрока  <b style="font-size:13px"><t style="color:' + (h12 > h19 ? 'green' : '#CC0000') + '; font-weight: 700">' + h12i + '</t></b>,  <div class="tooltip"><t class="tip">Минимальный урон на боссе: ' + fight.name + '</t><t style="color:green; font-weight: 500">' + h19i + '</t></t></div></div></td></tr></table>';
+						text += '<td align="center" style="line-height: 1.4"><div class="styleTable Fix" style="width: 452px; height: 60px; line-height: 1.4; display: flex; align-items: center; justify-content: center"><t class="styleTableText">Р‘РѕСЃСЃВ В <div class="tooltip"><t class="tip" style="left: 0px;">РРјСЏВ Р±РѕСЃСЃР°:В ' + fight.name + ', ID:В ' + id_boss + '<br>Р—РґРѕСЂРѕРІСЊСЏ:В ' + h11i + ',В СѓСЂРѕРЅР°:В ' + h22i + '<br><br>РЎРѕР·РґР°С‚РµР»СЊВ Р±РѕСЏ:В ' + cun + 'В (id' + cu + ')<br>Р›СЋРґРµР№В РЅР°В Р±РѕСЃСЃРµ:В ' + fight.users.length + '/'+h19h+'</t><b style="font-size:13px">' + fight.name + '</b></div>В В РґРѕ РєРѕРЅС†Р° Р±РѕСЏ РѕСЃС‚Р°Р»РѕСЃСЊВ В ' + '<b style="font-size:13px">' + h21i + '</b>';
+						text += '<br>Р—РґРѕСЂРѕРІСЊРµВ В <b style="font-size:13px">' + h10i + ' / ' + h11i + '</b>,В В ' + h20i + '';
+						text += '<br>РЈСЂРѕРЅ РёРіСЂРѕРєР°В В <b style="font-size:13px"><t style="color:' + (h12 > h19 ? 'green' : '#CC0000') + '; font-weight: 700">' + h12i + '</t></b>,В В <div class="tooltip"><t class="tip">РњРёРЅРёРјР°Р»СЊРЅС‹Р№В СѓСЂРѕРЅВ РЅР°В Р±РѕСЃСЃРµ:В ' + fight.name + '</t><t style="color:green; font-weight: 500">' + h19i + '</t></t></div></div></td></tr></table>';
 						text += '<div class="spoilerhelpboss">';
 						for (var i = 0; i < fight.users.length; i++) {
 							var u = fight.users[i];
 							var h13 = Math.round(u.dd);
 							var h13i = (h13 + '').replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.");
 							var h00 = u.n;
-							var h00i = (h00).replace(/ /g, " ");
-							var player_gbt = ((Math.round(h13/min_gbt))==0?1:(Math.round(h13/min_gbt)))//жетоны игрока
-							var gold_tokens = gold_bosses.includes(id_boss) ? " ["+player_gbt+"]" : "";
+							var h00i = (h00).replace(/ /g, "В ");
+							var player_gbt = ((Math.round(h13/min_gbt))==0?1:(Math.round(h13/min_gbt)))//Р¶РµС‚РѕРЅС‹ РёРіСЂРѕРєР°
+							var gold_tokens = gold_bosses.includes(id_boss) ? "В ["+player_gbt+"]" : "";
 							if( statusRED.includes(Number(u.id)) ) {
-								var styleBOSS1 = "#CC3434"; //обводка
-								var styleBOSS2 = "#FF4141"; //заливка
-								var styleBOSS4 = "#F5F5F5"; //цвет текста
-								var styleBOSS5 = "#F5F5F5"; //цвет текста
+								var styleBOSS1 = "#CC3434"; //РѕР±РІРѕРґРєР°
+								var styleBOSS2 = "#FF4141"; //Р·Р°Р»РёРІРєР°
+								var styleBOSS4 = "#F5F5F5"; //С†РІРµС‚ С‚РµРєСЃС‚Р°
+								var styleBOSS5 = "#F5F5F5"; //С†РІРµС‚ С‚РµРєСЃС‚Р°
 							} else {
-								var styleBOSS4 = "#AFAFAF"; //цвет текста
-								var styleBOSS5 = "" + (Number(u.dd) > Number(fight.mhp) / (fight.eid == 70 ? 50 : 300) ? '#329932' : '#E50000') + ""; //цвет текста
-								if (u.id == cu && u.id == id) { //заводящий и просмотр
-									var styleBOSS1 = "#4F1A1A"; //обводка
-									var styleBOSS2 = "#655454"; //заливка
+								var styleBOSS4 = "#AFAFAF"; //С†РІРµС‚ С‚РµРєСЃС‚Р°
+								var styleBOSS5 = "" + (Number(u.dd) > Number(fight.mhp) / (fight.eid == 70 ? 50 : 300) ? '#329932' : '#E50000') + ""; //С†РІРµС‚ С‚РµРєСЃС‚Р°
+								if (u.id == cu && u.id == id) { //Р·Р°РІРѕРґСЏС‰РёР№ Рё РїСЂРѕСЃРјРѕС‚СЂ
+									var styleBOSS1 = "#4F1A1A"; //РѕР±РІРѕРґРєР°
+									var styleBOSS2 = "#655454"; //Р·Р°Р»РёРІРєР°
 								} else {
-									if (u.id == cu && u.id != id) { //заводящий
-										var styleBOSS1 = "#4F1A1A"; //обводка
-										var styleBOSS2 = "#582e2e"; //заливка
+									if (u.id == cu && u.id != id) { //Р·Р°РІРѕРґСЏС‰РёР№
+										var styleBOSS1 = "#4F1A1A"; //РѕР±РІРѕРґРєР°
+										var styleBOSS2 = "#582e2e"; //Р·Р°Р»РёРІРєР°
 									} else {
-										if (u.id != cu && u.id == id) { //просмотр	
-											var styleBOSS1 = "#4D4D4D"; //обводка
-											var styleBOSS2 = "#606060"; //заливка
+										if (u.id != cu && u.id == id) { //РїСЂРѕСЃРјРѕС‚СЂ	
+											var styleBOSS1 = "#4D4D4D"; //РѕР±РІРѕРґРєР°
+											var styleBOSS2 = "#606060"; //Р·Р°Р»РёРІРєР°
 										} else {
-											if (u.id != cu && u.id != id) { //обычный
-												var styleBOSS1 = "#3C3C3C"; //обводка
-												var styleBOSS2 = "#414141"; //заливка
+											if (u.id != cu && u.id != id) { //РѕР±С‹С‡РЅС‹Р№
+												var styleBOSS1 = "#3C3C3C"; //РѕР±РІРѕРґРєР°
+												var styleBOSS2 = "#414141"; //Р·Р°Р»РёРІРєР°
 											}
 										}
 									}
@@ -606,7 +606,7 @@ var showInfo = (insertDiv, id, myid) => {
 							text += '<td><table class="bossstyles" style="border: 1px solid ' + styleBOSS1 + '; background-color: ' + styleBOSS2 + '" width="90px">';
 							text += '<td><a style="font-size: 13px; text-decoration: none; color: ' + styleBOSS4 + '" href="http://vk.com/id' + u.id + '" target="_blank">' + u.id + '</a></td></table></td>';
 							text += '<td><table class="bossstyles" style="border: 1px solid ' + styleBOSS1 + '; background-color: ' + styleBOSS2 + '" width="145px">';
-							text += '<td style="font-size: 13px; color: ' + styleBOSS4 + '">' + ((h00i && h00i.length) ? h00i : 'ник не определён') + '</td></table></td>';
+							text += '<td style="font-size: 13px; color: ' + styleBOSS4 + '">' + ((h00i && h00i.length) ? h00i : 'РЅРёРє РЅРµ РѕРїСЂРµРґРµР»С‘РЅ') + '</td></table></td>';
 							text += '<td><table class="bossstyles" style="border:1px solid ' + styleBOSS1 + '; background-color: ' + styleBOSS2 + '" width="120px">';
 							text += '<td style="font-size: 13px; color: ' + styleBOSS4 + '"><t style="color:' + styleBOSS5 + '; font-weight: 500">' + h13i + gold_tokens + '</t></td></table></td>';
 							text += '</tr></table>';
@@ -614,16 +614,16 @@ var showInfo = (insertDiv, id, myid) => {
 							if (fight.users.length < 8) {
 								var bossclear = Math.round(8 - Number(fight.users.length));
 								for (var i = 0; i < bossclear; i++) {
-									var styleBOSS = "#333"; //обводка
+									var styleBOSS = "#333"; //РѕР±РІРѕРґРєР°
 									text += '<table class="bossstylesglobal"><tr>';
 									text += '<td><table class="bossstyles" style="border:1px solid ' + styleBOSS + '; background-color: ' + styleBOSS + '" width="30px">';
-									text += '<td> </td></table></td>';
+									text += '<td>В </td></table></td>';
 									text += '<td><table class="bossstyles" style="border:1px solid ' + styleBOSS + '; background-color: ' + styleBOSS + '" width="90px">';
-									text += '<td> </td></table></td>';
+									text += '<td>В </td></table></td>';
 									text += '<td><table class="bossstyles" style="border:1px solid ' + styleBOSS + '; background-color: ' + styleBOSS + '" width="145px">';
-									text += '<td> </td></table></td>';
+									text += '<td>В </td></table></td>';
 									text += '<td><table class="bossstyles" style="border:1px solid ' + styleBOSS + '; background-color: ' + styleBOSS + '" width="120px">';
-									text += '<td> </td></table></td>';
+									text += '<td>В </td></table></td>';
 									text += '</tr></table>';
 								}
 							}
@@ -631,14 +631,14 @@ var showInfo = (insertDiv, id, myid) => {
 						}}}
 						insertDiv.innerHTML = text + '';
 						} else {
-							insertDiv.innerHTML = '<div class="global"><div class="spoiler"><table style="line-height: 1.6"><tr><td class="styleTableDesc" align="center">Данные пользователя ' + '<b style="text-decoration:underline">id' + id + '</b>' + ' не получены!<br>Пользователь не найден в базе игроков!</td></tr></table></div></div>';
+							insertDiv.innerHTML = '<div class="global"><div class="spoiler"><table style="line-height: 1.6"><tr><td class="styleTableDesc" align="center">Р”Р°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ ' + '<b style="text-decoration:underline">id' + id + '</b>' + ' РЅРµ РїРѕР»СѓС‡РµРЅС‹!<br>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ РёРіСЂРѕРєРѕРІ!</td></tr></table></div></div>';
 						}
 					} catch (e) {
-						insertDiv.innerHTML = '<div class="global"><div class="spoiler"><table style="line-height: 1.6"><tr><td class="styleTableDesc" align="center">Данные пользователя ' + '<b style="text-decoration:underline">id' + id + '</b>' + ' не получены!<br>Пользователь не найден в базе игроков!</td></tr></table></div></div>';
+						insertDiv.innerHTML = '<div class="global"><div class="spoiler"><table style="line-height: 1.6"><tr><td class="styleTableDesc" align="center">Р”Р°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ ' + '<b style="text-decoration:underline">id' + id + '</b>' + ' РЅРµ РїРѕР»СѓС‡РµРЅС‹!<br>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ РёРіСЂРѕРєРѕРІ!</td></tr></table></div></div>';
 						}
 					};
 					var errorLoad = () => {
-						insertDiv.innerHTML = '<div class="global"><div class="spoiler"><table style="line-height: 1.6"><tr><td class="styleTableDesc" align="center">Данные пользователя ' + '<b style="text-decoration:underline">id' + id + '</b>' + ' не получены!<br>Пользователь не найден в базе игроков!</td></tr></table></div></div>';
+						insertDiv.innerHTML = '<div class="global"><div class="spoiler"><table style="line-height: 1.6"><tr><td class="styleTableDesc" align="center">Р”Р°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ ' + '<b style="text-decoration:underline">id' + id + '</b>' + ' РЅРµ РїРѕР»СѓС‡РµРЅС‹!<br>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ РІ Р±Р°Р·Рµ РёРіСЂРѕРєРѕРІ!</td></tr></table></div></div>';
 					};
 					xhr.onerror = errorLoad;
 					xhr.ontimeout = errorLoad;
@@ -678,7 +678,7 @@ var showInfo = (insertDiv, id, myid) => {
 				}
 				var rnd = Math.round(Math.random() * 100000),
 				btnId = 'inv_' + id + '_' + rnd,
-				btn = '<div style="cursor: pointer" class="friends_lists clear_fix" id="' + btnId + '"><span class="friends_lists_group group6" style="background-color: #FFE7E7; color: #8E0000">Нашествие: скрипт</span></div>';
+				btn = '<div style="cursor: pointer" class="friends_lists clear_fix" id="' + btnId + '"><span class="friends_lists_group group6" style="background-color: #FFE7E7; color: #8E0000">РќР°С€РµСЃС‚РІРёРµ: СЃРєСЂРёРїС‚</span></div>';
 				if (link.innerHTML.search('inv_' + id) == -1 && Number(id) > 0) {
 				var info = link.querySelector('.friends_user_info>.friends_field')
 				info.insertAdjacentHTML('afterEnd', btn);
