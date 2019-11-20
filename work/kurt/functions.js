@@ -97,7 +97,7 @@ function change_bars(bars1, bars2) {
 		localStorage.setItem('bars2', bars2);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_bars').setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`bars.`, `Успешно применён «'+bars2+'» стиль меню.`, `green`);');
+		document.querySelector('#change_bars').setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars.`, `Успешно применён «'+bars2+'» стиль меню.`, `green`);');
 	}, 400);
 }
 function check_bars() {
