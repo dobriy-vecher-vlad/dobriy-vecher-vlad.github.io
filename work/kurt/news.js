@@ -109,7 +109,8 @@ function get_posts(posts_id, posts_offset, time_delay) {
 				}
 			} catch(err) {
 				$('.main_left').empty();
-				var post_body = '<div class="main_left_content" style="color: var(--text-black-color); text-align: center; line-height: 225px;">Ошибка получения записей группы <a class="post_text_href" target="_blank" href="https://vk.com/club'+posts_id+'">ID'+posts_id+'</a>. Невозможно построить сетку новостей.<div class="main_left_content_nav_more" style="width: 200px; margin: auto;" onclick="get_posts(' + posts_id + ', ' + posts_offset + ', ' + time_delay + '); gototopnews();">Обновить новости</div></div>';
+				messages('Error.', 'Ошибка получения записей. Невозможно построить сетку новостей.', 'yellow');
+				var post_body = '<div class="main_left_content" style="color: var(--text-black-color); text-align: center;"><br><br>Ошибка получения записей группы <a class="post_text_href" target="_blank" href="https://vk.com/club'+posts_id+'">ID'+posts_id+'</a>. Невозможно построить сетку новостей.<br><br><div class="main_left_content_nav_more" style="width: 200px; margin: auto;" onclick="get_posts(' + posts_id + ', ' + posts_offset + ', ' + time_delay + '); gototopnews();">Обновить новости</div></div>';
 				document.querySelector('.main_left').insertAdjacentHTML('beforeend', post_body);
 				console.log("Ошибка получения записей.\nОбъяснение: "+err+".");
 			}

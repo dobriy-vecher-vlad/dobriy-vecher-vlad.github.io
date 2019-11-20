@@ -1,6 +1,6 @@
 $('.body').fadeOut(0);
 $(window).on('load', function() {
-	$.when( check_type(), check_style() )
+	$.when( check_type(), check_bars(), check_style() )
 	.done(function(){
 		$('.body').css({
 			"overflow-y": "scroll"
@@ -49,7 +49,7 @@ function change_style(type, old_type) {
 		$('.body').fadeIn(200);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_style').setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`);');
+		document.querySelector('#change_style').setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme.`, `Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
 	}, 400);
 }
 function check_style() {
@@ -64,27 +64,63 @@ function check_style() {
 	}
 }
 
-function change_type(type, old_type) {
+function change_type(type1, type2, type3) {
 	document.querySelector('#change_type').removeAttribute('onclick');
-	$('.body').fadeOut(200);
 	setTimeout(function() {
-		document.querySelector('body').setAttribute('type', type);
-		localStorage.setItem('type_type', type);
-		localStorage.setItem('type_old_type', old_type);
-		$('.body').fadeIn(200);
+		document.querySelector('body').setAttribute('type', type1);
+		localStorage.setItem('type1', type1);
+		localStorage.setItem('type2', type2);
+		localStorage.setItem('type3', type3);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_type').setAttribute('onclick', 'change_type(`'+old_type+'`, `'+type+'`);');
+		document.querySelector('#change_type').setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News.`, `Успешно применён «'+type2+'» стиль новостей.`, `green`);');
 	}, 400);
 }
 function check_type() {
-	if ( localStorage.getItem('type_type') != null ) {
-		var type_type = localStorage.getItem('type_type');
-		var type_old_type = localStorage.getItem('type_old_type');
-		change_type(type_type, type_old_type);
-		console.log('Пользователь выбрал тип новостей: '+type_type+'.')
+	if ( localStorage.getItem('type1') != null ) {
+		var type1 = localStorage.getItem('type1');
+		var type2 = localStorage.getItem('type2');
+		var type3 = localStorage.getItem('type3');
+		change_type(type1, type2, type3);
+		console.log('Пользователь выбрал тип новостей: '+type1+'.')
 	} else {
 		console.log("Пользователь ранее не был.");
-		change_type("classic", "image");
+		change_type("classic", "image", "image_large");
 	}
+}
+
+function change_bars(bars1, bars2) {
+	document.querySelector('#change_bars').removeAttribute('onclick');
+	setTimeout(function() {
+		document.querySelector('body').setAttribute('bars', bars1);
+		localStorage.setItem('bars1', bars1);
+		localStorage.setItem('bars2', bars2);
+	}, 200);
+	setTimeout(function() {
+		document.querySelector('#change_bars').setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`bars.`, `Успешно применён «'+bars2+'» стиль меню.`, `green`);');
+	}, 400);
+}
+function check_bars() {
+	if ( localStorage.getItem('bars1') != null ) {
+		var bars1 = localStorage.getItem('bars1');
+		var bars2 = localStorage.getItem('bars2');
+		change_bars(bars1, bars2);
+		console.log('Пользователь выбрал тип меню: '+bars1+'.')
+	} else {
+		console.log("Пользователь ранее не был.");
+		change_bars("classic", "none");
+	}
+}
+
+function messages(title, text, type) {
+	var time = Date.now()*(Math.floor(Math.random() * (999999 - 1 + 1)) + 1);
+	var body = '<div class="message_body" id="'+time+'"><div class="message '+type+'"><i class="fas fa-exclamation-triangle"></i> <b>'+title+'</b> '+text+'</div></div>';
+	document.querySelector('.system_messages').insertAdjacentHTML('beforeend', body);
+	$('#'+time+'').fadeIn(500);
+	setTimeout(function() {
+		$('#'+time+'').fadeOut(500);
+		setTimeout(function() {
+			document.querySelector('.system_messages>div').remove();
+		}, 500);
+	}, 3000);
 }

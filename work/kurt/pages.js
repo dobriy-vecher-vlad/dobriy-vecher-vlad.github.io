@@ -35,6 +35,7 @@ function get_page(group_id, page_id, time_delay) {
                     attach: "*"
                 }, page_id_full);
             } catch (err) {
+				messages('Error.', 'Ошибка получения данных страницы. Невозможно построить страницу.', 'yellow');
                 console.log("Ошибка получения страницы.\nОбъяснение: " + err + ".");
             }
         }
