@@ -1174,7 +1174,7 @@ body[theme=dark] {
 		max-width: 97%!important;
 	}
 	.main_left {
-		width: 70%!important;
+		width: 75%!important;
 	}
 	.main_left_content_nav_more {
 		overflow: hidden!important;
@@ -1222,6 +1222,9 @@ body[theme=dark] {
 	}
 	.main_left_content {
 		height: 350px!important;
+		margin-bottom: 0px!important;
+		margin-right: 0px!important;
+		margin-left: 0px!important;
 	}
 	.footer_help {
 		width: 90%!important;
