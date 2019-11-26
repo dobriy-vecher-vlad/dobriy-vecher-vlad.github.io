@@ -57,7 +57,7 @@ body[theme=dark] {
 	padding: 0px;
 	letter-spacing: 0.012em;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	animation: background_anim 20s infinite alternate;
 }
 .body::-webkit-scrollbar {
@@ -68,6 +68,15 @@ body[theme=dark] {
 }
 .body::-webkit-scrollbar-track {
     background-color: #77787C;
+}
+body[type=preload].body::-webkit-scrollbar {
+	width: 12px;
+}
+body[type=preload].body::-webkit-scrollbar-thumb:vertical {
+    background-color: #fff;
+}
+body[type=preload].body::-webkit-scrollbar-track {
+    background-color: #fff;
 }
 @keyframes background_anim {
   25% {
@@ -230,7 +239,7 @@ hr {
 }
 .preloader {
 	display: flex;
-	position: absolute;
+	position: fixed;
 	align-items: center;
 	justify-content: center;
 	z-index: 100;
