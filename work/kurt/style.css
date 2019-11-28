@@ -1611,6 +1611,7 @@ body[bars=none] .page_comments {
 @media screen and (max-width: 1168px) {
 	.main_left_content_page {
 		font-size: 25px;
+		line-height: 50px;
 	}
 	.wk_header {
 		font-size: 40px;

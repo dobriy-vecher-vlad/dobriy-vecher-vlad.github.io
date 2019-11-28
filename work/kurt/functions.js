@@ -21,6 +21,7 @@ $(window).on('load', function() {
 	if (type_page == "test9") { get_posts(63370414, 0, time); }
 	if (type_page == "test10") { get_posts(155321754, 0, time); }
 	if (type_page == "test11") { get_page_new(185939465, 56320355, time); }
+	if (type_page == "test12") { get_page_new(185939465, 56320356, time); }
 	console.log('Пользователь на странице под именем: '+type_page+'.')
 });
 
