@@ -20,7 +20,7 @@ $(window).on('load', function() {
 	if (type_page == "test8") { get_posts(2158488, 0, time); }
 	if (type_page == "test9") { get_posts(63370414, 0, time); }
 	if (type_page == "test10") { get_posts(155321754, 0, time); }
-	if (type_page == "test11") { get_page_new(185939465, 56320355); }
+	if (type_page == "test11") { get_page_new(185939465, 56320355, time); }
 	console.log('Пользователь на странице под именем: '+type_page+'.')
 });
 
@@ -41,7 +41,9 @@ $(document).ready(function() {
 });
 
 function change_style(type, old_type) {
-	document.querySelector('#change_style').removeAttribute('onclick');
+	for(var i = 0; i < document.querySelectorAll('#change_style').length; i++) {
+		document.querySelectorAll('#change_style')[i].removeAttribute('onclick');
+	}
 	$('.body').fadeOut(200);
 	setTimeout(function() {
 		document.querySelector('body').setAttribute('theme', type);
@@ -50,7 +52,9 @@ function change_style(type, old_type) {
 		$('.body').fadeIn(200);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_style').setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme.`, `<br>Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
+		for(var i = 0; i < document.querySelectorAll('#change_style').length; i++) {
+			document.querySelectorAll('#change_style')[i].setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme.`, `<br>Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
+		}
 	}, 400);
 }
 function check_style() {
@@ -66,7 +70,9 @@ function check_style() {
 }
 
 function change_type(type1, type2, type3) {
-	document.querySelector('#change_type').removeAttribute('onclick');
+	for(var i = 0; i < document.querySelectorAll('#change_type').length; i++) {
+		document.querySelectorAll('#change_type')[i].removeAttribute('onclick');
+	}
 	setTimeout(function() {
 		document.querySelector('body').setAttribute('type', type1);
 		localStorage.setItem('type1', type1);
@@ -74,7 +80,9 @@ function change_type(type1, type2, type3) {
 		localStorage.setItem('type3', type3);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_type').setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News.`, `<br>Успешно применён «'+type2+'» стиль новостей.`, `green`);');
+		for(var i = 0; i < document.querySelectorAll('#change_type').length; i++) {
+			document.querySelectorAll('#change_type')[i].setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News.`, `<br>Успешно применён «'+type2+'» стиль новостей.`, `green`);');
+		}
 	}, 400);
 }
 function check_type() {
@@ -91,14 +99,18 @@ function check_type() {
 }
 
 function change_bars(bars1, bars2) {
-	document.querySelector('#change_bars').removeAttribute('onclick');
+	for(var i = 0; i < document.querySelectorAll('#change_bars').length; i++) {
+		document.querySelectorAll('#change_bars')[i].removeAttribute('onclick');
+	}
 	setTimeout(function() {
 		document.querySelector('body').setAttribute('bars', bars1);
 		localStorage.setItem('bars1', bars1);
 		localStorage.setItem('bars2', bars2);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_bars').setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars.`, `<br>Успешно применён «'+bars2+'» стиль меню.`, `green`);');
+		for(var i = 0; i < document.querySelectorAll('#change_bars').length; i++) {
+			document.querySelectorAll('#change_bars')[i].setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars.`, `<br>Успешно применён «'+bars2+'» стиль меню.`, `green`);');
+		}
 	}, 400);
 }
 function check_bars() {

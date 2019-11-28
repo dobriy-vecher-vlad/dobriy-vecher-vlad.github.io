@@ -28,7 +28,7 @@ function open_post(name, text, photo, photo_size, id, date) {
     $('.post_view_back').css({
         "display": "block"
     });
-    var post_body = '<div class="post_block"><div class="post_name">' + name + '</div><div class="post_date">' + date + '</div><div class="post_text">' + text.replace(/(^|[\n ])([\w]*?)((ht|f)tp(s)?:\/\/[\w]+[^ \,\"\n\r\t<]*)/gim, '$1$2<a class="post_text_href" href=\"$3\" target="_blank">$3</a>') + '</div><div class="post_photo" style="background-image: url(' + photo + '); background-size: ' + photo_size + '; height: ' + (photo_size == "not" ? 0 : 660) + 'px; width: 660px;"></div><div class="post_like" id="vk_like"></div></div><div class="post_comments"><div id="vk_comments"></div></div><div class="post_close" onclick="close_post();"></div>';
+    var post_body = '<div class="post_block"><div class="post_name">' + name + '</div><div class="post_date">' + date + '</div><div class="post_text">' + text.replace(/(^|[\n ])([\w]*?)((ht|f)tp(s)?:\/\/[\w]+[^ \,\"\n\r\t<]*)/gim, '$1$2<a class="post_text_href" href=\"$3\" target="_blank">$3</a>') + '</div><div class="post_photo" style="background-image: url(' + photo + '); background-size: ' + photo_size + '; height: ' + (photo_size == "not" ? 0 : 660) + 'px; width: 660px;"></div><div class="post_like" id="vk_like"></div></div><div class="post_comments"><div id="vk_comments"></div></div><div class="post_close" onclick="close_post();"></div><div class="post_close_back" onclick="close_post();"></div>';
     document.querySelector('.post_view').insertAdjacentHTML('beforeend', post_body);
 	document.querySelector(".post_photo").addEventListener("click", function(){window.open(photo, "_blank")}, false);
     VK.Widgets.Comments("vk_comments", {
@@ -59,13 +59,13 @@ function get_posts(posts_id, posts_offset, time_delay) {
 					for (var x = 0; x < posts; x++) {
 						try {
 							if ((data.response.items[x].text).length > 5) {
-								var post_name = /(.*)/gi.exec(data.response.items[x].text)[1];
+								var post_name = (/(.*)/gi.exec(data.response.items[x].text)[1]).replace(/"/gim, "'");
 							} else {
 								var post_name = "Нет заголовка записи.";
 							}
 							try {
-								var post_text = (data.response.items[x].text).replace(/^.*\n\n/g, "").replace(/"/g, "&#34;").replace(/</g, "&#8249;").replace(/>/g, "&#8250;");
-								var post_text_edit = (data.response.items[x].text).replace(/^.*\n\n/g, "").replace(/"/g, "&#34;").replace(/</g, "&#8249;").replace(/>/g, "&#8250;").replace(/(^|[\n ])([\w]*?)((ht|f)tp(s)?:\/\/[\w]+[^ \,\"\n\r\t<]*)/gim, '$1$2<a class="post_text_href" href=\"$3\" target="_blank">$3</a>');
+								var post_text = (data.response.items[x].text).replace(/^.*\n\n/g, "").replace(/"/g, "&#34;").replace(/</g, "&#8249;").replace(/>/g, "&#8250;").replace(/"/gim, "'");
+								var post_text_edit = (data.response.items[x].text).replace(/^.*\n\n/g, "").replace(/"/g, "&#34;").replace(/</g, "&#8249;").replace(/>/g, "&#8250;").replace(/"/gim, "'").replace(/(^|[\n ])([\w]*?)((ht|f)tp(s)?:\/\/[\w]+[^ \,\"\n\r\t<]*)/gim, '$1$2<a class="post_text_href" href=\"$3\" target="_blank">$3</a>');
 							} catch {
 								var post_text = "Нет текста записи.";
 								var post_text_edit = "Нет текста записи.";
