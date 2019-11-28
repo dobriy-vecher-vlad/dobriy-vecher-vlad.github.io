@@ -1746,12 +1746,20 @@ body[bars=none] .page_comments {
 	body[type=classic][bars=classic] .main_left_content_date {
 		font-size: 1.1em!important;
 		top: 28%;
-		left: 30%;
+		left: 18%;
+		width: 100%;
+	}
+	body[type=classic] .main_left_content:nth-of-type(5n-2)>.main_left_content_date, body[type=classic] .main_left_content:nth-of-type(5n-3)>.main_left_content_date {
+		font-size: 1.1em!important;
+		top: 0%;
+		left: 0%;
+		width: 100%;
 	}
 	body[type=classic][bars=none] .main_left_content_date {
 		font-size: 1.1em!important;
 		top: 28%;
-		left: 48%;
+		left: 38%;
+		width: 100%;
 	}
 	.main_left_content {
 		height: 520px;
