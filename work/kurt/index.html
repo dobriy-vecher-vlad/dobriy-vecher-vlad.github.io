@@ -15,12 +15,28 @@
 	<div class="mobile"><div class="mobile_text">Слишком низкое разрешение экрана для корректной работы сайта.</div></div>
 	<body class="body">
 	
+	
+	<input type="checkbox" id="nav-toggle" hidden>
+		<nav class="nav">
+		<label for="nav-toggle" class="nav-toggle" onclick></label>
+		<div class="nav-logo">КУРТ</div>
+		<ul>
+			<li><a href="#1">Сведения</a>
+			<li><a href="#2">Абитуриентам</a>
+			<li><a href="#3">ГИА</a>
+			<li><a href="#4">Студентам</a>
+			<li><a href="#5">Методическая работа</a>
+		</ul>
+	</nav>
+	<label for="nav-toggle" class="nav_view_back" onclick></label>
+	
+	
 	<div class="post_view"></div>
 	<div class="post_view_back"></div>
 	
 	<a href="#" class="scrollup"><center><i class="fas fa-angle-double-up"></i></center></a>
 		<div class="container fade_in"><div class="container_help">
-			<div class="header_logo" onclick="window.open('#', '_top'); location.reload();"><i class="fas fa-university"></i> КУРТ</div><div class="header_menu">
+			<div class="header_logo" onclick="window.open('#', '_top'); location.reload();"></div><div class="header_menu">
 				<div class="menu_glav">Сведения <div class="menu_glav_icon"></div>
 					<div class="menu_glav_child_one">
 						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Основные сведения</div></div>
@@ -179,6 +195,7 @@
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test', '_top'); location.reload();"> </a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test2', '_top'); location.reload();">Страница с возможностями 1</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test3', '_top'); location.reload();">Страница с возможностями 2</a></div>
+					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test11', '_top'); location.reload();">Страница с возможностями 3</a></div>
 					</div>
 				</div>
 				<div class="main_right_menu">
@@ -242,22 +259,22 @@
 			<div class="footer_text">
 				<div class="footer_text_block" style="margin-right: 40px;"><a class="footer_href">Навигация</a><br><br>
 					<div class="footer_text_block_second">
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Сведения об образовательной организации</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Абитуриентам</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> ГИА</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Студентам</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Методическая работа</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Условия для инвалидов и ОВЗ</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> СКБ, олимпиады, конкурсы, соревнования  для обучающихся</a>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Сведения об образовательной организации</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Абитуриентам</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> ГИА</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Студентам</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Методическая работа</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Условия для инвалидов и ОВЗ</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> СКБ, олимпиады, конкурсы, соревнования  для обучающихся</a>
 					</div>
 				</div>
 				<div class="footer_text_block" style="margin-right: 40px;"><a class="footer_href">Полезные ссылки</a><br><br>
 					<div class="footer_text_block_second">
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Официальный сайт ГМУ</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Новостной образовательный реестр</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Официальная группа ЕГЭ Вконтакте</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Органы власти субъектов Российской Федерации</a><br>
-						<a class="footer_text_block_href" href=""><i class="fas fa-align-left"></i> Общероссийская база вакансий "Работа в России"</a>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Официальный сайт ГМУ</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Новостной образовательный реестр</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Официальная группа ЕГЭ Вконтакте</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Органы власти субъектов Российской Федерации</a><br>
+						<a class="footer_text_block_href" href=""><i class="fas fa-list"></i> Общероссийская база вакансий "Работа в России"</a>
 					</div>
 				</div>
 				<div class="footer_text_block"><a class="footer_href">Контакты</a><br><br>

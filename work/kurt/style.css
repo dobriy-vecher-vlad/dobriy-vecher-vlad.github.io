@@ -76,6 +76,15 @@ body[theme=dark] {
 	line-height: 20px;
 	padding: 10px 20px;
 }
+.message:before {
+	content: ' ';
+	font-weight: 700;
+	font-family: "Font Awesome 5 Pro";
+	font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: inherit;
+}
 .message.red {
     color: var(--message-red-text);
 	background-color: var(--message-red-bg);   
@@ -433,6 +442,18 @@ body[theme=dark] #change_style:after {
 	line-height: 50px;
 	text-align: center;
 	cursor: pointer;
+}
+.header_logo:before {
+	content: ' ';
+	font-weight: 700;
+	font-family: "Font Awesome 5 Pro";
+	font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: inherit;
+}
+.header_logo:after {
+	content: ' КУРТ';
 }
 .header_menu {
 	display: flex;
@@ -1460,7 +1481,146 @@ body[bars=none] .page_comments {
 	border-radius: var(--border-radius);
     margin: auto;
 }
+
+
+
+
+.nav {
+	display: none;
+}
+.nav {
+    width: 340px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    left: -400px;
+    padding: 15px 30px;
+    transition: left 0.2s;
+    background: var(--bg-white-color);
+    z-index: 2000;
+}
+.nav-logo {
+    color: var(--text-black-color);
+	font-family: 'Gotham Pro Black';
+	font-size: 40px;
+	text-align: center;
+}
+.nav-toggle {
+    position: absolute;
+    left: 400px;
+    top: 0;
+    padding: 0.82em;
+    background: inherit;
+    color: var(--text-black-color);
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 1;
+    z-index: 2001;
+}
+.nav-toggle:after {
+    content: '';
+	font-weight: 400;
+	font-family: "Font Awesome 5 Pro";
+	font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: inherit;
+	padding: 0px 20px 0px 20px;
+}
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 0;
+}
+[id='nav-toggle']:checked ~ .nav {
+    left: 0;
+	box-shadow: 10px 0px 50px -15px rgba(0,0,0,0.75);
+    overflow-y: auto;
+}
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '';
+	font-weight: 400;
+	font-family: "Font Awesome 5 Pro";
+	font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: inherit;
+}
+.nav > ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav > ul > li {
+    line-height: 2.5;
+}
+[id='nav-toggle']:checked ~ .nav > ul > li {
+}
+.nav > ul > li > a {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    font-size: 25px;
+    color: var(--text-black-color);
+    width: 100%;
+	transition: .2s;
+}
+.nav > ul > li > a:hover {
+    margin-left: 10px;
+	transition: .2s;
+}
+.nav > ul > li > a:before {
+    content: '';
+	font-weight: 400;
+	font-family: "Font Awesome 5 Pro";
+	font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: inherit;
+	padding: 0px 20px 0px 20px;
+}
+.nav > ul > li > a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: var(--text-grey-color);
+	opacity: 0.5;
+}
+.nav_view_back {
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0;
+	z-index: 9;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+}
+[id='nav-toggle']:checked ~ .nav_view_back {
+	visibility: visible;
+	opacity: 0.6;
+	transition: opacity .2s, visibility .2s;
+}
+
+
 @media screen and (max-width: 1168px) {
+	.nav {
+		display: block;
+	}
 	.container {
 		padding-top: 0px!important;
 		padding-bottom: 0px!important;
@@ -1468,9 +1628,26 @@ body[bars=none] .page_comments {
 	.container_help {
 		max-width: 100%!important;
 		border-radius: 0px!important;
+		display: block;
+		height: auto;
+	}
+	.header_logo {
+		width: 100%;
+		font-size: 30px;
+		line-height: 80px;
+	}
+	.header_logo:after {
+		content: ' Радиотехнический Техникум';
+		white-space: pre; 
+	}
+	.header_menu {
+		display: none;
+		align-items: center;
+		justify-content: center;
 	}
 	.menu_glav {
 		margin-left: 0px!important;
+		font-size: 25px;
 	}
 	.menu_glav_child_one, .menu_glav_child_two {
 		max-width: 200px!important;
@@ -1509,8 +1686,26 @@ body[bars=none] .page_comments {
 	.main_right_menu {
 		width: 85%;
 	}
-	.main_right_menu_head, .main_right_menu_href, .main_left_content_date, .main_left_content_head, .main_left_content_text {
+	.main_left_content_date, .main_left_content_head, .main_left_content_text {
 		font-size: 0.75em!important;
+	}
+	.main_right_menu_head, .main_right_menu_href {
+		font-size: 1.4em!important;
+		line-height: 35px;
+	}
+	.main_right_menu_block:after {
+		content: '';
+		display: block;
+		left: 0;
+		bottom: 0;
+		height: 1px;
+		width: 100%;
+		background: var(--text-grey-color);
+		opacity: 0.5;
+		margin: 10px 0px 10px 0px;
+	}
+	.main_right_menu_block:last-child:after {
+		display: none;
 	}
 	.main_left_content_head {
 		line-height: 19px!important;
@@ -1575,6 +1770,13 @@ body[bars=none] .page_comments {
 	.scrollup {
 		display: none!important;
 	}
+	
+	.message {
+		width: calc(100% - 40px);
+		font-size: 30px;
+		line-height: 40px;
+		padding: 10px 20px;
+	}
 }
 @media screen and (max-width: 948px) {
 	.menu_glav {
@@ -1592,7 +1794,7 @@ body[bars=none] .page_comments {
 	.body {
 		overflow-y: hidden!important;
 	}
-	.container, .header, .main, .footer, .footer_end {
+	.container, .header, .main, .footer, .footer_end, .nav {
 		display: none;
 	}
 }

@@ -20,6 +20,7 @@ $(window).on('load', function() {
 	if (type_page == "test8") { get_posts(2158488, 0, time); }
 	if (type_page == "test9") { get_posts(63370414, 0, time); }
 	if (type_page == "test10") { get_posts(155321754, 0, time); }
+	if (type_page == "test11") { get_page_new(185939465, 56320355); }
 	console.log('Пользователь на странице под именем: '+type_page+'.')
 });
 
@@ -49,7 +50,7 @@ function change_style(type, old_type) {
 		$('.body').fadeIn(200);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_style').setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme.`, `Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
+		document.querySelector('#change_style').setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme.`, `<br>Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
 	}, 400);
 }
 function check_style() {
@@ -73,7 +74,7 @@ function change_type(type1, type2, type3) {
 		localStorage.setItem('type3', type3);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_type').setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News.`, `Успешно применён «'+type2+'» стиль новостей.`, `green`);');
+		document.querySelector('#change_type').setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News.`, `<br>Успешно применён «'+type2+'» стиль новостей.`, `green`);');
 	}, 400);
 }
 function check_type() {
@@ -97,7 +98,7 @@ function change_bars(bars1, bars2) {
 		localStorage.setItem('bars2', bars2);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#change_bars').setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars.`, `Успешно применён «'+bars2+'» стиль меню.`, `green`);');
+		document.querySelector('#change_bars').setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars.`, `<br>Успешно применён «'+bars2+'» стиль меню.`, `green`);');
 	}, 400);
 }
 function check_bars() {
@@ -114,7 +115,7 @@ function check_bars() {
 
 function messages(title, text, type) {
 	var time = Date.now()*(Math.floor(Math.random() * (999999 - 1 + 1)) + 1);
-	var body = '<div class="message_body" id="'+time+'"><div class="message '+type+'"><i class="fas fa-exclamation-triangle"></i> <b>'+title+'</b> '+text+'</div></div>';
+	var body = '<div class="message_body" id="'+time+'"><div class="message '+type+'"><b>'+title+'</b> '+text+'</div></div>';
 	document.querySelector('.system_messages').insertAdjacentHTML('beforeend', body);
 	$('#'+time+'').fadeIn(500);
 	setTimeout(function() {
