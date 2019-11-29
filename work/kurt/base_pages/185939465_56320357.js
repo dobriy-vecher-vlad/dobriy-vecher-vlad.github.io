@@ -25,15 +25,43 @@ var data = {
 	<li>Тег center — выравнивание текста по центру.</li>
 	<li>Тег Div с классом wk_right — выравнивание текста по правому краю.</li>
 	<li>Тег table с классом wk_table — таблица.</li>
-	<li>Тег tr — строка таблицы.</li>
-	<li>Тег td — столбец таблицы.</li>
+	<li>Тег table > tr — строка таблицы.</li>
+	<li>Тег table > tr > td — столбец таблицы.</li>
 	<li>Тег blockquote — выноска.</li>
 	<li>Тег img с классом wk_photo_edit — изображение во всю ширину.</li>
 	<li>Тег a с классом wk_ext_link_edit — текстовая ссылка.</li>
 	<li>Тег br — перенос строки.</li>
 	<li>Тег ul — список.</li>
-	<li>Тег li — пункт списка.</li>
+	<li>Тег ul > li — пункт списка.</li>
+	<li>Тег line — линия.</li>
+	<li>Тег panel — панель.</li>
+	<li>Тег panel > name — название панели.</li>
+	<li>Тег panel > text — текст панели.</li>
+	<li>Тег poster — постер.</li>
+	<li>Тег poster > name — название постера.</li>
+	<li>Тег poster > text — текст постера.</li>
+	<li>Тег poster > a — ссылка постера.</li>
 	</ul>
+	<poster>
+	<name>Заголовок постера</name>
+	<text>Описание страницы куда ведёт постер</text>
+	<a href="#">Читать</a>
+	<img src="https://pp.userapi.com/c837724/v837724589/2286e/HLFS7CY8yL4.jpg">
+	</poster>
+	<panel>
+	<name>Первый пункт панели</name>
+	<text>Любой длинный текст, который необходимо выделить при помощи панели.</text>
+	<text>Любой длинный текст, который необходимо выделить при помощи панели.</text>
+	<text>Любой длинный текст, который необходимо выделить при помощи панели.</text>
+	</panel>
+	<line>not type</line>
+	<line></line>
+	<line type="red">type="red"</line>
+	<line type="red"></line>
+	<line type="green">type="green"</line>
+	<line type="green"></line>
+	<line type="yellow">type="yellow"</line>
+	<line type="yellow"></line>
 	<img alt="" title="" src="http://skrinshoter.ru/i/291119/x71P8IYH.png" class="wk_photo_edit">
 	`,
 	"view_url": "https://m.vk.com/...87235fa2c5367ef66ec"

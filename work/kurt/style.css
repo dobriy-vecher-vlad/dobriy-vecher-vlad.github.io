@@ -8,13 +8,13 @@ html {
 	--border-radius: 4px;
 	--message-red-bg: rgba(204, 0, 0, 0.75);
 	--message-red-br: rgba(204, 0, 0, 0.95);
-	--message-red-text: rgba(0, 0, 0, 1);
-	--message-green-bg: rgba(50,153,50, 0.75);
-	--message-green-br: rgba(50,153,50, 0.95);
-	--message-green-text: rgba(0, 0, 0, 1);
-	--message-yellow-bg: rgba(235,247,20, 0.75);
-	--message-yellow-br: rgba(235,247,20, 0.95);
-	--message-yellow-text: rgba(0, 0, 0, 1);
+	--message-red-text: rgba(61, 0, 0, 1);
+	--message-green-bg: rgba(50, 153, 50, 0.75);
+	--message-green-br: rgba(50, 153, 50, 0.95);
+	--message-green-text: rgba(10, 30, 10, 1);
+	--message-yellow-bg: rgba(235, 247, 20, 0.75);
+	--message-yellow-br: rgba(235, 247, 20, 0.95);
+	--message-yellow-text: rgba(47, 49, 4, 1);
 }
 a {
     color: var(--text-blue-color);
@@ -241,11 +241,166 @@ blockquote > .wk_photo_edit {
     background-color: var(--bg-grey-color);
     border-radius: var(--border-radius);
 }
+.main_left_content_page poster {
+	display: block;
+    position: relative;
+	width: 100%;
+	height: 350px;
+	margin: 10px 0px 10px 0px;
+    border-radius: var(--border-radius);
+	overflow: hidden;
+}
+.main_left_content_page poster > name {
+	font-weight: 500;
+	display: block;
+    position: relative;
+	z-index: 3;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	width: 100%;
+	color: #fff;
+	font-size: 3em;
+	text-align: center;
+}
+.main_left_content_page poster > text {
+	display: block;
+    position: relative;
+	z-index: 3;
+    top: 120px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	width: 100%;
+	color: #ccc;
+	font-size: 1.5em;
+	text-align: center;
+}
+.main_left_content_page poster > a {
+	display: block;
+    position: relative;
+	z-index: 3;
+    top: 150px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	width: 4em;
+	color: #000;
+	font-size: 1.5em;
+	text-align: center;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+	background-color: var(--bg-grey-color);
+	margin: auto;
+	opacity: 0.5;
+	transition: 0.2s;
+}
+.main_left_content_page poster > a:hover {
+	transition: 0.2s;
+	opacity: 0.75;
+}
+.main_left_content_page poster:hover img {
+	transition: 0.2s;
+	transform: scale(1.1);
+}
+.main_left_content_page poster > img {
+    display: block;
+    position: absolute;
+	z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	width: calc(100% + 40px);
+	height: calc(350px + 40px);
+	background-position: 50% 50%; 
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: -20px;
+	margin-left: -20px;
+	transition: 0.2s;
+	transform: scale(1);
+	overflow: hidden;
+}
+.main_left_content_page poster::after {
+    position: absolute;
+	z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	box-shadow: inset 0px 0px 0px 500px rgba(0,0,0,0.5);
+    content: "";
+	overflow: hidden;
+}
+.main_left_content_page panel {
+	display: block;
+	width: 100%;
+	margin: 10px 0px 10px 0px;
+    border: 1px solid var(--bg-grey-color);
+    border-radius: var(--border-radius);
+	overflow: hidden;
+}
+.main_left_content_page panel > name {
+	display: block;
+	width: calc(100% - 30px);
+    padding: 8px 15px;
+	color: var(--text-black-color);
+	font-weight: 500;
+	background-color: var(--bg-grey-color);
+    border-bottom: 1px solid var(--bg-grey-color);
+	font-size: 1.1em;
+}
+.main_left_content_page panel > text {
+	display: block;
+	width: calc(100% - 30px);
+    padding: 8px 15px;
+	color: var(--text-black-color);
+	font-size: 0.9em;
+}
+.main_left_content_page panel > text:not(:last-child) {
+    border-bottom: 1px solid var(--bg-grey-color);
+}
+.main_left_content_page line {
+	display: block;
+	width: 100%;
+	min-height: 15px;
+	margin: 10px 0px 10px 0px;
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+	background-size: 40px 40px;
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	background-color: #337ab7;
+    border-radius: var(--border-radius);
+	animation: line 1s linear infinite;
+}
+@keyframes line {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+.main_left_content_page line[type=red] {
+	color: var(--message-red-text);
+	background-color: var(--message-red-bg);
+}
+.main_left_content_page line[type=green] {
+	color: var(--message-green-text);
+	background-color: var(--message-green-bg);
+}
+.main_left_content_page line[type=yellow] {
+	color: var(--message-yellow-text);
+	background-color: var(--message-yellow-bg);
+}
 .main_left_content_page > ul {
 	font-weight: 500;
 	font-size: 1.1em;
 	margin: 10px 0px 10px 0px;
-    padding: 8px 15px;
+    padding: 0px;
     list-style: none;
 }
 .main_left_content_page > ul > li {
@@ -1940,6 +2095,13 @@ body[bars=none] .page_comments {
 	.post_text {
 		font-size: 25px;
 		line-height: 40px;
+	}
+	
+	.main_left_content_page poster {
+		height: 450px;
+	}
+	.main_left_content_page poster > img {
+		height: calc(450px + 40px);
 	}
 }
 @media screen and (max-width: 948px) {
