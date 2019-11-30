@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+@font-face {
+    font-family: Gotham Pro Black;
+    src: url(fonts/GothamPro-Black.ttf);
+}
 body {
 	font-family: 'Proxima Soft', Roboto, -apple-system, BlinkMacSystemFont;
 	font-feature-settings: "ss01", "ss02";
@@ -23,8 +27,10 @@ body {
 }
 background {
 	display: block;
-	position: fixed;
-	background-position: center bottom;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 	transition: all 0.5s ease-in-out;
