@@ -1,0 +1,89 @@
+<html oncontextmenu="return false">
+	<head>
+	    <link rel="shortcut icon" href="./image/favicon.png" type="image/x-icon"/>
+		<title>xolova</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link id="stylesheet" href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	</head>
+	<body theme="white" type="preload" class="image_0">
+			<div class="preloader">XOLOVA projects</div>
+		
+			<div class="header">XOLOVA projects</div>
+			<div class="myinfo">
+				<div class="myphoto_h1">
+					<div class="myphoto_h2">
+					</div>
+				</div><div class="mytext_h">
+					<div class="mytext">
+					</div>
+				</div>
+			</div>
+			<div class="myprojects">
+				<hr style="margin-left: 25%;"><div class="nameprojects">FOR WARLORD - GAME</div><hr style="margin-right: 25%;"><div class="projectbuttons">
+					<div class="project">Warlord Wiki<br><a class="href" href="./work/warlord/wiki/index.html" target="_blank">work/warlord/wiki/</a></div>
+					<div class="project">Калькулятор Руин и Пещер<br><a class="href" href="./work/warlord/calculator/index.html" target="_blank">work/warlord/calculator/</a></div>
+					<div class="project">Сканер друзей<br><a class="href" href="./work/warlord/scaner/index.html" target="_blank">work/warlord/scaner/</a></div>
+					<div class="project">Титульная страница<br><a class="href" href="./game_scripts/index.html" target="_blank">game_scripts/</a></div>
+				</div>
+				<hr style="margin-left: 25%;"><div class="nameprojects">FOR INVASION - GAME</div><hr style="margin-right: 25%;"><div class="projectbuttons">
+					<div class="project">Invasion Script<br><a class="href" href="./work/invasion/index.html" target="_blank">work/invasion/</a></div>
+					<div class="project">Титульная страница<br><a class="href" href="./game_scripts/index.html" target="_blank">game_scripts/</a></div>
+				</div>
+				<hr style="margin-left: 25%;"><div class="nameprojects">FOR VK</div><hr style="margin-right: 25%;"><div class="projectbuttons">
+					<div class="project">Отправка сообщений чат-ботов<br><a class="href" href="./work/VK_group_messages/index.html" target="_blank">work/VK_group_messages/</a></div>
+					<div class="project">Генератор клавиатуры чат-ботов<br><a class="href" href="./work/VK_keyboard/index.html" target="_blank">work/VK_keyboard/</a></div>
+				</div>
+				<hr style="margin-left: 25%;"><div class="nameprojects">OTHER</div><hr style="margin-right: 25%;"><div class="projectbuttons">
+					<div class="project">Сайт КУРТ<br><a class="href" href="./work/kurt/index.html" target="_blank">work/kurt/</a></div>
+				</div>
+			</div>
+			<div class="footer">
+				<i class="fas fa-heart heart"></i>
+			</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script>
+		$(window).on('load', function() {
+			$.when($('.preloader').delay(2000).fadeOut(500)).done(function(){
+				document.querySelector('body').setAttribute('type', 'no');
+			});
+		});
+		function getAva(user_id) {
+			$.ajax({
+				url: 'https://api.vk.com/method/users.get?user_ids='+user_id+'&fields=photo_400,domain,bdate,city,country&access_token=27af1df427af1df427af1df46e27c552ac227af27af1df47b67845e29d5bbda714938b8&v=5.103',
+				type: 'GET',
+				dataType: 'jsonp',
+				crossDomain: true,
+				success: function(data) {
+					console.log(data);
+					var user_id = data.response[0].id;
+					var domain = data.response[0].domain;
+					var first_name = data.response[0].first_name;
+					var last_name = data.response[0].last_name;
+					var full_name = data.response[0].first_name + ' ' + data.response[0].last_name;
+					var bdate = data.response[0].bdate;
+					var country = data.response[0].country.title;
+					var city = data.response[0].city.title;
+					var photo_400 = data.response[0].photo_400;
+					$('.myphoto_h2').empty();
+					$('.mytext').empty();
+					document.querySelector('.myphoto_h2').insertAdjacentHTML('beforeend', '<div class="myphoto" style="background-image: url('+photo_400+');"></div>');
+					document.querySelector('.mytext').insertAdjacentHTML('beforeend', 'Привет! Меня зовут '+full_name+', родился '+bdate+', на данный момент проживаю в городе '+city+'.<br><br>Страница ВКонтакте: <a href="https://vk.com/id'+user_id+'" target="_blank">vk.com/'+domain+'</a>.');
+				}
+			});
+		}
+		getAva(153968505);
+		$(function(){
+			var count = 0;
+			setInterval(function() {
+				if ( count == 0 ) $( 'body' ).removeClass( 'element3' );
+				$( 'body' ).removeClass( 'image_'+count );
+				count++;
+				$( 'body' ).addClass( 'image_'+count );
+				if ( count==3 ) count = 0;
+			}, 2000);
+		});
+		</script>
+	</body>
+</html>
