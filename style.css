@@ -219,6 +219,6 @@ name:after {
 		transform: scale(2);
 	}
 	.image_1, .image_2, .image_3, .image_4, .image_5, .image_6 {
-		background-image: url(./image/back3_low.png);
+		background-image: url(./image/back3.png);
 	}
 }
