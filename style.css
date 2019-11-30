@@ -218,22 +218,7 @@ name:after {
 		transform-origin: center -60px;
 		transform: scale(2);
 	}
-	.image_1 {
-		background-image: url(./image/back3_low.png);
-	}
-	.image_2 {
-		background-image: url(./image/back3_low.png);
-	}
-	.image_3 {
-		background-image: url(./image/back3_low.png);
-	}
-	.image_4 {
-		background-image: url(./image/back3_low.png);
-	}
-	.image_5 {
-		background-image: url(./image/back3_low.png);
-	}
-	.image_6 {
+	.image_1, .image_2, .image_3, .image_4, .image_5, .image_6 {
 		background-image: url(./image/back3_low.png);
 	}
 }
