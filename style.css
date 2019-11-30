@@ -219,21 +219,21 @@ name:after {
 		transform: scale(2);
 	}
 	.image_1 {
-		background-image: url(./image/back1_low.png);
+		background-image: url(./image/back3_low.png);
 	}
 	.image_2 {
-		background-image: url(./image/back2_low.png);
+		background-image: url(./image/back3_low.png);
 	}
 	.image_3 {
 		background-image: url(./image/back3_low.png);
 	}
 	.image_4 {
-		background-image: url(./image/back4_low.png);
+		background-image: url(./image/back3_low.png);
 	}
 	.image_5 {
-		background-image: url(./image/back5_low.png);
+		background-image: url(./image/back3_low.png);
 	}
 	.image_6 {
-		background-image: url(./image/back6_low.png);
+		background-image: url(./image/back3_low.png);
 	}
 }
