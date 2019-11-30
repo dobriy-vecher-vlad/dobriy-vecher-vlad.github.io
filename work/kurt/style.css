@@ -409,7 +409,7 @@ blockquote > .wk_photo_edit {
     border-radius: var(--border-radius);
 	margin: 10px 0px 10px 0px;
     padding: 8px 15px;
-	background: linear-gradient(90deg, var(--bg-grey-color) 0%, rgba(255,255,255,0) 75%);
+	background: linear-gradient(90deg, var(--bg-grey-color) 0%, var(--bg-white-color) 75%);
 }
 .page_comments {
 	min-height: 190px;
