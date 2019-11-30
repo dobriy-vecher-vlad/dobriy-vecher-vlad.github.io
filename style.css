@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
 @font-face {
     font-family: Gotham Pro Black;
-    src: url(fonts/GothamPro-Black.ttf);
+    src: url(./fonts/GothamPro-Black.ttf);
 }
 body {
 	font-family: 'Proxima Soft', Roboto, -apple-system, BlinkMacSystemFont;
@@ -196,7 +196,7 @@ name:after {
 	height: 100%;
 	background: #fff;
 	text-shadow: 15px 15px 0px #ccc;
-	font-family: 'Gotham Pro Black';
+	font-family: 'Gotham Pro Black'!important;
 	font-size: 4em;
 	color: #000;
 	text-align: center;
@@ -217,5 +217,23 @@ name:after {
 	.body_child {
 		transform-origin: center -60px;
 		transform: scale(2);
+	}
+	.image_1 {
+		background-image: url(./image/back1_low.png);
+	}
+	.image_2 {
+		background-image: url(./image/back2_low.png);
+	}
+	.image_3 {
+		background-image: url(./image/back3_low.png);
+	}
+	.image_4 {
+		background-image: url(./image/back4_low.png);
+	}
+	.image_5 {
+		background-image: url(./image/back5_low.png);
+	}
+	.image_6 {
+		background-image: url(./image/back6_low.png);
 	}
 }
