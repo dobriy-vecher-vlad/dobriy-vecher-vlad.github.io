@@ -27,7 +27,7 @@ body {
 }
 background {
 	display: block;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	background-position: center center;
