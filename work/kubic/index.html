@@ -96,6 +96,9 @@
 				user-select: none;
 				
 			}
+			.button:active {
+				line-height: 42px;
+			}
 			.button_green {
 				background-color: #4BB34B;
 				color: #fff;
@@ -122,7 +125,6 @@
 			.button_blue:active {
 				background-color: #4872A3;
 				transition: 0.2s;
-				line-height: 42px;
 			}
 			.button_grey {
 				background-color: #e5ebf1;
@@ -136,11 +138,38 @@
 			.button_grey:active {
 				background-color: #DAE2EA;
 				transition: 0.2s;
-				line-height: 42px;
 			}
 			em {
 				color: rgba(0,0,0,0.05);
 				display: contents;
+			}
+			@media screen and (max-width: 1168px) {
+				.role {
+					width: 750px;
+				}
+				.kub {
+					width: 750px;
+					height: 750px;
+					font-size: 50px;
+					border-radius: 25px;
+					box-shadow: inset 0px 0px 0px 15px rgba(0,0,0,1), inset 0px 30px 0px 0px rgba(255,255,255,1), inset 0px -30px 0px 0px rgba(0,0,0,0.1);
+				}
+				#log {
+					width: 750px;
+					font-size: 40px;
+					height: 250px;
+					padding: 30px 40px 30px 40px;
+					line-height: 50px;
+					border: 3px solid #d3d9de;
+				}
+				.button {
+					height: 80px;
+					font-size: 40px;
+					line-height: 80px;
+				}
+				.button:active {
+					line-height: 86px;
+				}
 			}
 		</style>
 	</head>
