@@ -3,6 +3,7 @@
 	    <link rel="shortcut icon" href="https://dobriy-vecher-vlad.github.io/image/favicon.png" type="image/x-icon"/>
 		<title>Кубик Сепеги</title>
 		<style>
+			@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 			body {
 				font-family: Roboto, -apple-system, BlinkMacSystemFont;
 				padding: 0px;
@@ -170,14 +171,18 @@
 				.button:active {
 					line-height: 86px;
 				}
+				.start {
+					font-size: 2em;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<div class="role"><div id="kub" class="kub"><div class="kubik num">36</div><div class="kubik r1">•••<br>•••<br>•••</div><div class="kubik r2">•••<br>•••<br>•••</div><div class="kubik r3">•••<br>•••<br>•••</div><div class="kubik r4">•••<br>•••<br>•••</div></div><br><div id="log" class="kub"></div><br><div id="btn" class="button button_green" onclick="kubik();">Сепега работать!</div></div>
+		<div class="role"><div id="kub" class="kub" onclick="kubik();"><div class="kubik num">36</div><div class="kubik r1">•••<br>•••<br>•••</div><div class="kubik r2">•••<br>•••<br>•••</div><div class="kubik r3">•••<br>•••<br>•••</div><div class="kubik r4">•••<br>•••<br>•••</div></div><br><div id="log" class="kub"></div><br><div id="btn" class="button button_green" onclick="kubik();">Сепега работать!</div></div>
 		<script>
 			function kubik() {
 				setTimeout("document.querySelector('#kub').classList.add('start');", 0);
+				setTimeout("document.querySelector('#kub').removeAttribute('onclick');", 0);
 				setTimeout("document.querySelector('#btn').classList.add('button_grey');", 0);
 				setTimeout("document.querySelector('#btn').classList.remove('button_green');", 0);
 				setTimeout("document.querySelector('#btn').removeAttribute('onclick');", 0);
@@ -194,6 +199,7 @@
 				setTimeout(kub, 2750);
 				setTimeout(kub, 2800);
 				setTimeout("document.querySelector('#kub').classList.remove('start');", 2800);
+				setTimeout("document.querySelector('#kub').setAttribute('onclick', 'kubik();');", 2800);
 				setTimeout("document.querySelector('#btn').classList.add('button_green');", 2800);
 				setTimeout("document.querySelector('#btn').classList.remove('button_grey');", 2800);
 				setTimeout("document.querySelector('#btn').setAttribute('onclick', 'kubik();');", 2800);
