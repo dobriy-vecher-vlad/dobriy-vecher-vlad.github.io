@@ -15,7 +15,6 @@
 	<div class="mobile"><div class="mobile_text">Слишком низкое разрешение экрана для корректной работы сайта.</div></div>
 	<body class="body">
 	
-	
 	<input type="checkbox" id="nav-toggle" hidden>
 		<nav class="nav">
 		<label for="nav-toggle" class="nav-toggle" onclick></label>
@@ -183,7 +182,19 @@
 			<div class="main_left fade_in" page="1" count="0"></div>
 			<div class="main_right fade_in">
 				<div class="main_right_menu">
-					<div class="main_right_menu_head">ТЕСТОВЫЕ ССЫЛКИ НА НОВОСТИ</div>
+					<div class="main_right_menu_head_btn" onclick="localStorage.clear(); messages('LocalStorage', '<br>Local Storage was cleaned. Refresh your page.', 'red');">СБРОСИТЬ ДАННЫЕ САЙТА</div>
+				</div>
+				<div class="main_right_menu">
+					<div class="main_right_menu_href" id="getip">ДАННЫЕ ПЛАТФОРМЫ</div>
+				</div>
+				<div class="main_right_menu new_year">
+					<div class="main_right_menu_head_not">НОВЫЙ ГОД ЧЕРЕЗ:</div>
+					<div class="main_right_menu_content">
+					<div class="main_right_menu_block time" id="new_year">365:24:60:60</div>
+					</div>
+				</div>
+				<div id="n0" class="main_right_menu">
+					<div class="main_right_menu_head">ССЫЛКИ ДЛЯ ПРОВЕРКИ РАБОТЫ САЙТА</div>
 					<div class="main_right_menu_content">
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#', '_top'); location.reload();">Группа «Министерство РФ»</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test4', '_top'); location.reload();">Группа «WARLORD»</a></div>
@@ -207,7 +218,7 @@
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test15', '_top'); location.reload();">Страница с описанием тегов</a></div>
 					</div>
 				</div>
-				<div class="main_right_menu">
+				<div id="n1" class="main_right_menu">
 					<div class="main_right_menu_head">РАСПИСАНИЕ</div>
 					<div class="main_right_menu_content">
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Расписание СПО</a></div>
@@ -215,7 +226,7 @@
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Расписание заочное отделение</a></div>
 					</div>
 				</div>
-				<div class="main_right_menu">
+				<div id="n2" class="main_right_menu">
 					<div class="main_right_menu_head">РАЗНОЕ</div>
 					<div class="main_right_menu_content">
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Главная</a></div>
@@ -237,7 +248,7 @@
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Архив</a></div>
 					</div>
 				</div>
-				<div class="main_right_menu">
+				<div id="n3" class="main_right_menu">
 					<div class="main_right_menu_head">ПОЛЕЗНЫЕ ССЫЛКИ</div>
 					<div class="main_right_menu_content">
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Официальный сайт ГМУ</a></div>
@@ -307,8 +318,14 @@
 		<script src="functions.js"></script>
 		<script src="news.js"></script>
 		<script src="pages.js"></script>
+		<script src="new_year.js"></script>
 		<script>
-		
+			$(window).on('load', function() {
+				$.get("https://ipinfo.io", function(response) {
+					var body = 'city: '+response.city+'<br><br>country: '+response.country+'<br><br>hostname: '+response.hostname+'<br><br>ip: '+response.ip+'<br><br>region: '+response.region+'<br><br>timezone: '+response.timezone+'';
+					document.querySelector('#getip').innerHTML = body;
+				}, "jsonp");
+			});
 		</script>
 	</body>
 </html>

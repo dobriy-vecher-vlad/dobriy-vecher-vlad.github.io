@@ -1,6 +1,6 @@
 $('.body').fadeOut(0);
 $(window).on('load', function() {
-	$.when( check_type(), check_bars(), check_style() )
+	$.when( check_type(), check_bars(), check_bar(), check_style() )
 	.done(function(){
 		$('.body').css({
 			"overflow-y": "scroll"
@@ -57,7 +57,7 @@ function change_style(type, old_type) {
 	}, 200);
 	setTimeout(function() {
 		for(var i = 0; i < document.querySelectorAll('#change_style').length; i++) {
-			document.querySelectorAll('#change_style')[i].setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme.`, `<br>Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
+			document.querySelectorAll('#change_style')[i].setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme`, `<br>Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
 		}
 	}, 400);
 }
@@ -66,7 +66,7 @@ function check_style() {
 		var type_style = localStorage.getItem('type_style');
 		var type_old_style = localStorage.getItem('type_old_style');
 		change_style(type_style, type_old_style);
-		console.log('Пользователь выбрал стиль: '+type_style+'.')
+		console.log('Пользователь выбрал стиль: '+type_style+'.');
 	} else {
 		console.log("Пользователь ранее не был.");
 		change_style("white", "dark");
@@ -85,7 +85,7 @@ function change_type(type1, type2, type3) {
 	}, 200);
 	setTimeout(function() {
 		for(var i = 0; i < document.querySelectorAll('#change_type').length; i++) {
-			document.querySelectorAll('#change_type')[i].setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News.`, `<br>Успешно применён «'+type2+'» стиль новостей.`, `green`);');
+			document.querySelectorAll('#change_type')[i].setAttribute('onclick', 'change_type(`'+type2+'`, `'+type3+'`, `'+type1+'`); messages(`News`, `<br>Успешно применён «'+type2+'» стиль новостей.`, `green`);');
 		}
 	}, 400);
 }
@@ -95,7 +95,7 @@ function check_type() {
 		var type2 = localStorage.getItem('type2');
 		var type3 = localStorage.getItem('type3');
 		change_type(type1, type2, type3);
-		console.log('Пользователь выбрал тип новостей: '+type1+'.')
+		console.log('Пользователь выбрал тип новостей: '+type1+'.');
 	} else {
 		console.log("Пользователь ранее не был.");
 		change_type("classic", "image", "image_large");
@@ -113,7 +113,7 @@ function change_bars(bars1, bars2) {
 	}, 200);
 	setTimeout(function() {
 		for(var i = 0; i < document.querySelectorAll('#change_bars').length; i++) {
-			document.querySelectorAll('#change_bars')[i].setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars.`, `<br>Успешно применён «'+bars2+'» стиль меню.`, `green`);');
+			document.querySelectorAll('#change_bars')[i].setAttribute('onclick', 'change_bars(`'+bars2+'`, `'+bars1+'`); messages(`Bars`, `<br>Успешно применён «'+bars2+'» стиль меню.`, `green`);');
 		}
 	}, 400);
 }
@@ -122,10 +122,33 @@ function check_bars() {
 		var bars1 = localStorage.getItem('bars1');
 		var bars2 = localStorage.getItem('bars2');
 		change_bars(bars1, bars2);
-		console.log('Пользователь выбрал тип меню: '+bars1+'.')
+		console.log('Пользователь выбрал тип меню: '+bars1+'.');
 	} else {
 		console.log("Пользователь ранее не был.");
 		change_bars("classic", "none");
+	}
+}
+
+function change_bar(id, bar1, bar2) {
+	document.querySelector('#n'+id+' > .main_right_menu_head').removeAttribute('onclick');
+	setTimeout(function() {
+		document.querySelector('#n'+id).setAttribute('bar', bar1);
+		localStorage.setItem('bar1_'+id, bar1);
+		localStorage.setItem('bar2_'+id, bar2);
+	}, 200);
+	setTimeout(function() {
+		document.querySelector('#n'+id+' > .main_right_menu_head').setAttribute('onclick', 'change_bar(`'+id+'`, `'+bar2+'`, `'+bar1+'`);');
+	}, 400);
+}
+function check_bar() {
+	for(var i = 0; i < document.querySelectorAll('.main_right_menu_head').length; i++) {
+		if ( localStorage.getItem('bar1_'+i) != null ) {
+			var bars1 = localStorage.getItem('bar1_'+i);
+			var bars2 = localStorage.getItem('bar2_'+i);
+			change_bar(i, bars1, bars2);
+		} else {
+			change_bar(i, "open", "close");
+		}
 	}
 }
 
