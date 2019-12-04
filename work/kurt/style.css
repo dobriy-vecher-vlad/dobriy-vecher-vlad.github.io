@@ -2086,9 +2086,15 @@ body[bars=none] .page_comments {
 	.main_left_content_head {
 		-webkit-line-clamp: 5;
 	}
-	.main_right_menu_head, .main_right_menu_href {
+	.main_right_menu_head, .main_right_menu_href, .main_right_menu_head_not, .main_right_menu_head_btn {
 		font-size: 1.1em!important;
 		line-height: 35px;
+	}
+	.main_right_menu.new_year > .main_right_menu_head_not:before {
+		font-size: 6em;
+	}
+	.main_right_menu.new_year > .main_right_menu_head_not:after {
+		font-size: 5em;
 	}
 	.main_right_menu_block:after {
 		content: '';
