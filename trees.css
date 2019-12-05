@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+.open-sans { font-family: 'Open Sans', sans-serif; }
+.lato { font-family: 'Lato', sans-serif; }
+.roboto { font-family: 'Roboto', sans-serif; }
+.source-sans-pro { font-family: 'Source Sans Pro', sans-serif; }
+.proxima-soft { font-family: 'Proxima Soft', sans-serif; }
+.proxima-nova { font-family: 'Proxima Nova', sans-serif; }
+.helvetica-neue { font-family: 'Helvetica Neue', sans-serif; }
+.w6 {    width: 24rem; }
+body {
+	font-family: 'Proxima Soft', Roboto, -apple-system, BlinkMacSystemFont;
+	font-feature-settings: "ss01", "ss02";
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0px;
+	padding: 0px;
+	letter-spacing: 0.012em;
+	user-select: none;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	--href-color: rgba(0, 141, 205, 1.0);
+	--href-color-hover: rgba(0, 141, 205, 0.5);
+	--li-color: rgba(255, 255, 255, 1.0);
+	--li-color-hover: rgba(255, 255, 255, 0.5);
+	--star-color: rgba(251, 236, 93, 1.0);
+	--star-color-hover: rgba(251, 236, 93, 0.5);
+}
+a {
+    color: var(--href-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+body::-webkit-scrollbar {
+	width: 12px;
+}
+body::-webkit-scrollbar-thumb:vertical {
+    background-color: #56575C;
+}
+body::-webkit-scrollbar-track {
+    background-color: #77787C;
+}
+body[type=preload]::-webkit-scrollbar {
+	width: 12px;
+}
+body[type=preload]::-webkit-scrollbar-thumb:vertical {
+    background-color: #56575C;
+}
+body[type=preload]::-webkit-scrollbar-track {
+    background-color: #77787C;
+}
+#repos {
+	padding: 50px;
+	position: relative;
+}
+/*
+ul {
+	display: block;
+	list-style: none;
+	line-height: 32px;
+	font-size: 16px;
+}
+li {
+	border-top: 2px solid #787A77;
+	padding-left: 20px;
+}
+li:first-child {
+	border-top: 0px;
+}
+*/
+.tree {
+	display: inline-block;
+	position: relative;
+}
+.tree:before {
+	font-family: "Font Awesome 5 Pro";
+	font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-size: inherit;
+}
+.tree[type=tree]:before {
+	content: ' ';
+	font-weight: 500;
+}
+.tree[type=blob]:before {
+	content: ' ';
+	font-weight: 500;
+}
+.treeCSS, 
+.treeCSS ul,
+.treeCSS li {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+  list-style: none;
+}
+.treeCSS ul {
+  margin: 0 0 0 .5em; /* вести линию вниз где-то с полбуквы родителя */
+}
+.treeCSS > li:not(:only-child),
+.treeCSS li li {
+  position: relative;
+  padding: .2em 0 0 1.2em; /* отступ до текста; для раскрывающегося списка в ряде случаев (в Хроме есть баг) padding-top (.2em) лучше указывать в px */
+}
+.treeCSS li:not(:last-child) {
+  border-left: 1px solid #ccc; /* толщина, цвет и стиль (вместо сплошной пунктирная или точечная) вертикальной линии */
+}
+.treeCSS li li:before,
+.treeCSS > li:not(:only-child):before { /* горизонтальная линия */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.1em; /* не более отступа до текста (1.2em) */
+  height: .7em; /* начинается приблизительно с половины высоты буквы (.5em + .2em) */
+  border-bottom: 1px solid #ccc;
+}
+.treeCSS li:last-child:before { /* вертикальная линия последнего пункта в каждом списке */
+  width: calc(1.1em - 1px); /* для перфекционистов */
+  border-left: 1px solid #ccc;
+}
