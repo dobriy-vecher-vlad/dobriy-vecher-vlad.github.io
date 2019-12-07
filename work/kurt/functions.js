@@ -2,9 +2,7 @@ $('.body').fadeOut(0);
 $(window).on('load', function() {
 	$.when( check_type(), check_bars(), check_bar(), check_style() )
 	.done(function(){
-		$('.body').css({
-			"overflow-y": "scroll"
-		});
+		document.querySelector('body').setAttribute('overflow', 'scroll');
 	});
 	
 	var type_page = window.location.hash.substr(1);
@@ -25,7 +23,8 @@ $(window).on('load', function() {
 	if (type_page == "test13") { get_page_new(1, 1100, time); }
 	if (type_page == "test14") { get_page_new(1, 1101, time); }
 	if (type_page == "test15") { get_page_new(185939465, 56320357, time); }
-	console.log('Пользователь на странице под именем: '+type_page+'.')
+	if (type_page == "test16") { get_posts(185939465, 0, time); }
+	console.log('При загрузке установлена страница под именем: '+type_page+'.')
 });
 
 $(document).ready(function() {
@@ -45,6 +44,8 @@ $(document).ready(function() {
 });
 
 function change_style(type, old_type) {
+	var favicon = {'white':'../../image/favicon_kurt_white.png', 'dark':'../../image/favicon_kurt_dark.png'};
+	document.querySelector('head>link[type=favicon]').setAttribute('href', favicon[old_type]);
 	for(var i = 0; i < document.querySelectorAll('#change_style').length; i++) {
 		document.querySelectorAll('#change_style')[i].removeAttribute('onclick');
 	}
@@ -57,7 +58,7 @@ function change_style(type, old_type) {
 	}, 200);
 	setTimeout(function() {
 		for(var i = 0; i < document.querySelectorAll('#change_style').length; i++) {
-			document.querySelectorAll('#change_style')[i].setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme`, `<br>Успешно применён «'+old_type+'» стиль сайта.`, `green`);');
+			document.querySelectorAll('#change_style')[i].setAttribute('onclick', 'change_style(`'+old_type+'`, `'+type+'`); messages(`Theme`, `<br>Успешно применён «'+old_type+'» стиль и иконка сайта.`, `green`);');
 		}
 	}, 400);
 }
@@ -66,9 +67,9 @@ function check_style() {
 		var type_style = localStorage.getItem('type_style');
 		var type_old_style = localStorage.getItem('type_old_style');
 		change_style(type_style, type_old_style);
-		console.log('Пользователь выбрал стиль: '+type_style+'.');
+		console.log('При загрузке установлен стиль из кеша: '+type_style+'.');
 	} else {
-		console.log("Пользователь ранее не был.");
+		console.log("Пользователь ранее не был. Кеш не найден.");
 		change_style("white", "dark");
 	}
 }
@@ -95,9 +96,9 @@ function check_type() {
 		var type2 = localStorage.getItem('type2');
 		var type3 = localStorage.getItem('type3');
 		change_type(type1, type2, type3);
-		console.log('Пользователь выбрал тип новостей: '+type1+'.');
+		console.log('При загрузке установлен тип новостей из кеша: '+type1+'.');
 	} else {
-		console.log("Пользователь ранее не был.");
+		console.log("Пользователь ранее не был. Кеш не найден.");
 		change_type("classic", "image", "image_large");
 	}
 }
@@ -122,9 +123,9 @@ function check_bars() {
 		var bars1 = localStorage.getItem('bars1');
 		var bars2 = localStorage.getItem('bars2');
 		change_bars(bars1, bars2);
-		console.log('Пользователь выбрал тип меню: '+bars1+'.');
+		console.log('При загрузке установлен тип меню из кеша: '+bars1+'.');
 	} else {
-		console.log("Пользователь ранее не был.");
+		console.log("Пользователь ранее не был. Кеш не найден.");
 		change_bars("classic", "none");
 	}
 }

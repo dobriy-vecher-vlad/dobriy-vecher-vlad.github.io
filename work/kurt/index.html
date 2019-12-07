@@ -1,8 +1,7 @@
 <html>
 	<head>
-	    <link rel="shortcut icon" href="../../image/favicon_kurt.png" type="image/x-icon"/>
+	    <link type="favicon" rel="shortcut icon" href="../../image/favicon_kurt_white.png" type="image/x-icon"/>
 		<title>Каменск-Уральский Радиотехнический Техникум</title>
-		<meta name="yandex-verification" content="b490c1669e9c2186" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link id="stylesheet" href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../../fonts/FontAwesome/css/all.css">
@@ -11,32 +10,39 @@
 		  VK.init({apiId: 7108293, onlyWidgets: true});
 		</script>
 	</head>
-	<div class="system_messages"></div>
-	<div class="mobile"><div class="mobile_text">Слишком низкое разрешение экрана для корректной работы сайта.</div></div>
 	<body class="body">
-	
-	<input type="checkbox" id="nav-toggle" hidden>
-		<nav class="nav">
-		<label for="nav-toggle" class="nav-toggle" onclick></label>
-		<div class="nav-logo">КУРТ</div>
-		<ul>
-			<li><a href="#1">Сведения</a>
-			<li><a href="#2">Абитуриентам</a>
-			<li><a href="#3">ГИА</a>
-			<li><a href="#4">Студентам</a>
-			<li><a href="#5">Методическая работа</a>
-		</ul>
-		<div class="menu_glav" id="change_type"></div>
-		<div class="menu_glav" id="change_bars"></div>
-		<div class="menu_glav" id="change_style"></div>
-	</nav>
-	<label for="nav-toggle" class="nav_view_back" onclick></label>
-	
-	
-	<div class="post_view"></div>
-	<div class="post_view_back"></div>
-	
-	<a href="#" class="scrollup"><center><i class="fas fa-angle-double-up"></i></center></a>
+		
+		<!-- Блокировка сайта при слишком низком разрешении -->
+		<div class="mobile"><div class="mobile_text">Слишком низкое разрешение экрана для корректной работы сайта.</div></div>
+		
+		<!-- Системные уведомления -->
+		<div class="system_messages"></div>
+		
+		<!-- Мобильное меню -->
+		<input type="checkbox" id="nav-toggle" hidden>
+			<nav class="nav">
+			<label for="nav-toggle" class="nav-toggle" onclick></label>
+			<div class="nav-logo">КУРТ</div>
+			<ul>
+				<li><a href="#1">Сведения</a>
+				<li><a href="#2">Абитуриентам</a>
+				<li><a href="#3">ГИА</a>
+				<li><a href="#4">Студентам</a>
+				<li><a href="#5">Методическая работа</a>
+			</ul>
+			<div class="menu_glav" id="change_type"></div>
+			<div class="menu_glav" id="change_bars"></div>
+			<div class="menu_glav" id="change_style"></div>
+		</nav>
+		<label for="nav-toggle" class="nav_view_back" onclick></label>
+		
+		<!-- Окно просмотра записей -->
+		<div class="post_view"></div>
+		
+		<!-- Кнопка скролла вверх -->
+		<div class="scrollup"><center><i class="fas fa-angle-double-up"></i></center></div>
+		
+		<!-- Блоки сайта -->
 		<div class="container fade_in"><div class="container_help">
 			<div class="header_logo" onclick="window.open('#', '_top'); location.reload();"></div><div class="header_menu">
 				<div class="menu_glav text">Сведения <div class="menu_glav_icon"></div>
@@ -164,9 +170,9 @@
 				<div class="menu_glav" id="change_bars"></div>
 				<div class="menu_glav" id="change_style"></div>
 			</div>
-		</div></div><div class="header"><div class="header_help"><center>
+		</div></div><div class="header fade_in"><div class="header_help"><center>
 			<div class="slide_back slide" onclick="goToBackItem();"></div>
-			<div class="slides fade_in">
+			<div class="slides">
 				<div id="wrapper">
 					<div id="itemOne" class="content" style="margin-left: 0px;">Каменск-Уральский<span class="dop"> / Россия</span></div>
 					<div id="itemTwo" class="content">Каменск-Уральский<span class="dop"> / Россия</span></div>
@@ -178,20 +184,31 @@
 			</div>
 			<div class="slide_next slide" onclick="goToNextItem();"></div>
 		</center></div></div>
-		<div class="main"><div class="main_help">
-			<div class="main_left fade_in" page="1" count="0"></div>
-			<div class="main_right fade_in">
+		<div class="main fade_in"><div class="main_help">
+			<div class="main_left" page="1" count="0"></div>
+			<div class="main_right">
 				<div class="main_right_menu">
-					<div class="main_right_menu_head_btn" onclick="localStorage.clear(); messages('LocalStorage', '<br>Local Storage was cleaned. Refresh your page.', 'red');">СБРОСИТЬ ДАННЫЕ САЙТА</div>
+					<div class="main_right_menu_head_btn" onclick="localStorage.clear(); messages('LocalStorage', '<br>Local Storage was cleaned. Refresh your page.', 'red');">СБРОСИТЬ СОХРАНЁННЫЕ ДАННЫЕ САЙТА</div>
 				</div>
 				<div class="main_right_menu">
-					<div class="main_right_menu_href" id="getip">ДАННЫЕ ПЛАТФОРМЫ</div>
+					<div class="main_right_menu_head_not">СДЕЛАТЬ</div>
+					<div class="main_right_menu_href"><b>1. </b>Переделать шапку на массив объектов, значительно сократит код.</div>
+					<div class="main_right_menu_href"><b>2. </b>Переделать правое меню на массив объектов, значительно сократит код.</div>
+					<div class="main_right_menu_href"><b>3. </b>Добавить плавную подгрузку изображений на слайдер и «pages.js».</div>
+					<div class="main_right_menu_href"><b>4. </b>Заменить картинку «нет изображения» на новую.</div>
 				</div>
-				<div class="main_right_menu new_year">
-					<div class="main_right_menu_head_not">НОВЫЙ ГОД ЧЕРЕЗ:</div>
-					<div class="main_right_menu_content">
-					<div class="main_right_menu_block time" id="new_year">365:24:60:60</div>
-					</div>
+				<div class="main_right_menu">
+					<div class="main_right_menu_head_not">ЗАГРУЖЕННЫЕ ПЛАГИНЫ</div>
+					<div class="main_right_menu_href"><b>functions.js</b> - основные команды управления сайтом.</div>
+					<div class="main_right_menu_href"><b>news.js</b> - генератор сетки новостей.</div>
+					<div class="main_right_menu_href"><b>pages.js</b> - генератор отдельных страниц.</div>
+					<div class="main_right_menu_href"><b>slides.js</b> - управление слайдером.</div>
+					<div class="main_right_menu_href"><b>new_year.js</b> - управление таймером.</div>
+					<div class="main_right_menu_href"><b>progressive-image.js</b> - управление подгрузкой изображений.</div>
+				</div>
+				<div class="main_right_menu">
+					<div class="main_right_menu_head_not">ДАННЫЕ ПЛАТФОРМЫ</div>
+					<div class="main_right_menu_href" id="getip">Не получены</div>
 				</div>
 				<div id="n0" class="main_right_menu">
 					<div class="main_right_menu_head">ССЫЛКИ ДЛЯ ПРОВЕРКИ РАБОТЫ САЙТА</div>
@@ -201,6 +218,7 @@
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test5', '_top'); location.reload();">Группа «The Brown Room»</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test7', '_top'); location.reload();">Группа «TheQuestion»</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test8', '_top'); location.reload();">Группа «LIVE»</a></div>
+					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test16', '_top'); location.reload();">Группа с post < 26</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test', '_top'); location.reload();"> </a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test1', '_top'); location.reload();">Группа «anoitx»</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test6', '_top'); location.reload();">Группа «moya devochka hentai»</a></div>
@@ -216,6 +234,12 @@
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test14', '_top'); location.reload();">Страница с меню 1.1</a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test', '_top'); location.reload();"> </a></div>
 					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" onclick="window.open('#test15', '_top'); location.reload();">Страница с описанием тегов</a></div>
+					</div>
+				</div>
+				<div class="main_right_menu new_year">
+					<div class="main_right_menu_head_not">НОВЫЙ ГОД ЧЕРЕЗ:</div>
+					<div class="main_right_menu_content">
+					<div class="main_right_menu_block time" id="new_year">365:24:60:60</div>
 					</div>
 				</div>
 				<div id="n1" class="main_right_menu">
@@ -275,7 +299,7 @@
 				</div>
 			</div>
 		</div></div>
-		<div class="footer"><div class="footer_help">
+		<div class="footer fade_in"><div class="footer_help">
 			<div class="footer_text">
 				<div class="footer_text_block" style="margin-right: 40px;"><a class="footer_href">Навигация</a><br><br>
 					<div class="footer_text_block_second">
@@ -307,7 +331,7 @@
 				</div>
 			</div>
 		</div></div>
-		<div class="footer_end"><div class="footer_end_help">
+		<div class="footer_end fade_in"><div class="footer_end_help">
 			<div class="footer_end_text">
 				<span><i class="fas fa-university"></i> ГАПОУ СО Каменск-Уральский Радиотехнический Техникум</span>
 				<span style="float: right">КУРТ в соцсетях:  <a class="footer_end_img" href="http://vk.com/id153968505" target="_blank"><i class="fab fa-vk" title="ВКонтакте"></i></a>  <a class="footer_end_img" href="http://vk.com/id153968505" target="_blank"><i class="fab fa-odnoklassniki" title="Одноклассники"></i></a>  <a class="footer_end_img"><i class="fab fa-facebook-f" title="Facebook"></i></a>  <a class="footer_end_img"><i class="fab fa-youtube" title="YouTube"></i></a></span>
@@ -319,10 +343,11 @@
 		<script src="news.js"></script>
 		<script src="pages.js"></script>
 		<script src="new_year.js"></script>
+		<script src="progressive-image.js"></script>
 		<script>
 			$(window).on('load', function() {
 				$.get("https://ipinfo.io", function(response) {
-					var body = 'city: '+response.city+'<br><br>country: '+response.country+'<br><br>hostname: '+response.hostname+'<br><br>ip: '+response.ip+'<br><br>region: '+response.region+'<br><br>timezone: '+response.timezone+'';
+					var body = '<b>city</b>: '+response.city+'.<br><b>country</b>: '+response.country+'.<br><b>hostname</b>: '+response.hostname+'.<br><b>ip</b>: '+response.ip+'.<br><b>region</b>: '+response.region+'.<br><b>timezone</b>: '+response.timezone+'.';
 					document.querySelector('#getip').innerHTML = body;
 				}, "jsonp");
 			});
