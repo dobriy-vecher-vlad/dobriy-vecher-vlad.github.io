@@ -1714,7 +1714,7 @@ body[bars=none] .page_comments {
 	border-radius: var(--border-radius);
     margin: 5% auto 1%;
 	z-index: 11;
-    box-shadow: 0 0 13px 0 rgba(0,0,0,.75);
+    box-shadow: 0 0 13px 0 rgba(0,0,0,.25);
 	overflow: hidden;
 }
 .post_comments {
@@ -1725,7 +1725,7 @@ body[bars=none] .page_comments {
 	border-radius: var(--border-radius);
     margin: 1% auto 5%;
 	z-index: 11;
-    box-shadow: 0 0 13px 0 rgba(0,0,0,.75);
+    box-shadow: 0 0 13px 0 rgba(0,0,0,.25);
 	overflow: hidden;
 	padding: 20px;
 }
