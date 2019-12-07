@@ -450,17 +450,18 @@ blockquote > .wk_photo_edit {
 	letter-spacing: 0.012em;
 	user-select: none;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: scroll;
 }
 .body[overflow=scroll] {
 	overflow-y: scroll;
 }
-[id='nav-toggle']:checked ~ .container, [id='nav-toggle']:checked ~ .header, [id='nav-toggle']:checked ~ .main, [id='nav-toggle']:checked ~ .footer, [id='nav-toggle']:checked ~ .footer_end {
+.body[overflow=hidden] {
 	overflow-y: hidden;
+}
+[id='nav-toggle']:checked ~ .container, [id='nav-toggle']:checked ~ .header, [id='nav-toggle']:checked ~ .main, [id='nav-toggle']:checked ~ .footer, [id='nav-toggle']:checked ~ .footer_end {
 	filter: blur(var(--filter-blur));
 }
 .body[overflow=hidden] > .container, .body[overflow=hidden] > .header, .body[overflow=hidden] > .main, .body[overflow=hidden] > .footer, .body[overflow=hidden] > .footer_end, .body[overflow=hidden] > .nav {
-	overflow-y: hidden;
 	filter: blur(var(--filter-blur));
 }
 .body::-webkit-scrollbar {
@@ -828,6 +829,13 @@ body[theme=dark] #change_style:after {
     transition: 0.2s;
 }
 .menu_glav_icon {
+	position: relative;
+    display: inline-block;
+}
+.menu_glav_icon:after {
+	position: relative;
+	display: block;
+	content: "";
 	font-weight: 900;
 	font-family: "Font Awesome 5 Pro";
 	font-style: normal;
@@ -836,14 +844,20 @@ body[theme=dark] #change_style:after {
     line-height: 1;
 	color: var(--text-black-color);
     transition: 0.2s;
-	position: relative;
-    display: inline-block;
     font-size: 12px;
+	margin-left: 5px;
 }
-.menu_glav:hover .menu_glav_icon {
+.menu_glav:hover .menu_glav_icon:after {
 	transform: rotate(-180deg);
 }
 .menu_glav_two_icon {
+	position: relative;
+    display: inline-block;
+}
+.menu_glav_two_icon:after {
+	position: relative;
+	display: block;
+	content: "";
 	font-weight: 900;
 	font-family: "Font Awesome 5 Pro";
 	font-style: normal;
@@ -852,11 +866,10 @@ body[theme=dark] #change_style:after {
     line-height: 1;
 	color: var(--text-black-color);
     transition: 0.2s;
-	position: relative;
-    display: inline-block;
     font-size: 10px;
+	margin-left: 5px;
 }
-.menu_glav_two:hover .menu_glav_two_icon {
+.menu_glav_two:hover .menu_glav_two_icon:after {
 	transform: rotate(180deg);
 }
 .header {
@@ -889,6 +902,7 @@ body[theme=dark] #change_style:after {
     transition: left .5s ease-in-out;
 }
 .content {
+	position: relative;
     color: var(--text-white-color);
 	text-align: left;
 	text-indent: 10%;
@@ -902,14 +916,27 @@ body[theme=dark] #change_style:after {
 	height: 500px;
 	width: 1200px;
 }
+.content.shadow {
+	position: absolute;
+	z-index: 1;
+}
 .dop {
+	position: relative;
+    z-index: 2;
+}
+.dop.name {
+	font-weight: 500;
+	font-size: 20px;
+    color: var(--text-white-color);
+}
+.dop.tag {
+	position: relative;
 	font-weight: 400;
 	font-size: 14px;
     color: var(--text-grey-color);
 	font-style: italic;
 }
 #itemOne {
-	background: url("img/1.png");
 	background-size: contain;
 }
 #itemTwo {
@@ -1148,6 +1175,7 @@ body[bars=none] .main_right {
 	font-size: 11px;
 	margin-bottom: 10px;
 	cursor: pointer;
+	text-transform: uppercase;
 }
 .main_right_menu_head_not {
 	font-weight: 600;
@@ -1859,6 +1887,16 @@ body[bars=none] .page_comments {
 	z-index: 9;
 	cursor: pointer;
 }
+.body[overflow=off] .preloader {
+	display: flex;
+	z-index: 100;
+	position: fixed;
+	justify-content: center;
+	background: var(--bg-grey-color);
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
 .mobile {
 	display: none;
 	z-index: 100;
@@ -1882,10 +1920,20 @@ body[bars=none] .page_comments {
 
 
 
-.nav {
-	display: none;
+.nav::-webkit-scrollbar {
+	width: 12px;
+}
+.nav::-webkit-scrollbar-thumb:vertical {
+    background-color: #56575C;
+	border-radius: 8px;
+	border: 3px #fff solid;
+}
+.nav::-webkit-scrollbar-track {
+    background-color: #fff;
+	border-radius: 8px;
 }
 .nav {
+	display: none;
     width: 340px;
     height: 100%;
     position: fixed;
@@ -1960,7 +2008,7 @@ body[bars=none] .page_comments {
 }
 [id='nav-toggle']:checked ~ .nav > ul > li {
 }
-.nav > ul > li > a {
+.nav > ul > li > span {
     display: inline-block;
     position: relative;
     padding: 0;
@@ -1968,12 +2016,13 @@ body[bars=none] .page_comments {
     color: var(--text-black-color);
     width: 100%;
 	transition: .2s;
+	cursor: pointer;
 }
-.nav > ul > li > a:hover {
+.nav > ul > li > span:hover {
     margin-left: 10px;
 	transition: .2s;
 }
-.nav > ul > li > a:before {
+.nav > ul > li > span:before {
     content: '';
 	font-weight: 400;
 	font-family: "Font Awesome 5 Pro";
@@ -1983,7 +2032,7 @@ body[bars=none] .page_comments {
     font-size: inherit;
 	padding: 0px 20px 0px 20px;
 }
-.nav > ul > li > a:after {
+.nav > ul > li > span:after {
     content: '';
     display: block;
     position: absolute;
@@ -2264,10 +2313,6 @@ body[bars=none] .page_comments {
 	}
 }
 @media screen and (max-width: 948px) {
-	.menu_glav {
-		margin-right: 5px!important;
-		margin-left: 0px!important;
-	}
 	.main_right_menu {
 		width: 78%!important;
 	}
@@ -2291,6 +2336,11 @@ body[bars=none] .page_comments {
 	display: block;
 	overflow: hidden;
 	outline: none;
+}
+.progressive[type=slider] {
+	position: absolute;
+    top: 0;
+    left: 0;
 }
 .progressive img {
 	display: block;

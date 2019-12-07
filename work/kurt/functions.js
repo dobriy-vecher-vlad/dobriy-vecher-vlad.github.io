@@ -1,8 +1,11 @@
 $('.body').fadeOut(0);
 $(window).on('load', function() {
-	$.when( check_type(), check_bars(), check_bar(), check_style() )
+	$.when( construction_header(), construction_menu(), check_type(), check_bars(), check_bar(), check_style() )
 	.done(function(){
-		document.querySelector('body').setAttribute('overflow', 'scroll');
+		$('.preloader').fadeOut(200);
+		setTimeout(function() {
+			document.querySelector('body').setAttribute('overflow', 'scroll');
+		}, 200);
 	});
 	
 	var type_page = window.location.hash.substr(1);
@@ -164,4 +167,57 @@ function messages(title, text, type) {
 			document.querySelector('.system_messages>div').remove();
 		}, 500);
 	}, 3000);
+}
+
+function construction_header() {
+	var header = sys_header;
+	var html = '';
+	for(var x = 0; x < header.length; x++) {
+		html += '<div class="menu_glav text"><span onclick="window.open(`#'+header[x].href+'`, `_top`); location.reload();">'+header[x].title+'</span>';
+		if (header[x].more == true) {
+			html += '<div class="menu_glav_icon"></div><div class="menu_glav_child_one">';
+			for(var z = 0; z < header[x].titles.length; z++) {
+				html += '<div class="menu_glav_child_one_href';
+				if (header[x].titles[z].more == true) {
+					html += ' menu_glav_two';
+				}
+				html += '" onclick="window.open(`#'+header[x].titles[z].href+'`, `_top`); location.reload();"><div class="menu_glav_child_one_href_edit">'+header[x].titles[z].title+'';
+				if (header[x].titles[z].more == true) {
+					html += '<div class="menu_glav_two_icon"></div>';
+				}
+				html += '</div>';
+				if (header[x].titles[z].more == true) {
+					html += '<div class="menu_glav_child_two">';
+					for(var y = 0; y < header[x].titles[z].titles.length; y++) {
+						html += '<div class="menu_glav_child_two_href" onclick="window.open(`#'+header[x].titles[z].titles[y].href+'`, `_top`); location.reload();">'+header[x].titles[z].titles[y].title+'</div>';
+					}
+					html += '</div>';
+				}
+				html += '</div>';
+			}
+			html += '</div>';
+		}
+		html += '</div>';
+	}
+	document.querySelector('.header_menu').insertAdjacentHTML('afterbegin', html);
+	var html = '';
+	for(var x = 0; x < header.length; x++) {
+		html += '<li><span onclick="window.open(`#'+header[x].href+'`, `_top`); location.reload();">'+header[x].title+'</span>';
+	}
+	document.querySelector('.nav > ul').insertAdjacentHTML('afterbegin', html);
+}
+
+function construction_menu() {
+	var menu = sys_menu;
+	var html = '';
+	for(var x = 0; x < menu.length; x++) {
+		html += '<div id="n'+(x+1)+'" class="main_right_menu">';
+		html += '<div class="main_right_menu_head">'+menu[x].title+'</div>';
+		html += '<div class="main_right_menu_content">';
+			for(var z = 0; z < menu[x].titles.length; z++) {
+				html += '<div class="main_right_menu_block" onclick="window.open(`#'+menu[x].titles[z].href+'`, `_top`); location.reload();"><div class="main_right_menu_icon"></div><a class="main_right_menu_href">'+menu[x].titles[z].title+'</a></div>';
+			}
+		html += '</div></div>';
+	}
+	document.querySelector('.main_right').insertAdjacentHTML('beforeend', html);
 }

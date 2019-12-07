@@ -7,10 +7,12 @@
 		<link rel="stylesheet" href="../../fonts/FontAwesome/css/all.css">
 		<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
 		<script type="text/javascript">
-		  VK.init({apiId: 7108293, onlyWidgets: true});
+			VK.init({apiId: 7108293, onlyWidgets: true});
 		</script>
 	</head>
-	<body class="body">
+	<body overflow="off" type="classic" bars="classic" theme="white" class="body">
+		<!-- Прелоадер -->
+		<div class="preloader"></div>
 		
 		<!-- Блокировка сайта при слишком низком разрешении -->
 		<div class="mobile"><div class="mobile_text">Слишком низкое разрешение экрана для корректной работы сайта.</div></div>
@@ -20,16 +22,10 @@
 		
 		<!-- Мобильное меню -->
 		<input type="checkbox" id="nav-toggle" hidden>
-			<nav class="nav">
+		<nav class="nav">
 			<label for="nav-toggle" class="nav-toggle" onclick></label>
 			<div class="nav-logo">КУРТ</div>
-			<ul>
-				<li><a href="#1">Сведения</a>
-				<li><a href="#2">Абитуриентам</a>
-				<li><a href="#3">ГИА</a>
-				<li><a href="#4">Студентам</a>
-				<li><a href="#5">Методическая работа</a>
-			</ul>
+			<ul></ul>
 			<div class="menu_glav" id="change_type"></div>
 			<div class="menu_glav" id="change_bars"></div>
 			<div class="menu_glav" id="change_style"></div>
@@ -42,148 +38,33 @@
 		<!-- Кнопка скролла вверх -->
 		<div class="scrollup"><center><i class="fas fa-angle-double-up"></i></center></div>
 		
-		<!-- Блоки сайта -->
+		<!-- Header -->
 		<div class="container fade_in"><div class="container_help">
 			<div class="header_logo" onclick="window.open('#', '_top'); location.reload();"></div><div class="header_menu">
-				<div class="menu_glav text">Сведения <div class="menu_glav_icon"></div>
-					<div class="menu_glav_child_one">
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Основные сведения</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Структура и органы управления образовательной организацией</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Документы <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Устав ГАПОУ СО "Каменск-Уральский радиотехнический техникум"</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Лицензия</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Свидетельство о государственной аккредитации</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Локальные нормативные документы</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">План финансово-хозяйственной деятельности на 2018г.</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Государственное задание</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Предписания</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Годовой отчет по деятельности(отчет по результатам  самообследования)</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Документы о платных образовательных услугах</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Коллективный договор на 2017 - 2020 гг.</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Лицензия на осуществление медицинской деятельности</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">План работы ГАПОУ СО "КУРТ" на 2019-2020г.</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">План работы техникума по введению требований ФГОС ТОП-50, профессиональных стандартов и стандартов Worldskills в основные образовательные программы реализуемые на основе ФГОС-3 на 2017-2018 учебный год</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Лист записи Единого государственного реестра юридических лиц от 22.09.2017</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Паспорт дорожной безопасности "ГАПОУ СО Каменск-Уральский радиотехничесий техникум"</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Программа развития ГАПОУ СО "Каменск-Уральский радиотехнический техникум" на период с 2018 по 2020г.</div>
-							</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Образование</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Образовательные стандарты</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Руководство. Педагогический состав</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Материально-техническое обеспечение и оснащенность образовательного процесса</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Стипендии и иные виды материальной поддержки</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">МФЦПК (платные образовательные услуги)</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Финансово-хозяйственная деятельность</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Независимая оценка качества условий оказания услуг» официального сайта ГАПОУ СО «Каменск-Уральский радиотехнический техникум»</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Отчеты <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Акт готовности образовательной организации в Свердловской области к 2018/2019 учебному году</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Результаты приема 2018/2019 год</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Акт готовности образовательной организации в Свердловской области  к 2019/2020 учебному году</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Отчет об исполнении учреждением его ПФХД</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Отчет по численности обучающихся</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Отчет по результам самообследования</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Исполнения предписаний</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Отчеты о деятельности МФЦПК</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Акт готовности к отопительному периоду 2019-2020г.</div>
-							</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Вакантные места приема/перевода</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Справочник контактов техникума</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Наблюдательный совет</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">История</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Музей техникума <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Награды</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Наши выпускники</div>
-							</div></div>
-					</div>
-				</div>
-				<div class="menu_glav text">Абитуриентам <div class="menu_glav_icon"></div>
-					<div class="menu_glav_child_one">
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">График работы приёмной комиссии</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Правила приёма</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Перечень специальностей(профессий), требования к уровню образования. Вакантные места.</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Перечень вступительных испытаний</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Информация о приёме документов в электронном виде</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Перечень документов для поступающих</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Информация о необходимости прохождения медицинского осмотра</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Приказы о зачислении  абитуриентов в учебные группы на 2018-2019 уч.год</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Видео о техникуме</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Приказы о зачислении  абитуриентов в учебные группы на 2019-2020 уч.год</div></div>
-					</div>
-				</div>
-				<div class="menu_glav text">ГИА </div>
-				<div class="menu_glav text">Студентам <div class="menu_glav_icon"></div>
-					<div class="menu_glav_child_one">
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Очное отделение <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">СПО</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Обучение лиц с ОВЗ</div>
-							</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Заочное отделение <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Договор</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">В помощь студенту</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Промежуточная аттестация</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Курсовое проектирование</div>
-							</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Библиотека <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">О библиотеке</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Периодика</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Новые поступления</div>
-							</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Трудоустройство <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Как правильно писать резюме</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Как успешно пройти собеседование</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Правовые аспекты трудоустройства</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Как найти работу?</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Предложения работы</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Ищите работу на портале «Работа в России»!</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Профстажировка</div>
-							</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Годовой календарный учебный график</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Расписание звонков</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">ЕГЭ</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Дополнительное образование</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Социально-психологическая служба</div></div>
-					</div>
-				</div>
-				<div class="menu_glav text">Методическая работа <div class="menu_glav_icon"></div>
-					<div class="menu_glav_child_one">
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Планирование</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Открытые мероприятия</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Методическая продукция</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Обмен опытом</div></div>
-						<div class="menu_glav_child_one_href" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Цикловые комиссии</div></div>
-						<div class="menu_glav_child_one_href menu_glav_two" onclick="window.open('https://...', '_blank')"><div class="menu_glav_child_one_href_edit">Внедрение требований ФГОС ТОП-50 <div class="menu_glav_two_icon"></div></div>
-							<div class="menu_glav_child_two">
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Результаты ТОП-50</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Документы ТОП-50</div>
-								<div class="menu_glav_child_two_href" onclick="window.open('https://...', '_blank')">Новости ТОП-50</div>
-							</div></div>
-					</div>
-				</div>
 				<div class="menu_glav" id="change_type"></div>
 				<div class="menu_glav" id="change_bars"></div>
 				<div class="menu_glav" id="change_style"></div>
 			</div>
-		</div></div><div class="header fade_in"><div class="header_help"><center>
+		</div></div>
+		
+		<!-- Slider -->
+		<div class="header fade_in"><div class="header_help">
 			<div class="slide_back slide" onclick="goToBackItem();"></div>
 			<div class="slides">
+				<div class="content shadow"></div>
 				<div id="wrapper">
-					<div id="itemOne" class="content" style="margin-left: 0px;">Каменск-Уральский<span class="dop"> / Россия</span></div>
-					<div id="itemTwo" class="content">Каменск-Уральский<span class="dop"> / Россия</span></div>
-					<div id="itemThree" class="content">Каменск-Уральский<span class="dop"> / Россия</span></div>
-					<div id="itemFour" class="content" style="margin-right: 0px;">Каменск-Уральский<span class="dop"> / Россия</span></div>
+					<div id="itemOne" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/1.png" class="progressive replace" type="slider"><img src="./img/1.png" class="preview" alt="image" /></a></div>
+					<div id="itemTwo" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/2.png" class="progressive replace" type="slider"><img src="./img/2.png" class="preview" alt="image" /></a></div>
+					<div id="itemThree" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/3.png" class="progressive replace" type="slider"><img src="./img/3.png" class="preview" alt="image" /></a></div>
+					<div id="itemFour" class="content" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/4.png" class="progressive replace" type="slider"><img src="./img/4.png" class="preview" alt="image" /></a></div>
 				</div><div id="navLinks" style="visibility: hidden;">
 					<ul><li class="itemLinks" data-pos="0px"></li><li class="itemLinks" data-pos="-1200px"></li><li class="itemLinks" data-pos="-2400px"></li><li class="itemLinks" data-pos="-3600px"></li></ul>
 				</div>
 			</div>
 			<div class="slide_next slide" onclick="goToNextItem();"></div>
-		</center></div></div>
+		</div></div>
+		
+		<!-- Main -->
 		<div class="main fade_in"><div class="main_help">
 			<div class="main_left" page="1" count="0"></div>
 			<div class="main_right">
@@ -192,10 +73,10 @@
 				</div>
 				<div class="main_right_menu">
 					<div class="main_right_menu_head_not">СДЕЛАТЬ</div>
-					<div class="main_right_menu_href"><b>1. </b>Переделать шапку на массив объектов, значительно сократит код.</div>
-					<div class="main_right_menu_href"><b>2. </b>Переделать правое меню на массив объектов, значительно сократит код.</div>
-					<div class="main_right_menu_href"><b>3. </b>Добавить плавную подгрузку изображений на слайдер и «pages.js».</div>
-					<div class="main_right_menu_href"><b>4. </b>Заменить картинку «нет изображения» на новую.</div>
+					<div class="main_right_menu_href"><b>1. </b>Переделать шапку на массив объектов, значительно сократит код.<br><b>- <i class="fas fa-check"></i></b></div>
+					<div class="main_right_menu_href"><b>2. </b>Переделать правое меню на массив объектов, значительно сократит код.<br><b>- <i class="fas fa-check"></i></b></div>
+					<div class="main_right_menu_href"><b>3. </b>Добавить плавную подгрузку изображений на слайдер и «pages.js».<br><b>- <i class="fas fa-check"></i></b></div>
+					<div class="main_right_menu_href"><b>4. </b>Заменить картинку «нет изображения» на новую.<br><b>- <i class="fas fa-check"></i></b></div>
 				</div>
 				<div class="main_right_menu">
 					<div class="main_right_menu_head_not">ЗАГРУЖЕННЫЕ ПЛАГИНЫ</div>
@@ -242,63 +123,10 @@
 					<div class="main_right_menu_block time" id="new_year">365:24:60:60</div>
 					</div>
 				</div>
-				<div id="n1" class="main_right_menu">
-					<div class="main_right_menu_head">РАСПИСАНИЕ</div>
-					<div class="main_right_menu_content">
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Расписание СПО</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Расписание (обучение лиц с ОВЗ)</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Расписание заочное отделение</a></div>
-					</div>
-				</div>
-				<div id="n2" class="main_right_menu">
-					<div class="main_right_menu_head">РАЗНОЕ</div>
-					<div class="main_right_menu_content">
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Главная</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Новости</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Уральская инженерная школа</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Аттестация педагогов</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Телефоны доверия и психологической помощи</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Антитеррористическая безопасность</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Противодействие коррупции</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Охрана труда</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Комплексная безопасность</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Уголок здоровья</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Вопросы и обращения к руководству и коллективу</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Газета техникума</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Наша группа Вконтакте</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Фотогалерея</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Пресса и ролики о техникуме</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Независимая оценка качества. С 23 апреля по 30 мая 2018 года проводится анонимное анкетирование обучающихся и родителей обучающихся(законных представителей обучающихся). Пройти анкетирование на сайте www.opros66.ru</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Архив</a></div>
-					</div>
-				</div>
-				<div id="n3" class="main_right_menu">
-					<div class="main_right_menu_head">ПОЛЕЗНЫЕ ССЫЛКИ</div>
-					<div class="main_right_menu_content">
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Официальный сайт ГМУ</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Поставить оценку и оставить отзыв о качестве предоставляемых услуг</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Результаты независимой оценки качества оказания услуг образовательной организации</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Ссылки на информационно-образовательные ресурсы</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Сайт Уполномоченного по правам ребенка</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Департамент по труду и занятости населения Свердловской области. Раздел "Профориентация молодежи"</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Общероссийская база вакансий "Работа в России"</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Обратиться на «горячую линию» ФАДН можно, отправив письмо на электронный адрес: monitoring@fadn.gov.ru</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Новостной образовательный реестр</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Интернет-площадка «Органы власти субъектов Российской Федерации – навстречу детям»</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Органы власти субъектов Российской Федерации – навстречу людям</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Образовательный портал "Дорога без опасности"</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Сайт для населения "Защита прав потребителей Свердловской области"</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Официальная группа ЕГЭ Вконтакте</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Бесплатная юридическая помощь</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">ГКУ "Государственное юридическое бюро по Свердловской области"</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Пункты оказания бесплатной юридической помощи юридическими клиниками</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Памятка для граждан по вопросам получения бесплатной юридической помощи на территории Свердловской области</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Сайт Департамента по обеспечению деятельности мировых судей Свердловской области</a></div>
-					<div class="main_right_menu_block"><div class="main_right_menu_icon"></div><a class="main_right_menu_href" href="">Электронная версия справочника «Аккредитованные высшие учебные заведения России»</a></div>
-					</div>
-				</div>
 			</div>
 		</div></div>
+		
+		<!-- Footer -->
 		<div class="footer fade_in"><div class="footer_help">
 			<div class="footer_text">
 				<div class="footer_text_block" style="margin-right: 40px;"><a class="footer_href">Навигация</a><br><br>
@@ -331,6 +159,8 @@
 				</div>
 			</div>
 		</div></div>
+		
+		<!-- Footer_end -->
 		<div class="footer_end fade_in"><div class="footer_end_help">
 			<div class="footer_end_text">
 				<span><i class="fas fa-university"></i> ГАПОУ СО Каменск-Уральский Радиотехнический Техникум</span>
@@ -338,8 +168,10 @@
 			</div>
 		</div></div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<script src="slides.js"></script>
+		<script src="./base_pages/sys_header.js"></script>
+		<script src="./base_pages/sys_menu.js"></script>
 		<script src="functions.js"></script>
+		<script src="slides.js"></script>
 		<script src="news.js"></script>
 		<script src="pages.js"></script>
 		<script src="new_year.js"></script>

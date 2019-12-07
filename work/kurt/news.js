@@ -80,7 +80,7 @@ function get_posts(posts_id, posts_offset, time_delay) {
 								var post_photo_size = photo_height == photo_width ? "auto 100%" : photo_height > photo_width ? "auto 100%" : "100% auto";
 							} catch {
 								var post_photo = "img/not_img.png";
-								var post_photo_tiny = "img/not_img.png";
+								var post_photo_tiny = "img/not_img_tiny.png";
 								var post_photo_size = "not";
 							}
 							var post_id = data.response.items[x].id;
