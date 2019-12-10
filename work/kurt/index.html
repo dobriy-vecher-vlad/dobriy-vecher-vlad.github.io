@@ -49,19 +49,14 @@
 		
 		<!-- Slider -->
 		<div class="header fade_in"><div class="header_help">
-			<div class="slide_back slide" onclick="goToBackItem();"></div>
+			<div id="slide_back" class="slide_back slide"></div>
 			<div class="slides">
+				<div id="slide_text" class="text"></div>
+				<div id="slide_timer" class="content timer"></div>
 				<div class="content shadow"></div>
-				<div id="wrapper">
-					<div id="itemOne" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/1.png" class="progressive replace" type="slider"><img src="./img/1.png" class="preview" alt="image" /></a></div>
-					<div id="itemTwo" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/2.png" class="progressive replace" type="slider"><img src="./img/2.png" class="preview" alt="image" /></a></div>
-					<div id="itemThree" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/3.png" class="progressive replace" type="slider"><img src="./img/3.png" class="preview" alt="image" /></a></div>
-					<div id="itemFour" class="content" class="content" style="margin-left: 0px;"><span class="dop name">Каменск-Уральский</span><span class="dop tag"> / Россия</span><a href="./img/4.png" class="progressive replace" type="slider"><img src="./img/4.png" class="preview" alt="image" /></a></div>
-				</div><div id="navLinks" style="visibility: hidden;">
-					<ul><li class="itemLinks" data-pos="0px"></li><li class="itemLinks" data-pos="-1200px"></li><li class="itemLinks" data-pos="-2400px"></li><li class="itemLinks" data-pos="-3600px"></li></ul>
-				</div>
+				<div id="slide_selector" class="content"></div>
 			</div>
-			<div class="slide_next slide" onclick="goToNextItem();"></div>
+			<div id="slide_next" class="slide_next slide"></div>
 		</div></div>
 		
 		<!-- Main -->
@@ -83,13 +78,14 @@
 					<div class="main_right_menu_href"><b>functions.js</b> - основные команды управления сайтом.</div>
 					<div class="main_right_menu_href"><b>news.js</b> - генератор сетки новостей.</div>
 					<div class="main_right_menu_href"><b>pages.js</b> - генератор отдельных страниц.</div>
-					<div class="main_right_menu_href"><b>slides.js</b> - управление слайдером.</div>
+					<div class="main_right_menu_href hide"><b>slides.js</b> - управление слайдером.</div>
+					<div class="main_right_menu_href"><b>slide.js</b> - новое управление слайдером.</div>
 					<div class="main_right_menu_href"><b>new_year.js</b> - управление таймером.</div>
 					<div class="main_right_menu_href"><b>progressive-image.js</b> - управление подгрузкой изображений.</div>
 				</div>
 				<div class="main_right_menu">
 					<div class="main_right_menu_head_not">ДАННЫЕ ПЛАТФОРМЫ</div>
-					<div class="main_right_menu_href" id="getip">Не получены</div>
+					<div class="main_right_menu_href" id="getip">Не получены.</div>
 				</div>
 				<div id="n0" class="main_right_menu">
 					<div class="main_right_menu_head">ССЫЛКИ ДЛЯ ПРОВЕРКИ РАБОТЫ САЙТА</div>
@@ -171,7 +167,7 @@
 		<script src="./base_pages/sys_header.js"></script>
 		<script src="./base_pages/sys_menu.js"></script>
 		<script src="functions.js"></script>
-		<script src="slides.js"></script>
+		<script src="slide.js"></script>
 		<script src="news.js"></script>
 		<script src="pages.js"></script>
 		<script src="new_year.js"></script>
