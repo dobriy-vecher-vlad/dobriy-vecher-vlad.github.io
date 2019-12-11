@@ -350,7 +350,7 @@ var sys_header = [
 		]
 	},
 	{
-		'title': 'Методическая работа',
+		'title': 'Метод. работа',
 		'href': 'test13',
 		'more': true,
 		'titles': [
