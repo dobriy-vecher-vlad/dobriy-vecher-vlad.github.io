@@ -7,7 +7,10 @@ var data = {
 				<li><a onclick="window.open('#', '_top'); location.reload();">Главная</a></li>
 				<li class="active">Страница с описанием тегов</li>
 			</ol>
-			<blockquote><img type="img" src="https://debat.me/upload/media/posts/2019-09/10/fbe8cc119b0ac0d8951b60f8ebc4e51a_1568113766-b.jpg"/><center><i>У лукоморья дуб зелёный;<br>Златая цепь на дубе том:<br>И днём и ночью кот учёный<br>Всё ходит по цепи кругом;<br><br><b>Александр Сергеевич Пушкин</b></i></center></blockquote>
+			<img type="img" src="https://sun9-16.userapi.com/c854216/v854216710/9509b/pa4oN32z8hI.jpg"/>
+			<img type="img" src="https://sun9-17.userapi.com/c858432/v858432685/d7191/FfcVzc0qZ7M.jpg"/>
+			<img type="img" src="https://sun9-9.userapi.com/c824201/v824201457/d5f4c/V2LKG7f7u_E.jpg"/>
+			<blockquote><img type="img" src="https://sun9-58.userapi.com/c858216/v858216215/73f08/XZfecV4g67s.jpg"/><center><i>У лукоморья дуб зелёный;<br>Златая цепь на дубе том:<br>И днём и ночью кот учёный<br>Всё ходит по цепи кругом;<br><br><b>Александр Сергеевич Пушкин</b></i></center></blockquote>
 			Данная страница показывает как работают функции файла <b>pages.js</b>, имеется поддержка направлений шрифтов, таблиц, списков, выносок, картинок, картинок внутри выносок, заголовков, подзаголовков и многое другое!
 			<ul>Классификация поддерживаемых тегов:
 				<li>Тег Div с классом wk_header — заголовок страницы.</li>
@@ -44,7 +47,7 @@ var data = {
 				<name>Заголовок постера</name>
 				<text>Описание страницы куда ведёт постер</text>
 				<a href="#">Читать</a>
-				<img src="https://pp.userapi.com/c837724/v837724589/2286e/HLFS7CY8yL4.jpg">
+				<img src="https://sun9-37.userapi.com/c845016/v845016228/eca71/bDovfgRSqfA.jpg">
 			</poster>
 			<panel>
 				<name>Первый пункт панели</name>

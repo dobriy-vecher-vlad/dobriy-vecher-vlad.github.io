@@ -134,24 +134,25 @@ function check_bars() {
 }
 
 function change_bar(id, bar1, bar2) {
-	document.querySelector('#n'+id+' > .main_right_menu_head').removeAttribute('onclick');
+	document.querySelector('#'+id+'[type=menu]').removeAttribute('onclick');
 	setTimeout(function() {
-		document.querySelector('#n'+id).setAttribute('bar', bar1);
+		document.querySelector('#'+id+'[type=menu]').parentNode.setAttribute('bar', bar1);
 		localStorage.setItem('bar1_'+id, bar1);
 		localStorage.setItem('bar2_'+id, bar2);
 	}, 200);
 	setTimeout(function() {
-		document.querySelector('#n'+id+' > .main_right_menu_head').setAttribute('onclick', 'change_bar(`'+id+'`, `'+bar2+'`, `'+bar1+'`);');
+		document.querySelector('#'+id+'[type=menu]').setAttribute('onclick', 'change_bar(`'+id+'`, `'+bar2+'`, `'+bar1+'`);');
 	}, 400);
 }
 function check_bar() {
 	for(var i = 0; i < document.querySelectorAll('.main_right_menu_head').length; i++) {
-		if ( localStorage.getItem('bar1_'+i) != null ) {
-			var bars1 = localStorage.getItem('bar1_'+i);
-			var bars2 = localStorage.getItem('bar2_'+i);
-			change_bar(i, bars1, bars2);
+		var name = document.querySelectorAll('.main_right_menu_head')[i].getAttribute('id');
+		if ( localStorage.getItem('bar1_'+name) != null ) {
+			var bars1 = localStorage.getItem('bar1_'+name);
+			var bars2 = localStorage.getItem('bar2_'+name);
+			change_bar(name, bars1, bars2);
 		} else {
-			change_bar(i, "open", "close");
+			change_bar(name, 'open', 'close');
 		}
 	}
 }
@@ -211,13 +212,19 @@ function construction_menu() {
 	var menu = sys_menu;
 	var html = '';
 	for(var x = 0; x < menu.length; x++) {
-		html += '<div id="n'+(x+1)+'" class="main_right_menu">';
-		html += '<div class="main_right_menu_head">'+menu[x].title+'</div>';
-		html += '<div class="main_right_menu_content">';
-			for(var z = 0; z < menu[x].titles.length; z++) {
-				html += '<div class="main_right_menu_block" onclick="window.open(`#'+menu[x].titles[z].href+'`, `_top`); location.reload();"><div class="main_right_menu_icon"></div><a class="main_right_menu_href">'+menu[x].titles[z].title+'</a></div>';
-			}
-		html += '</div></div>';
+		if ( menu[x].type != 'custom' ) {
+			var type = menu[x].type == 'not_hidden' ? 'main_right_menu_head_not' : menu[x].type == 'button' ? 'main_right_menu_head_btn' : 'main_right_menu_head';
+			var onclick = type == 'main_right_menu_head_btn' ? menu[x].onclick : '';
+			html += '<div class="main_right_menu">';
+			html += '<div type="menu" id="'+menu[x].name+'" class="'+type+'" onclick="'+onclick+'">'+menu[x].title+'</div>';
+			html += '<div class="main_right_menu_content">';
+				for(var z = 0; z < menu[x].titles.length; z++) {
+					html += '<div class="main_right_menu_block" onclick="window.open(`#'+menu[x].titles[z].href+'`, `_top`); location.reload();"><div class="main_right_menu_icon"></div><a class="main_right_menu_href">'+menu[x].titles[z].title+'</a></div>';
+				}
+			html += '</div></div>';
+		} else {
+			html += menu[x].html;
+		}
 	}
 	document.querySelector('.main_right').insertAdjacentHTML('beforeend', html);
 }

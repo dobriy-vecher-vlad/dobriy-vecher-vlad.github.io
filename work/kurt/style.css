@@ -1208,12 +1208,14 @@ body[bars=none] .main_right {
     color: var(--text-pink-color);
 	font-size: 11px;
 	margin-bottom: 10px;
+	text-transform: uppercase;
 }
 .main_right_menu_head_btn {
 	font-weight: 600;
     color: var(--text-pink-color);
 	font-size: 11px;
 	cursor: pointer;
+	text-transform: uppercase;
 }
 .main_right_menu_content {
 	line-height: 25px;
@@ -2297,14 +2299,6 @@ body[bars=none] .page_comments {
 		margin-right: 8px;
 		margin-left: 8px;
 	}
-	.footer_help {
-		width: 90%!important;
-	}
-	.footer_text_block {
-		width: 30%!important;
-		margin: 0px 1% 0px 1%!important;
-		font-size: 40px;
-	}
 	body[type=classic] .main_left_content:first-of-type .main_left_content_date, .main_left_content:nth-of-type(5n+2) .main_left_content_date, .main_left_content:nth-of-type(5n+3) .main_left_content_date {
 		margin: 15px;
 		position: relative;
@@ -2330,29 +2324,6 @@ body[bars=none] .page_comments {
 		-webkit-line-clamp: 3;
 		margin: 15px!important;
 	}
-	.footer_end_logorf {
-		width: 160px;
-		height: 184px;
-	}
-	.footer_text_block_second {
-		font-size: 0.4em!important;
-	}
-	.footer_text_block_href:after {
-		content: '';
-		display: block;
-		left: 0;
-		bottom: 0;
-		height: 1px;
-		width: 100%;
-		background: var(--text-grey-color);
-		opacity: 0.5;
-	}
-	.footer_text_block_href {
-		line-height: 35px;
-	}
-	.footer_text_block_add {
-		font-size: 1em!important;
-	}
 	.footer_end_help {
 		width: 90%!important;
 	}
@@ -2365,11 +2336,9 @@ body[bars=none] .page_comments {
 	.scrollup {
 		display: none!important;
 	}
-	
-	.footer_href {
-		white-space: nowrap;
+	.footer {
+		display: none;
 	}
-	
 	.message {
 		width: calc(100% - 40px);
 		font-size: 30px;
@@ -2399,6 +2368,7 @@ body[bars=none] .page_comments {
 	.main_left_content_page poster > img {
 		height: calc(450px + 40px);
 	}
+	
 }
 @media screen and (max-width: 948px) {
 	.main_right_menu {

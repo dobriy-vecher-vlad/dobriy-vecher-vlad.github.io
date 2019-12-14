@@ -1,6 +1,78 @@
 var sys_menu = [
 	{
+		'title': 'Сбросить сохранённые данные сайта',
+		'type': 'button',
+		'onclick': `localStorage.clear(); messages('LocalStorage', '<br>Local Storage was cleaned. Refresh your page.', 'red');`,
+		'name': 'test2',
+		'titles': []
+	},
+	{
+		'title': 'ССЫЛКИ ДЛЯ ПРОВЕРКИ РАБОТЫ САЙТА',
+		'type': 'not_hidden',
+		'name': 'test1',
+		'titles': [
+			{
+				'title': '«Министерство РФ»',
+				'href': ''
+			}, {
+				'title': '«WARLORD»',
+				'href': 'test4'
+			}, {
+				'title': '«The Brown Room»',
+				'href': 'test5'
+			}, {
+				'title': '«TheQuestion»',
+				'href': 'test7'
+			}, {
+				'title': '«LIVE»',
+				'href': 'test8'
+			}, {
+				'title': 'post < 26',
+				'href': 'test16'
+			}, {
+				'title': '',
+				'href': ''
+			}, {
+				'title': '«anoitx»',
+				'href': 'test1'
+			}, {
+				'title': '«moya devochka hentai»',
+				'href': 'test6'
+			}, {
+				'title': '«Эстетика Прекрасного»',
+				'href': 'test9'
+			}, {
+				'title': '«В моих сохрах одни тян»',
+				'href': 'test10'
+			}, {
+				'title': '',
+				'href': ''
+			}, {
+				'title': 'Страница с возможностями 1',
+				'href': 'test11'
+			}, {
+				'title': 'Страница с возможностями 2',
+				'href': 'test12'
+			}, {
+				'title': 'Страница с меню 1',
+				'href': 'test13'
+			}, {
+				'title': 'Страница с меню 1.1',
+				'href': 'test14'
+			}, {
+				'title': 'Страница с описанием тегов',
+				'href': 'test15'
+			}
+		]
+	},
+	{
+		'type': 'custom',
+		'html': `<div class="main_right_menu new_year"><div class="main_right_menu_head_not">НОВЫЙ ГОД ЧЕРЕЗ:</div><div class="main_right_menu_content"><div class="main_right_menu_block time" id="new_year">Загрузка...</div></div></div>`,
+	},
+	{
 		'title': 'Расписание',
+		'type': 'classic',
+		'name': 'schedule',
 		'titles': [
 			{
 				'title': 'Расписание СПО',
@@ -16,6 +88,8 @@ var sys_menu = [
 	},
 	{
 		'title': 'Разное',
+		'type': 'classic',
+		'name': 'other',
 		'titles': [
 			{
 				'title': 'Главная',
@@ -73,6 +147,8 @@ var sys_menu = [
 	},
 	{
 		'title': 'Полезные ссылки',
+		'type': 'classic',
+		'name': 'hrefs',
 		'titles': [
 			{
 				'title': 'Официальный сайт ГМУ',
