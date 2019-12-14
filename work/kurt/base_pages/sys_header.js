@@ -1,5 +1,11 @@
 var sys_header = [
 	{
+		'title': 'Ver. 14.12.2019',
+		'href': 'test13',
+		'more': false,
+		'titles': []
+	},
+	{
 		'title': 'Сведения',
 		'href': 'test13',
 		'more': true,
