@@ -1,6 +1,6 @@
 var sys_header = [
 	{
-		'title': 'Ver. 15.12.2019',
+		'title': '<i class="fas fa-bolt"></i> 17.12',
 		'href': '',
 		'more': false,
 		'titles': []

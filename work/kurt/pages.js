@@ -78,8 +78,14 @@ function get_page_new(group_id, page_id, time_delay) {
 					if (data.response.comments == true) {
 						var page_id_full = page_id * 1337;
 						var page_date_created = new Date(data.response.created * 1000 + time_delay).toISOString().substr(8, 2) + '.' + new Date(data.response.created * 1000 + time_delay).toISOString().substr(5, 2) + '.' + new Date(data.response.created * 1000 + time_delay).toISOString().substr(0, 4) + ' в ' + new Date(data.response.created * 1000 + time_delay).toISOString().substr(11, 5);
-						var page_body = '<div class="page_date" title="Опубликовано ' + page_date_created + ', уникальный номер записи - ' + page_id_full + '"><i class="fas fa-cloud-upload-alt"></i> ' + page_date_created + '</div>';
-						document.querySelector('.main_left_content_page').insertAdjacentHTML('beforeend', page_body);
+						var page_body = '<ol class="page_date"><li><i class="far fa-clock"></i><span id="pdate">'+page_date_created+'</span></li><li><i class="far fa-ticket-alt"></i><span id="pnumber">'+page_id_full+'</span></li></ol>';
+						try {
+							document.querySelector('.main_left_content_page > .wk_header').insertAdjacentHTML('afterend', page_body);
+						} catch(err) {
+							try {
+								document.querySelector('.main_left_content_page > .wk_breadcrumb').insertAdjacentHTML('afterend', page_body);
+							} catch(err) {}
+						}
 						var page_comments = '<div id="' + page_id_full + '" class="page_comments"><div id="vk_comments"></div></div>';
 						document.querySelector('.main_left').insertAdjacentHTML('beforeend', page_comments);
 						VK.Widgets.Comments("vk_comments", {

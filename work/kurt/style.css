@@ -105,7 +105,7 @@ body[theme=dark] {
 }
 .main_left_content_page {
 	font-weight: 400;
-    font-size: 18px;
+    font-size: 17px;
 	line-height: 28px;
     color: var(--text-black-color);
 	border-radius: var(--border-radius);
@@ -122,29 +122,31 @@ body[theme=dark] {
     z-index: 1;
 	text-align: justify;
 	user-select: text;
-	letter-spacing: 1px;
 }
 
 .page_date {
-    padding: 8px 15px;
-    margin-top: 40px;
-    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    padding: 0px;
     list-style: none;
-    background-color: var(--bg-grey-color);
-    border-radius: var(--border-radius);
+    font-size: 15px;
     color: var(--text-grey-color);
-    font-size: 16px;
-	text-align: right;
-	font-weight: 700;
+}
+.page_date > li {
+	display: inline-block;
+	margin-right: 15px;
+}
+.page_date > li > span {
+	margin-left: 5px;
 }
 .wk_breadcrumb {
     padding: 8px 15px;
     margin-top: 0px;
-    margin-bottom: 40px;
+    margin-bottom: 42px;
     list-style: none;
     background-color: var(--bg-grey-color);
     border-radius: var(--border-radius);
-    font-size: 16px;
+    font-size: 15px;
 }
 .wk_breadcrumb > li {
 	display: inline-block;
@@ -166,13 +168,15 @@ body[theme=dark] {
     color: #000;
     cursor: default;
     text-decoration: none;
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
 	height: auto;
     width: calc(100% + 120px);
     margin-left: -60px;
 }
 blockquote > .wk_photo_edit {
+    margin: 10px 0px 10px 0px;
     border-radius: var(--border-radius);
+    width: calc(100% - 35px)
 }
 .wk_ext_link_edit[type=nav] {
 	font-size: 1.3em;
@@ -207,17 +211,17 @@ blockquote > .wk_photo_edit {
 	text-decoration: underline;
 }
 .wk_header {
-	font-weight: 600;
-    font-size: 32px;
+	font-weight: 700;
+    font-size: 38px;
     line-height: 45px;
     color: var(--text-black-color);
-	margin: 40px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
 }
 .wk_sub_header {
-	font-weight: 500;
-    font-size: 18px;
+	font-weight: 700;
+    font-size: 22px;
     color: var(--text-black-color);
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
 }
 .wk_table {
 	font-weight: 400;
@@ -227,7 +231,7 @@ blockquote > .wk_photo_edit {
     border-top: 0;
     padding: 0px;
     width: 100%;
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
 }
 .wk_table td {
     border-top: 1px solid var(--text-grey-color);
@@ -242,18 +246,19 @@ blockquote > .wk_photo_edit {
 }
 .main_left_content_page blockquote {
 	font-weight: 300;
-	margin: 20px 0px 20px 0px;
-    padding: 8px 15px;
+	margin: 42px 0px 8px 0px;
+    border-left: 3px solid #000;
+	padding: 16px 0 16px 30px;
     list-style: none;
     background-color: var(--bg-grey-color);
-    border-radius: var(--border-radius);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 .main_left_content_page poster {
 	display: block;
     position: relative;
 	width: 100%;
 	height: 350px;
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
     border-radius: var(--border-radius);
 	overflow: hidden;
 }
@@ -344,7 +349,7 @@ blockquote > .wk_photo_edit {
 .main_left_content_page panel {
 	display: block;
 	width: 100%;
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
     border: 1px solid var(--bg-grey-color);
     border-radius: var(--border-radius);
 	overflow: hidden;
@@ -373,7 +378,7 @@ blockquote > .wk_photo_edit {
 	display: block;
 	width: 100%;
 	min-height: 15px;
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
 	background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
 	background-size: 40px 40px;
 	color: #fff;
@@ -406,21 +411,23 @@ blockquote > .wk_photo_edit {
 .main_left_content_page > ul, .main_left_content_page > ul > ul, .main_left_content_page > ul > ul > ul {
 	font-weight: 500;
 	font-size: 1.1em;
-	margin: 20px 0px 20px 0px;
+	margin: 42px 0px 8px 0px;
     padding: 0px;
     list-style: none;
 }
 .main_left_content_page > ul > ul {
     padding-left: 40px;
+	margin: 8px 0px 8px 0px;
 }
 .main_left_content_page > ul > ul > ul {
     padding-left: 40px;
+	margin: 8px 0px 8px 0px;
 }
 .main_left_content_page > ul > li, .main_left_content_page > ul > ul > li, .main_left_content_page > ul > ul > ul > li {
 	font-weight: 400;
 	font-size: 0.9em;
     border-radius: var(--border-radius);
-	margin: 20px 0px 20px 0px;
+	margin: 8px 0px 8px 0px;
     padding: 8px 15px;
 	background: linear-gradient(90deg, var(--bg-grey-color) 0%, var(--bg-white-color) 75%);
 }
