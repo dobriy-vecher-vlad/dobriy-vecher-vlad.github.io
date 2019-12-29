@@ -1,4 +1,4 @@
-function md5(str) {
+function md5(str_old) {
 	function utf8_encode(str_data) {
 		str_data = str_data.replace(/\r\n/g,"\n");
 		var utftext = "";
@@ -97,7 +97,7 @@ function md5(str) {
 	var S21=5, S22=9 , S23=14, S24=20;
 	var S31=4, S32=11, S33=16, S34=23;
 	var S41=6, S42=10, S43=15, S44=21;
-	str = this.utf8_encode(str);
+	str = utf8_encode(str_old);
 	x = ConvertToWordArray(str);
 	a = 0x67452301; b = 0xEFCDAB89; c = 0x98BADCFE; d = 0x10325476;
 	for (k=0;k<x.length;k+=16) {
