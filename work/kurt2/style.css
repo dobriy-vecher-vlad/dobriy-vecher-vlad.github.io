@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+html {
+	--border-radius: 2px;
+	--filter-blur: 4px;
+	--box-shadow-line: 0 0 2px rgba(0,0,0,.05), 0 1px rgba(0,0,0,.02);
+	--box-shadow: 0 4px 9px 0 rgba(67, 65, 79, 0.02);
+	--message-red-bg: rgba(204, 0, 0, 0.75);
+	--message-red-br: rgba(204, 0, 0, 0.95);
+	--message-red-text: rgba(61, 0, 0, 1);
+	--message-green-bg: rgba(50, 153, 50, 0.75);
+	--message-green-br: rgba(50, 153, 50, 0.95);
+	--message-green-text: rgba(10, 30, 10, 1);
+	--message-yellow-bg: rgba(235, 247, 20, 0.75);
+	--message-yellow-br: rgba(235, 247, 20, 0.95);
+	--message-yellow-text: rgba(47, 49, 4, 1);
+}
+body[theme=white] {
+	--bg-white-color: #fff;
+	--bg-grey-color: #F8F9FB;
+	--bg-pink-color: rgba(32, 41, 122, 0.75);
+	--bg-spink-color: rgba(32, 41, 122, 0.1);
+	--footer-black-color: #181824;
+	--footer-grey-color: #1e1e2d;
+	--text-white-color: #fff;
+	--text-black-color: #15171a;
+	--text-grey-color: #999;
+	--text-pink-color: rgba(32, 41, 122, 0.7);
+	--text-blue-color: #008dcd;
+}
+a {
+    color: var(--text-blue-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+body {
+	background-color: var(--bg-grey-color);
+	padding: 0px;
+	margin: 0px;
+	font-weight: 500;
+	font-size: 16px;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont;
+	position: relative;
+	display: block;
+	user-select: none;
+}
+.header {
+	padding: 30px 0px 20px 0px;
+	margin: 0px 100px 0px 100px;
+	font-size: 2em;
+	font-weight: 600;
+	position: relative;
+	display: block;
+}
+.main {
+	margin: 20px 100px 20px 100px;
+	position: relative;
+	display: flex;
+}
+.menu {
+	padding: 20px 30px 20px 30px;
+	background-color: var(--bg-white-color);
+	border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+	width: 20%;
+	position: relative;
+	display: table;
+    vertical-align: top;
+}
+.middle {
+	width: 60%;
+	margin: 0px 20px 0px 20px;
+	position: relative;
+	display: block;
+}
+.navigation {
+	padding: 20px 30px 20px 30px;
+	background-color: var(--bg-white-color);
+	border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+	position: relative;
+	display: block;
+}
+.text {
+	padding: 20px 30px 20px 30px;
+	margin: 20px 0px 20px 0px;
+	background-color: var(--bg-white-color);
+	border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+	position: relative;
+	display: block;
+}
+.pages {
+	padding: 20px 30px 20px 30px;
+	background-color: var(--bg-white-color);
+	border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+	position: relative;
+	display: block;
+}
+.footer {
+	padding: 20px 30px 20px 30px;
+	background-color: var(--footer-grey-color);
+	color: var(--text-white-color);
+	font-weight: 600;
+	position: relative;
+	display: block;
+}
+.bottom {
+	padding: 20px 30px 20px 30px;
+	font-size: 0.75em;
+	background-color: var(--footer-black-color);
+	color: var(--text-grey-color);
+	font-weight: 600;
+	position: relative;
+	display: block;
+}
