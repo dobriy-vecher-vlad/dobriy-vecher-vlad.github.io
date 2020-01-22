@@ -66,4 +66,8 @@
 	"nickCUSTOM": {
 		"153968505": "ム TEST ム"
 	}
+	"InvasionHelper_Access": [153968505],
+	"InvasionHelper_isClose": "1",
+	"InvasionHelper_Bot": "0",
+	"InvasionHelper_Alert": "<b>Внимание!</b> Не стоит очень много обновлять информацию, возможна блокировка от игры на 5 минут за спам-запросы.",
 }
