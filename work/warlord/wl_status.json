@@ -43,6 +43,9 @@
 		"284353344": {
 			"nick": true,
 			"text": "Меригуан",
+			"fontsize": "20px",
+			"fontfamily": "Impact",
+			"fontcolor": "#fff",
 			"href": "3O0Kd"
 		}
 	},
