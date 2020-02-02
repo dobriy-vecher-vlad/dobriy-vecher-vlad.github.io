@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@font-face {
+    font-family: Proxima Nova Regular;
+    src: url(../../fonts/ProximaNova-Regular.ttf);
+}
+@font-face {
+    font-family: Proxima Nova Semibold;
+    src: url(../../fonts/ProximaNova-Semibold.ttf);
+}
+@font-face {
+    font-family: Proxima Nova Bold;
+    src: url(../../fonts/ProximaNova-Bold.ttf);
+}
 html {
-	--border-radius: 2px;
+	--border-radius: 6px;
 	--filter-blur: 4px;
-	--box-shadow-line: 0 0 2px rgba(0,0,0,.05), 0 1px rgba(0,0,0,.02);
-	--box-shadow: 0 4px 9px 0 rgba(67, 65, 79, 0.02);
+	--box-shadow: 0 4px 9px 0 rgba(67, 65, 79, 0);
 	--message-red-bg: rgba(204, 0, 0, 0.75);
 	--message-red-br: rgba(204, 0, 0, 0.95);
 	--message-red-text: rgba(61, 0, 0, 1);
@@ -20,7 +31,8 @@ body[theme=white] {
 	--bg-pink-color: rgba(32, 41, 122, 0.75);
 	--bg-spink-color: rgba(32, 41, 122, 0.1);
 	--footer-black-color: #181824;
-	--footer-grey-color: #1e1e2d;
+	--footer-grey-color: #2d2d44;
+	--footer-white-color: #1e1e2d;
 	--text-white-color: #fff;
 	--text-black-color: #15171a;
 	--text-grey-color: #999;
@@ -33,23 +45,66 @@ a {
     text-decoration: none;
 }
 body {
-	background-color: var(--bg-grey-color);
+	background-color: var(--bg-white-color);
 	padding: 0px;
 	margin: 0px;
 	font-weight: 500;
-	font-size: 16px;
-	font-family: Roboto, -apple-system, BlinkMacSystemFont;
+	font-size: 18px;
+	font-family: Proxima Nova Regular, Roboto, -apple-system, BlinkMacSystemFont;
 	position: relative;
 	display: block;
 	user-select: none;
 }
 .header {
-	padding: 30px 0px 20px 0px;
-	margin: 0px 100px 0px 100px;
+	font-family: Proxima Nova Bold;
+	padding: 80px 60px 60px 60px;
 	font-size: 2em;
 	font-weight: 600;
 	position: relative;
 	display: block;
+	background-color: var(--footer-grey-color);
+	color: var(--text-white-color);
+	text-align: center;
+}
+.header > .autor {
+	font-family: Proxima Nova Regular;
+	position: relative;
+	display: block;
+	font-size: 0.5em;
+	color: var(--text-grey-color);
+}
+.navigation {
+	overflow: hidden;
+	font-size: 1.25em;
+	font-family: Proxima Nova Semibold;
+	background-color: var(--footer-white-color);
+	color: var(--text-white-color);
+	position: relative;
+	display: block;
+	z-index: 100;
+}
+.navigation > .element {
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+	display: table-cell;
+	padding: 20px 40px 20px 40px;
+	width: 1%;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.navigation > .element:hover {
+	background-color: rgba(255,255,255,0.1);
+	box-shadow: inset 0px -5px 0px 0px rgba(255,255,255,0.2);
+	transition: 0.3s;
+}
+.sticky {
+	position: fixed;
+	top: 0;
+}
+.sticky + .main {
+	padding-top: 60px;
 }
 .main {
 	margin: 20px 100px 20px 100px;
@@ -57,58 +112,88 @@ body {
 	display: flex;
 }
 .menu {
-	padding: 20px 30px 20px 30px;
-	background-color: var(--bg-white-color);
 	border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+	font-family: Proxima Nova Regular;
+	padding: 20px 30px 20px 30px;
 	width: 20%;
 	position: relative;
-	display: table;
+	display: block;
     vertical-align: top;
+	overflow: hidden;
+}
+.menu > .name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 1.25em;
+	font-family: Proxima Nova Semibold;
+	position: relative;
+	display: block;
+}
+.details > summary::-webkit-details-marker {
+	display: none;
+}
+.details {
+	cursor: pointer;
+	line-height: 40px;
+	border-radius: var(--border-radius);
+}
+.details > .details {
+	padding-left: 20px;
+}
+.details[open] {
+	background-color: rgba(0,0,0,0.01);
+}
+.details > summary {
+	outline: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.details > span {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	display: block;
+	background-color: rgba(0,0,0,0.01);
+	padding-left: 40px;
+    margin-left: -20px;
 }
 .middle {
 	width: 60%;
+	border-radius: var(--border-radius);
+	padding: 20px 30px 20px 30px;
 	margin: 0px 20px 0px 20px;
 	position: relative;
-	display: block;
+	display: table;
+	background-color: rgba(0,0,0,0.015);
+	user-select: text;
 }
-.navigation {
-	padding: 20px 30px 20px 30px;
-	background-color: var(--bg-white-color);
-	border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+.middle > .name {
+	font-size: 1.25em;
+	font-family: Proxima Nova Semibold;
 	position: relative;
 	display: block;
 }
-.text {
-	padding: 20px 30px 20px 30px;
-	margin: 20px 0px 20px 0px;
-	background-color: var(--bg-white-color);
-	border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-	position: relative;
-	display: block;
-}
-.pages {
-	padding: 20px 30px 20px 30px;
-	background-color: var(--bg-white-color);
-	border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+.middle > .text {
+	line-height: 940px;
 	position: relative;
 	display: block;
 }
 .footer {
 	padding: 20px 30px 20px 30px;
-	background-color: var(--footer-grey-color);
+	background-color: var(--footer-white-color);
 	color: var(--text-white-color);
 	font-weight: 600;
 	position: relative;
 	display: block;
+	text-align: center;
 }
 .bottom {
 	padding: 20px 30px 20px 30px;
 	font-size: 0.75em;
-	background-color: var(--footer-black-color);
+	background-color: var(--footer-grey-color);
 	color: var(--text-grey-color);
 	font-weight: 600;
 	position: relative;
