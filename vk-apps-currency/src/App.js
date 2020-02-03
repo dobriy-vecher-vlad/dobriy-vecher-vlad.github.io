@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import connect from '@vkontakte/vk-connect';
-import View from '@vkontakte/vkui/dist/components/View/View';
+import {Root, View, Panel} from '@vkontakte/vkui';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import '@vkontakte/vkui/dist/vkui.css';
 
@@ -18,6 +18,7 @@ var checked = '';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
+	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
 	useEffect(() => {
@@ -28,8 +29,14 @@ const App = () => {
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
 		});
+		async function fetchData() {
+			const user = await connect.sendPromise('VKWebAppGetUserInfo');
+			setUser(user);
+			setPopout(null);
+		}
+		fetchData();
 	}, []);
-	
+
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);
 		checked = '';
@@ -52,9 +59,9 @@ const App = () => {
 		var nametheme = document.querySelector('body').getAttribute('scheme') == null ? "space_gray" : document.querySelector('body').getAttribute('scheme') == "space_gray" ? "bright_light" : "space_gray";
 		document.querySelector('body').setAttribute('scheme', nametheme);
 	};
-	
+	render() {
 	return (
-		<View activePanel={activePanel} popout={popout}>
+		<View id='main' activePanel={activePanel}>
 			<Home id='home' go={go} next={next} changeTheme={changeTheme} />
 			
 			<Quest1 id='quest1' go={go} next={next} setCheck={setCheck} />
@@ -63,10 +70,12 @@ const App = () => {
 			<Quest4 id='quest4' go={go} next={next} setCheck={setCheck} />
 			<QuestFinish id='quest_finish' go={go} checked={checked} />
 			
+			<UserDataTest id='userdatatest' fetchedUser={fetchedUser} go={go} />
 			
 			<Ua id='ua' go={go} next={next} />
 		</View>
 	);
+	}
 }
 
 export default App;

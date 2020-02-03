@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:100,300,400,500,700,900&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+html {
+	--border-radius: 6px;
+	--filter-blur: 4px;
+	--box-shadow: 0 4px 9px 0 rgba(67, 65, 79, 0);
+	--message-red-bg: rgba(204, 0, 0, 0.75);
+	--message-red-br: rgba(204, 0, 0, 0.95);
+	--message-red-text: rgba(61, 0, 0, 1);
+	--message-green-bg: rgba(50, 153, 50, 0.75);
+	--message-green-br: rgba(50, 153, 50, 0.95);
+	--message-green-text: rgba(10, 30, 10, 1);
+	--message-yellow-bg: rgba(235, 247, 20, 0.75);
+	--message-yellow-br: rgba(235, 247, 20, 0.95);
+	--message-yellow-text: rgba(47, 49, 4, 1);
+}
+body {
+	--bg-white-color: #fff;
+	--bg-grey-color: #F8F9FB;
+	--bg-pink-color: rgba(32, 41, 122, 0.75);
+	--bg-spink-color: rgba(32, 41, 122, 0.1);
+	--footer-black-color: #0d0d16;
+	--footer-grey-color: #2d2d44;
+	--footer-white-color: #1e1e2d;
+	--text-white-color: #fff;
+	--text-black-color: #15171a;
+	--text-grey-color: #999;
+	--text-pink-color: rgba(32, 41, 122, 0.7);
+	--text-blue-color: #008dcd;
+}
+@font-face {
+	font-family: 'icomoon';
+	src: url('icomoon.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-logo:before {
+	font-size: 2em;
+	content: "\e900";
+}
+.View__header, .View__panels {
+	font-family: Nunito, Roboto, -apple-system, BlinkMacSystemFont;
+	font-weight: 300;
+}
+.Panel__in {
+	background: linear-gradient(135deg, var(--footer-grey-color) 0%, var(--footer-black-color) 100%);
+}
+.PanelHeader-content--brand, .PanelHeader-bg--brand, .PanelHeader-left-in--brand, .PanelHeader-addon--brand, .PanelHeader-right--brand {
+	background: transparent;
+	font-weight: 900;
+}
+.PanelHeader--ios .PanelHeader-bg::after {
+    height: 0;
+}
+.Radio__content {
+	color: var(--text-white-color);
+	font-weight: 700;
+}
+.Radio__description {
+	font-weight: 300;
+}
+.Tappable--ios.Tappable--active:not([disabled]):not(.TabsItem):not(.HeaderButton):not(.Button):not(.PanelHeaderContent__in):not(.ActionSheetItem) {
+	background: rgba(255,255,255,0.05)!important;
+	border-radius: var(--border-radius);
+}
+.d-flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    text-align: center;
+    position: relative;
+}
+.g-flex {
+	height: 100%;
+    position: relative;
+	display: block;
+}
+.logo {
+	margin-top: 2em;
+	margin-bottom: 1em;
+	font-family: Nunito, Roboto, -apple-system, BlinkMacSystemFont;
+	color: var(--text-white-color);
+	font-weight: 900;
+}
+.description {
+	background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.25) 100%);
+	margin: 5%;
+	border-radius: var(--border-radius);
+	color: var(--text_secondary);
+	font-size: 13px;
+}
+.description > .header {
+	display: block;
+	font-weight: 700;
+	color: var(--text-white-color);
+	font-size: 16px;
+}
+.headbutton {
+	width: 100%;
+	padding: 0;
+	display: block;
+	position: absolute;
+	bottom: 2em;
+}
