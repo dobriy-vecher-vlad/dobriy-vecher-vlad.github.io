@@ -12,9 +12,13 @@ const Home = ({ id, go }) => (
 		<Div className="description">
 			<span className="header">Заголовок</span>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
 		</Div>
 		<Div className="headbutton">
@@ -25,6 +29,7 @@ const Home = ({ id, go }) => (
 			</Div>
 			<Div className="description">
 				<span className="header">Быстрый переход для разработки</span>
+				Последнее обновление 03.02.2020
 				<Div className="d-flex">
 					<Button size="l" level="outline" onClick={go} data-to="GoToTest1" style={{ marginRight: 16 }}>1</Button>
 					<Button size="l" level="outline" onClick={go} data-to="GoToTest2" style={{ marginRight: 16 }}>2</Button>

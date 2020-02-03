@@ -19,11 +19,15 @@ const GoToTest2 = ({ id, go, next, setCheck }) => (
 			Вопрос 2 из 20
 		</PanelHeader>
 		<Div className="description">
-			<span className="header">Заголовок вопроса</span>
+			<span className="header">Заголовок</span>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
+			<br/>
 			Очень длинное описание чего-либо.
 		</Div>
 		<Div className="description">
