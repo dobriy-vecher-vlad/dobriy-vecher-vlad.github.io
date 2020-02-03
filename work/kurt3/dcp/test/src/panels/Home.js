@@ -6,7 +6,7 @@ import Div from '@vkontakte/vkui/dist/components/Div/Div';
 
 const Home = ({ id, go }) => (
 	<Panel id={id}>
-		<Div className="d-flex logo" style={{textAlign: 'center', color: '#FFF', fontSize: '3em', textShadow: '0.1em 0.1em 0em rgba(0, 0, 0, 0.25)'}}>
+		<Div className="d-flex logo" style={{textAlign: 'center', color: '#FFF', fontSize: '2em', textShadow: '0.1em 0.1em 0em rgba(0, 0, 0, 0.25)'}}>
 			<span className="icon-logo" style={{fontSize: '1em'}}></span>  К У Р Т
 		</Div>
 		<Div className="description">
