@@ -50,12 +50,16 @@ body {
 	font-size: 2em;
 	content: "\e900";
 }
-.View__header, .View__panels {
+.View__panels {
 	font-family: Nunito, Roboto, -apple-system, BlinkMacSystemFont;
 	font-weight: 300;
 }
+.View__header {
+	display: none;
+}
 .Panel__in {
 	background: linear-gradient(135deg, var(--footer-grey-color) 0%, var(--footer-black-color) 100%);
+	padding-top: 1em!important;
 }
 .PanelHeader-content--brand, .PanelHeader-bg--brand, .PanelHeader-left-in--brand, .PanelHeader-addon--brand, .PanelHeader-right--brand {
 	background: transparent;
@@ -112,4 +116,26 @@ body {
 	padding: 0;
 	display: block;
 	bottom: 2em;
+}
+.Panel__in > .header {
+	padding: 0;
+	color: var(--text-white-color);
+	display: block;
+	position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 17px;
+	font-weight: 700;
+}
+.header > .button {
+	display: block;
+    position: absolute;
+    left: 0;
+}
+img {
+	width: 100%;
+	border-radius: var(--border-radius);
+	margin-top: 10px;
 }

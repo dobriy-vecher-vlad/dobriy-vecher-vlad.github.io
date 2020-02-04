@@ -12,7 +12,7 @@ const GoToTest = ({ id, go, next, setCheck, question }) => (
 	<Panel id={id}>
 		<Div className="header">
 			<span className="button">{<HeaderButton onClick={go} data-to="home"> {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>} </HeaderButton>}</span>
-			Вопрос 4 из 24
+			Вопрос 15 из 24
 		</Div>
 		<Div className="description">
 			<span className="header">Вопрос</span>
@@ -25,7 +25,7 @@ const GoToTest = ({ id, go, next, setCheck, question }) => (
 		</Div>
 		<Div className="headbutton">
 			<Div className="d-flex">
-				<Button size="l" style={{opacity: .5, pointerEvents: 'none'}} name="next" level="outline" onClick={next} data-to="GoToTest5">
+				<Button size="l" style={{opacity: .5, pointerEvents: 'none'}} name="next" level="outline" onClick={next} data-to="GoToTest16">
 					Следующий вопрос
 				</Button>
 			</Div>
