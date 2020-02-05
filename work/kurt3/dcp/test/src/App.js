@@ -262,7 +262,6 @@ const App = () => {
 			let size_answers = 3;
 			let size_scores = 6;
 			let size_rangs = 4;
-			let checked = '1111111111111111111111111';
 			if ( checked.length === size_questions ) {
 				for ( let r = 0; r < size_scores; r++ ) {
 					score[r].score = 0;
@@ -284,10 +283,10 @@ const App = () => {
 											}
 											if ( (q+1) === size_rangs && (y+1) === size_scores ) {
 												console.log('Я всё!');
-
-												var id = '153968505';
-										        var name = 'Олег';
-												var surname = 'Давыдов';
+												console.log(fetchedUser);
+												let id = fetchedUser === null ? '1' : fetchedUser.id;
+												let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
+												let surname = fetchedUser === null ? 'Дуров' : fetchedUser.last_name;
 										        $.ajax({
 										            url: "https://kurt-database.000webhostapp.com/for_db.php",
 										            type: "POST",

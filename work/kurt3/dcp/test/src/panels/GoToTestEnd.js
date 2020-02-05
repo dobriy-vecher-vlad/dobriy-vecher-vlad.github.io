@@ -15,14 +15,15 @@ const GoToTest = ({ id, go, checked, answers, score, fetchedUser }) => (
 			<span className="button">{<HeaderButton onClick={go} data-to="home"> {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>} </HeaderButton>}</span>
 			Результат тестирования
 		</Div>
+		{fetchedUser &&
+			<Div className="description">
+				<span className="header">{fetchedUser.first_name} {fetchedUser.last_name}</span>
+				Благодарим Вас за прохождение профессионального тестирования!
+			</Div>
+		}
 		<Div className="description">
 			<span className="header">Ваш ключ ответов</span>
 			{checked}
-			{fetchedUser &&
-				<Div>
-					{fetchedUser.id}
-				</Div>
-			}
 		</Div>
 		<Div className="description">
 			<span className="header">{answers[0].head}</span>
