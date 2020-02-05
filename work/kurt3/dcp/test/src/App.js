@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import connect from '@vkontakte/vk-connect';
+import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import '@vkontakte/vkui/dist/vkui.css';
+
+
 
 import Home from './panels/Home';
 import GoToTest1 from './panels/GoToTest1';
@@ -31,6 +35,8 @@ import GoToTestPreEnd from './panels/GoToTestPreEnd';
 import GoToTestEnd from './panels/GoToTestEnd';
 
 import './panels/Style.css';
+
+let $ = require('jquery-ajax');
 let checked = '';
 let lang = ['баллов', 'балл', 'балла'];
 let statuses = [
@@ -59,26 +65,32 @@ let statuses = [
 let score = [
 	{
 		'score': 0,
+		'percent': 0,
 		'title': 'Вы не прошли тестирование',
 		'value': 'баллов'
 	}, {
 		'score': 0,
+		'percent': 0,
 		'title': 'Вы не прошли тестирование',
 		'value': 'баллов'
 	}, {
 		'score': 0,
+		'percent': 0,
 		'title': 'Вы не прошли тестирование',
 		'value': 'баллов'
 	}, {
 		'score': 0,
+		'percent': 0,
 		'title': 'Вы не прошли тестирование',
 		'value': 'баллов'
 	}, {
 		'score': 0,
+		'percent': 0,
 		'title': 'Вы не прошли тестирование',
 		'value': 'баллов'
 	}, {
 		'score': 0,
+		'percent': 0,
 		'title': 'Вы не прошли тестирование',
 		'value': 'баллов'
 	}
@@ -212,6 +224,16 @@ let answers = [
 ];
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
+	const [fetchedUser, setUser] = useState(null);
+	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	useEffect(() => {
+		async function fetchData() {
+			const user = await connect.sendPromise('VKWebAppGetUserInfo');
+			setUser(user);
+			setPopout(null);
+		}
+		fetchData();
+	}, []);
 	const go = e => {
 		try {
 			setActivePanel(e.currentTarget.dataset.to);
@@ -240,6 +262,7 @@ const App = () => {
 			let size_answers = 3;
 			let size_scores = 6;
 			let size_rangs = 4;
+			let checked = '1111111111111111111111111';
 			if ( checked.length === size_questions ) {
 				for ( let r = 0; r < size_scores; r++ ) {
 					score[r].score = 0;
@@ -259,7 +282,24 @@ const App = () => {
 												let last = Number(score[y].score.toString().slice(-1));
 												last === 1 ? (score[y].value = lang[1]) : last === 2 || last === 3 || last === 4 ? (score[y].value = lang[2]) : (score[y].value = lang[0]);
 											}
+											if ( (q+1) === size_rangs && (y+1) === size_scores ) {
+												console.log('Я всё!');
+
+												var id = '153968505';
+										        var name = 'Олег';
+												var surname = 'Давыдов';
+										        $.ajax({
+										            url: "https://kurt-database.000webhostapp.com/for_db.php",
+										            type: "POST",
+										            data: {id:id, name:name, surname:surname, s1:score[0].score, s2:score[1].score, s3:score[2].score, s4:score[3].score, s5:score[4].score, s6:score[5].score, hash:checked},
+										            dataType: "json",
+										            success: function(result) {
+														console.log(result);
+										            }
+										        });
+											}
 										}
+										score[y].percent = Math.ceil(100/12*score[y].score);
 									}
 								}
 							}
@@ -298,7 +338,7 @@ const App = () => {
 			<GoToTest23 id='GoToTest23' go={go} next={next} setCheck={setCheck} question={questions[22]} />
 			<GoToTest24 id='GoToTest24' go={go} next={next} setCheck={setCheck} question={questions[23]} />
 			<GoToTestPreEnd id='GoToTestPreEnd' go={go} next={next} setCheck={setCheck} setAnswer={setAnswer} question={questions[24]} />
-			<GoToTestEnd id='GoToTestEnd' go={go} checked={checked} answers={answers} score={score} />
+			<GoToTestEnd id='GoToTestEnd' go={go} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
 		</View>
 	);
 }
