@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/work/kurt3/dcp/test/static/css/main.66bab226.chunk.css",
+    "main.css": "/work/kurt3/dcp/test/static/css/main.c5b23440.chunk.css",
     "main.js": "/work/kurt3/dcp/test/static/js/main.e41a8176.chunk.js",
     "main.js.map": "/work/kurt3/dcp/test/static/js/main.e41a8176.chunk.js.map",
     "runtime-main.js": "/work/kurt3/dcp/test/static/js/runtime-main.76680411.js",
@@ -9,10 +9,10 @@
     "static/js/2.3223c54b.chunk.js": "/work/kurt3/dcp/test/static/js/2.3223c54b.chunk.js",
     "static/js/2.3223c54b.chunk.js.map": "/work/kurt3/dcp/test/static/js/2.3223c54b.chunk.js.map",
     "index.html": "/work/kurt3/dcp/test/index.html",
-    "precache-manifest.636a1807532e3440702df263be858ce3.js": "/work/kurt3/dcp/test/precache-manifest.636a1807532e3440702df263be858ce3.js",
+    "precache-manifest.19997fdf9da5eb27e595276afa2c4f42.js": "/work/kurt3/dcp/test/precache-manifest.19997fdf9da5eb27e595276afa2c4f42.js",
     "service-worker.js": "/work/kurt3/dcp/test/service-worker.js",
     "static/css/2.4e89ce74.chunk.css.map": "/work/kurt3/dcp/test/static/css/2.4e89ce74.chunk.css.map",
-    "static/css/main.66bab226.chunk.css.map": "/work/kurt3/dcp/test/static/css/main.66bab226.chunk.css.map",
+    "static/css/main.c5b23440.chunk.css.map": "/work/kurt3/dcp/test/static/css/main.c5b23440.chunk.css.map",
     "static/media/gonvlad.png": "/work/kurt3/dcp/test/static/media/gonvlad.2be92e4f.png",
     "static/media/Style.css": "/work/kurt3/dcp/test/static/media/icomoon.86bd6fc2.woff"
   }
