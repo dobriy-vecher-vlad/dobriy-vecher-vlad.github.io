@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c66412f036163dc88bb27afa5268d0f",
+    "revision": "497e5ec498cb4c7b92407fdc0cbc04c6",
     "url": "/work/kurt3/dcp/test/index.html"
   },
   {
-    "revision": "e13942c8c579f4d3ba30",
+    "revision": "db0794b347b0318da35d",
     "url": "/work/kurt3/dcp/test/static/css/2.4e89ce74.chunk.css"
   },
   {
-    "revision": "0391a16cd8b3f4da182d",
-    "url": "/work/kurt3/dcp/test/static/css/main.af1c4b81.chunk.css"
+    "revision": "db06aa3a64b57f400618",
+    "url": "/work/kurt3/dcp/test/static/css/main.a9c8b67e.chunk.css"
   },
   {
-    "revision": "e13942c8c579f4d3ba30",
-    "url": "/work/kurt3/dcp/test/static/js/2.9d659e17.chunk.js"
+    "revision": "db0794b347b0318da35d",
+    "url": "/work/kurt3/dcp/test/static/js/2.cf5d7bd7.chunk.js"
   },
   {
-    "revision": "0391a16cd8b3f4da182d",
-    "url": "/work/kurt3/dcp/test/static/js/main.af2f6bf4.chunk.js"
+    "revision": "db06aa3a64b57f400618",
+    "url": "/work/kurt3/dcp/test/static/js/main.b7df408e.chunk.js"
   },
   {
     "revision": "91fae93f22f94592601b",
