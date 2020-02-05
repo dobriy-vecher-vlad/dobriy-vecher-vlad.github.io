@@ -282,7 +282,7 @@ const App = () => {
 												last === 1 ? (score[y].value = lang[1]) : last === 2 || last === 3 || last === 4 ? (score[y].value = lang[2]) : (score[y].value = lang[0]);
 											}
 											if ( (q+1) === size_rangs && (y+1) === size_scores ) {
-												console.log('Я всё!');
+												console.log('Отправляем в базу данных...');
 												console.log(fetchedUser);
 												let id = fetchedUser === null ? '1' : fetchedUser.id;
 												let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
