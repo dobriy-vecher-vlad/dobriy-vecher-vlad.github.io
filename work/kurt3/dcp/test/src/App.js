@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import connect from '@vkontakte/vk-connect';
-import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import View from '@vkontakte/vkui/dist/components/View/View';
-import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import '@vkontakte/vkui/dist/vkui.css';
 
 
@@ -229,12 +226,10 @@ let answers = [
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
-	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	useEffect(() => {
 		async function fetchData() {
 			const user = await connect.sendPromise('VKWebAppGetUserInfo');
 			setUser(user);
-			setPopout(null);
 		}
 		fetchData();
 	}, []);
@@ -321,9 +316,6 @@ const App = () => {
 	const getUsers = e => {
 		try {
 			console.log('Запрашиваем из базы данных...');
-			let id = fetchedUser === null ? '1' : fetchedUser.id;
-			let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
-			let surname = fetchedUser === null ? 'Дуров' : fetchedUser.last_name;
 			let type = 'getScore';
 			$.ajax({
 				url: "https://kurt-database.000webhostapp.com/for_db.php",
