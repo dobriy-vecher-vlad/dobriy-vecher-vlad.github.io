@@ -24,13 +24,8 @@ const Home = ({ id, go }) => (
 				</Button>
 			</Div>
 			<Div className="d-flex">
-				<Button size="l" level="secondary" onClick={go} data-to="GoToTestPreEnd">
-					Выбор места обучения
-				</Button>
-			</Div>
-			<Div className="d-flex">
-				<Button size="l" level="secondary" onClick={go} data-to="GoToTestEnd">
-					Результат
+				<Button size="l" level="secondary" onClick={go} data-to="GoToTestTop">
+					Недавно прошли тестирование
 				</Button>
 			</Div>
 		</Div>

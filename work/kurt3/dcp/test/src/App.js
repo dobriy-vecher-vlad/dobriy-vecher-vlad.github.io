@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import connect from '@vkontakte/vk-connect';
 import ScreenSpinner from '@vkontakte/vkui/dist/components/ScreenSpinner/ScreenSpinner';
 import View from '@vkontakte/vkui/dist/components/View/View';
+import Div from '@vkontakte/vkui/dist/components/Div/Div';
 import '@vkontakte/vkui/dist/vkui.css';
 
 
@@ -33,11 +35,13 @@ import GoToTest23 from './panels/GoToTest23';
 import GoToTest24 from './panels/GoToTest24';
 import GoToTestPreEnd from './panels/GoToTestPreEnd';
 import GoToTestEnd from './panels/GoToTestEnd';
+import GoToTestTop from './panels/GoToTestTop';
 
 import './panels/Style.css';
 
 let $ = require('jquery-ajax');
 let checked = '';
+let data_users = '';
 let lang = ['баллов', 'балл', 'балла'];
 let statuses = [
 	{
@@ -236,8 +240,12 @@ const App = () => {
 	}, []);
 	const go = e => {
 		try {
-			setActivePanel(e.currentTarget.dataset.to);
 			checked = '';
+			if ( e.currentTarget.dataset.to === 'GoToTestTop' ) {
+				getUsers();
+			} else {
+				setActivePanel(e.currentTarget.dataset.to);
+			}
 		} catch(err) { console.log(err); }
 	};
 	const next = e => {
@@ -282,18 +290,19 @@ const App = () => {
 												last === 1 ? (score[y].value = lang[1]) : last === 2 || last === 3 || last === 4 ? (score[y].value = lang[2]) : (score[y].value = lang[0]);
 											}
 											if ( (q+1) === size_rangs && (y+1) === size_scores ) {
-												console.log('Отправляем в базу данных...');
 												console.log(fetchedUser);
+												console.log('Сохраняем в базу данных...');
 												let id = fetchedUser === null ? '1' : fetchedUser.id;
 												let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
 												let surname = fetchedUser === null ? 'Дуров' : fetchedUser.last_name;
+												let type = 'setScore';
 										        $.ajax({
 										            url: "https://kurt-database.000webhostapp.com/for_db.php",
 										            type: "POST",
-										            data: {id:id, name:name, surname:surname, s1:score[0].score, s2:score[1].score, s3:score[2].score, s4:score[3].score, s5:score[4].score, s6:score[5].score, hash:checked},
+										            data: {type:type, id:id, name:name, surname:surname, s1:score[0].score, s2:score[1].score, s3:score[2].score, s4:score[3].score, s5:score[4].score, s6:score[5].score, hash:checked},
 										            dataType: "json",
 										            success: function(result) {
-														console.log(result);
+														console.log(result.message);
 										            }
 										        });
 											}
@@ -307,6 +316,40 @@ const App = () => {
 				}
 				console.log(score);
 			}
+		} catch(err) { console.log(err); }
+	};
+	const getUsers = e => {
+		try {
+			console.log('Запрашиваем из базы данных...');
+			let id = fetchedUser === null ? '1' : fetchedUser.id;
+			let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
+			let surname = fetchedUser === null ? 'Дуров' : fetchedUser.last_name;
+			let type = 'getScore';
+			$.ajax({
+				url: "https://kurt-database.000webhostapp.com/for_db.php",
+				type: "POST",
+				data: {type:type},
+				dataType: "json",
+				success: function(result) {
+					console.log(result.message);
+					console.log(result.users);
+					//data_users = result.users;
+					let html_users = '';
+					for ( let i = 0; i < Object.keys(result.users.id).length && i < 10; i++ ) {
+						html_users += `
+							<div class="user" onclick="window.open('https://vk.com/id`+result.users.id[i]+`', '_blank');">
+								<span class="u-ava">`+(i+1)+`</span>
+								<span class="u-info">
+									<span class="u-name">`+result.users.name[i]+` `+result.users.surname[i]+`</span>
+									`+result.users.s1[i]+` `+result.users.s2[i]+` `+result.users.s3[i]+` `+result.users.s4[i]+` `+result.users.s5[i]+` `+result.users.s6[i]+`
+								</span>
+							</div>
+						`;
+					}
+					data_users = {__html: html_users};
+					setActivePanel('GoToTestTop');
+				}
+			});
 		} catch(err) { console.log(err); }
 	};
 	return (
@@ -338,6 +381,7 @@ const App = () => {
 			<GoToTest24 id='GoToTest24' go={go} next={next} setCheck={setCheck} question={questions[23]} />
 			<GoToTestPreEnd id='GoToTestPreEnd' go={go} next={next} setCheck={setCheck} setAnswer={setAnswer} question={questions[24]} />
 			<GoToTestEnd id='GoToTestEnd' go={go} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
+			<GoToTestTop id='GoToTestTop' go={go} data_users={data_users} />
 		</View>
 	);
 }

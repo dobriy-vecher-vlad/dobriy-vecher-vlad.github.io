@@ -111,6 +111,38 @@ body {
 	color: var(--text-white-color);
 	font-size: 16px;
 }
+.description > .user {
+	padding: 10px;
+}
+.user > .u-ava {
+	display: inline-block;
+	width: 48px;
+    height: 48px;
+	margin-right: 10px;
+    border-radius: 50%;
+	overflow: hidden;
+	white-space: nowrap;
+	background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.25) 100%);
+	font-size: 16px;
+	line-height: 48px;
+	text-align: center;
+	color: #528bcc;
+	font-weight: 700;
+}
+.user > .u-info {
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	line-height: 24px;
+}
+.u-info > .u-name {
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	font-weight: 700;
+	color: var(--text-white-color);
+	font-size: 16px;
+}
 .headbutton {
 	width: 100%;
 	padding: 0;
