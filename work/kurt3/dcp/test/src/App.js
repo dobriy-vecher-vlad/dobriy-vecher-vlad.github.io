@@ -33,6 +33,7 @@ import GoToTest24 from './panels/GoToTest24';
 import GoToTestPreEnd from './panels/GoToTestPreEnd';
 import GoToTestEnd from './panels/GoToTestEnd';
 import GoToTestTop from './panels/GoToTestTop';
+import GoToTestMy from './panels/GoToTestMy';
 
 import './panels/Style.css';
 
@@ -40,6 +41,7 @@ let $ = require('jquery-ajax');
 let checked = '';
 let data_users = '';
 let lang = ['баллов', 'балл', 'балла'];
+let lang_time = [['часов', 'час', 'часа'], ['минут', 'минута', 'минуты'], ['секунд', 'секунда', 'секунды']];
 let statuses = [
 	{
 		'score': '10-12',
@@ -223,6 +225,30 @@ let answers = [
 		{1:1,5:2,6:3}
 	]
 ];
+function timerto(milliseconds) {
+	if (milliseconds > 0) {
+		let hours = Math.floor(milliseconds / (1000 * 60 * 60));
+		let minutes = parseInt((milliseconds / (1000 * 60)) % 60);
+		let seconds = parseInt((milliseconds / 1000) % 60);
+		let hours_last = Number(hours.toString().slice(-1));
+		let minutes_last = Number(minutes.toString().slice(-1));
+		let seconds_last = Number(seconds.toString().slice(-1));
+		if (hours >= 1) {
+			let lang_hours = hours_last === 1 ? lang_time[0][1] : hours_last === 2 || hours_last === 3 || hours_last === 4 ? lang_time[0][2] : lang_time[0][0];
+			return hours + ' ' + lang_hours;
+		}
+		if (hours < 1 && minutes >= 1) {
+			let lang_minutes = minutes_last === 1 ? lang_time[1][1] : minutes_last === 2 || minutes_last === 3 || minutes_last === 4 ? lang_time[1][2] : lang_time[1][0];
+			return minutes + ' ' + lang_minutes;
+		}
+		if (hours < 1) {
+			let lang_seconds = seconds_last === 1 ? lang_time[2][1] : seconds_last === 2 || seconds_last === 3 || seconds_last === 4 ? lang_time[2][2] : lang_time[2][0];
+			return seconds + ' ' + lang_seconds;
+		}
+	} else {
+		return 'ERROR';
+	}
+}
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
@@ -236,8 +262,13 @@ const App = () => {
 	const go = e => {
 		try {
 			checked = '';
-			if ( e.currentTarget.dataset.to === 'GoToTestTop' ) {
-				getUsers();
+			if ( e.currentTarget.dataset.to === 'GoToTestTop' || e.currentTarget.dataset.to === 'GoToTestMy' ) {
+				if ( e.currentTarget.dataset.to === 'GoToTestTop' ) {
+					getUsers();
+				}
+				if ( e.currentTarget.dataset.to === 'GoToTestMy' ) {
+					getUser();
+				}
 			} else {
 				setActivePanel(e.currentTarget.dataset.to);
 			}
@@ -285,7 +316,6 @@ const App = () => {
 												last === 1 ? (score[y].value = lang[1]) : last === 2 || last === 3 || last === 4 ? (score[y].value = lang[2]) : (score[y].value = lang[0]);
 											}
 											if ( (q+1) === size_rangs && (y+1) === size_scores ) {
-												console.log(fetchedUser);
 												console.log('Сохраняем в базу данных...');
 												let id = fetchedUser === null ? '1' : fetchedUser.id;
 												let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
@@ -327,19 +357,60 @@ const App = () => {
 					console.log(result.message);
 					console.log(result.users);
 					let html_users = '';
+					let time = +new Date();
 					for ( let i = 0; i < Object.keys(result.users.id).length && i < 10; i++ ) {
+						let time_out = timerto(time - result.users.time[i]);
 						html_users += `
 							<div class="user">
 								<span class="u-ava">`+(i+1)+`</span>
 								<span class="u-info">
 									<a href="https://vk.com/id`+result.users.id[i]+`" target="_blank" class="u-name">`+result.users.name[i]+` `+result.users.surname[i]+`</a>
-									`+result.users.s1[i]+` `+result.users.s2[i]+` `+result.users.s3[i]+` `+result.users.s4[i]+` `+result.users.s5[i]+` `+result.users.s6[i]+`
+									`+time_out+` назад
 								</span>
 							</div>
 						`;
 					}
 					data_users = {__html: html_users};
 					setActivePanel('GoToTestTop');
+				}
+			});
+		} catch(err) { console.log(err); }
+	};
+	const getUser = e => {
+		try {
+			let size_scores = 6;
+			let size_rangs = 4;
+			console.log('Запрашиваем из базы данных...');
+			let type = 'getUserScore';
+			let id = fetchedUser === null ? '1' : fetchedUser.id;
+			$.ajax({
+				url: "https://kurt-database.000webhostapp.com/for_db.php",
+				type: "POST",
+				data: {type:type, id:id},
+				dataType: "json",
+				success: function(result) {
+					console.log(result.message);
+					console.log(result.users);
+					checked = result.users.hash;
+					if ( result.users.id === 0 ) {
+						setActivePanel('GoToTestMy');
+					} else {
+						for ( let y = 0; y < size_scores; y++ ) {
+							score[y].score = result.users['s'+(y+1)][0];
+							score[y].percent = Math.ceil(100/12*score[y].score);
+							for ( let q = 0; q < size_rangs; q++ ) {
+								if ( score[y].score >= statuses[q].min && score[y].score <= statuses[q].max ) {
+									score[y].title = statuses[q].title;
+									let last = Number(score[y].score.toString().slice(-1));
+									last === 1 ? (score[y].value = lang[1]) : last === 2 || last === 3 || last === 4 ? (score[y].value = lang[2]) : (score[y].value = lang[0]);
+								}
+								if ( (q+1) === size_rangs && (y+1) === size_scores ) {
+									console.log(score);
+									setActivePanel('GoToTestMy');
+								}
+							}
+						}
+					}
 				}
 			});
 		} catch(err) { console.log(err); }
@@ -374,6 +445,7 @@ const App = () => {
 			<GoToTestPreEnd id='GoToTestPreEnd' go={go} next={next} setCheck={setCheck} setAnswer={setAnswer} question={questions[24]} />
 			<GoToTestEnd id='GoToTestEnd' go={go} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
 			<GoToTestTop id='GoToTestTop' go={go} data_users={data_users} />
+			<GoToTestMy id='GoToTestMy' go={go} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
 		</View>
 	);
 }

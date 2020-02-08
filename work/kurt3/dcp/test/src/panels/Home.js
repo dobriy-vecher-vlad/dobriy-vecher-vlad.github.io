@@ -15,12 +15,17 @@ const Home = ({ id, go }) => (
 			<br/><br/>«Зато мне, наверное, будет как раз» - подумал мужик, но вслух говорить не стал, чтобы не обидеть второго мужика.
 		</Div>
 		<Div className="description">
-			Сборка 08.02.2020
+			Сборка 09.02.2020
 		</Div>
 		<Div className="headbutton">
 			<Div className="d-flex">
 				<Button size="l" level="commerce" onClick={go} data-to="GoToTest1">
 					Начать тестирование
+				</Button>
+			</Div>
+			<Div className="d-flex">
+				<Button size="l" level="secondary" onClick={go} data-to="GoToTestMy">
+					Мои результаты тестирования
 				</Button>
 			</Div>
 			<Div className="d-flex">
