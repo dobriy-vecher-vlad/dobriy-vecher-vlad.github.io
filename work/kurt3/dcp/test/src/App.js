@@ -171,7 +171,7 @@ let questions = [
 		'answers': {'Вариант А':'...в помещении, где много людей.','Вариант Б':'...в необычных условиях.','Вариант В':'...в обычном кабинете.'}
 	}, {
 		'question': 'Выберите учебное заведение города по вашему вкусу и система сама подберёт Вам профессию по выбранным вариантам ответов.',
-		'answers': {'Конечно КУРТ!': 'Каменск-Уральский Радиотехнический Техникум.'}
+		'answers': {'КУРТ': 'Каменск-Уральский Радиотехнический Техникум.', 'СамГУПС': 'Самарский Государственный Университет Путей Сообщения.', 'ОТК': 'Орловский Технический Колледж.'}
 	}
 ];
 let answers = [
@@ -291,10 +291,11 @@ const App = () => {
 												let name = fetchedUser === null ? 'Павел' : fetchedUser.first_name;
 												let surname = fetchedUser === null ? 'Дуров' : fetchedUser.last_name;
 												let type = 'setScore';
+												let time = +new Date();
 										        $.ajax({
 										            url: "https://kurt-database.000webhostapp.com/for_db.php",
 										            type: "POST",
-										            data: {type:type, id:id, name:name, surname:surname, s1:score[0].score, s2:score[1].score, s3:score[2].score, s4:score[3].score, s5:score[4].score, s6:score[5].score, hash:checked},
+										            data: {type:type, id:id, name:name, surname:surname, s1:score[0].score, s2:score[1].score, s3:score[2].score, s4:score[3].score, s5:score[4].score, s6:score[5].score, hash:checked, time:time},
 										            dataType: "json",
 										            success: function(result) {
 														console.log(result.message);
@@ -316,7 +317,7 @@ const App = () => {
 	const getUsers = e => {
 		try {
 			console.log('Запрашиваем из базы данных...');
-			let type = 'getScore';
+			let type = 'getLastScore';
 			$.ajax({
 				url: "https://kurt-database.000webhostapp.com/for_db.php",
 				type: "POST",
@@ -325,14 +326,13 @@ const App = () => {
 				success: function(result) {
 					console.log(result.message);
 					console.log(result.users);
-					//data_users = result.users;
 					let html_users = '';
 					for ( let i = 0; i < Object.keys(result.users.id).length && i < 10; i++ ) {
 						html_users += `
-							<div class="user" onclick="window.open('https://vk.com/id`+result.users.id[i]+`', '_blank');">
+							<div class="user">
 								<span class="u-ava">`+(i+1)+`</span>
 								<span class="u-info">
-									<span class="u-name">`+result.users.name[i]+` `+result.users.surname[i]+`</span>
+									<a href="https://vk.com/id`+result.users.id[i]+`" target="_blank" class="u-name">`+result.users.name[i]+` `+result.users.surname[i]+`</a>
 									`+result.users.s1[i]+` `+result.users.s2[i]+` `+result.users.s3[i]+` `+result.users.s4[i]+` `+result.users.s5[i]+` `+result.users.s6[i]+`
 								</span>
 							</div>

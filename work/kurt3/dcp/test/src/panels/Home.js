@@ -15,7 +15,7 @@ const Home = ({ id, go }) => (
 			<br/><br/>«Зато мне, наверное, будет как раз» - подумал мужик, но вслух говорить не стал, чтобы не обидеть второго мужика.
 		</Div>
 		<Div className="description">
-			Сборка 06.02.2020
+			Сборка 08.02.2020
 		</Div>
 		<Div className="headbutton">
 			<Div className="d-flex">
