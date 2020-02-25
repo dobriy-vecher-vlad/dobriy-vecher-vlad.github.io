@@ -40,6 +40,7 @@ import './panels/Style.css';
 let $ = require('jquery-ajax');
 let checked = '';
 let data_users = '';
+let data_job = '';
 let lang = ['баллов', 'балл', 'балла'];
 let lang_time = [['часов', 'час', 'часа'], ['минут', 'минута', 'минуты'], ['секунд', 'секунда', 'секунды']];
 let statuses = [
@@ -173,7 +174,14 @@ let questions = [
 		'answers': {'Вариант А':'...в помещении, где много людей.','Вариант Б':'...в необычных условиях.','Вариант В':'...в обычном кабинете.'}
 	}, {
 		'question': 'Выберите учебное заведение города по вашему вкусу и система сама подберёт Вам профессию по выбранным вариантам ответов.',
-		'answers': {'КУРТ': 'Каменск-Уральский Радиотехнический Техникум.', 'СамГУПС': 'Самарский Государственный Университет Путей Сообщения.', 'ОТК': 'Орловский Технический Колледж.'}
+		'answers': {
+			'КУРТ': 'Каменск-Уральский Радиотехнический Техникум.',
+			'КУПК': 'Каменск-Уральский Политехнический Колледж.',
+			'КУПедК': 'Каменск-Уральский Педагогический Колледж.',
+			'КУТТС': 'Каменск-Уральский Техникум Торговли и Сервиса.',
+			'КУАТ': 'Каменск-Уральский Агропромышленный Техникум.',
+			'СОМК': 'Свердловский Областной Медицинский Колледж.'
+		}
 	}
 ];
 let answers = [
@@ -225,6 +233,56 @@ let answers = [
 		{1:1,5:2,6:3}
 	]
 ];
+let jobs = {
+	'КУРТ': [
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Управление качеством продукции, процессов и услуг', 'Радиоаппаратостроение', 'Прикладная информатика', 'Технология металлообрабатывающего производства', 'Техническая эксплуатация и обслуживание электрического и электромеханического оборудования'],
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Управление качеством продукции, процессов и услуг', 'Прикладная информатика']
+	], 
+	'КУПК': [
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Техническая эксплуатация и обслуживание электрического и электромеханического оборудования', 'Монтаж и техническая эксплуатация промышленного оборудования', 'Технология машиностроения', 'Металлургия цветных металлов', 'Обработка металлов давлением'],
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Информационные системы и программирование', 'Экономика и бухгалтерский учет']
+	], 
+	'КУПедК': [
+		['Дошкольное образование', 'Коррекционная педагогика в начальном образовании', 'Социальная работа'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей']
+	], 
+	'КУТТС': [
+		['Правоохранительная деятельность', 'Гостиничное дело', 'Поварское и кондитерское дело', 'Земельно-имущественные отношения', 'Гостиничный сервис', 'Организация обслуживания в общественном питании'], 
+		['Нет подходящих специальностей'], 
+		['Строительство и эксплуатация зданий и сооружений', 'Организация перевозок и управление на транспорте'], 
+		['Парикмахерское искусство', 'Дизайн', 'Гостиничное дело', 'Поварское и кондитерское дело'], 
+		['Нет подходящих специальностей'], 
+		['Информационные системы и программирование', 'Технология продукции общественного питания', 'Операционная деятельность в логистике', 'Коммерция', 'Финансы', 'Прикладная информатика', 'Земельно-имущественные отношения', 'Гостиничный сервис', 'Экономика и бухгалтерский учет']
+	], 
+	'КУАТ': [
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Автомеханик', 'Мастер по техническому обслуживанию и ремонту машинно-тракторного парка', 'Сварщик ручной и частично механизированной сварки', 'Эксплуатация и ремонт сельскохозяйственной техники и оборудования', 'Техническое обслуживание и ремонт автомобильного транспорта'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Информационные системы']
+	], 
+	'СОМК': [
+		['Сестринское дело', 'Медико-профилактическое дело', 'Лабораторная диагностика', 'Социальная работа', 'Стоматология ортопедическая', 'Лечебное дело', 'Акушерское дело'], 
+		['Лабораторная диагностика'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей'], 
+		['Нет подходящих специальностей']
+	]
+};
 function timerto(milliseconds) {
 	if (milliseconds > 0) {
 		let hours = Math.floor(milliseconds / (1000 * 60 * 60));
@@ -338,6 +396,15 @@ const App = () => {
 								}
 							}
 						}
+						let score_for_jobs = [score[0].score, score[1].score, score[2].score, score[3].score, score[4].score, score[5].score];
+						let max_score = Math.max.apply(null, score_for_jobs);
+						let position_max_score = score_for_jobs.indexOf(max_score);
+						let html_job = '<ol style="margin: 0; padding-inline-start: 20px;">';
+						for ( let i = 0; i < Object.values(jobs)[Number(match[24])-1][position_max_score].length; i++ ) {
+							html_job += '<li>'+Object.values(jobs)[Number(match[24])-1][position_max_score][i]+'</li>';
+						}
+						html_job += '</ol>';
+						data_job = {__html: html_job};
 					}
 				}
 				console.log(score);
@@ -391,7 +458,7 @@ const App = () => {
 				success: function(result) {
 					console.log(result.message);
 					console.log(result.users);
-					checked = result.users.hash;
+					checked = result.users.hash[0];
 					if ( result.users.id === 0 ) {
 						setActivePanel('GoToTestMy');
 					} else {
@@ -405,7 +472,16 @@ const App = () => {
 									last === 1 ? (score[y].value = lang[1]) : last === 2 || last === 3 || last === 4 ? (score[y].value = lang[2]) : (score[y].value = lang[0]);
 								}
 								if ( (q+1) === size_rangs && (y+1) === size_scores ) {
-									console.log(score);
+									let match = checked.split('');
+									let score_for_jobs = [Number(score[0].score), Number(score[1].score), Number(score[2].score), Number(score[3].score), Number(score[4].score), Number(score[5].score)];
+									let max_score = Math.max.apply(null, score_for_jobs);
+									let position_max_score = score_for_jobs.indexOf(max_score);
+									let html_job = '<ol style="margin: 0; padding-inline-start: 20px;">';
+									for ( let i = 0; i < Object.values(jobs)[Number(match[24])-1][position_max_score].length; i++ ) {
+										html_job += '<li>'+Object.values(jobs)[Number(match[24])-1][position_max_score][i]+'</li>';
+									}
+									html_job += '</ol>';
+									data_job = {__html: html_job};
 									setActivePanel('GoToTestMy');
 								}
 							}
@@ -443,9 +519,9 @@ const App = () => {
 			<GoToTest23 id='GoToTest23' go={go} next={next} setCheck={setCheck} question={questions[22]} />
 			<GoToTest24 id='GoToTest24' go={go} next={next} setCheck={setCheck} question={questions[23]} />
 			<GoToTestPreEnd id='GoToTestPreEnd' go={go} next={next} setCheck={setCheck} setAnswer={setAnswer} question={questions[24]} />
-			<GoToTestEnd id='GoToTestEnd' go={go} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
+			<GoToTestEnd id='GoToTestEnd' go={go} data_job={data_job} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
 			<GoToTestTop id='GoToTestTop' go={go} data_users={data_users} />
-			<GoToTestMy id='GoToTestMy' go={go} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
+			<GoToTestMy id='GoToTestMy' go={go} data_job={data_job} checked={checked} answers={answers} score={score} fetchedUser={fetchedUser} />
 		</View>
 	);
 }

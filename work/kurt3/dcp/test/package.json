@@ -29,7 +29,9 @@
     "jquery-ajax": "^2.1.4",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1"
   },
   "browserslist": {
     "production": [

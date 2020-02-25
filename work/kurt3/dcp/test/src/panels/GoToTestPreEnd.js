@@ -22,6 +22,9 @@ const GoToTest = ({ id, go, next, setCheck, setAnswer, question }) => (
 			<Radio name="radio" onClick={setCheck} value="1" description={Object.values(question.answers)[0]}>{Object.keys(question.answers)[0]}</Radio>
 			<Radio name="radio" onClick={setCheck} value="2" description={Object.values(question.answers)[1]}>{Object.keys(question.answers)[1]}</Radio>
 			<Radio name="radio" onClick={setCheck} value="3" description={Object.values(question.answers)[2]}>{Object.keys(question.answers)[2]}</Radio>
+			<Radio name="radio" onClick={setCheck} value="4" description={Object.values(question.answers)[3]}>{Object.keys(question.answers)[3]}</Radio>
+			<Radio name="radio" onClick={setCheck} value="5" description={Object.values(question.answers)[4]}>{Object.keys(question.answers)[4]}</Radio>
+			<Radio name="radio" onClick={setCheck} value="6" description={Object.values(question.answers)[5]}>{Object.keys(question.answers)[5]}</Radio>
 		</Div>
 		<Div className="headbutton">
 			<Div className="d-flex">

@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/work/kurt3/dcp/test/static/css/main.daf56ecb.chunk.css",
-    "main.js": "/work/kurt3/dcp/test/static/js/main.5eff3018.chunk.js",
-    "main.js.map": "/work/kurt3/dcp/test/static/js/main.5eff3018.chunk.js.map",
+    "main.css": "/work/kurt3/dcp/test/static/css/main.4f5f9a38.chunk.css",
+    "main.js": "/work/kurt3/dcp/test/static/js/main.75dfb08b.chunk.js",
+    "main.js.map": "/work/kurt3/dcp/test/static/js/main.75dfb08b.chunk.js.map",
     "runtime-main.js": "/work/kurt3/dcp/test/static/js/runtime-main.76680411.js",
     "runtime-main.js.map": "/work/kurt3/dcp/test/static/js/runtime-main.76680411.js.map",
-    "static/css/2.4e89ce74.chunk.css": "/work/kurt3/dcp/test/static/css/2.4e89ce74.chunk.css",
-    "static/js/2.be7cef1a.chunk.js": "/work/kurt3/dcp/test/static/js/2.be7cef1a.chunk.js",
-    "static/js/2.be7cef1a.chunk.js.map": "/work/kurt3/dcp/test/static/js/2.be7cef1a.chunk.js.map",
+    "static/css/2.e69926fd.chunk.css": "/work/kurt3/dcp/test/static/css/2.e69926fd.chunk.css",
+    "static/js/2.973d30c0.chunk.js": "/work/kurt3/dcp/test/static/js/2.973d30c0.chunk.js",
+    "static/js/2.973d30c0.chunk.js.map": "/work/kurt3/dcp/test/static/js/2.973d30c0.chunk.js.map",
     "index.html": "/work/kurt3/dcp/test/index.html",
-    "precache-manifest.28d51bd2a444a9a38209a6a91b88e9d4.js": "/work/kurt3/dcp/test/precache-manifest.28d51bd2a444a9a38209a6a91b88e9d4.js",
+    "precache-manifest.ca23b2aa8ba9b2875d0bc8bb840f41e4.js": "/work/kurt3/dcp/test/precache-manifest.ca23b2aa8ba9b2875d0bc8bb840f41e4.js",
     "service-worker.js": "/work/kurt3/dcp/test/service-worker.js",
-    "static/css/2.4e89ce74.chunk.css.map": "/work/kurt3/dcp/test/static/css/2.4e89ce74.chunk.css.map",
-    "static/css/main.daf56ecb.chunk.css.map": "/work/kurt3/dcp/test/static/css/main.daf56ecb.chunk.css.map",
-    "static/media/Style.css": "/work/kurt3/dcp/test/static/media/icomoon.86bd6fc2.woff"
+    "static/css/2.e69926fd.chunk.css.map": "/work/kurt3/dcp/test/static/css/2.e69926fd.chunk.css.map",
+    "static/css/main.4f5f9a38.chunk.css.map": "/work/kurt3/dcp/test/static/css/main.4f5f9a38.chunk.css.map",
+    "static/media/Style.css": "/work/kurt3/dcp/test/static/media/icomoon.86bd6fc2.woff",
+    "static/media/slick-theme.css": "/work/kurt3/dcp/test/static/media/slick.f97e3bbf.svg"
   }
 }
