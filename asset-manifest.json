@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/work/kurt3/dcp/test/static/css/main.4f5f9a38.chunk.css",
-    "main.js": "/work/kurt3/dcp/test/static/js/main.75dfb08b.chunk.js",
-    "main.js.map": "/work/kurt3/dcp/test/static/js/main.75dfb08b.chunk.js.map",
+    "main.css": "/work/kurt3/dcp/test/static/css/main.a5152cae.chunk.css",
+    "main.js": "/work/kurt3/dcp/test/static/js/main.cd654313.chunk.js",
+    "main.js.map": "/work/kurt3/dcp/test/static/js/main.cd654313.chunk.js.map",
     "runtime-main.js": "/work/kurt3/dcp/test/static/js/runtime-main.76680411.js",
     "runtime-main.js.map": "/work/kurt3/dcp/test/static/js/runtime-main.76680411.js.map",
     "static/css/2.e69926fd.chunk.css": "/work/kurt3/dcp/test/static/css/2.e69926fd.chunk.css",
-    "static/js/2.973d30c0.chunk.js": "/work/kurt3/dcp/test/static/js/2.973d30c0.chunk.js",
-    "static/js/2.973d30c0.chunk.js.map": "/work/kurt3/dcp/test/static/js/2.973d30c0.chunk.js.map",
+    "static/js/2.f831e7fb.chunk.js": "/work/kurt3/dcp/test/static/js/2.f831e7fb.chunk.js",
+    "static/js/2.f831e7fb.chunk.js.map": "/work/kurt3/dcp/test/static/js/2.f831e7fb.chunk.js.map",
     "index.html": "/work/kurt3/dcp/test/index.html",
-    "precache-manifest.ca23b2aa8ba9b2875d0bc8bb840f41e4.js": "/work/kurt3/dcp/test/precache-manifest.ca23b2aa8ba9b2875d0bc8bb840f41e4.js",
+    "precache-manifest.ae0cfacfd6b83ba42e0a86753f5c70ee.js": "/work/kurt3/dcp/test/precache-manifest.ae0cfacfd6b83ba42e0a86753f5c70ee.js",
     "service-worker.js": "/work/kurt3/dcp/test/service-worker.js",
     "static/css/2.e69926fd.chunk.css.map": "/work/kurt3/dcp/test/static/css/2.e69926fd.chunk.css.map",
-    "static/css/main.4f5f9a38.chunk.css.map": "/work/kurt3/dcp/test/static/css/main.4f5f9a38.chunk.css.map",
+    "static/css/main.a5152cae.chunk.css.map": "/work/kurt3/dcp/test/static/css/main.a5152cae.chunk.css.map",
     "static/media/Style.css": "/work/kurt3/dcp/test/static/media/icomoon.86bd6fc2.woff",
     "static/media/slick-theme.css": "/work/kurt3/dcp/test/static/media/slick.f97e3bbf.svg"
   }
