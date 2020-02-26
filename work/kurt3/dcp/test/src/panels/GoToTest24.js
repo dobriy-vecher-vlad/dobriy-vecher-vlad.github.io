@@ -25,8 +25,8 @@ const GoToTest = ({ id, go, next, setCheck, question }) => (
 		</Div>
 		<Div className="headbutton">
 			<Div className="d-flex">
-				<Button size="l" style={{opacity: .5, pointerEvents: 'none'}} name="next" level="outline" onClick={next} data-to="GoToTestPreEnd">
-					Следующий вопрос
+				<Button size="l" style={{opacity: .5, pointerEvents: 'none'}} name="next" level="outline" onClick={next} data-to="GoToTestEnd">
+					Узнать результат тестирования
 				</Button>
 			</Div>
 			<Div className="d-flex">

@@ -6,6 +6,9 @@ import HeaderButton from '@vkontakte/vkui/dist/components/HeaderButton/HeaderBut
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import { platform, IOS } from '@vkontakte/vkui';
+
+import parse from 'html-react-parser';
+
 const osName = platform();
 const GoToTest = ({ id, go, data_users }) => (
 	<Panel id={id}>
@@ -13,7 +16,9 @@ const GoToTest = ({ id, go, data_users }) => (
 			<span className="button">{<HeaderButton onClick={go} data-to="home"> {osName === IOS ? <Icon28ChevronBack/> : <Icon24Back/>} </HeaderButton>}</span>
 			Прошедшие тестирование
 		</Div>
-		<Div className="description" dangerouslySetInnerHTML={data_users} />
+		<Div className="description">
+			{parse(data_users)}
+		</Div>
 		<Div className="headbutton">
 			<Div className="d-flex">
 				<Button size="l" level="secondary" onClick={go} data-to="home">

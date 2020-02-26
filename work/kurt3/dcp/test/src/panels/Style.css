@@ -57,6 +57,9 @@ body {
 .View__header {
 	display: none;
 }
+.Panel, .View__panel-in, .View__panel, .View__panels, .View__header, .View, #root {
+	background: linear-gradient(135deg, var(--footer-grey-color) 0%, var(--footer-black-color) 100%);
+}
 .Panel__in {
 	background: linear-gradient(135deg, var(--footer-grey-color) 0%, var(--footer-black-color) 100%);
 	padding-top: 3em!important;
@@ -107,11 +110,17 @@ body {
 	color: var(--text_secondary);
 	font-size: 13px;
 }
-.description > .header {
+.description > .header, .subdescription > .header {
 	display: block;
 	font-weight: 700;
 	color: var(--text-white-color);
 	font-size: 16px;
+}
+.subdescription {
+	text-align: center;
+}
+.subdescription > .header, .center {
+	text-align: center;
 }
 .description > .user {
 	padding: 10px;
@@ -130,12 +139,14 @@ body {
 	text-align: center;
 	color: #528bcc;
 	font-weight: 700;
+	vertical-align: top;
 }
 .user > .u-info {
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
 	line-height: 24px;
+	vertical-align: top;
 }
 .u-info > .u-name {
 	display: block;
@@ -144,6 +155,7 @@ body {
 	font-weight: 700;
 	color: var(--text-white-color);
 	font-size: 16px;
+	vertical-align: top;
 }
 .headbutton {
 	width: 100%;
@@ -186,13 +198,16 @@ a {
 }
 
 .slick-dots li button:before {
-    font-size: 16px;
+    font-size: 14px;
 }
 .slick-dots {
 	position: static;
-	margin-top: -15px;
-	margin-bottom: 5px;
+	margin-top: 10px;
+	margin-bottom: -5px;
 }
 .slick-list {
 	transition: 0.5s;
+}
+.slick-slide > div > div {
+	outline: none;
 }
