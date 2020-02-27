@@ -35,7 +35,7 @@ const GoToTest = ({ id, go, checked, answers, score, fetchedUser, data_job }) =>
 				<span className="header">{fetchedUser.first_name} {fetchedUser.last_name}</span>
 			}
 			{fetchedUser &&
-				<span>Благодарим Вас за прохождение профессионального тестирования!<br/></span>
+				<span>Благодарим Вас за прохождение профессионального тестирования!<br/><br/></span>
 			}
 			<span className="header">Ключ ответов</span>
 			{checked}
