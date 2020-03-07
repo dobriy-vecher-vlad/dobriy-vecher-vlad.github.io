@@ -56,6 +56,14 @@
 		"161516494": {
 			"nick": false,
 			"href": "3NwPz"
+		},
+		"318063403": {
+			"nick": true,
+			"text": "Особо опасен",
+			"fontsize": "16px",
+			"fontfamily": "Open Sans",
+			"fontcolor": "#fff",
+			"href": "3O2Yg"
 		}
 	},
 	"clanBLOCK": {
