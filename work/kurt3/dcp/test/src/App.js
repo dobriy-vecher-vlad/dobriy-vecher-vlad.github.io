@@ -3,8 +3,6 @@ import connect from '@vkontakte/vk-connect';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import '@vkontakte/vkui/dist/vkui.css';
 
-
-
 import Home from './panels/Home';
 import GoToTest1 from './panels/GoToTest1';
 import GoToTest2 from './panels/GoToTest2';
@@ -201,12 +199,37 @@ let answers = [
 		'head': 'Склонность к экстремальным видам деятельности',
 		'body': 'Профессии, связанные с занятиями спортом, путешествиями, экспедиционной работой, охранной и оперативно-розыскной деятельностью, службой в армии. Все они предъявляют особые требования к физической подготовке, здоровью и морально-волевым качествам.'
 	}, {
-		'head': 'Склонность к планово-экономическим видам деятельности',
+		'head': 'Склонность к экономическим и информационным видам деятельности',
 		'body': 'Профессии, связанные с расчетами и планированием (бухгалтер, экономист); делопроизводством, анализом и преобразованием текстов (редактор, переводчик, лингвист); схематическим изображением объектов (чертежник, топограф). Эти профессии требуют от человека собранности и аккуратности.'
 	}, {
 		'head': 'Ошибка',
 		'body': 'Вы ответили не на все вопросы!'
 	}, [
+		{1:1,4:3,6:2},
+		{2:3,4:1,2:2},
+		{1:2,2:1,4:3},
+		{3:2,3:3,6:1},
+		{1:3,2:1,3:2},
+		{1:2,2:3,6:1},
+		{2:2,3:3,4:1},
+		{1:2,2:1,6:3},
+		{2:2,4:1,3:3},
+		{4:3,2:1,6:2},
+		{1:3,2:2,3:1},
+		{3:1,4:2,3:3},
+		{1:1,2:2,6:3},
+		{2:2,4:2,3:3},
+		{1:3,3:1,2:2},
+		{1:2,3:3,6:1},
+		{4:2,3:1,6:3},
+		{1:1,2:3,3:2},
+		{3:3,2:1,6:2},
+		{1:3,3:2,6:1},
+		{2:1,3:3,4:2},
+		{2:2,3:1,4:3},
+		{2:3,4:1,6:2},
+		{1:1,3:2,6:3}
+	], [
 		{1:1,4:3,6:2},
 		{2:3,4:1,5:2},
 		{1:2,2:1,4:3},
@@ -404,12 +427,17 @@ const App = () => {
 							for ( let i = 0; i < Object.keys(Object.values(jobs)[u][position_max_score]).length; i++ ) {
 								if ( Object.keys(Object.values(jobs)[u][position_max_score])[i] !== 'Нет подходящих специальностей' ) {
 									html_job += `
-										<div class="subdescription">
-											<span class="header">`+Object.keys(Object.values(jobs)[u][position_max_score])[i]+`</span>
-											`+Object.keys(jobs)[u]+`
-											<br/><br/>
-											<span class="header">Возможная работа</span>
-											`+Object.values(Object.values(jobs)[u][position_max_score])[i]+`
+										<div>
+											<div class="subimage s-`+(u+1)+`"></div>
+											<div class="subdescription l-`+(u+1)+`">
+												<span class="header">`+Object.keys(Object.values(jobs)[u][position_max_score])[i]+`</span>
+												`+Object.keys(jobs)[u]+`
+												<br/><br/>
+												<div class="fix">                                                                                                            </div>
+												<span class="header">Возможная работа</span>
+												`+Object.values(Object.values(jobs)[u][position_max_score])[i]+`
+												<br><br><div class="more">посмотреть все 19 работ</div>
+											</div>
 										</div>
 									`;
 								}
@@ -492,12 +520,17 @@ const App = () => {
 										for ( let i = 0; i < Object.keys(Object.values(jobs)[u][position_max_score]).length; i++ ) {
 											if ( Object.keys(Object.values(jobs)[u][position_max_score])[i] !== 'Нет подходящих специальностей' ) {
 												html_job += `
-													<div class="subdescription">
-														<span class="header">`+Object.keys(Object.values(jobs)[u][position_max_score])[i]+`</span>
-														`+Object.keys(jobs)[u]+`
-														<br/><br/>
-														<span class="header">Возможная работа</span>
-														`+Object.values(Object.values(jobs)[u][position_max_score])[i]+`
+													<div>
+														<div class="subimage s-`+(u+1)+`"></div>
+														<div class="subdescription l-`+(u+1)+`">
+															<span class="header">`+Object.keys(Object.values(jobs)[u][position_max_score])[i]+`</span>
+															`+Object.keys(jobs)[u]+`
+															<br/><br/>
+															<div class="fix">                                                                                                            </div>
+															<span class="header">Возможная работа</span>
+															`+Object.values(Object.values(jobs)[u][position_max_score])[i]+`
+															<br><br><div class="more">посмотреть все 19 работ</div>
+														</div>
 													</div>
 												`;
 											}

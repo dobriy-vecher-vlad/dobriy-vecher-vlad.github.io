@@ -19,12 +19,12 @@ body {
 	--bg-grey-color: #F8F9FB;
 	--bg-pink-color: rgba(32, 41, 122, 0.75);
 	--bg-spink-color: rgba(32, 41, 122, 0.1);
-	--footer-black-color: #0d0d16;
-	--footer-grey-color: #2d2d44;
+	--footer-black-color: #161626;
+	--footer-grey-color: #373753;
 	--footer-white-color: #1e1e2d;
 	--text-white-color: #fff;
 	--text-black-color: #15171a;
-	--text-grey-color: #999;
+	--text-grey-color: #bbb;
 	--text-pink-color: rgba(32, 41, 122, 0.7);
 	--text-blue-color: #008dcd;
 }
@@ -103,11 +103,25 @@ body {
 	text-align: left;
 	line-height: 1em;
 }
+.fix {
+	height: 0px;
+}
+.more {
+	font-size: 12px;
+	text-decoration: underline;
+	font-weight: 500;
+}
+.slick-dots {
+	margin: 10px auto 20px auto!important;
+    width: 75%;
+	border-radius: var(--border-radius);
+	background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.25) 100%);
+}
 .description {
 	background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.25) 100%);
 	margin: 5%;
 	border-radius: var(--border-radius);
-	color: var(--text_secondary);
+	color: var(--text-grey-color);
 	font-size: 13px;
 }
 .description > .header, .subdescription > .header {
@@ -116,8 +130,144 @@ body {
 	color: var(--text-white-color);
 	font-size: 16px;
 }
+.description.s-0 {
+	margin: 5% 0 5% 0;
+	background: transparent;
+}
+.subdescription.s-1 {
+	background: url(s-1.svg), linear-gradient(135deg, rgba(206,158,32,0.4) 0%, rgba(206,158,32,0.3) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.s-2 {
+	background: url(s-2.svg), linear-gradient(135deg, rgba(255,0,0,0.25) 0%, rgba(255,0,0,0.15) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.s-3 {
+	background: url(s-3.svg), linear-gradient(135deg, rgba(139,178,113,0.4) 0%, rgba(139,178,113,0.3) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.s-4 {
+	background: url(s-4.svg), linear-gradient(135deg, rgba(31,84,118,0.4) 0%, rgba(31,84,118,0.3) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.s-5 {
+	background: url(s-5.svg), linear-gradient(135deg, rgba(170,42,101,0.3) 0%, rgba(170,42,101,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 .subdescription {
 	text-align: center;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	width: auto!important;
+	margin: 0 5% 0 5%;
+	padding: 5%;
+	text-shadow: 1px 1px 0px #000;
+	background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage {
+	height: 150px;
+	margin: 0 5% 0 5%;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	background: url(https://sun9-57.userapi.com/c858120/v858120569/1a4a23/tjIMX4IM9FA.jpg);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage.s-1 {
+	background: url(structure1.png);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage.s-2 {
+	background: url(structure2.png);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage.s-3 {
+	background: url(structure3.png);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage.s-4 {
+	background: url(structure4.png);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage.s-5 {
+	background: url(structure5.png);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subimage.s-6 {
+	background: url(structure6.png);
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.subdescription.l-1 {
+	background: url(l-5.svg), linear-gradient(135deg, rgba(255,71,3,0.3) 0%, rgba(255,71,3,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.l-2 {
+	background: url(l-6.svg), linear-gradient(135deg, rgba(255,71,3,0.3) 0%, rgba(255,71,3,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.l-3 {
+	background: url(l-2.svg), linear-gradient(135deg, rgba(255,71,3,0.3) 0%, rgba(255,71,3,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.l-4 {
+	background: url(l-1.svg), linear-gradient(135deg, rgba(255,71,3,0.3) 0%, rgba(255,71,3,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.l-5 {
+	background: url(l-4.svg), linear-gradient(135deg, rgba(255,71,3,0.3) 0%, rgba(255,71,3,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.subdescription.l-6 {
+	background: url(l-3.svg), linear-gradient(135deg, rgba(255,71,3,0.3) 0%, rgba(255,71,3,0.2) 100%);
+	background-blend-mode: color-dodge;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 .subdescription > .header, .center {
 	text-align: center;
