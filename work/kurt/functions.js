@@ -10,7 +10,7 @@ $(window).on('load', function() {
 	
 	var type_page = window.location.hash.substr(1);
 	var time = 18000*1000; //Moscow - 10800(+3ч), Kamensk - 18000(+5ч).
-	if (type_page == "") { get_posts(30558759, 0, time); }
+	if (type_page == "") { get_posts(22403241, 0, time); }
 	if (type_page == "test1") { get_posts(132702909, 0, time); }
 	if (type_page == "test2") { get_page(185939465, 56320355, time); }
 	if (type_page == "test3") { get_page(185939465, 56320364, time); }

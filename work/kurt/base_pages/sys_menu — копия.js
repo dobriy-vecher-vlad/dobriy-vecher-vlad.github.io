@@ -12,7 +12,46 @@ var sys_menu = [
 		'name': 'test1',
 		'titles': [
 			{
-				'title': 'Страница с возможностями',
+				'title': '«Министерство РФ»',
+				'href': ''
+			}, {
+				'title': '«WARLORD»',
+				'href': 'test4'
+			}, {
+				'title': '«The Brown Room»',
+				'href': 'test5'
+			}, {
+				'title': '«TheQuestion»',
+				'href': 'test7'
+			}, {
+				'title': '«LIVE»',
+				'href': 'test8'
+			}, {
+				'title': 'post < 26',
+				'href': 'test16'
+			}, {
+				'title': '',
+				'href': ''
+			}, {
+				'title': '«anoitx»',
+				'href': 'test1'
+			}, {
+				'title': '«moya devochka hentai»',
+				'href': 'test6'
+			}, {
+				'title': '«Эстетика Прекрасного»',
+				'href': 'test9'
+			}, {
+				'title': '«В моих сохрах одни тян»',
+				'href': 'test10'
+			}, {
+				'title': '',
+				'href': ''
+			}, {
+				'title': 'Страница с возможностями 1',
+				'href': 'test11'
+			}, {
+				'title': 'Страница с возможностями 2',
 				'href': 'test12'
 			}, {
 				'title': 'Страница с меню 1',
