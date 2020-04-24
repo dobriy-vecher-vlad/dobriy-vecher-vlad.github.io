@@ -261,12 +261,16 @@ body::-webkit-scrollbar-track {
 .details > summary:after {
   display: block;
   content: '';
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAGCAYAAAAVMmT4AAAAaElEQVQYlXXOPQ6CYBCEYc6ijYWNNlR22FBxNy/BNbiJP+EcjxnyYYRAsdl5ZybZrdDjhui9Sd5H1Bhx3yk3Ja9n44IP2lUxHP8a/g/OeKMrnB2OP3XWJ0944YFn4V++9eMBA44Ln+oL69nS6Zh0QZQAAAAASUVORK5CYII=);
+  background-image: url(data:image/svg+xml;charset=utf-8,%0A%3Csvg%20width%3D%2215%22%20height%3D%2210%22%20viewBox%3D%220%200%2015%2010%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M13.75%201.25l-6.5%206.5-6.5-6.5%22%20stroke-width%3D%222%22%20stroke%3D%22%23fff%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
   width: 11px;
-  height: 6px;
+  height: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
   right: 0;
   top: 50%;
+  transform-origin: 50% 25%;
   transform: translateY(-50%);
   transition: 0.2s;
 }
@@ -293,23 +297,36 @@ details[open] summary ~ * {
 .middle > .error {
   display: block;
   position: relative;
-  margin: 30px;
 }
-.middle > .errorimg {
+.middle > .img {
   height: 300px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 30px;
 }
-.middle > .errorlogo {
+.middle > .title {
   font-size: 22px;
   font-weight: 700;
   text-align: center;
+  text-transform: uppercase;
+  margin: 30px 30px 0px 30px;
+  padding: 0px 0px 30px 0px;
+  box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.05);
 }
-.middle > .errortext {
-  font-size: 18px;
+.middle > .ontext {
+  font-size: 14px;
   font-weight: 500;
   text-align: center;
+  margin: 30px;
+}
+.middle > .secondtitle {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0px 30px 30px 30px;
+  padding: 30px 0px 0px 0px;
+  box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05);
 }
 .middle > .name {
   padding: 0px 30px 0px 30px;
@@ -455,8 +472,30 @@ details[open] summary ~ * {
     border-radius: 0;
     box-shadow: 0px 50px 50px -50px rgba(0,0,0,0.1);
   }
-  .middle > .errorimg {
+  .middle > .error {
+    text-align: left;
+  }
+  .middle > .img {
     height: 100px;
+    margin: 30px;
+  }
+  .middle > .title {
+    font-size: 16px;
+    margin: 30px 30px 0px 30px;
+    padding: 0px 0px 15px 0px;
+    text-transform: uppercase;
+    box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.05);
+  }
+  .middle > .ontext {
+    font-size: 12px;
+    margin: 15px 30px;
+  }
+  .middle > .secondtitle {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0px 30px 30px 30px;
+    padding: 15px 0px 0px 0px;
+    box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05);
   }
   .main > .middle > .text {
     max-height: max-content;
