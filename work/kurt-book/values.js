@@ -2,6 +2,7 @@ books = [
 	{
 		'name': 'Тестовая книга 1',
 		'href': 'test-book-1',
+		'custom': false,
 		'title': 'Темы',
 		'titles': [
 			{
@@ -189,6 +190,7 @@ books = [
 	}, {
 		'name': 'Тестовая книга 2',
 		'href': 'test-book-2',
+		'custom': false,
 		'title': 'Темы',
 		'titles': [
 			{
@@ -374,16 +376,12 @@ books = [
 			}
 		]
 	}, {
+		'name': 'Справка',
+		'href': 'help',
+		'custom': true
+	}, {
 		'name': 'Ошибка',
-		'href': 'error'
-	}, {
-		'name': 'Листается 1',
-		'href': 'error'
-	}, {
-		'name': 'Листается 2',
-		'href': 'error'
-	}, {
-		'name': 'Листается 3',
-		'href': 'error'
+		'href': 'error',
+		'custom': true
 	}
 ];
