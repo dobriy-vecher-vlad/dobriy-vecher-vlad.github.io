@@ -46,12 +46,14 @@ function constructionCard(type) {
 				html += '</details>';
 			}
 			document.querySelector('.menu-1').insertAdjacentHTML('beforeend', html);
+			document.querySelector('label[for="trigger"]').setAttribute(`true`,``);
 		}
 		try { document.querySelector('.headmenu > .active').classList.remove('active'); } catch(err) {}
 		document.querySelector('.headmenu > .button[data='+body.href+']').classList.add('active');
 	}
 }
 function constructionText(book, index, type) {
+	document.querySelector('#trigger').checked = false;
 	loadJS('./pages/'+book+index, function() {
 		if (typeof isScriptLoad != 'is not defined') {
 			document.title = data.tag+' '+data.title;
