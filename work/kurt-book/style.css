@@ -427,7 +427,7 @@ label[for="trigger"] {
   position: fixed;
   right: 30px;
   top: 17px;
-  z-index: 100;
+  z-index: 1000;
 }
 .hamburger {
   width: 20px;
@@ -476,6 +476,12 @@ label[for="trigger"] {
   label[for="trigger"][true] {
     display: block;
   }
+  .head {
+    position: fixed;
+    width: 100%;
+    background-color: #313131;
+    backdrop-filter: none;
+  }
   .head > div {
     width: auto;
     padding: 10px 30px 10px 30px;
@@ -513,9 +519,10 @@ label[for="trigger"] {
     margin-right: 10px;
   }
   .main {
-    width: auto;
+    width: 100%;
     padding: 0px;
     display: block;
+    margin-top: 97px;
   }
   .main > .menu-1 {
     position: fixed;
@@ -546,6 +553,15 @@ label[for="trigger"] {
   }
   .details[head]:first-of-type {
     margin-top: 0;
+  }
+  .details > summary, .details > span > a {
+    padding: 20px 15px 20px 35px;
+  }
+  .details > summary {
+    margin: 0px 0px 0px 35px;
+  }
+  .details > span {
+    padding: 0px 30px 0px 100px;
   }
   .main > .menu-2 {
     display: none;
