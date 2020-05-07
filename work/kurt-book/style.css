@@ -1,23 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 body {
-  --bg-color: #fff;
-  --bg-line: #647694;
-  --bg-menu: rgba(45,45,68,1.0);
-  --bg-menu-o: rgba(45,45,68,0.9);
-  --bg-dop-menu: rgba(87,103,131,1.0);
-  --bg-dop-menu-o: rgba(87,103,131,0.9);
-  --bg-dop-menu-w: rgba(103,118,143,1.0);
-  --bg-dop-menu-d: rgba(78,92,117,1.0);
-  --text-main: #fff;
-  --text-text: #000;
-  --text-other: #939393;
-  --text-hint: rgba(165,195,247,1);
-  --text-hint-o: rgba(165,195,247,0.25);
+  --bg-main: rgba(255,255,255,1.0);
+  --bg-second: rgba(245,245,245,1.0);
+  --bg-head: rgba(49,49,49,1.0);
+  --bg-style: rgba(95,110,135,1.0);
+  --text-main-white: rgba(255,255,255,1.0);
+  --text-main-black: rgba(0,0,0,1.0);
+  --text-second: rgba(147,147,147,1.0);
+  --style-main: rgba(165,195,247,1);
+  --style-second: rgba(165,195,247,0.25);
+  --line: rgba(0,0,0,0.075);
 }
 body {
   margin: 0px;
   user-select: none;
-  background-color: #f4f5f7;
+  background-color: var(--bg-second);
   background-repeat: no-repeat;
   background-image: url(image/pattern1.png),url(image/pattern1.png),url(image/pattern2.png);
   background-position-x: calc(50% - 790px),calc(50% + 695px),calc(50% - 720px);
@@ -30,10 +27,10 @@ body::-webkit-scrollbar {
   width: 12px;
 }
 body::-webkit-scrollbar-thumb:vertical {
-  background-color: #D6DBE1;
+  background-color: var(--line);
 }
 body::-webkit-scrollbar-track {
-  background-color: #E5E8EC;
+  background-color: var(--line);
 }
 .showBlock {
   animation: showBlock 0.5s;
@@ -47,15 +44,24 @@ body::-webkit-scrollbar-track {
   to { opacity: inherit; }
 }
 @keyframes blinker {
-  from { text-shadow: 0 0 0px var(--text-hint); }
-  to { text-shadow: 0 0 15px var(--text-hint), 0 0 25px var(--text-hint), 0 0 35px var(--text-hint); }
+  from { text-shadow: 0 0 0px var(--style-main); }
+  to { text-shadow: 0 0 15px var(--style-main), 0 0 25px var(--style-main), 0 0 35px var(--style-main); }
+}
+@keyframes change {
+  0%, 12.66%, 100% { transform:translate3d(0,0,0); }
+  16.66%, 29.32% { transform:translate3d(0,-100%,0); }
+  33.32%, 45.98% { transform:translate3d(0,-200%,0); }
+  49.98%, 62.64% { transform:translate3d(0,-300%,0); }
+  66.64%, 79.3% { transform:translate3d(0,-200%,0); }
+  83.3%, 95.96% { transform:translate3d(0,-100%,0); }
 }
 .head {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(0,0,0,0.8);
-  backdrop-filter: saturate(180%) blur(5px);
+  /*background-color: rgba(0,0,0,0.8);
+  backdrop-filter: saturate(180%) blur(5px);*/
+  background-color: var(--bg-head);
 }
 .head > div {
   width: 1000px;
@@ -69,7 +75,7 @@ body::-webkit-scrollbar-track {
   position: relative;
   font-size: 22px;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-main-white);
   margin: auto auto auto 0;
   cursor: pointer;
   transition: 0.2s;
@@ -78,8 +84,8 @@ body::-webkit-scrollbar-track {
   transform: translateY(2px);
 }
 .head > div:before {
-  background-color: var(--text-hint-o);
-  color: var(--text-hint);
+  background-color: var(--style-second);
+  color: var(--style-main);
   border-radius: 6px;
   height: 40px;
   width: 40px;
@@ -94,14 +100,37 @@ body::-webkit-scrollbar-track {
   background-repeat: no-repeat;
   animation: blinker 0.5s infinite ease-in-out alternate;
 }
-.headlogo > span {
+.headlogo > ul {
   display: block;
   position: relative;
-  opacity: 0.6;
+  color: var(--text-second);
   font-size: 12px;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: lowercase;
   height: 14px;
+  line-height: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: fit-content;
+  padding: 0px 10px 0px 10px;
+}
+.headlogo > ul:before {
+  content: '[';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.headlogo > ul:after {
+  content: ']';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.headlogo > ul > li {
+  animation: change 10s infinite;
+  text-align: left;
 }
 .headmenu {
   max-width: 485px;
@@ -114,7 +143,7 @@ body::-webkit-scrollbar-track {
 .button {
   position: relative;
   background-color: transparent;
-  color: var(--text-main);
+  color: var(--text-main-white);
   border-radius: 12px;
   transition: 0.2s;
   display: inline-block;
@@ -127,19 +156,19 @@ body::-webkit-scrollbar-track {
   text-transform: uppercase;
 }
 .button.active {
-  color: var(--text-hint);
-  background-color: var(--text-hint-o);
+  color: var(--style-main);
+  background-color: var(--style-second);
   border: 1px solid transparent;
 }
 .button:not(:last-of-type) {
   margin-right: 10px;
-}/*
-.headmenu:hover .button:first-of-type {
+}
+/*.headmenu:hover .button:first-of-type {
   margin-left: -10px;
 }*/
 .button:hover, .button:active {
   transition: 0.2s;
-  color: var(--text-hint);
+  color: var(--style-main);
 }
 .button:active {
   padding: 7px 10px 3px 10px;
@@ -159,12 +188,12 @@ body::-webkit-scrollbar-track {
   height: fit-content;
   word-spacing: normal;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--bg-dop-menu-w) 0%, var(--bg-dop-menu-d) 100%);
+  background: var(--bg-style);
   vertical-align: top;
   border-radius: 12px;
   line-height: 18px;
-}/*
-.menu:empty {
+}
+/*.menu:empty {
   display: none;
 }*/
 .menu > .name {
@@ -174,13 +203,13 @@ body::-webkit-scrollbar-track {
   text-overflow: ellipsis;
   font-size: 22px;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--text-main-white);
   text-transform: uppercase;
   padding: 30px 30px 0px 30px;
 }
 .details {
   cursor: pointer;
-  color: var(--text-main);
+  color: var(--text-main-white);
   font-weight: 500;
   font-size: 12px;
   background-color: transparent;
@@ -217,11 +246,11 @@ body::-webkit-scrollbar-track {
   display: none;
 }
 .details:not(:first-of-type) > summary {
-  box-shadow: inset 0px 1px 0px 0px var(--bg-line);
+  box-shadow: inset 0px 1px 0px 0px var(--line);
 }
 .details[open] {
   background-color: rgba(0,0,0,0.1);
-  box-shadow: inset 0px 1px 0px 0px var(--bg-line), inset 0px -1px 0px 0px var(--bg-line);
+  box-shadow: inset 0px 1px 0px 0px var(--line), inset 0px -1px 0px 0px var(--line);
 }
 .details[open] + .details > summary {
   box-shadow: none;
@@ -242,7 +271,7 @@ body::-webkit-scrollbar-track {
   padding: 10px 15px 10px 30px;
 }
 .details > span:not(:first-of-type) > a {
-  box-shadow: inset 0px 1px 0px 0px var(--bg-line);
+  box-shadow: inset 0px 1px 0px 0px var(--line);
 }
 .details > span:hover {
   background-color: rgba(0,0,0,0.1);
@@ -292,10 +321,11 @@ details[open] summary ~ * {
   margin: 0px auto;
   overflow: hidden;
   vertical-align: top;
-  background-color: var(--bg-color);
+  background-color: var(--bg-main);
   border-radius: 12px;
   line-height: 30px;
   user-select: text;
+  color: var(--text-main-black);
 }
 .middle > .error {
   display: block;
@@ -315,7 +345,7 @@ details[open] summary ~ * {
   text-transform: uppercase;
   margin: 30px 30px 0px 30px;
   padding: 0px 0px 30px 0px;
-  box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.05);
+  box-shadow: inset 0px -1px 0px 0px var(--line);
 }
 .middle > .ontext {
   font-size: 14px;
@@ -329,7 +359,7 @@ details[open] summary ~ * {
   text-align: center;
   margin: 0px 30px 30px 30px;
   padding: 30px 0px 0px 0px;
-  box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05);
+  box-shadow: inset 0px 1px 0px 0px var(--line);
 }
 .middle > .name {
   padding: 0px 30px 0px 30px;
@@ -341,7 +371,7 @@ details[open] summary ~ * {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.05);
+  box-shadow: inset 0px -1px 0px 0px var(--line);
 }
 .middle > .name > span:before {
   display: block;
@@ -361,7 +391,7 @@ details[open] summary ~ * {
   padding: 30px 0px 30px 0px;
   font-size: 18px;
   font-weight: 700;
-  box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05);
+  box-shadow: inset 0px 1px 0px 0px var(--line);
 }
 .middle > .text {
   white-space: normal;
@@ -374,11 +404,11 @@ details[open] summary ~ * {
   width: 8px;
 }
 .middle > .text::-webkit-scrollbar-thumb:vertical {
-  background-color: rgba(0,0,0,0.05);
+  background-color: var(--line);
   border-radius: 12px;
 }
 .middle > .text::-webkit-scrollbar-track {
-  background-color: rgba(0,0,0,0.05);
+  background-color: var(--line);
   border-radius: 12px;
 }
 .middle > .text > ul {
@@ -437,7 +467,7 @@ label[for="trigger"] {
 .hamburger .bar {
   width: 20px;
   height: 4px;
-  background-color: var(--text-main);
+  background-color: var(--text-main-white);
   display: block;
   border-radius: 12px;
   position: absolute;
@@ -463,23 +493,25 @@ label[for="trigger"] {
 }
 .trigger:checked + label > .hamburger > .bar:nth-child(2) {
   transform: rotate(-45deg);
-  background-color: var(--text-main);
+  background-color: var(--text-main-white);
 }
 .trigger:checked + label > .hamburger > .bar:nth-child(3) {
   transform: rotate(45deg);
-  background-color: var(--text-main);
+  background-color: var(--text-main-white);
 }
 @media screen and (max-width: 1080px) {
-  body {
-    --bg-line: #444;
-  }
   label[for="trigger"][true] {
     display: block;
+  }
+  body {
+    background-repeat: no-repeat;
+    background-image: url(image/pattern1.png);
+    background-position: 50%;
   }
   .head {
     position: fixed;
     width: 100%;
-    background-color: #313131;
+    background-color: var(--bg-head);
     backdrop-filter: none;
   }
   .head > div {
@@ -511,8 +543,10 @@ label[for="trigger"] {
     text-transform: uppercase;
     line-height: 30px;
     font-weight: 700;
+    width: fit-content;
+    margin: 0 auto;
   }
-  .headlogo > span {
+  .headlogo > ul {
     display: none;
   }
   .button:not(:last-of-type) {
@@ -533,23 +567,24 @@ label[for="trigger"] {
     border-radius: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(49,49,49,10.8);
+    background-color: var(--bg-head);
     overflow-y: scroll;
     right: -100%;
     transition: 0.2s;
+    background-repeat: no-repeat;
+    background-image: url(image/pattern1.png), url(image/pattern1.png);
+    background-position: 50%;
   }
   .menu > .name {
     font-size: 22px;
     font-weight: 700;
-    color: var(--text-main);
     position: sticky;
     top: 0;
     padding: 10px 30px 10px 30px;
-    background-color: #313131;
     z-index: 1;
     text-align: center;
     line-height: 30px;
-    box-shadow: 0px -30px 50px 50px rgba(0,0,0,0.15);
+    box-shadow: 0px -30px 50px 50px rgba(0,0,0,0.1);
   }
   .details[head]:first-of-type {
     margin-top: 0;
@@ -600,7 +635,7 @@ label[for="trigger"] {
     margin: 30px 30px 0px 30px;
     padding: 0px 0px 15px 0px;
     text-transform: uppercase;
-    box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.05);
+    box-shadow: inset 0px -1px 0px 0px var(--line);
   }
   .middle > .ontext {
     font-size: 12px;
@@ -611,7 +646,7 @@ label[for="trigger"] {
     font-weight: 700;
     margin: 0px 30px 30px 30px;
     padding: 15px 0px 0px 0px;
-    box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05);
+    box-shadow: inset 0px 1px 0px 0px var(--line);
   }
   .main > .middle > .text {
     max-height: max-content;
