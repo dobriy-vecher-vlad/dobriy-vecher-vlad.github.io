@@ -584,6 +584,7 @@ label[for="trigger"] {
     z-index: 1;
     text-align: center;
     line-height: 30px;
+    background-color: var(--bg-head);
     box-shadow: 0px -30px 50px 50px rgba(0,0,0,0.1);
   }
   .details[head]:first-of-type {
