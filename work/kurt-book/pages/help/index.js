@@ -6,7 +6,7 @@ var data = {
 	'text': `
 		<span class="error title">Справка</span>
 		<span class="error ontext">Эта страница — справка.<br>Когда-нибудь тут будет очень красивое содержание.</span>
-		<span class="error secondtitle"><a href="">Давайте вернёмся на главную</a></span>
+		<span class="error secondtitle"><a href="">На главную?</a></span>
 	`
 }
 var isScriptLoad = true;

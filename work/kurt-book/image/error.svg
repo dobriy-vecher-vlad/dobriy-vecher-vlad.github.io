@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: rgba(165,195,247,0.25);
+        fill: rgba(108,92,255,0.25);
         opacity: 0.75;
       }
 
@@ -15,11 +15,11 @@
       }
 
       .cls-3 {
-        fill: #a5c3f7;
+        fill: rgba(108,92,255,1.0);
       }
 
       .cls-4, .cls-5 {
-        stroke: #a5c3f7;
+        stroke: rgba(108,92,255,1.0);
         stroke-linejoin: round;
         stroke-width: 6px;
       }
@@ -50,9 +50,9 @@
   <g style="fill: ; filter: url(#filter-2)">
     <path id="_5" data-name="5" class="cls-4" d="M317.191,135.273V91.508H191.367V200.92q2.874,0,11.661-.72t14.684-.863q5.9-.142,15.98.144,43.19,1.727,43.189,27.929,0,10.365-6.046,17.131t-16.124,6.767q-22.175,0-22.458-19.58H186.472q0.574,29.659,20.011,47.508t49.38,17.852q33.107,0,51.971-21.019t18.859-48.659q0-66.222-76.013-67.663-5.474,0-16.412.576v-25.05h82.923Z" style="stroke: inherit; filter: none; fill: inherit"/>
   </g>
-  <use xlink:href="#_5" style="stroke: #a5c3f7; filter: none; fill: none"/>
+  <use xlink:href="#_5" style="stroke: rgba(108,92,255,1.0); filter: none; fill: none"/>
   <g style="fill: ; filter: url(#filter-3)">
     <path id="_0-2" data-name="0" class="cls-5" d="M570.946,106.48q-21.594,18.72-21.6,50.675v70.83q0,31.96,21.6,50.676t54.13,18.715q32.244,0,53.7-18.715t21.45-50.676v-70.83q0-31.959-21.45-50.675t-53.7-18.715Q592.537,87.765,570.946,106.48Zm34.983,138.637q-7.342-6.187-7.342-17.995V158.307q0-11.8,7.342-18.283t19.147-6.479q11.512,0,18.86,6.479t7.342,18.283v68.815q0,11.518-7.342,17.851t-18.86,6.335Q613.267,251.308,605.929,245.117Z" style="stroke: inherit; filter: none; fill: inherit"/>
   </g>
-  <use xlink:href="#_0-2" style="stroke: #a5c3f7; filter: none; fill: none"/>
+  <use xlink:href="#_0-2" style="stroke: rgba(108,92,255,1.0); filter: none; fill: none"/>
 </svg>

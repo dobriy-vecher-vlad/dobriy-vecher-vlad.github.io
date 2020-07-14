@@ -2,27 +2,14 @@
 body {
   --bg-main: rgba(255,255,255,1.0);
   --bg-second: rgba(245,245,245,1.0);
-  --bg-head: rgba(20,22,31,1.0);
+  --bg-head: rgba(49,49,49,1.0);
   --bg-style: rgba(95,110,135,1.0);
   --text-main-white: rgba(255,255,255,1.0);
   --text-main-black: rgba(0,0,0,1.0);
-  --text-second: rgba(175,188,210,1.0);
-  --style-main: rgba(108,92,255,1);
-  --style-second: rgba(108,92,255,0.25);
-  --line: rgba(0,0,0,0.05);
-  --time: 0.2s;
-}
-body[dark] {
-  --bg-main: #22272b;
-  --bg-second: #171c20;
-  --bg-head: #1f2327;
-  --bg-style: rgba(95,110,135,1.0);
-  --text-main-white: rgba(255,255,255,1.0);
-  --text-main-black: #bfbfbf;
-  --text-second: #888;
-  --style-main: rgba(108,92,255,1);
-  --style-second: rgba(108,92,255,0.25);
-  --line: rgba(255,255,255,0.05);
+  --text-second: rgba(147,147,147,1.0);
+  --style-main: rgba(165,195,247,1);
+  --style-second: rgba(165,195,247,0.25);
+  --line: rgba(0,0,0,0.075);
 }
 body {
   margin: 0px;
@@ -30,7 +17,7 @@ body {
   background-color: var(--bg-second);
   background-repeat: no-repeat;
   background-image: url(image/pattern1.png),url(image/pattern1.png),url(image/pattern2.png);
-  background-position-x: calc(50% - 700px), calc(50% + 395px), calc(50% - 600px);
+  background-position-x: calc(50% - 790px),calc(50% + 695px),calc(50% - 720px);
   background-position-y: 99px,741px,1122px;
   font-family: -apple-system,BlinkMacSystemFont,Montserrat,Roboto,Helvetica Neue,Geneva,Noto Sans Armenian,Noto Sans Bengali,Noto Sans Cherokee,Noto Sans Devanagari,Noto Sans Ethiopic,Noto Sans Georgian,Noto Sans Hebrew,Noto Sans Kannada,Noto Sans Khmer,Noto Sans Lao,Noto Sans Osmanya,Noto Sans Tamil,Noto Sans Telugu,Noto Sans Thai,sans-serif;
   overflow-x: hidden;
@@ -45,14 +32,20 @@ body::-webkit-scrollbar-thumb:vertical {
 body::-webkit-scrollbar-track {
   background-color: var(--line);
 }
+.showBlock {
+  animation: showBlock 0.5s;
+}
+@keyframes showBlock {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 @keyframes showText {
   from { color: transparent; }
   to { opacity: inherit; }
 }
-@keyframes blink {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.25; }
-  100% { opacity: 1.0; }
+@keyframes blinker {
+  from { text-shadow: 0 0 0px var(--style-main); }
+  to { text-shadow: 0 0 15px var(--style-main), 0 0 25px var(--style-main), 0 0 35px var(--style-main); }
 }
 @keyframes change {
   0%, 12.66%, 100% { transform:translate3d(0,0,0); }
@@ -62,53 +55,6 @@ body::-webkit-scrollbar-track {
   66.64%, 79.3% { transform:translate3d(0,-200%,0); }
   83.3%, 95.96% { transform:translate3d(0,-100%,0); }
 }
-@keyframes dots {
-  50% {
-    opacity: 0;
-    transform: scale(0.7) translateY(10px);
-  }
-}
-@keyframes rotation {
-  from { transform:rotate(0deg); }
-  to { transform:rotate(360deg); }
-}
-.secondtitle > a {
-  text-decoration: none;
-  color: var(--style-main);
-}
-.secondtitle > a:hover {
-  text-decoration: underline;
-}
-.loader {
-  background-color: var(--bg-main);
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  transition: var(--time);
-}
-.loader > .dot {
-  display: inline-block;
-  position: relative;
-  border-radius: 50%;
-  background-color: var(--style-second);;
-  width: 25px;
-  height: 25px;
-  margin: 10px;
-  animation-duration: 1.4s;
-  animation: dots 2s ease-in-out infinite;
-  transition: var(--time);
-}
-.loader > .dot:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.loader > .dot:nth-child(3) {
-  animation-delay: 0.8s;
-}
 .head {
   position: sticky;
   top: 0;
@@ -116,9 +62,10 @@ body::-webkit-scrollbar-track {
   /*background-color: rgba(0,0,0,0.8);
   backdrop-filter: saturate(180%) blur(5px);*/
   background-color: var(--bg-head);
-  padding: 0px 15px 0px 15px;
 }
 .head > div {
+  width: 1000px;
+  padding: 15px;
   margin: auto;
   position: relative;
   display: flex;
@@ -129,11 +76,9 @@ body::-webkit-scrollbar-track {
   font-size: 22px;
   font-weight: 600;
   color: var(--text-main-white);
-  margin: auto 0;
-  padding: 15px 15px 15px 0px;
+  margin: auto auto auto 0;
   cursor: pointer;
-  transition: var(--time);
-  height: 40px;
+  transition: 0.2s;
 }
 .headlogo:active {
   transform: translateY(2px);
@@ -141,27 +86,26 @@ body::-webkit-scrollbar-track {
 .head > div:before {
   background-color: var(--style-second);
   color: var(--style-main);
-  border-radius: 8px;
+  border-radius: 6px;
   height: 40px;
   width: 40px;
-  font-size: 20px;
+  content: '×';
+  font-size: 32px;
+  font-weight: 900;
   text-align: center;
   line-height: 40px;
   margin: auto 10px auto 0px;
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 300;
   display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  content: "\f5db";
-  transition: var(--time);
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: blinker 0.5s infinite ease-in-out alternate;
 }
 .headlogo > ul {
   display: block;
   position: relative;
   color: var(--text-second);
   font-size: 12px;
+  font-weight: 400;
   text-transform: lowercase;
   height: 14px;
   line-height: 14px;
@@ -170,262 +114,120 @@ body::-webkit-scrollbar-track {
   padding: 0;
   overflow: hidden;
   width: fit-content;
+  padding: 0px 10px 0px 10px;
+}
+.headlogo > ul:before {
+  content: '[';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.headlogo > ul:after {
+  content: ']';
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .headlogo > ul > li {
   animation: change 10s infinite;
   text-align: left;
 }
 .headmenu {
-  margin: auto 0;
-  padding-left: 15px;
+  max-width: 485px;
+  margin: auto 0 auto auto;
   position: relative;
   display: block;
   overflow-x: hidden;
   white-space: nowrap;
-  max-width: 1000px;
 }
 .button {
   position: relative;
   background-color: transparent;
-  color: var(--text-second);
-  transition: var(--time);
+  color: var(--text-main-white);
+  border-radius: 12px;
+  transition: 0.2s;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
+  padding: 5px 10px 5px 10px;
   overflow: hidden;
   cursor: pointer;
-  height: 40px;
-  line-height: 40px;
-  padding: 15px 15px 15px 15px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
 }
 .button.active {
-  color: var(--text-main-white);
-  box-shadow: inset 0px -4px 0px 0px var(--style-main);
+  color: var(--style-main);
+  background-color: var(--style-second);
+  border: 1px solid transparent;
 }
 .button:not(:last-of-type) {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 /*.headmenu:hover .button:first-of-type {
   margin-left: -10px;
 }*/
 .button:hover, .button:active {
+  transition: 0.2s;
   color: var(--style-main);
-  transition: var(--time);
-  background-color: var(--style-second);
 }
 .button:active {
-  line-height: 44px;
-}
-.buttontext {
-  position: relative;
-  background-color: var(--style-main);
-  color: var(--text-main-white);
-  transition: var(--time);
-  display: block;
-  font-size: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 4px;
-  user-select: none;
-  line-height: 32px;
-  margin-top: 15px;
-}
-.buttontext:hover, .buttontext:active {
-  color: var(--style-main);
-  transition: var(--time);
-  background-color: var(--style-second);
+  padding: 7px 10px 3px 10px;
 }
 .main {
-  display: block;
-  position: relative;
+  display: flex;
+  position: relative; 
+  width: 1560px;
+  margin: auto;
   word-spacing: -1em;
+  padding: 30px 30px 30px 30px;
   overflow: visible;
 }
-.rightmenu {
-  top: 70;
-  right: 0;
-  position: fixed;
-  z-index: 50;
-  width: 290px;
-  height: calc(100% - 70px);
-  word-spacing: normal;
-  overflow-y: scroll;
-  background: var(--bg-main);
-}
-.rightmenu::-webkit-scrollbar {
-  width: 0px;
-}
-.leftmenu {
-  top: 70;
-  left: 0;
-  position: fixed;
-  z-index: 50;
-  width: 290px;
-  height: calc(100% - 70px);
-  word-spacing: normal;
-  overflow-y: scroll;
-  background: var(--bg-main);
-}
-.leftmenu::-webkit-scrollbar {
-  width: 0px;
-}
-.leftmenu > .name, .rightmenu > .name {
-  margin: 15px;
-  display: block;
-  position: relative;
-  text-align: center;
-  color: var(--text-second);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-.time {
-}
-.ip {
-}
-.color{
-}
-.colorblock {
-  display: inline-block;
-  position: relative;
-  width: 34px;
-  height: 34px;
-  border-radius: 4px;
-  margin-right: 15px;
-  box-shadow: none;
-  cursor: pointer;
-  transition: var(--time);
-}
-.colorblock[active] {
-  background-color: var(--style-second)!important;
-}
-.colorblock[active]:after {
-  width: 100%;
-  position: absolute;
-  display: block;
-  text-align: center;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: "Font Awesome 5 Pro";
-  color: var(--style-main);
-  font-weight: 700;
-  content: "\f00c";
-}
-.colorblock:hover {
-  transition: var(--time);
-  box-shadow: inset 0px 0px 0px 4px rgba(0,0,0,0.1);
-}
-.colorblock:nth-child(5n+5) {
-  margin-right: 0px;
-}
-.colorblock:nth-child(6n+6) {
-  margin-top: 15px;
-}
-.titletext {
-  margin-top: 15px;
-  height: 34px;
-  line-height: 34px;
-  background-color: var(--line);
-  border-radius: 4px;
-  padding: 0px 15px;
-}
-input[toggle] {
-  float: right;
-  width: 30px;
-  height: 10px;
-  -webkit-appearance: none;
-  background-color: var(--text-second);;
-  outline: none;
-  border-radius: 4px;
-  transition: var(--time);
-  display: inline-block;
-  position: relative;
-  margin: 12px 2px;
-}
-input:checked[toggle] {
-  background-color: var(--style-second);
-}
-input[toggle]::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--text-main-white);
-  transition: var(--time);
-  top: -5px;
-  left: -2px;
-  cursor: pointer;
-}
-input:checked[toggle]::before {
-  background-color: var(--style-main);
-  left: 12px;
-}
-.menu-1 {
-  padding: 15px 15px 15px 15px!important;
-}
-.menu > .text {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 26px;
-  color: var(--text-main-black);
-}
 .menu {
-  vertical-align: top;
-  line-height: 18px;
-  border-radius: 8px;
+  position: relative;
+  width: 350px;
+  height: fit-content;
+  word-spacing: normal;
   overflow: hidden;
-  padding: 15px;
-  background-color: var(--bg-second);
-  margin: 15px 15px 0px 15px;
+  background: var(--bg-style);
+  vertical-align: top;
+  border-radius: 12px;
+  line-height: 18px;
 }
-.menu:last-of-type {
-  margin: 15px;
-}
-.menu:empty {
+/*.menu:empty {
   display: none;
-}
-.pin {
-  float: right;
-  font-size: 12px;
-  color: var(--style-main);
-  line-height: 18px!important;
-  padding-left: 15px;
-}
-.pin[circle] {
-  animation: blink 1s infinite;
-}
+}*/
 .menu > .name {
   display: block;
-  position: relative;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 12px;
+  font-size: 22px;
   font-weight: 700;
+  color: var(--text-main-white);
   text-transform: uppercase;
-  padding: 0px 0px 10px 0px;
-  color: var(--style-main);
-  transition: var(--time);
+  padding: 30px 30px 0px 30px;
 }
 .details {
   cursor: pointer;
+  color: var(--text-main-white);
   font-weight: 500;
   font-size: 12px;
-  margin: 0px -20px 0px -20px;
-  padding: 0px 20px 0px 20px;
-  transition: var(--time);
+  background-color: transparent;
+  margin: 0px -30px 0px -30px;
+  padding: 0px 30px 0px 30px;
+  transition: 0.2s;
 }
 .details[head] {
+  margin: 0;
 }
 .details:hover {
-  background-color: rgba(0,0,0,0.025);
+  background-color: rgba(0,0,0,0.1);
 }
 .details[head]:first-of-type {
+  margin-top: 20px;
 }
 .details[head]:last-of-type {
+  margin-bottom: 20px;
 }
 .details > summary {
   outline: none;
@@ -435,7 +237,7 @@ input:checked[toggle]::before {
   position: relative;
   padding: 10px 15px 10px 25px;
   margin: 0px 0px 0px 30px;
-  color: var(--text-main-black);
+  transition: 0.2s;
 }
 .details[head] > summary {
   margin: 0px;
@@ -444,9 +246,11 @@ input:checked[toggle]::before {
   display: none;
 }
 .details:not(:first-of-type) > summary {
+  box-shadow: inset 0px 1px 0px 0px var(--line);
 }
 .details[open] {
-  background-color: rgba(0,0,0,0.025);
+  background-color: rgba(0,0,0,0.1);
+  box-shadow: inset 0px 1px 0px 0px var(--line), inset 0px -1px 0px 0px var(--line);
 }
 .details[open] + .details > summary {
   box-shadow: none;
@@ -456,7 +260,7 @@ input:checked[toggle]::before {
   position: relative;
   padding: 0px 30px 0px 90px;
   margin: 0px -30px 0px -30px;
-  transition: var(--time);
+  transition: 0.2s;
 }
 .details > span > a {
   outline: none;
@@ -465,17 +269,17 @@ input:checked[toggle]::before {
   display: block;
   position: relative;
   padding: 10px 15px 10px 30px;
-  color: var(--text-main-black);
 }
 .details > span:not(:first-of-type) > a {
+  box-shadow: inset 0px 1px 0px 0px var(--line);
 }
 .details > span:hover {
-  background-color: rgba(0,0,0,0.025);
-  transition: var(--time);
+  background-color: rgba(0,0,0,0.1);
+  transition: 0.2s;
 }
 .details > span[open] {
-  background-color: rgba(0,0,0,0.025);
-  transition: var(--time);
+  background-color: rgba(0,0,0,0.1);
+  transition: 0.2s;
 }
 .details > summary:before, .details > span > a:before {
   display: block;
@@ -488,43 +292,37 @@ input:checked[toggle]::before {
 }
 .details > summary:after {
   display: block;
-  width: 10px;
+  content: '';
+  background-image: url(data:image/svg+xml;charset=utf-8,%0A%3Csvg%20width%3D%2215%22%20height%3D%2210%22%20viewBox%3D%220%200%2015%2010%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M13.75%201.25l-6.5%206.5-6.5-6.5%22%20stroke-width%3D%222%22%20stroke%3D%22%23fff%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E);
+  width: 11px;
   height: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
   right: 0;
   top: 50%;
   transform-origin: 50% 25%;
   transform: translateY(-50%);
-  transition: var(--time);
-  color: var(--style-main);
-  font-size: 10px;
-  text-align: center;
-  line-height: 10px;
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 900;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  content: "\f078";
+  transition: 0.2s;
 }
 .details[open] > summary:after {
-  transform: scale(1,-1);
-  transition: var(--time);
+  transform: rotate(180deg);
+  transition: 0.2s;
 }
 details[open] summary ~ * {
-  animation: showBlock var(--time);
+  animation: showBlock 0.2s;
 }
 .middle {
   position: relative;
   width: 800px;
-  min-height: calc(100% - 70px);
   height: fit-content;
   word-spacing: normal;
   margin: 0px auto;
   overflow: hidden;
   vertical-align: top;
   background-color: var(--bg-main);
+  border-radius: 12px;
   line-height: 30px;
   user-select: text;
   color: var(--text-main-black);
@@ -533,7 +331,7 @@ details[open] summary ~ * {
   display: block;
   position: relative;
 }
-.img {
+.middle > .img {
   height: 300px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -599,10 +397,11 @@ details[open] summary ~ * {
   white-space: normal;
   padding: 0px 30px 0px 0px;
   margin: 30px;
+  max-height: 800px;
   overflow-y: scroll;
 }
 .middle > .text::-webkit-scrollbar {
-  width: 1px;
+  width: 8px;
 }
 .middle > .text::-webkit-scrollbar-thumb:vertical {
   background-color: var(--line);
@@ -615,47 +414,11 @@ details[open] summary ~ * {
 .middle > .text > ul {
   padding-left: 30px;
   list-style-type: decimal;
-  margin-block-start: 0;
-  margin-block-end: 0;
 }
 .middle > .text > ul > li {
   position: relative;
   font-size: 14px;
   font-weight: 500;
-}
-.middle > .text > ul[line] {
-  padding-left: 20px;
-}
-.middle > .text > ul[line] > li {
-  overflow: hidden;
-  min-height: 22px;
-  list-style: none;
-  padding: 0 0 0px 20px;
-  position: relative;
-}
-.middle > .text > ul[line] > li:not(:last-of-type) {
-  padding: 0 0 20px 20px;
-}
-.middle > .text > ul[line] > li:before {
-  background-color: var(--style-main);
-  position: absolute;
-  content: '';
-  left: 0;
-  top: 10px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  transition: var(--time);
-}
-.middle > .text > ul[line] > li:not(:last-of-type):after {
-  background-color: var(--style-second);
-  position: absolute;
-  content: '';
-  left: 3px;
-  top: 28px;
-  width: 1px;
-  height: calc(100% - 8px);
-  transition: var(--time);
 }
 .middle > .text > p {
   display: block;
@@ -757,7 +520,7 @@ label[for="trigger"] {
     display: block;
     overflow-x: hidden;
     right: 0;
-    transition: var(--time);
+    transition: 0.2s;
   }
   .head > div:before {
     display: none;
@@ -807,7 +570,7 @@ label[for="trigger"] {
     background-color: var(--bg-head);
     overflow-y: scroll;
     right: -100%;
-    transition: var(--time);
+    transition: 0.2s;
     background-repeat: no-repeat;
     background-image: url(image/pattern1.png), url(image/pattern1.png);
     background-position: 50%;
@@ -845,21 +608,21 @@ label[for="trigger"] {
     border-radius: 0;
     box-shadow: 0px 50px 50px -50px rgba(0,0,0,0.1);
     right: 0;
-    transition: var(--time);
+    transition: 0.2s;
   }
   .trigger:checked ~ .main > .menu-1 {
     visibility: visible;
     right: 0;
-    transition: var(--time);
+    transition: 0.2s;
   }
   .trigger:checked ~ .main > .middle {
     right: 100%;
-    transition: var(--time);
+    transition: 0.2s;
     max-height: calc(100% - 97px);
   }
   .trigger:checked ~ .head > div {
     right: 100%;
-    transition: var(--time);
+    transition: 0.2s;
   }
   .middle > .error {
     text-align: left;

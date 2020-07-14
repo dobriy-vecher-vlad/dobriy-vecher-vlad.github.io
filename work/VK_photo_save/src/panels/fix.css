@@ -1,0 +1,30 @@
+.Card--sz-s {
+	overflow: hidden!important;
+}
+.CardGrid .Card--sz-s:nth-child(3n+1) {
+	margin-left: 0;
+}
+.photos_album_title_wrap {
+	color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 35px 12px 9px;
+    background: url(https://vk.com/images/album_top_shadow.png);
+}
+.photos_album_counter {
+	float: right;
+	font-size: 13px;
+    opacity: 0.9;
+    padding: 0 0 0 5px;
+    line-height: 14px;
+}
+.photos_album_title {
+	font-weight: 700;
+    font-size: 12.5px;
+    line-height: 1.2em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

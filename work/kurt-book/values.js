@@ -1,6 +1,6 @@
 books = [
 	{
-		'name': 'Тестовая книга 1',
+		'name': '<i class="far fa-book"></i>  Тестовая книга 1',
 		'href': 'test-book-1',
 		'custom': false,
 		'title': 'Темы',
@@ -188,7 +188,7 @@ books = [
 			}
 		]
 	}, {
-		'name': 'Тестовая книга 2',
+		'name': '<i class="far fa-book"></i>  Тестовая книга 2',
 		'href': 'test-book-2',
 		'custom': false,
 		'title': 'Темы',
@@ -376,11 +376,19 @@ books = [
 			}
 		]
 	}, {
-		'name': 'Справка',
+		'name': '<i class="far fa-question-circle"></i>  Справка',
 		'href': 'help',
 		'custom': true
 	}, {
-		'name': 'Ошибка',
+		'name': '<i class="far fa-dice-d6"></i>  Список изменений',
+		'href': 'changelog',
+		'custom': true
+	}, {
+		'name': '<i class="far fa-at"></i>  Авторство',
+		'href': 'author',
+		'custom': true
+	}, {
+		'name': '<i class="far fa-exclamation-circle"></i>  Ошибка',
 		'href': 'error',
 		'custom': true
 	}
