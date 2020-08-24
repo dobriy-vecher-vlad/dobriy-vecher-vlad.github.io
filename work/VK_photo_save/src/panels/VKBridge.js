@@ -1,20 +1,8 @@
 import React from 'react';
 import { platform, IOS } from '@vkontakte/vkui';
-import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
-import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader';
-import PanelHeaderButton from '@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import Group from '@vkontakte/vkui/dist/components/Group/Group';
-import Cell from '@vkontakte/vkui/dist/components/Cell/Cell';
-import Avatar from '@vkontakte/vkui/dist/components/Avatar/Avatar';
-import Header from '@vkontakte/vkui/dist/components/Header/Header';
-import Div from '@vkontakte/vkui/dist/components/Div/Div';
-import Card from '@vkontakte/vkui/dist/components/Card/Card';
-import CardGrid from '@vkontakte/vkui/dist/components/CardGrid/CardGrid';
-import Gradient from '@vkontakte/vkui/dist/components/Gradient/Gradient';
-import Link from '@vkontakte/vkui/dist/components/Link/Link';
-import CardScroll from '@vkontakte/vkui/dist/components/CardScroll/CardScroll';
+import { Panel, PanelHeader, PanelHeaderButton, Group, Avatar, Header, Card, CardScroll, Banner, Counter, Link } from '@vkontakte/vkui/';
 
 import './fix.css';
 
@@ -29,36 +17,26 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 			VK Bridge
 		</PanelHeader>
 		{fetchedUser &&
-			<Gradient>
-				<Group header={
-					<Header
-						subtitle={'Родился '+fetchedUser.bdate+', занятый ID '+fetchedUser.id+'.'}
-					>
-						Профиль
-					</Header>
-				}>
-					<Cell
-						style={{ paddingBottom: 20 }}
-						before={fetchedUser.photo_200 ? <Avatar src={fetchedUser.photo_200}/> : null}
-						description={fetchedUser.city && fetchedUser.city.title ? fetchedUser.city.title : ''}
-						expandable
-						target='_blank' href={'https://vk.com/id'+fetchedUser.id}
-					>
-						{`${fetchedUser.first_name} ${fetchedUser.last_name}`}
-					</Cell>
-				</Group>
-			</Gradient>
+			<Group>
+				<Link href={"https://vk.com/id"+fetchedUser.id} target="_blank">
+					<Banner
+						before={fetchedUser.photo_200 ? <Avatar size={48} src={fetchedUser.photo_200}/> : null}
+						header={`${fetchedUser.first_name} ${fetchedUser.last_name}`}
+						subheader={<span>Родился {fetchedUser.bdate}<br/>Занятый ID {fetchedUser.id}</span>}
+						asideMode="expand"
+					/>
+				</Link>
+			</Group>
 		}
-		{FriendsGet &&
-			<Gradient>
+			{FriendsGet &&
 				<Group header={
 					<Header
-						subtitle={'Всего '+FriendsGet.count+' друзей.'}
+						indicator={<Counter size="s" mode="secondary">{FriendsGet.count}</Counter>}
 					>
 						Друзья
 					</Header>
 				}>
-					<CardScroll style={{ paddingBottom: 20 }}>
+					<CardScroll>
 						{FriendsGet.items.map(frend => 
 							<Card 
 								mode="outline"
@@ -85,18 +63,16 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 						}
 					</CardScroll>
 				</Group>
-			</Gradient>
-		}
-		{GroupsGet &&
-			<Gradient>
+			}
+			{GroupsGet &&
 				<Group header={
 					<Header
-						subtitle={'Всего '+GroupsGet.count+' сообществ.'}
+						indicator={<Counter size="s" mode="secondary">{GroupsGet.count}</Counter>}
 					>
 						Сообщества
 					</Header>
 				}>
-					<CardScroll style={{ paddingBottom: 20 }}>
+					<CardScroll>
 						{GroupsGet.items.map(group => 
 							<Card 
 								mode="outline"
@@ -124,18 +100,16 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 						}
 					</CardScroll>
 				</Group>
-			</Gradient>
-		}
-		{PhotosGetAlbums &&
-			<Gradient>
+			}
+			{PhotosGetAlbums &&
 				<Group header={
 					<Header
-						subtitle={'Всего '+PhotosGetAlbums.count+' альбомов.'}
+						indicator={<Counter size="s" mode="secondary">{PhotosGetAlbums.count}</Counter>}
 					>
 						Альбомы
 					</Header>
 				}>
-					<CardScroll style={{ paddingBottom: 20 }}>
+					<CardScroll>
 						{PhotosGetAlbums.items.map(album => 
 							<Card 
 								mode="outline"
@@ -152,7 +126,7 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 										backgroundPosition: 'center',
 										backgroundRepeat: 'no-repeat'
 									}}
-									target='_blank' href={'https://vk.com/album'+album.owner_id+'_'+(album.id==-6?'0':album.id==-7?'00':album.id==-15?'000':album.id)}
+									target='_blank' href={'https://vk.com/album'+album.owner_id+'_'+(album.id===-6?'0':album.id===-7?'00':album.id===-15?'000':album.id)}
 								>
 									<div className="photos_album_title_wrap">
 										<div className="photos_album_counter">{album.size}</div>
@@ -163,8 +137,7 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 						}
 					</CardScroll>
 				</Group>
-			</Gradient>
-		}
+			}
 	</Panel>
 );
 
