@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@vk-io/authorization": "^1.0.0",
+    "@vk-io/hear": "^1.0.2",
+    "@vk-io/scenes": "^1.0.0",
+    "@vk-io/session": "^2.0.0",
+    "@vk-io/streaming": "^1.0.0",
+    "canvas": "^2.6.1",
+    "moment": "^2.27.0",
+    "ontime": "^0.0.6",
+    "request": "^2.88.2",
+    "vk-io": "^4.0.1",
+    "xml2js": "^0.4.23"
+  }
+}

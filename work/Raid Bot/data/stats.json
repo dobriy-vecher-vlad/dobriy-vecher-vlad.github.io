@@ -1,0 +1,929 @@
+{
+	"id153968505": {
+		"id": 153968505,
+		"name": "добрый вечер влад",
+		"messages": {
+			"total": 6460,
+			"id4": 2697,
+			"id7": 1726,
+			"id10": 1,
+			"id1": 431,
+			"id17": 2,
+			"id18": 55,
+			"id19": 84,
+			"id20": 1,
+			"id21": 1,
+			"id22": 1462
+		},
+		"job": {
+			"money": 1e+38,
+			"lvl": 21,
+			"relay": 1919
+		},
+		"game": {
+			"total": 1045,
+			"win": 26,
+			"loss": 1015,
+			"draw": 4
+		},
+		"top_waiter": {
+			"score": 1
+		}
+	},
+	"id347643219": {
+		"id": 347643219,
+		"name": "официант KFC",
+		"messages": {
+			"total": 3515,
+			"id4": 2200,
+			"id2": 99,
+			"id18": 9,
+			"id22": 1207
+		},
+		"job": {
+			"money": 2400222,
+			"lvl": 26,
+			"relay": 3139
+		},
+		"game": {
+			"total": 18,
+			"win": 8,
+			"loss": 10,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 118
+		}
+	},
+	"id193757332": {
+		"id": 193757332,
+		"name": "б/у мать 79123797835",
+		"messages": {
+			"total": 3123,
+			"id4": 1744,
+			"id7": 195,
+			"id2": 6,
+			"id15": 1,
+			"id1": 76,
+			"id18": 34,
+			"id19": 88,
+			"id22": 977,
+			"id20": 2
+		},
+		"job": {
+			"money": 73135,
+			"lvl": 15,
+			"relay": 940
+		},
+		"game": {
+			"total": 59,
+			"win": 30,
+			"loss": 29,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 999
+		}
+	},
+	"id183954145": {
+		"id": 183954145,
+		"name": "продам мать",
+		"messages": {
+			"total": 944,
+			"id4": 345,
+			"id22": 599
+		},
+		"job": {
+			"money": 41748,
+			"lvl": 9,
+			"relay": 306
+		},
+		"game": {
+			"total": 57,
+			"win": 21,
+			"loss": 30,
+			"draw": 6
+		},
+		"top_waiter": {
+			"score": 107
+		}
+	},
+	"id253493505": {
+		"id": 253493505,
+		"name": "253493505(/name)",
+		"messages": {
+			"total": 1,
+			"id4": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id87861552": {
+		"id": 87861552,
+		"name": "87861552(/name)",
+		"messages": {
+			"total": 3,
+			"id2": 3
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id404463713": {
+		"id": 404463713,
+		"name": "404463713(/name)",
+		"messages": {
+			"total": 183,
+			"id2": 1,
+			"id4": 182
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id292859277": {
+		"id": 292859277,
+		"name": "292859277(/name)",
+		"messages": {
+			"total": 2,
+			"id2": 2
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id163728423": {
+		"id": 163728423,
+		"name": "163728423(/name)",
+		"messages": {
+			"total": 1,
+			"id16": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id383696269": {
+		"id": 383696269,
+		"name": "383696269(/name)",
+		"messages": {
+			"total": 7,
+			"id2": 7
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id17485708": {
+		"id": 17485708,
+		"name": "17485708(/name)",
+		"messages": {
+			"total": 15,
+			"id4": 15
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 6
+		}
+	},
+	"id443809460": {
+		"id": 443809460,
+		"name": "443809460(/name)",
+		"messages": {
+			"total": 2,
+			"id2": 2
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id-187299468": {
+		"id": -187299468,
+		"name": "-187299468(/name)",
+		"messages": {
+			"total": 22,
+			"id7": 22
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id410724471": {
+		"id": 410724471,
+		"name": "410724471(/name)",
+		"messages": {
+			"total": 1,
+			"id2": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id174227425": {
+		"id": 174227425,
+		"name": "174227425(/name)",
+		"messages": {
+			"total": 1,
+			"id12": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id167704901": {
+		"id": 167704901,
+		"name": "167704901(/name)",
+		"messages": {
+			"total": 1,
+			"id14": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id255969903": {
+		"id": 255969903,
+		"name": "255969903(/name)",
+		"messages": {
+			"total": 1,
+			"id2": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id197553995": {
+		"id": 197553995,
+		"name": "197553995(/name)",
+		"messages": {
+			"total": 63,
+			"id4": 61,
+			"id14": 2
+		},
+		"job": {
+			"money": 1986,
+			"lvl": 2,
+			"relay": 11
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 100
+		}
+	},
+	"id171377798": {
+		"id": 171377798,
+		"name": "171377798(/name)",
+		"messages": {
+			"total": 2,
+			"id2": 2
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id133070687": {
+		"id": 133070687,
+		"name": "133070687(/name)",
+		"messages": {
+			"total": 2,
+			"id12": 2
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id280098362": {
+		"id": 280098362,
+		"name": "280098362(/name)",
+		"messages": {
+			"total": 2,
+			"id13": 1,
+			"id2": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id-184927746": {
+		"id": -184927746,
+		"name": "-184927746(/name)",
+		"messages": {
+			"total": 5,
+			"id7": 5
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id500233879": {
+		"id": 500233879,
+		"name": "500233879(/name)",
+		"messages": {
+			"total": 2,
+			"id9": 2
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id381596577": {
+		"id": 381596577,
+		"name": "381596577(/name)",
+		"messages": {
+			"total": 1,
+			"id4": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 300
+		}
+	},
+	"id170194224": {
+		"id": 170194224,
+		"name": "170194224(/name)",
+		"messages": {
+			"total": 1,
+			"id4": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id190743267": {
+		"id": 190743267,
+		"name": "190743267(/name)",
+		"messages": {
+			"total": 37,
+			"id19": 37
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 27
+		}
+	},
+	"id82550182": {
+		"id": 82550182,
+		"name": "82550182(/name)",
+		"messages": {
+			"total": 1,
+			"id22": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id-187766229": {
+		"id": -187766229,
+		"name": "-187766229(/name)",
+		"messages": {
+			"total": 181,
+			"id7": 1,
+			"id22": 180
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id137840692": {
+		"id": 137840692,
+		"name": "137840692(/name)",
+		"messages": {
+			"total": 1,
+			"id21": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id409108305": {
+		"id": 409108305,
+		"name": "409108305(/name)",
+		"messages": {
+			"total": 11,
+			"id22": 11
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id171482060": {
+		"id": 171482060,
+		"name": "171482060(/name)",
+		"messages": {
+			"total": 4,
+			"id22": 4
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id252921002": {
+		"id": 252921002,
+		"name": "252921002(/name)",
+		"messages": {
+			"total": 3,
+			"id22": 3
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 1
+		}
+	},
+	"id-191608197": {
+		"id": -191608197,
+		"name": "-191608197(/name)",
+		"messages": {
+			"total": 246,
+			"id22": 246
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id206230059": {
+		"id": 206230059,
+		"name": "дебил",
+		"messages": {
+			"total": 353,
+			"id22": 353
+		},
+		"job": {
+			"money": 25000000,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 19
+		}
+	},
+	"id158261932": {
+		"id": 158261932,
+		"name": "158261932(/name)",
+		"messages": {
+			"total": 1,
+			"id22": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id169186957": {
+		"id": 169186957,
+		"name": "169186957(/name)",
+		"messages": {
+			"total": 3,
+			"id22": 3
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id211999232": {
+		"id": 211999232,
+		"name": "211999232(/name)",
+		"messages": {
+			"total": 6,
+			"id22": 6
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id393183470": {
+		"id": 393183470,
+		"name": "393183470(/name)",
+		"messages": {
+			"total": 63,
+			"id22": 63
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id154767201": {
+		"id": 154767201,
+		"name": "долбоёб",
+		"messages": {
+			"total": 52,
+			"id19": 52
+		},
+		"job": {
+			"money": 3884,
+			"lvl": 2,
+			"relay": 17
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id256577527": {
+		"id": 256577527,
+		"name": "256577527(/name)",
+		"messages": {
+			"total": 1,
+			"id21": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	},
+	"id421135068": {
+		"id": 421135068,
+		"name": "421135068(/name)",
+		"messages": {
+			"total": 1,
+			"id20": 1
+		},
+		"job": {
+			"money": 0,
+			"lvl": 1,
+			"relay": 0
+		},
+		"game": {
+			"total": 0,
+			"win": 0,
+			"loss": 0,
+			"draw": 0
+		},
+		"top_waiter": {
+			"score": 0
+		}
+	}
+}
