@@ -15,26 +15,29 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@vkontakte/vk-miniapps-deploy": "0.0.20",
+    "@vkontakte/vk-miniapps-deploy": "0.0.22",
     "cross-env": "^7.0.2",
     "gh-pages": "^3.1.0",
-    "react-hot-loader": "^4.12.21",
-    "react-scripts": "^3.4.3"
+    "react-hot-loader": "^4.13.0",
+    "react-scripts": "^4.0.0"
   },
   "dependencies": {
-    "@vkontakte/icons": "^1.34.0",
-    "@vkontakte/vk-bridge": "^2.2.8",
-    "@vkontakte/vkui": "^4.0.0-beta.16",
+    "@vkontakte/icons": "^1.49.0",
+    "@vkontakte/vk-bridge": "^2.3.0",
+    "@vkontakte/vkjs": "^0.7.0",
+    "@vkontakte/vkui": "^4.0.0-beta.32",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
-    "eruda": "^2.3.3",
+    "eruda": "^2.4.1",
     "eruda-code": "^2.0.0",
     "eruda-dom": "^2.0.0",
+    "fs": "0.0.1-security",
+    "pixelmatch": "^5.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "resemblejs": "^3.2.5"
   },
   "browserslist": {

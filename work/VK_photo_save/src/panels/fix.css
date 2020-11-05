@@ -1,6 +1,15 @@
 .Card--sz-s {
 	overflow: hidden!important;
 }
+.Card__in > .Banner {
+    margin: 0;
+    margin-bottom: 12px;
+    padding: 0;
+}
+.Card__in > .Banner > div {
+    height: 70px;
+    width: 120px;
+}
 .CardGrid .Card--sz-s:nth-child(3n+1) {
 	margin-left: 0;
 }
@@ -27,4 +36,31 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.Button--sz-xl {
+    display: block;
+    width: 100%;
+    padding: 0 16px;
+}
+.Button--sz-xl .Button__content {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 11px;
+}
+.FormLayout--ios .FormLayout__row .FormField, .FormLayout--ios .FormLayout__row .Button, .FormLayout--ios .FormLayout__row .FormStatus {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.FormLayout--ios .FormLayout__row .Button--sz-xl {
+    width: calc(100% - 2*12px);
+}
+.MenuItem {
+    padding: 15px 20px;
+    cursor: pointer;
+}
+.FixedLayout {
+    background-color: var(--background_content);
+}
+.Snackbar {
+    background-color: transparent;
 }

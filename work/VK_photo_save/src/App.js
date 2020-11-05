@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
-import '@vkontakte/vkui/dist/vkui.css';
+//import '@vkontakte/vkui/dist/vkui.css';
 
 import { View, ScreenSpinner } from '@vkontakte/vkui/';
 
@@ -9,6 +9,8 @@ import VKBridge from './panels/VKBridge';
 import VKPhotoSave from './panels/VKPhotoSave';
 
 //let url = 'https://vk.com/foaf.php?id=153968505';
+import './panels/fix.css';
+import './panels/vkui.css';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
@@ -110,7 +112,7 @@ const App = () => {
 				let i = 0;
 				let timerId = setInterval(() => {
 					bridge.send("VKWebAppCallAPIMethod", {"method": "photos.copy", "request_id": "photos.copy", "params": {"owner_id":owner, "photo_id":savedPhoto[i].id, "v":version, "access_token":access_token}});
-					if (i == savedPhoto.length-1) {
+					if (i === savedPhoto.length-1) {
 						setPopout(null);
 						clearInterval(timerId);
 					}
@@ -124,13 +126,13 @@ const App = () => {
 		let album_id = document.querySelector('.Select__el[data-to=album]').value;
 		bridge.send("VKWebAppCallAPIMethod", {"method": "photos.get", "request_id": "photos.get", "params": {"owner_id":id, "album_id":-15, "count":1000, "v":version, "access_token":access_token}}).then(data => {
 			let savedPhoto = data.response.items;
-			if (savedPhoto.length != 0) {
+			if (savedPhoto.length !== 0) {
 				bridge.send("VKWebAppCallAPIMethod", {"method": "photos.createAlbum", "request_id": "photos.createAlbum", "params": {"title":id, "description":"Сохранённые фотографии", "privacy_view":"only_me", "privacy_comment":"only_me", "v":version, "access_token":access_token}}).then(data => {
 					let to = data.response.id;
 					let i = 0;
 					let timerId = setInterval(() => {
 						bridge.send("VKWebAppCallAPIMethod", {"method": "photos.move", "request_id": "photos.move", "params": {"owner_id":id, "target_album_id":to, "photo_id":savedPhoto[i].id, "v":version, "access_token":access_token}});
-						if (i == savedPhoto.length-1) {
+						if (i === savedPhoto.length-1) {
 							clearInterval(timerId);
 							save(owner, album_id, 1000, 0);
 						}
@@ -147,10 +149,10 @@ const App = () => {
 		});
 	};
 	const update = e => {
-		let from = e.currentTarget.dataset.to;
+		let from = e.name;
 		if (from === 'group') {
-			let value = document.querySelector('.Select__el[data-to=group]').value;
-			if (value != '-') {
+			let value = e.value;
+			if (value !== '-') {
 				setPopout(<ScreenSpinner size='large' />);
 				bridge.send("VKWebAppCallAPIMethod", {"method": "photos.getAlbums", "request_id": "photos.getAlbums", "params": {"owner_id":value, "album_ids":-7, "need_system":1, "v":version, "access_token":access_token}}).then(data => {
 					let to = document.querySelector('.Select__el[data-to=album]');

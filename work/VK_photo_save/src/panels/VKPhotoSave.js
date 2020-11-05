@@ -2,9 +2,7 @@ import React from 'react';
 import { platform, IOS } from '@vkontakte/vkui';
 import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import { Panel, PanelHeader, PanelHeaderButton, Group, Avatar, Header, Card, CardScroll, Banner, Counter, Link, Div, Button, Input, FormLayoutGroup, Select, FormLayout } from '@vkontakte/vkui/';
-
-import './fix.css';
+import { Panel, PanelHeader, PanelHeaderButton, Group, Avatar, Card, CardScroll, Banner, Div, Button, FormLayoutGroup, Select, FormLayout } from '@vkontakte/vkui/';
 
 const osName = platform();
 const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet, update, goSave }) => (
@@ -25,14 +23,14 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet, upd
 		</Group>
 		<FormLayout>
 			<FormLayoutGroup top="Группа">
-				<Select placeholder="Выберите группу" onChange={update} data-to="group">
+				<Select placeholder="Выберите группу" onChange={update} name="group">
 					{GroupsGet.items.map(group =>
-						<option key={-group.id} value={-group.id}>{group.name}</option>)
+						<option key={-group.id} value={-group.id} name="group">{group.name}</option>)
 					}
 				</Select>
 			</FormLayoutGroup>
 			<FormLayoutGroup top="Альбом">
-				<Select placeholder="Выберите альбом" onChange={update} data-to="album"></Select>
+				<Select placeholder="Выберите альбом" onChange={update} name="album"></Select>
 			</FormLayoutGroup>
 			<FormLayoutGroup top="Фотографии">
 				<CardScroll data-to="photo">

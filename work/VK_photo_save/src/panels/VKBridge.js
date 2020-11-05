@@ -4,8 +4,6 @@ import Icon28ChevronBack from '@vkontakte/icons/dist/28/chevron_back';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import { Panel, PanelHeader, PanelHeaderButton, Group, Avatar, Header, Card, CardScroll, Banner, Counter, Link } from '@vkontakte/vkui/';
 
-import './fix.css';
-
 const osName = platform();
 const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) => (
 	<Panel id={id}>
@@ -38,28 +36,34 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 				}>
 					<CardScroll>
 						{FriendsGet.items.map(frend => 
+							<Link href={'https://vk.com/id'+frend.id} target='_blank'>
 							<Card 
 								mode="outline"
-								size="s"
+								size="m"
 								key={frend.id}
 							>
-								<a 
-									style={{ 
-										display: 'block',
-										height: 100,
-										width: 150,
-										backgroundImage: 'url('+frend.photo_200_orig+')',
-										backgroundSize: 'cover',
-										backgroundPosition: 'center',
-										backgroundRepeat: 'no-repeat'
-									}}
-									target='_blank' href={'https://vk.com/id'+frend.id}
-								>
-									<div className="photos_album_title_wrap">
-										<div className="photos_album_title">{frend.first_name} {frend.last_name}</div>
-									</div>
-								</a>
-							</Card>)
+								<Banner
+									mode="image"
+									size="m"
+									asideMode="expand"
+									background={
+										<div
+											style={{
+												backgroundColor: '#000',
+												backgroundImage: 'url('+frend.photo_200_orig+')',
+												backgroundSize: 'cover',
+												backgroundPosition: 'center',
+												backgroundRepeat: 'no-repeat'
+											}}
+										>
+											<div className="photos_album_title_wrap">
+												<div className="photos_album_title">{frend.first_name} {frend.last_name}</div>
+											</div>
+										</div>
+									}
+								/>
+							</Card>
+							</Link>)
 						}
 					</CardScroll>
 				</Group>
@@ -74,29 +78,35 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 				}>
 					<CardScroll>
 						{GroupsGet.items.map(group => 
+							<Link href={'https://vk.com/'+group.screen_name} target='_blank'>
 							<Card 
 								mode="outline"
-								size="s"
+								size="m"
 								key={group.id}
 							>
-								<a 
-									style={{ 
-										display: 'block',
-										height: 100,
-										width: 150,
-										backgroundImage: 'url('+group.photo_200+')',
-										backgroundSize: 'cover',
-										backgroundPosition: 'center',
-										backgroundRepeat: 'no-repeat'
-									}}
-									target='_blank' href={'https://vk.com/'+group.screen_name}
-								>
-									<div className="photos_album_title_wrap">
-										<div className="photos_album_counter">{group.members_count}</div>
-										<div className="photos_album_title">{group.name}</div>
-									</div>
-								</a>
-							</Card>)
+								<Banner
+									mode="image"
+									size="m"
+									asideMode="expand"
+									background={
+										<div
+											style={{
+												backgroundColor: '#000',
+												backgroundImage: 'url('+group.photo_200+')',
+												backgroundSize: 'cover',
+												backgroundPosition: 'center',
+												backgroundRepeat: 'no-repeat'
+											}}
+										>
+											<div className="photos_album_title_wrap">
+												<div className="photos_album_counter">{group.members_count}</div>
+												<div className="photos_album_title">{group.name}</div>
+											</div>
+										</div>
+									}
+								/>
+							</Card>
+							</Link>)
 						}
 					</CardScroll>
 				</Group>
@@ -111,29 +121,35 @@ const Page = ({ id, go, fetchedUser, GroupsGet, PhotosGetAlbums, FriendsGet }) =
 				}>
 					<CardScroll>
 						{PhotosGetAlbums.items.map(album => 
+							<Link href={'https://vk.com/album'+album.owner_id+'_'+(album.id===-6?'0':album.id===-7?'00':album.id===-15?'000':album.id)} target='_blank'>
 							<Card 
 								mode="outline"
-								size="s"
+								size="m"
 								key={album.id}
 							>
-								<a 
-									style={{ 
-										display: 'block',
-										height: 100,
-										width: 150,
-										backgroundImage: 'url('+album.sizes[album.sizes.length-1].src+')',
-										backgroundSize: 'cover',
-										backgroundPosition: 'center',
-										backgroundRepeat: 'no-repeat'
-									}}
-									target='_blank' href={'https://vk.com/album'+album.owner_id+'_'+(album.id===-6?'0':album.id===-7?'00':album.id===-15?'000':album.id)}
-								>
-									<div className="photos_album_title_wrap">
-										<div className="photos_album_counter">{album.size}</div>
-										<div className="photos_album_title">{album.title}</div>
-									</div>
-								</a>
-							</Card>)
+								<Banner
+									mode="image"
+									size="m"
+									asideMode="expand"
+									background={
+										<div
+											style={{
+												backgroundColor: '#000',
+												backgroundImage: 'url('+album.sizes[album.sizes.length-1].src+')',
+												backgroundSize: 'cover',
+												backgroundPosition: 'center',
+												backgroundRepeat: 'no-repeat'
+											}}
+										>
+											<div className="photos_album_title_wrap">
+												<div className="photos_album_counter">{album.size}</div>
+												<div className="photos_album_title">{album.title}</div>
+											</div>
+										</div>
+									}
+								/>
+							</Card>
+							</Link>)
 						}
 					</CardScroll>
 				</Group>
