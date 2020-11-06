@@ -1,3 +1,4 @@
+const basecolor = ['58,39,120','153,55,55','69,100,44','67,102,99','0,107,144','99,70,94','127,76,67','121,62,7','122,48,93','79,93,118'];
 function loadJS(src, callback) {
     var s = document.createElement('script');
     s.src = src;
@@ -41,7 +42,7 @@ function constructionCard(type) {
 				html += '</details>';
 			}
 			html += '</div>';
-			document.querySelector('.time').insertAdjacentHTML('afterend', html);
+			document.querySelector('.name').insertAdjacentHTML('afterend', html);
 			document.querySelector('label[for="trigger"]').setAttribute(`true`,``);
 		}
 		try { document.querySelector('.headmenu > .active').classList.remove('active'); } catch(err) {}
@@ -92,78 +93,53 @@ function start() {
 		//constructionText('','index.js');
 	}
 }
-$(window).on('load', function() {
-	$.when( changeSettings('theme', false), start(), changeColor(false) )
-	.done(function(){
-		$('.loader').delay(200).fadeOut(500);
-	});
+document.addEventListener('DOMContentLoaded', function() {
+	changeSettings({type: 'design'}), start();
 });
-function changeColor(change, color) {
-	let basecolor = [['58,39,120','153,55,55','69,100,44','67,102,99','0,107,144','99,70,94','127,76,67','121,62,7','122,48,93','79,93,118'],['32,31,54','55,35,38','34,46,35','34,47,49','17,48,60','42,39,48','49,40,41','47,37,26','48,33,47','37,44,54']];
-	if (change == true) {
-		localStorage.setItem('color', color);
-		document.querySelector('.colorblock[active]').removeAttribute('active');
-		document.querySelector('.colorblock[index="'+color+'"]').setAttribute('active', '');
-		let rgb = basecolor[localStorage.getItem('theme') == 'false' ? 0 : 0][color];
-		let main = '--style-main: rgba('+rgb+',1);';
-		let second = '--style-second: rgba('+rgb+',0.25);';
-		document.querySelector('body').setAttribute('style', main+second);
-	} else {
-		let rgb = localStorage.getItem('color') == null ? 0 : localStorage.getItem('color');
-		let color = '<span class="name">Цветовая схема</span><div class="text">';
-		for (let x = 0; x < basecolor[0].length; x++) {
-			color += '<span index="'+x+'" class="colorblock" onclick="changeColor(true,`'+x+'`);" style="background-color: rgba('+basecolor[0][x]+',1);" '+(x==rgb?'active':'')+'></span>';
-		}
-		color += '<div class="titletext">Тёмная тема<input type="checkbox" toggle '+(localStorage.getItem('theme')=='true'?'checked':'')+' onchange="changeSettings(`theme`, true);" theme></div>';
-		color += '<div class="buttontext" onclick="localStorage.clear(); location.reload();">Сбросить сохранённые данные</div>';
-		document.querySelector('.color').insertAdjacentHTML('beforeend', color);
-		changeColor(true, rgb);
-	}
+window.onload = function () {
+	document.querySelector('.loader').style = 'visibility: hidden; opacity: 0;'
 }
-function changeSettings(type, change) {
-	if (type == 'theme') {
+function changeSettings(object, change) {
+	if (object.type == 'design') {
+		let html = '';
+		html += '<div class="menu"><span class="name">Цветовая схема</span><div class="text">' + changeSettings({type: 'color'}, false) + changeSettings({type: 'theme'}, false) + '</div></div>';
+		html += '<div class="menu"><div class="text"><div class="buttontext" onclick="localStorage.clear(); location.reload();">Сбросить сохранённые данные</div></div></div>';
+		document.querySelector('.leftmenu').insertAdjacentHTML('beforeend', html);
+
+		changeSettings({type: 'color', color: localStorage.getItem('color') == null ? 0 : localStorage.getItem('color')}, true);
+		changeSettings({type: 'theme'}, true);
+	}
+	if (object.type == 'theme') {
 		if (change == true) {
-			if (document.querySelector('input['+type+']').checked) {
+			if (document.querySelector('input['+object.type+']').checked) {
 				document.querySelector('body').setAttribute('dark', '');
-				localStorage.setItem(type, true);
+				localStorage.setItem(object.type, true);
 			} else {
 				document.querySelector('body').removeAttribute('dark');
-				localStorage.setItem(type, false);
+				localStorage.setItem(object.type, false);
 			}
-			let rgb = localStorage.getItem('color') == null ? 0 : localStorage.getItem('color');
-			changeColor(true, rgb);
 		} else {
-			if (localStorage.getItem('theme') == null) {
-				localStorage.setItem(type, false);
-			} else if (localStorage.getItem('theme') == 'false') {
-				localStorage.setItem(type, false);
-			} else {
-				document.querySelector('body').setAttribute('dark', '');
-				localStorage.setItem(type, true);
-			}
+			let html = '<div class="titletext">Тёмная тема<input type="checkbox" toggle '+(localStorage.getItem('theme')==null||localStorage.getItem('theme')=='false'?'':'checked')+' onchange="changeSettings({type: `theme`}, true);" theme></div>';
+			return html;
+		}
+	}
+	if (object.type == 'color') {
+		if (change == true) {
+			localStorage.setItem('color', object.color);
+			try { document.querySelector('.colorblock[active]').removeAttribute('active'); } catch(err) {}
+			document.querySelector('.colorblock[index="'+object.color+'"]').setAttribute('active', '');
+			document.querySelector('body').setAttribute('style', '--style-main: rgba('+basecolor[object.color]+',1);--style-second: rgba('+basecolor[object.color]+',0.25);');
+		} else {
+			let html = '<div>';
+			basecolor.forEach(function(value, index) {
+				html += '<div index="'+index+'" class="colorblock" onclick="changeSettings({type: `color`, color: `'+index+'`}, true);" style="background-color: rgba('+value+',1);"></div>';
+			});
+			html += '</div>';
+			return html;
 		}
 	}
 }
-$(window).scroll(function() {
-	if ($(this).scrollTop() > 1){
-		$('.head').addClass("sticky");
-	}
-	else{
-		$('.head').removeClass("sticky");
-	}
-});
-$(document).ready(function() {
-	$(window).scroll(function() {
-		if ($(this).scrollTop() > 100) {
-			$('.scrollup').fadeIn();
-		} else {
-			$('.scrollup').fadeOut();
-		}
-	});
-	$('.scrollup').click(function() {
-		$("html, body").animate({
-		scrollTop: 0
-	}, 400);
-		return false;
-	});
+window.addEventListener('scroll', function() {
+	window.pageYOffset > 1 ? document.querySelector('.head').classList.add('sticky') : document.querySelector('.head').classList.remove('sticky');
+	window.pageYOffset > 1 ? document.querySelector('.scrollup').style = 'visibility: visible; opacity: 0.3;' : document.querySelector('.scrollup').style = 'visibility: hidden; opacity: 0;';
 });

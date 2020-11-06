@@ -74,8 +74,12 @@ books = [
 		'href': 'help',
 		'custom': true
 	}, {
-		'name': '<i class="far fa-at"></i>  Авторство',
-		'href': 'author',
+		'name': '<i class="far fa-question-circle"></i>  Практическая часть',
+		'href': 'practical',
 		'custom': true
+	}, {
+		'name': '<i class="far fa-at"></i>  Авторство', // name - текст кнопки в шапке
+		'href': 'author', // name - название папки в которой лежит index.js с настройками
+		'custom': true // true - оглавление не добавляется
 	}
 ];
