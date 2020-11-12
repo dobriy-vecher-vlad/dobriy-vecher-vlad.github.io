@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
+		<title>Учебник</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="style.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../fonts/FontAwesome/css/all.css">
+	</head>
+	<body>
+		<div class="scrollup" onclick="window.scrollTo({top:0,behavior:'smooth'});"><center><i class="fas fa-angle-double-up"></i></center></div>
+		<div class="loader"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+		<div class="head">
+			<div>
+				<div onclick="window.open(window.location.origin + window.location.pathname, '_top');" class="head-button head-logo">
+					<i data-text="Главная" class="fas fa-books"></i>
+				</div>
+				<div class="headmenu"></div>
+				<div tabindex="0" class="head-button head-more">
+					<i data-text="Настройки" class="fas fa-cogs"></i>
+					<div class="tooltip">
+						<div class="tooltip-button" onclick="localStorage.clear(); location.reload();"><i class="fas fa-folder-times"></i>  Сбросить сохранённые данные</div>
+						<div class="tooltip-button" onclick="changeSettings({type: 'theme'}, true);"><i class="fas fa-lightbulb-on"></i>  Переключить тему</div>
+						<div class="tooltip-button" onclick="window.open('https://dobriy-vecher-vlad.github.io/', '_blank');"><i class="fas fa-code-branch"></i>  dobriy-vecher-vlad.github.io</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="description"></div>
+		<div class="main">
+			<div class="leftmenu" data-logo="Меню"></div>
+			<div class="middle"></div>
+		</div>
+		<script> </script>
+		<script type="text/javascript" src="values.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+		<script>
+		</script>
+	</body>
+</html>
