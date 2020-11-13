@@ -95,6 +95,352 @@
 	--background-secondary: #18191a;
 	--background-extra: #1877f2;
 }
+
+
+
+
+
+
+/* 
+	╔═══════════════════════════════════╗
+	║	SCALE RULE						║
+	║									║
+	║	Use attribute scale for work	║
+	╚═══════════════════════════════════╝
+*/
+[scale]:not([tabindex]):not([prompt]):not(.icon-button), [scale][tabindex]:not(.icon-button) > span, [scale][prompt]:not(.icon-button) > span {
+	display: block;
+	transition: var(--time);
+	user-select: none;
+}
+[scale]:not([tabindex]):not([prompt]):not(.icon-button):active, [scale][tabindex]:not(.icon-button) > span:active, [scale][prompt]:not(.icon-button) > span:active, [scale][tabindex]:not(.icon-button):focus > span, [scale][prompt]:not(.icon-button):focus > span, .icon-button[scale]:active > span > i, .icon-button[scale]:focus > span > i {
+	transform: scale(0.95);
+}
+/* 
+	╔═══════════════════════════════════════════╗
+	║	TOOLTIP AND PROMPT						║
+	║											║
+	║	Use parent div with attribute 			║
+	║	'tabindex=0' for tooltip after object	║
+	║											║
+	║	Use parent div with attribute 			║
+	║	'prompt' for prompt after object		║
+	║											║
+	║	Use child div with attribute 			║
+	║	'line' for header in tooltip			║
+	╚═══════════════════════════════════════════╝
+*/
+[tabindex] {
+	outline: none;
+}
+.tooltip, [prompt]::after {
+	color: var(--color-main-black);
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: calc(100% + 10px);
+	line-height: 1;
+	font-family: var(--font);
+	font-size: 12px;
+	font-weight: 500;
+	background-color: var(--background-main-white);
+	box-shadow: 0 1px 2px var(--color-line-x1);
+	border-radius: 8px;
+	transition: var(--time);
+	width: max-content;
+	padding: 10px;
+	z-index: 50;
+}
+[prompt]::after {
+	content: attr(prompt);
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: pre-line;
+}
+[prompt]:hover:not(:focus)::after {
+	visibility: visible;
+	opacity: .8;
+}
+div:focus > .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+div[line] {
+	margin: 0 0 10px 0;
+	text-align: left;
+	font-size: 14px;
+	font-weight: 700;
+}
+div[line]:empty {
+	height: 1px;
+	width: 100%;
+	background: var(--color-line-x1);
+}
+div[line]:not(:empty)::after {
+	display: block;
+	width: 100%;
+	height: 1px;
+	content: '';
+	background: var(--color-line-x1);
+	margin-top: 5px;
+}
+div[line]:last-child {
+	margin: auto 0;
+}
+/* 
+	╔═══════════════════════════════════════╗
+	║	PARENT DIV FOR BUTTONS				║
+	║										║
+	║	Use childs div .*-button for work	║
+	╚═══════════════════════════════════════╝
+*/
+.buttons {
+	display: block;
+	height: max-content;
+}
+.buttons[inline] {
+	display: flex;
+}
+/* 
+	╔═══════════════════════════════════════════╗
+	║	SECONDARY BUTTON						║
+	║											║
+	║	Use parent div .buttons for work		║
+	║											║
+	║	Use div and child span with attribute 	║
+	║	'icon' for icon in button				║
+	╚═══════════════════════════════════════════╝
+*/
+.secondary-button {
+	word-spacing: normal;
+	position: relative;
+	margin: 0 0 10px 0;
+	line-height: 1;
+
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--color-main-black);
+}
+[inline] > .secondary-button {
+	margin: auto 10px auto 0;
+}
+.secondary-button:last-child {
+	margin: auto 0;
+}
+.secondary-button > span {
+	cursor: pointer;
+	display: block;
+	user-select: none;
+	width: auto;
+	margin: 0 auto;
+	border-radius: 8px;
+	transition: var(--time);
+
+	background: transparent;
+	padding: 10px;
+}
+.secondary-button:hover > span, .secondary-button:focus > span {
+	background: var(--color-line-x1);
+}
+.secondary-button[icon] > span {
+	padding: 10px 10px 10px 45px;
+}
+.secondary-button[icon] > span::before {
+	content: attr(icon);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	font-family: "Font Awesome 5 Pro";
+
+	font-size: 20px;
+	font-weight: 300;
+	left: 10px;
+	width: 25px;
+	height: 20px;
+}
+/* 
+	╔═══════════════════════════════════════════╗
+	║	PRIMARY BUTTON							║
+	║											║
+	║	Use parent div .buttons for work		║
+	║											║
+	║	Use div and child span with attribute 	║
+	║	'icon' for icon in button				║
+	╚═══════════════════════════════════════════╝
+*/
+.primary-button {
+	word-spacing: normal;
+	position: relative;
+	margin: 0 0 10px 0;
+	line-height: 1;
+
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--color-main-black);
+}
+[inline] > .primary-button {
+	margin: auto 10px auto 0;
+}
+.primary-button:last-child {
+	margin: auto 0;
+}
+.primary-button > span {
+	cursor: pointer;
+	display: block;
+	user-select: none;
+	width: auto;
+	margin: 0 auto;
+	border-radius: 8px;
+	transition: var(--time);
+
+	background: var(--color-line-x1);
+	padding: 15px 25px;
+}
+.primary-button:hover > span, .primary-button:focus > span {
+	background: var(--color-line-x2);
+}
+.primary-button[icon] > span {
+	padding: 15px 25px 15px 52.5px;
+}
+.primary-button[icon] > span::before {
+	content: attr(icon);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	font-family: "Font Awesome 5 Pro";
+
+	font-size: 14px;
+	font-weight: 900;
+	left: 25px;
+	width: 17.5px;
+	height: 14px;
+}
+/* 
+	╔═══════════════════════════════════════════╗
+	║	EXTRA BUTTON							║
+	║											║
+	║	Use parent div .buttons for work		║
+	║											║
+	║	Use div and child span with attribute 	║
+	║	'icon' for icon in button				║
+	╚═══════════════════════════════════════════╝
+*/
+.extra-button {
+	word-spacing: normal;
+	position: relative;
+	margin: 0 0 10px 0;
+	line-height: 1;
+
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+}
+[inline] > .extra-button {
+	margin: auto 10px auto 0;
+}
+.extra-button:last-child {
+	margin: auto 0;
+}
+.extra-button > span {
+	cursor: pointer;
+	display: block;
+	user-select: none;
+	width: auto;
+	margin: 0 auto;
+	border-radius: 8px;
+	transition: var(--time);
+
+	background: var(--background-extra);
+	padding: 20px;
+}
+.extra-button:hover > span, .extra-button:focus > span {
+	background: #4294ff;
+}
+.extra-button[icon] > span {
+	padding: 20px 20px 20px 55px;
+}
+.extra-button[icon] > span::before {
+	content: attr(icon);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	font-family: "Font Awesome 5 Pro";
+
+	font-size: 20px;
+	font-weight: 300;
+	left: 20px;
+	width: 25px;
+	height: 20px;
+}
+/* 
+	╔═══════════════════════════════════════════╗
+	║	ICON BUTTON								║
+	║											║
+	║	Use parent div .buttons for work		║
+	╚═══════════════════════════════════════════╝
+*/
+.icon-button {
+	word-spacing: normal;
+	position: relative;
+	margin: 0 0 10px 0;
+	line-height: 1;
+
+	font-size: 20px;
+	font-weight: 300;
+	color: var(--color-main-black);
+}
+[inline] > .icon-button {
+	margin: auto 10px auto 0;
+}
+.icon-button:last-child {
+	margin: auto 0;
+}
+.icon-button > span {
+	cursor: pointer;
+	display: block;
+	user-select: none;
+	width: auto;
+	margin: 0 auto;
+	border-radius: 8px;
+	transition: var(--time);
+
+	background: transparent;
+	padding: 15px 40px;
+	height: 20px;
+	text-align: center;
+}
+[inline] > .icon-button > span {
+	width: 25px;
+}
+.icon-button > span > i {
+	transition: var(--time);
+	font-weight: inherit;
+}
+.icon-button:hover > span {
+	background: var(--color-line-x1);
+}
+.icon-button:focus > span, .icon-button:active > span {
+	background: var(--color-line-x2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
 	margin: 0px;
 	user-select: none;
@@ -114,18 +460,14 @@ body {
 	font-size: 40px;
 	width: 40px;
 	height: 40px;
-	opacity: 0.0;
+	opacity: 0;
 	visibility: hidden;
 	border-radius: var(--border-radius);
-	position:fixed;
+	position: fixed;
 	bottom: 35px;
 	right: 35px;
 	z-index: 9;
 	cursor: pointer;
-	transition: var(--time);
-}
-.scrollup:active {
-	transform: scale(0.95);
 }
 .loader {
 	background-color: var(--background-main-white);
@@ -159,249 +501,50 @@ body {
 .loader > .dot:nth-child(3) {
 	animation-delay: 0.8s;
 }
+
+
+
+
+
+
+
+
+
 .head {
 	display: block;
 	position: sticky;
 	top: 0;
 	z-index: 52;
-	transition: var(--time);
 	width: 100%;
 	background-color: var(--background-main-white);
 	box-shadow: 0 1px 2px var(--color-line-x1);
 }
 .head > div {
-	margin: auto;
-	position: relative;
 	display: flex;
-	margin: auto;
+	padding: 5px;
 }
-.head > div > .head-button:not(:empty) {
-	position: relative;
-	border-radius: 8px;
-	background-color: rgba(0,0,0,0.0);
-	transition: var(--time);
-	display: inline-block;
-	cursor: pointer;
-	width: calc(46px * 2);
-	height: 46px;
-	text-align: center;
-	margin: auto;
-	font-weight: 300;
+.head > div > .headmenu {
+	margin: 0 auto;
 }
-.head > div > .head-logo:not(:empty) {
-	margin: auto 0 auto 5px;
-}
-.head > div > .head-more:not(:empty) {
-	margin: auto 5px auto 0;
-	outline: none;
-}
-.tooltip {
-	visibility: hidden;
-	opacity: 0;
-	position: absolute;
-	right: 0;
-	top: calc(100% + 10px);
-	line-height: 1;
-	font-family: var(--font);
-	font-size: 12px;
-	font-weight: 500;
-	background-color: var(--background-main-white);
-	box-shadow: 0 1px 2px var(--color-line-x1);
-	border-radius: 8px;
-	padding: 10px;
-	transition: var(--time);
-	width: max-content;
-}
-.head > div > .head-button > .tooltip > .tooltip-button {
-	text-align: left;
-	word-spacing: normal;
-	position: relative;
-	padding: 10px 10px 10px 40px;
-	border-radius: 8px;
-	font-size: 14px;
-	font-weight: 500;
-	margin-bottom: 10px;
-	cursor: pointer;
-	transition: var(--time);
-}
-.head > div > .head-button > .tooltip > .tooltip-button > i {
-	font-size: 20px;
-	font-weight: 300;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	left: 10px;
-	text-align: center;
-	width: 25px;
-	height: 20px;
-}
-.head > div > .head-button > .tooltip > .tooltip-button:last-child {
-	margin: 0;
-}
-.head > div > .head-button > .tooltip > .tooltip-button:hover {
-	background: var(--color-line-x1);
-}
-.head > div > .head-button > .tooltip > .tooltip-button:active {
-	transform: scale(0.95);
-}
-.head > div > .head-more:focus > .tooltip {
-	visibility: visible;
-	opacity: 1;
-}
-.head > div > .head-button:focus {
-	background-color: var(--color-line-x1);
-}
-.head > div > .head-button:focus > i::before {
-	transform: scale(0.95);
-}
-.head > div > .head-button > i {
-	position: relative;
-	line-height: 46px!important;
-	font-weight: inherit!important;
-}
-.head > div > .head-button > i::before {
-	display: block;
-	position: relative;
-	transition: var(--time);
-	font-size: 20px;
-}
-.head > div > .head-button > i::after {
-	content: attr(data-text);
-	visibility: hidden;
-	position: absolute;
-	z-index: 1;
-	background-color: var(--background-main-white);
-	opacity: 0;
-	border-radius: 8px;
-	padding: 10px 15px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	bottom: calc(-100% - 10px - 2px);
-	line-height: 1;
-	font-family: var(--font);
-	font-size: 12px;
-	font-weight: 500;
-	box-shadow: 0 1px 2px var(--color-line-x1);
-	transition: var(--time);
-	color: var(--color-main-black);
-}
-.head > div > .head-button:hover:not(:focus) > i::after {
-	visibility: visible;
-	opacity: .8;
-}
-.head > div > .head-button:hover:not(:focus) {
-	background-color: var(--color-line-x1);
-}
-.head > div > .head-button:active:not(:focus) {
-	background-color: var(--color-line-x2);
-}
-.head > div > .head-button:active:not(:focus) > i::before {
-	transform: scale(0.95);
-}
-.headmenu {
-	margin: 0px auto;
-	padding: 5px 0px;
-	position: relative;
-	display: block;
-	white-space: nowrap;
-}
-.button-logo {
-	position: relative;
-	display: block;
-	line-height: 46px!important;
-	font-weight: inherit!important;
-}
-.button-logo::before {
-	display: block;
-	position: relative;
-	transition: var(--time);
-	font-size: 20px;
-}
-.button-logo::after {
-	content: attr(data-text);
-	visibility: hidden;
-	position: absolute;
-	z-index: 1;
-	background-color: var(--background-main-white);
-	opacity: 0;
-	border-radius: 8px;
-	padding: 10px 15px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	bottom: calc(-100% - 10px - 2px);
-	line-height: 1;
-	font-family: var(--font);
-	font-size: 12px;
-	font-weight: 500;
-	box-shadow: 0 1px 2px var(--color-line-x1);
-	transition: var(--time);
-	color: var(--color-main-black);
-}
-.button:hover .button-logo::after {
-	visibility: visible;
-	opacity: .8;
-}
-.button {
-	position: relative;
-	border-radius: 8px;
-	background-color: rgba(0,0,0,0.0);
-	transition: var(--time);
-	display: inline-block;
-	cursor: pointer;
-	width: calc(46px * 2);
-	height: 46px;
-	text-align: center;
-	font-weight: 300;
-}
-.button.active {
+.headmenu > .active {
 	color: var(--color-extra);
 	font-weight: 900;
-	transition: 0s;
-	border-radius: 0px;
 	box-shadow: 0px 3px 0px 0px var(--background-main-white), 0px 5px 0px 0px var(--background-extra);
 }
-.button:not(:last-of-type) {
-	margin-right: 15px;
-}
-.button:hover:not(.active) {
-	background-color: var(--color-line-x1);
-}
-.button:active:not(.active) {
-	background-color: var(--color-line-x2);
-}
-.button:active:not(.active) .button-logo::before {
-	transform: scale(0.95);
-}
-.buttontext {
-	position: relative;
-	background-color: var(--background-extra);
-	color: #fff;
-	transition: var(--time);
-	display: block;
-	font-size: 12px;
-	overflow: hidden;
-	cursor: pointer;
-	text-align: center;
-	border-radius: 8px;
-	user-select: none;
-	padding: 5px 0px;
-}
-.buttontext:hover {
-	background-color: #1565cc;
-}
-.buttontext:active {
-	transform: scale(0.95);
-}
+
+
+
+
+
+
+
 .description {
 	position: relative;
-	display: block;
 	width: 100%;
-	margin-bottom: 20px;
 	background: linear-gradient(0deg, var(--background-main-white) 0%, var(--background-secondary) 100%);
 	box-shadow: 0 1px 2px var(--color-line-x1);
 }
 .description.sticky {
-	display: block;
 	position: sticky;
 	top: 0;
 	z-index: 51;
@@ -416,14 +559,9 @@ body {
 .description > .content {
 	width: 60%;
 	margin: auto;
-	position: relative;
-	display: block;
 }
 .description > .content > .content-head {
-	position: relative;
-	display: block;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding: 20px 0;
 	margin-bottom: 20px;
 	box-shadow: 0px 1px 0px 0px var(--color-line-x1);
 }
@@ -440,14 +578,12 @@ body {
 	text-indent: 20px;
 }
 .description > .content > .content-bottom {
-	position: relative;
-	display: inline-flex;
+	display: flex;
 	padding-bottom: 20px;
 	width: 100%;
 }
 .description > .content > .content-bottom > .content-scroll {
-	position: relative;
-	display: inline-flex;
+	display: flex;
 	vertical-align: bottom;
 	visibility: hidden;
 	opacity: 0;
@@ -456,8 +592,10 @@ body {
 .description > .content > .content-bottom > .content-scroll > div {
 	font-size: 26px;
 	font-weight: 700;
-	line-height: 1.5em;
-	max-width: 290px;
+	height: 44px;
+	line-height: 44px;
+	margin: auto 0;
+	max-width: 350px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -466,39 +604,21 @@ body {
 	color: var(--color-secondary);
 	font-size: 14px;
 	font-weight: 500;
-	max-width: 320px;
-	height: fit-content;
+	max-width: 250px;
 	margin: auto 20px;
 }
 .description > .content > .content-bottom > .content-buttons {
-	position: relative;
-	display: block;
-	word-spacing: -1em;
 	margin-left: auto;
-	width: fit-content;
 }
-.description > .content > .content-bottom > .content-buttons > div {
-	word-spacing: normal;
-	position: relative;
-	display: inline-block;
-	padding: 10px 25px;
-	background: var(--color-line-x1);
-	border-radius: 8px;
-	font-size: 14px;
-	font-weight: 700;
-	margin-right: 20px;
-	cursor: pointer;
-	transition: var(--time);
-}
-.description > .content > .content-bottom > .content-buttons > div:last-child {
-	margin: 0;
-}
-.description > .content > .content-bottom > .content-buttons > div:hover {
-	background: var(--color-line-x2);
-}
-.description > .content > .content-bottom > .content-buttons > div:active {
-	transform: scale(0.95);
-}
+
+
+
+
+
+
+
+
+
 .main {
 	width: 60%;
 	margin: 20px auto;
@@ -507,48 +627,42 @@ body {
 	word-spacing: -1em;
 	overflow: visible;
 }
+
+
+
+
 .leftmenu {
 	display: block;
 	position: sticky;
 	top: 155px;
 	z-index: 50;
-	min-width: 350px;
-	max-width: 350px;
+	min-width: 310px;
+	max-width: 310px;
 	word-spacing: normal;
 	background: var(--background-main-white);
 	border-radius: 8px;
 	margin: 0 20px auto 0;
 	box-shadow: 0 1px 2px var(--color-line-x1);
+	padding: 20px;
 }
-.leftmenu:not(:empty)::before {
+.leftmenu[data-logo]:not(:empty)::before {
 	content: attr(data-logo);
-	margin: 20px;
 	display: block;
 	position: relative;
 	font-weight: 700;
 	font-size: 20px;
+	margin-bottom: 20px;
 }
 .leftmenu:empty {
 	min-width: 0;
+	padding: 0;
 	margin: 0;
 }
-.titletext {
-	height: 34px;
-	line-height: 34px;
-	background-color: var(--color-line-x05);
-	border-radius: 8px;
-	padding: 0px 10px;
+.leftmenu > div {
+	margin-bottom: 20px;
 }
-.menu > .text {
-	font-size: 12px;
-	font-weight: 500;
-	line-height: 26px;
-}
-.text > div {
-	margin: 20px 0;
-}
-.text > div:last-child {
-	margin-bottom: 0px;
+.leftmenu > div:last-child {
+	margin: 0;
 }
 .menu {
 	vertical-align: top;
@@ -557,7 +671,6 @@ body {
 	overflow: hidden;
 	padding: 10px;
 	background-color: var(--color-line-x1);
-	margin: 20px;
 }
 .menu:empty {
 	display: none;
@@ -575,6 +688,18 @@ body {
 }
 .menu > .name:empty {
 	display: none;
+}
+
+.menu > .text {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 26px;
+}
+.text > div {
+	margin: 20px 0;
+}
+.text > div:last-child {
+	margin-bottom: 0px;
 }
 .details {
 	cursor: pointer;
@@ -598,9 +723,6 @@ body {
 	padding: 10px 15px 10px 25px;
 	margin: 0px 0px 0px 30px;
 	transition: var(--time);
-}
-.details > summary:active, .details > span > a:active {
-	transform: scale(0.95);
 }
 .details[head] > summary {
 	margin: 0px;
@@ -675,6 +797,11 @@ body {
 details[open] summary ~ * {
 	animation: showBlock var(--time);
 }
+
+
+
+
+
 .middle {
 	white-space: normal;
 	display: inline-block;
@@ -791,9 +918,6 @@ details[open] summary ~ * {
 .middle > .text > ul[line]  > li > p > label:hover {
 	background: var(--color-line-x2);
 }
-.middle > .text > ul[line]  > li > p > label:active {
-	transform: scale(0.95);
-}
 .middle > .text > ul[line]  > li > p > input:checked +  label {
 	background: var(--color-line-x3);
 }
@@ -824,6 +948,10 @@ details[open] summary ~ * {
 	height: calc(100% - 8px);
 	transition: var(--time);
 }
+
+
+
+
 .card {
 	position: relative;
 	width: 100%;
@@ -834,9 +962,6 @@ details[open] summary ~ * {
 	user-select: none;
 	overflow: hidden;
 	color: #fff;
-}
-.card:active {
-	transform: scale(0.95);
 }
 .card:hover {
 	box-shadow: 0 10px 20px 4px var(--color-line-x3);

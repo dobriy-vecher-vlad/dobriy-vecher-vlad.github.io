@@ -20,7 +20,7 @@ function constructionHead(type) { // режим
 	let data = books;
 	// сборщик .button
 	data.forEach(item => {
-		html += `<div class="button" data="${item.href}" onclick="window.open('?page=${item.href}', '_top');">${item.name}</div>`;
+		html += `<div scale class="icon-button" prompt="${item.title}" data="${item.href}" onclick="window.open('?page=${item.href}', '_top');"><span>${item.name}</span></div>`;
 	});
 	document.querySelector('.headmenu').innerHTML = html;
 	// снимает активные классы с главных кнопок в head
@@ -28,7 +28,7 @@ function constructionHead(type) { // режим
 		item.classList.remove('active');
 	});
 	// устанавливает активный класс кнопке по текущей странице
-	try { document.querySelector('.headmenu > .button[data='+type+']').classList.add('active'); } catch(error) {}
+	try { document.querySelector('.headmenu > [data='+type+']').classList.add('active'); } catch(error) {}
 }
 function constructionCard(type) { // режим
 	if (type != 'error' && type != 'index' && type != null) { // если не ошибка
@@ -41,9 +41,9 @@ function constructionCard(type) { // режим
 			// сборщик .menu-1
 			let html = `<div class="menu menu-1"><span class="name">${body.title}</span>`;
 			data.forEach((item) => {
-				html += `<details class="details" head><summary tag="${item.tag}">${item.title}</summary>`;
+				html += `<details class="details" head><summary scale tag="${item.tag}">${item.title}</summary>`;
 				item.titles.forEach((item) => {
-					html += `<span onclick="window.open('?page=${body.href}&list=${item.href}', '_top');"><a tag="${item.tag}">${item.title}</a></span>`;
+					html += `<span onclick="window.open('?page=${body.href}&list=${item.href}', '_top');"><a scale tag="${item.tag}">${item.title}</a></span>`;
 				});
 				html += '</details>';
 			});
@@ -61,9 +61,9 @@ function constructionCard(type) { // режим
 						<div>${body.description.name}</div>
 						<div>${body.description.text}</div>
 					</div>
-					<div class="content-buttons">
-						<div><i class="fas fa-copy"></i>  Скопировать ссылку</div>
-						<div><i class="fas fa-bookmark"></i>  Добавить в избранное</div>
+					<div class="content-buttons buttons" inline>
+						<div scale icon class="primary-button"><span icon="&#xf0c5">Скопировать ссылку</span></div>
+						<div scale icon class="primary-button"><span icon="&#xf02e">Добавить в избранное</span></div>
 					</div>
 				</div>
 			</div>
@@ -71,7 +71,7 @@ function constructionCard(type) { // режим
 			document.querySelector('.description').insertAdjacentHTML('beforeend', description);
 		}
 		// расчёт пикселей для закрепления левого меню
-		document.querySelector('.leftmenu').style.top = document.querySelector('.description').offsetHeight-(document.querySelector('.description').offsetHeight-document.querySelector('.headmenu').offsetHeight-(document.querySelector('.description').offsetHeight !== 0 ? document.querySelector('.content-bottom').offsetHeight+20 : 0))+20;
+		document.querySelector('.leftmenu').style.top = document.querySelector('.description').offsetHeight-(document.querySelector('.description').offsetHeight-document.querySelector('.head').offsetHeight-(document.querySelector('.description').offsetHeight !== 0 ? document.querySelector('.content-bottom').offsetHeight+20 : 0))+20;
 	}
 }
 function constructionText(page, list) { // ссылка на папку, ссылка на файл, первая загрузка(1 - да)
@@ -149,7 +149,7 @@ window.addEventListener('scroll', function() {
 	window.pageYOffset > 1 ? document.querySelector('.scrollup').style = 'visibility: visible; opacity: 0.3;' : document.querySelector('.scrollup').style = 'visibility: hidden; opacity: 0;';
 	if (document.body.getAttribute('custom') == 'false' && window.pageYOffset > document.querySelector('.description').offsetHeight-document.querySelector('.content-bottom').offsetHeight-20) {
 		document.querySelector('.description').classList.add('sticky');
-		document.querySelector('.description').style.top = -document.querySelector('.description').offsetHeight+document.querySelector('.headmenu').offsetHeight+document.querySelector('.content-bottom').offsetHeight+20;
+		document.querySelector('.description').style.top = -document.querySelector('.description').offsetHeight+document.querySelector('.head').offsetHeight+document.querySelector('.content-bottom').offsetHeight+20;
 	} else if (document.body.getAttribute('custom') == 'false') {
 		document.querySelector('.description').classList.remove('sticky')
 		document.querySelector('.description').style.top = 0;

@@ -7,7 +7,9 @@ var data = {
 		<div class="title">Практическая часть по материалу информатики</div>
 		<div class="text">
 			<ul line fortest></ul>
-			<div class="buttontext" onclick="checktest();">Проверить ответы</div>
+			<div class="buttons">
+				<div scale icon class="extra-button" onclick="checktest();"><span icon="&#xf560">Проверить ответы</span></div>
+			</div>
 		</div>
 	`
 }
@@ -36,7 +38,7 @@ setTimeout(() => {
 	questions.forEach((item,x) => {
 		html += `<li><b>${item}</b><br>`;
 		answers[x].forEach((item,y) => {
-			html += `<p><input name="q${x}" id="q${x}-${y}" type="radio"><label for="q${x}-${y}"> ${item}</label></p>`;
+			html += `<p><input name="q${x}" id="q${x}-${y}" type="radio"><label scale for="q${x}-${y}"> ${item}</label></p>`;
 		});
 		html += '</li>';
 	});

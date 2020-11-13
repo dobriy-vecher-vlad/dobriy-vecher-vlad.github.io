@@ -8,20 +8,28 @@
 		<link rel="stylesheet" href="../../fonts/FontAwesome/css/all.css">
 	</head>
 	<body>
-		<div class="scrollup" onclick="window.scrollTo({top:0,behavior:'smooth'});"><center><i class="fas fa-angle-double-up"></i></center></div>
+		<div scale class="scrollup" onclick="window.scrollTo({top:0,behavior:'smooth'});"><center><i class="fas fa-angle-double-up"></i></center></div>
 		<div class="loader"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 		<div class="head">
 			<div>
-				<div onclick="window.open(window.location.origin + window.location.pathname, '_top');" class="head-button head-logo">
-					<i data-text="Главная" class="fas fa-books"></i>
+				<div class="buttons" inline>
+					<div scale class="icon-button" prompt="Главная" onclick="window.open(window.location.origin + window.location.pathname, '_top');"><span><i class="far fa-books"></i></span></div>
 				</div>
-				<div class="headmenu"></div>
-				<div tabindex="0" class="head-button head-more">
-					<i data-text="Настройки" class="fas fa-cogs"></i>
-					<div class="tooltip">
-						<div class="tooltip-button" onclick="localStorage.clear(); location.reload();"><i class="fas fa-folder-times"></i>  Сбросить сохранённые данные</div>
-						<div class="tooltip-button" onclick="changeSettings({type: 'theme'}, true);"><i class="fas fa-lightbulb-on"></i>  Переключить тему</div>
-						<div class="tooltip-button" onclick="window.open('https://dobriy-vecher-vlad.github.io/', '_blank');"><i class="fas fa-code-branch"></i>  dobriy-vecher-vlad.github.io</div>
+				<div class="headmenu buttons" inline></div>
+				<div class="buttons" inline>
+					<div scale tabindex="0" class="icon-button" prompt="Настройки"><span><i class="far fa-cogs"></i></span>
+						<div class="tooltip">
+							<div class="buttons">
+								<div line>Общее</div>
+								<div scale icon class="secondary-button" onclick="localStorage.clear(); location.reload();"><span icon="&#xf65f">Сбросить сохранённые данные</span></div>
+								<div scale icon class="secondary-button" onclick="changeSettings({type: 'theme'}, true);"><span icon="&#xf672">Переключить тему</span></div>
+								<div scale icon class="secondary-button" onclick="window.open('https://dobriy-vecher-vlad.github.io/', '_blank');"><span icon="&#xf126">dobriy-vecher-vlad.github.io</span></div>
+								<div line>Type of buttons</div>
+								<div scale class="extra-button"><span>Extra button</span></div>
+								<div scale class="primary-button"><span>Primary button</span></div>
+								<div scale class="secondary-button"><span icon="&#xf672">Secondary button</span></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
