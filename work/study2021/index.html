@@ -9,29 +9,10 @@
 	</head>
 	<body>
 		<div scale class="scrollup" onclick="window.scrollTo({top:0,behavior:'smooth'});"><center><i class="fas fa-angle-double-up"></i></center></div>
-		<div class="loader"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+		<div class="modal-wrap"></div>
 		<div class="head">
 			<div>
-				<div class="buttons" inline>
-					<div scale class="icon-button" prompt="Главная" onclick="window.open(window.location.origin + window.location.pathname, '_top');"><span><i class="far fa-books"></i></span></div>
-				</div>
 				<div class="headmenu buttons" inline></div>
-				<div class="buttons" inline>
-					<div scale tabindex="0" class="icon-button" prompt="Настройки"><span><i class="far fa-cogs"></i></span>
-						<div class="tooltip">
-							<div class="buttons">
-								<div line>Общее</div>
-								<div scale icon class="secondary-button" onclick="localStorage.clear(); location.reload();"><span icon="&#xf65f">Сбросить сохранённые данные</span></div>
-								<div scale icon class="secondary-button" onclick="changeSettings({type: 'theme'}, true);"><span icon="&#xf672">Переключить тему</span></div>
-								<div scale icon class="secondary-button" onclick="window.open('https://dobriy-vecher-vlad.github.io/', '_blank');"><span icon="&#xf126">dobriy-vecher-vlad.github.io</span></div>
-								<div line>Type of buttons</div>
-								<div scale class="extra-button"><span>Extra button</span></div>
-								<div scale class="primary-button"><span>Primary button</span></div>
-								<div scale class="secondary-button"><span icon="&#xf672">Secondary button</span></div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class="description"></div>
@@ -43,6 +24,49 @@
 		<script type="text/javascript" src="values.js"></script>
 		<script type="text/javascript" src="functions.js"></script>
 		<script>
+			let test_modal = `
+				<div class="modal-image">
+					<img src="https://sun9-70.userapi.com/impg/KNCuKJlzvCdffc8jIye782Iy_hNHTguGEVpxhg/4Z_-_Zg9IWc.jpg?size=604x340&quality=96&proxy=1&sign=61f13181ea81add28efc51638219e7d7"></img>
+				</div>
+				<div class="modal-title">
+					Short modal with image
+				</div>
+				<div class="modal-content">
+					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim veritatis modi dolorum consequatur ipsa. Officia animi veniam optio repudiandae molestias corrupti nihil totam dolores, repellendus itaque voluptate? Nihil, ut blanditiis?
+				</div>
+				<div class="buttons">
+					<div line></div>
+					<div scale class="button primary m center" onclick="closeModal();"><span icon="&#xf00d">Close modal</span></div>
+				</div>
+			`;
+			let start_html_1 = `
+				<div class="buttons" inline>
+					<a href="${window.location.origin + window.location.pathname}" scale class="button icon secondary l header" prompt="Главная"><span><i class="far fa-books"></i></span></a>
+				</div>
+			`;
+			let start_html_2 = `
+				<div class="buttons" inline>
+					<div scale tabindex="0" class="button icon secondary l header" prompt="Настройки"><span><i class="far fa-cogs"></i></span>
+						<div class="tooltip">
+							<div class="buttons">
+								<div line>Общее</div>
+								<div scale icon class="button secondary s" onclick="localStorage.clear(); location.reload();"><span icon="&#xf65f">Сбросить сохранённые данные</span></div>
+								<div scale icon class="button secondary s" onclick="changeSettings({type: 'theme'}, true);"><span icon="&#xf672">Переключить тему</span></div>
+								<div scale icon class="button secondary s" onclick="openModal({html: test_modal, width: '40vw'});"><span icon="&#xf8c4">Открыть модальное окно</span></div>
+								<div scale icon class="button secondary s" onclick="addFave();"><span icon="&#xf02e">Добавить в избранное</span></div>
+								<a href="https://dobriy-vecher-vlad.github.io/" target="_blank" scale icon class="button secondary s"><span icon="&#xf126">dobriy-vecher-vlad.github.io</span></a>
+								<div line>Pages for test work</div>
+								<a href="?list=buttons" scale class="button primary s"><span>Styles of buttons</span></a>
+								<a href="?list=modals" scale class="button primary s"><span>Styles of modals</span></a>
+								<a href="?list=error" scale class="button primary s"><span>Error 404 page</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+			document.querySelector('.headmenu').insertAdjacentHTML('beforebegin', start_html_1);
+			document.querySelector('.headmenu').insertAdjacentHTML('afterend', start_html_2);
+			document.body.insertAdjacentHTML('afterbegin', '<div class="loader" style="visibility: hidden; opacity: 0;"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
 		</script>
 	</body>
 </html>

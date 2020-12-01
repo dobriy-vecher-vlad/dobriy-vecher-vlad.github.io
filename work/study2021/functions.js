@@ -15,12 +15,58 @@ function loadJS(src, callback) {
     try { document.querySelector('script[async]').remove(); } catch(error) {}
     document.getElementsByTagName('head')[0].appendChild(s);
 }
+function addFave(e) {
+	let faves = localStorage.getItem('faves') == null ? {} : JSON.parse(localStorage.getItem('faves'));
+	let tag = document.querySelector('title').getAttribute('tag');
+	let title = document.querySelector('title').getAttribute('title');
+	let page = document.querySelector('title').getAttribute('page');
+	let preview = document.querySelector('.middle > .text > p') !== null ? document.querySelector('.middle > .text > p').textContent.slice(0, 300) : 'На странице нет текста, либо он не обнаружен.';
+	faves[`${page}_${tag.replace(/\./gi, '')}`] = {tag: tag, title: title, preview: preview, href: window.location.search};
+	localStorage.setItem('faves', JSON.stringify(faves));
+	if (e !== undefined) {
+		e.innerHTML = '<span icon="&#xf00c">В избранном</span>';
+		e.setAttribute('disabled', '');
+		e.removeAttribute('onclick');
+	}
+	changeSettings({type: 'faves'})
+}
+function copyText(text) {
+	document.body.insertAdjacentHTML('beforeend', `<input class="copy-wrap"></input>`);
+	let warp = document.querySelector('.copy-wrap');
+	warp.value = text;
+	warp.select();
+	document.execCommand('copy');
+	warp.remove();
+}
+function openModal(data) {
+	if (typeof data == 'object') {
+		document.querySelector('.modal-wrap').innerHTML = `
+			<div ${data.type} class="modal-container" ${data.width !== undefined ? 'style="width: '+data.width+'"' : ''}>${data.html}
+				<div class="buttons modal-control" inline onclick="closeModal();">
+					<div scale class="button icon round s"><span><i class="fas fa-times"></i></span></div>
+				</div>
+			</div>
+		`;
+		document.querySelector('html').setAttribute('modal', '');
+		document.querySelector('.modal-wrap').addEventListener('click', closeModal);
+		document.querySelector('.modal-container').addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			e.stopImmediatePropagation();
+			return false;
+		});
+	}
+}
+function closeModal() {
+	document.querySelector('.modal-wrap').innerHTML = '';
+	document.querySelector('html').removeAttribute('modal');
+}
 function constructionHead(type) { // режим
 	let html = '';
 	let data = books;
 	// сборщик .button
 	data.forEach(item => {
-		html += `<div scale class="icon-button" prompt="${item.title}" data="${item.href}" onclick="window.open('?page=${item.href}', '_top');"><span>${item.name}</span></div>`;
+		html += `<a scale class="button icon secondary l header" prompt="${item.title}" data="${item.href}" href="?page=${item.href}"><span>${item.name}</span></a>`;
 	});
 	document.querySelector('.headmenu').innerHTML = html;
 	// снимает активные классы с главных кнопок в head
@@ -38,17 +84,17 @@ function constructionCard(type) { // режим
 		document.body.setAttribute('custom', body.custom);
 		if (body.custom == false) { // если страница не кастомная
 			let data = body.titles;
-			// сборщик .menu-1
-			let html = `<div class="menu menu-1"><span class="name">${body.title}</span>`;
+			// сборщик .menu-content
+			let html = `<div class="menu menu-content"><span class="name">${body.title}</span>`;
 			data.forEach((item) => {
 				html += `<details class="details" head><summary scale tag="${item.tag}">${item.title}</summary>`;
 				item.titles.forEach((item) => {
-					html += `<span onclick="window.open('?page=${body.href}&list=${item.href}', '_top');"><a scale tag="${item.tag}">${item.title}</a></span>`;
+					html += `<a href="?page=${body.href}&list=${item.href}"><span scale tag="${item.tag}">${item.title}</span></a>`;
 				});
 				html += '</details>';
 			});
 			html += '</div>';
-			document.querySelector('.leftmenu').insertAdjacentHTML('afterbegin', html);
+			document.querySelector('.leftmenu').insertAdjacentHTML('beforeend', html);
 			// сборщик .description
 			let description = `
 			<div class="content">
@@ -62,8 +108,8 @@ function constructionCard(type) { // режим
 						<div>${body.description.text}</div>
 					</div>
 					<div class="content-buttons buttons" inline>
-						<div scale icon class="primary-button"><span icon="&#xf0c5">Скопировать ссылку</span></div>
-						<div scale icon class="primary-button"><span icon="&#xf02e">Добавить в избранное</span></div>
+						<div scale icon class="button primary m" onclick="copyText('${window.location.href}');"><span icon="&#xf0c5">Скопировать ссылку</span></div>
+						${localStorage.faves !== undefined ? localStorage.faves.includes(window.location.search) ? '<div scale icon class="button primary m" disabled><span icon="&#xf00c">В избранном</span></div>' : '<div scale icon class="button primary m" onclick="addFave(this);"><span icon="&#xf02e">Добавить в избранное</span></div>' : '<div scale icon class="button primary m" onclick="addFave(this);"><span icon="&#xf02e">Добавить в избранное</span></div>'}
 					</div>
 				</div>
 			</div>
@@ -78,6 +124,9 @@ function constructionText(page, list) { // ссылка на папку, ссы�
 	loadJS(`./pages/${page === 'null' ? '' : `${page}/`}${list === 'null' ? 'index' : `${list}`}.js`, function() {
 		if (typeof isScriptLoad != 'is not defined') { // если страница подгрузилась
 			document.title = `${data.tag} ${data.title}`;
+			document.querySelector('title').setAttribute('tag', data.tag);
+			document.querySelector('title').setAttribute('title', data.title);
+			document.querySelector('title').setAttribute('page', page === 'null' ? list : page);
 			if (data.custom == false) {
 				// сборщик .middle
 				let html = `
@@ -87,8 +136,8 @@ function constructionText(page, list) { // ссылка на папку, ссы�
 				`;
 				document.querySelector('.middle').innerHTML = html;
 				// устанавливает страницу активной в меню при загрузке
-				document.querySelector('a[tag="'+data.tag+'"]').parentNode.parentNode.setAttribute('open', '');
-				document.querySelector('a[tag="'+data.tag+'"]').parentNode.setAttribute('open', '');
+				document.querySelector('details [tag="'+data.tag+'"]').parentNode.parentNode.setAttribute('open', '');
+				document.querySelector('details [tag="'+data.tag+'"]').parentNode.setAttribute('open', '');
 				// устанавливает краткое описание в .description
 				document.querySelectorAll('.content-scroll > div')[0].innerHTML = data.tag;
 				document.querySelectorAll('.content-scroll > div')[1].innerHTML = data.title;
@@ -109,23 +158,10 @@ function start() {
 		constructionCard(url.get('page')); constructionText(`${url.get('page')}`, `${url.get('list')}`);
 	} else { // если нет, то выкидываем на стартовую страницу
 		window.open(`?page=theoretical`, `_top`);
-		//window.open('?list=index', '_top');
+		//constructionCard(url.get('page')); constructionText(`${url.get('page')}`, `${url.get('list')}`);
 	}
 }
 function changeSettings(object, change) { // объект[данные], изменение настроек(true - да)
-	if (object.type == 'design') {
-		let html = '';
-		html += `
-			<div class="menu">
-				<span class="name"></span>
-				<div class="text">
-					${changeSettings({type: 'theme'}, false)}
-					<div class="buttontext" onclick="localStorage.clear(); location.reload();">Сбросить сохранённые данные</div>
-				</div>
-			</div>`;
-		document.querySelector('.leftmenu').insertAdjacentHTML('beforeend', html);
-		//changeSettings({type: 'theme'}, true);
-	}
 	if (object.type == 'theme') {
 		if (change == true) {
 			if (document.body.getAttribute('dark') == null) {
@@ -141,9 +177,14 @@ function changeSettings(object, change) { // объект[данные], изм�
 			//return html;
 		}
 	}
+	if (object.type == 'faves') {
+		if (localStorage.faves !== undefined) {
+			Object.keys(JSON.parse(localStorage.getItem('faves'))).length !== 0 ? document.querySelector('[data=faves] > span > i').setAttribute('count', Object.keys(JSON.parse(localStorage.getItem('faves'))).length) : document.querySelector('[data=faves] > span > i').removeAttribute('count');
+		}
+	}
 }
 document.addEventListener('DOMContentLoaded', function() {
-	changeSettings({type: 'theme'}), start();
+	changeSettings({type: 'theme'}), start(), changeSettings({type: 'faves'});
 });
 window.addEventListener('scroll', function() {
 	window.pageYOffset > 1 ? document.querySelector('.scrollup').style = 'visibility: visible; opacity: 0.3;' : document.querySelector('.scrollup').style = 'visibility: hidden; opacity: 0;';

@@ -8,7 +8,7 @@ var data = {
 		<div class="text">
 			<ul line fortest></ul>
 			<div class="buttons">
-				<div scale icon class="extra-button" onclick="checktest();"><span icon="&#xf560">Проверить ответы</span></div>
+				<div scale icon class="button extra l" onclick="checktest();"><span icon="&#xf560">Проверить ответы</span></div>
 			</div>
 		</div>
 	`
@@ -33,10 +33,12 @@ let answers = [
 	["DVD-Disk." ,"Дискета." ,"CD-Disk." ,"CD-дискета."]
 ];
 let map = [3,4,2,1,4,2,3,3,3,4,1,2,1,4,1,1];
+let mark = ['Неудовлетворительный результат, <b>без оценки</b>.', 'Плохой результат, оценка <b>2</b>.', 'Удовлетворительный результат, оценка <b>3</b>.', 'Хороший результат, оценка <b>4</b>.', 'Отличный результат, <b>оценка 5</b>.'];
+let markRate = [0.25, 0.50, 0.75, 1.00];
 setTimeout(() => {
 	let html = '';
 	questions.forEach((item,x) => {
-		html += `<li><b>${item}</b><br>`;
+		html += `<li><b>${item}</b>`;
 		answers[x].forEach((item,y) => {
 			html += `<p><input name="q${x}" id="q${x}-${y}" type="radio"><label scale for="q${x}-${y}"> ${item}</label></p>`;
 		});
@@ -53,6 +55,18 @@ function checktest() {
 			}
 		});
 	});
-	alert(`Вы ответили правильно на ${score} вопрос(ов).`);
+	let html = `
+		<div class="modal-image">
+			<img src="https://24.kg/files/media/76/76128.jpg"></img>
+		</div>
+		<div class="modal-title">
+			Практическая часть по материалу
+		</div>
+		<div class="modal-content">
+			Вы ответили правильно на <b>${score} вопрос(ов)</b>.
+			<br>${score < map.length*markRate[0] ? mark[0] : score < map.length*markRate[1] ? mark[1] : score < map.length*markRate[2] ? mark[2] : score < map.length*markRate[3] ? mark[3] : mark[4]}
+		</div>
+	`;
+	openModal({html: html, width: '40vw'});
 }
 var isScriptLoad = true;

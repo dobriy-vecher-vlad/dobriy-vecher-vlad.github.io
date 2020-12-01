@@ -9,21 +9,23 @@ var data = {
 			<p>В настоящее время уровень развития информационно-технических средств обработки, хранения и передачи информации развит настолько, что их использование встречается практически во всех сферах деятельности человека. Современные условия развития общества требуют от специалистов быстрого поиска и принятия правильных решений сложившихся задач. Основным средством, выступающим в роли помощника, в подобных случаях является компьютер. Вследствие широкого распространения компьютеров и информационного бума, который переживает человечество, с азами информатики должен быть знаком всякий грамотный современный человек.
 			</p><p>Данный учебник раскрывает понятие информатики через его основополагающие компоненты – информацию и компьютер. Рассматриваются основные разделы современной информатики как комплексной научно-технической дисциплины.
 			</p>
-			<div scale class="card" onclick="window.open('?page=theoretical&list=1.1', '_top');">
-				<div class="text"><b>Глава 1</b><br>Представление информации в ЭВМ.</div>
-				<div class="image" style="background-image: url(image/o1.png)"></div>
-			</div>
-			<div scale class="card" onclick="window.open('?page=theoretical&list=2.1', '_top');">
-				<div class="text"><b>Глава 2</b><br>Структура хранения данных на внешних носителях информации.</div>
-				<div class="image" style="background-image: url(image/o2.png)"></div>
-			</div>
-			<div scale class="card" onclick="window.open('?page=theoretical&list=3.1', '_top');">
-				<div class="text"><b>Глава 3</b><br>Аппаратные и программные средства реализации информационных процессов.</div>
-				<div class="image" style="background-image: url(image/o3.png)"></div>
-			</div>
-			<div scale class="card" onclick="window.open('?page=practical', '_top');">
-				<div class="text"><b>Тестирование</b><br>Практическое тестирование по материалу.</div>
-				<div class="image" style="background-image: url(image/o4.png)"></div>
+			<div class="cards">
+				<div scale class="card">
+					<div class="image" style="background-image: url(image/o1.png)"></div>
+					<a href="?page=theoretical&list=1.1" class="text"><b>Глава 1</b><span>Представление информации в ЭВМ.</span></a>
+				</div>
+				<div scale class="card">
+					<div class="image" style="background-image: url(image/o2.png)"></div>
+					<a href="?page=theoretical&list=2.1" class="text"><b>Глава 2</b><span>Структура хранения данных на внешних носителях информации.</span></a>
+				</div>
+				<div scale class="card">
+					<div class="image" style="background-image: url(image/o3.png)"></div>
+					<a href="?page=theoretical&list=3.1" class="text"><b>Глава 3</b><span>Аппаратные и программные средства реализации информационных процессов.</span></a>
+				</div>
+				<div scale class="card">
+					<div class="image" style="background-image: url(image/o4.png)"></div>
+					<a href="?page=practical" class="text"><b>Тестирование</b><span>Практическое тестирование по материалу.</span></a>
+				</div>
 			</div>
 			<p>Учебник состоит из трёх глав. В первой и второй главах раскрывается понятие структуры информатики. Большое внимание уделено системам счисления и способам кодирования информации. Рассматриваются способы и особенности хранения информации на внешних носителях.
 			</p><p>В третьей главе внимание уделено аппаратным и программным средствам реализации информационных технологий. Рассмотрены поколения ЭВМ, магистрально-модульный принцип построения компьютера, основные и периферийные устройства персонального компьютера, а также классификация программного обеспечения.

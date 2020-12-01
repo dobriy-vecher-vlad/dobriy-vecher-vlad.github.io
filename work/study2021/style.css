@@ -71,6 +71,7 @@
 	--color-main-black: #050505;
 	--color-main-white: #fff;
 	--color-secondary: #65676b;
+	--color-hint: #818c99;
 	--color-line-x05: rgba(50, 70, 90, 0.05);
 	--color-line-x1: rgba(50, 70, 90, 0.1);
 	--color-line-x2: rgba(50, 70, 90, 0.2);
@@ -80,11 +81,22 @@
 	--background-main-white: #fff;
 	--background-secondary: #f0f2f5;
 	--background-extra: #1877f2;
+	--shadow-x05: rgba(0, 0, 0, 0.05);
+	--shadow-x1: rgba(0, 0, 0, 0.1);
+	--shadow-x2: rgba(0, 0, 0, 0.2);
+	--shadow-x5: rgba(255, 255, 255, 0.5);
+}
+:root {
+	--color-line-x05: #f5f6f7;
+	--color-line-x1: #eaecee;
+	--color-line-x2: #d6dade;
+	--color-line-x3: #c1c7cd;
 }
 [dark] {
 	--color-main-black: #e4e6eb;
 	--color-main-white: #050505;
 	--color-secondary: #b0b3b8;
+	--color-hint: #676767;
 	--color-line-x05: rgba(255, 255, 255, 0.025);
 	--color-line-x1: rgba(255, 255, 255, 0.05);
 	--color-line-x2: rgba(255, 255, 255, 0.1);
@@ -94,8 +106,42 @@
 	--background-main-white: #242526;
 	--background-secondary: #18191a;
 	--background-extra: #1877f2;
+	--shadow-x05: rgba(0, 0, 0, 0.05);
+	--shadow-x1: rgba(0, 0, 0, 0.1);
+	--shadow-x2: rgba(0, 0, 0, 0.2);
+	--shadow-x5: rgba(255, 255, 255, 0.05);
 }
-
+[dark] {
+	--color-line-x05: #292a2b;
+	--color-line-x1: #2f3031;
+	--color-line-x2: #3a3b3c;
+	--color-line-x3: #454546;
+}
+.copy-wrap {
+	height: 0;
+	position: absolute;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+html {
+	overflow-x: hidden;
+	overflow-y: overlay;
+}
+html[modal] {
+	overflow: hidden;
+}
+body {
+	margin: 0px;
+	user-select: none;
+	background-color: var(--background-secondary);
+	font-family: var(--font);
+	color: var(--color-main-black);
+}
 
 
 
@@ -103,18 +149,139 @@
 
 /* 
 	╔═══════════════════════════════════╗
+	║	MODAL CARD						║
+	║									║
+	║	Modal warp for modal content	║
+	╚═══════════════════════════════════╝
+*/
+.modal-wrap:not(:empty) {
+	overflow-x: hidden;
+	overflow-y: overlay;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: center;
+	padding: 100px 0;
+}
+.modal-wrap {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	visibility: hidden;
+	opacity: 0;
+	transition: var(--time);
+}
+[modal] .modal-wrap:not(:empty) {
+	visibility: visible;
+	opacity: 1;
+}
+.modal-container {
+	position: relative;
+	height: max-content;
+	width: 60vw;
+	margin: auto;
+	border-radius: 8px;
+	background-color: var(--background-main-white);
+	box-shadow: 0 2px 4px 0 var(--shadow-x05), inset 0 0 0 1px var(--shadow-x5);
+	overflow: hidden;
+}
+.modal-container > div {
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	color: var(--color-main-black);
+	user-select: text;
+	margin: 30px 120px;
+}
+.modal-container > .modal-image {
+	margin: 0!important;
+	position: relative;
+}
+.modal-container > .modal-image > img {
+	width: 100%;
+	max-height: 250px;
+	image-rendering: pixelated;
+	object-fit: cover;
+	-webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 350'><path d='M650,329s-134.333,21-325,21S0,329,0,329V0H650V329Z'/></svg>");
+	-webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 350'><path d='M650,350s-134.333-21-325-21S0,350,0,350V0H650V350Z'/></svg>");
+	-webkit-mask-position: bottom;
+	-webkit-mask-size: 100%;
+	box-shadow: 10px 0 0 rgb(28, 113, 224);
+}
+.modal-container > .modal-title {
+	font-weight: 700;
+	font-size: 26px;
+}
+.modal-container[menu] > .modal-title {
+	font-weight: 700;
+	font-size: 20px;
+	margin: 0;
+	padding: 15px;
+	box-shadow: 0 12px 28px 0 var(--shadow-x1),0 2px 4px 0 var(--shadow-x05),inset 0 0 0 1px var(--shadow-x5);
+	display: flex;
+}
+.modal-container[menu] > .modal-title > span {
+	margin: auto;
+	padding-left: 55px;
+}
+.modal-container[menu] > .modal-bottom {
+	margin: 0;
+	padding: 15px;
+	box-shadow: 0 -12px 28px 0 var(--shadow-x1),0 -2px 4px 0 var(--shadow-x05),inset 0 0 0 1px var(--shadow-x5);
+}
+.modal-container > .modal-content {
+	font-weight: 500;
+}
+.modal-container > .modal-control {
+	position: absolute;
+	margin: 0;
+	top: 0;
+	right: 0;
+}
+.modal-container[menu] > .modal-control {
+	display: none;
+}
+.modal-container > .modal-control > div {
+	position: fixed;
+	margin: 0 0 0 20px;
+}
+.modal-container > .modal-control > div > span {
+	background: rgba(255, 255, 255, 0.05);
+}
+.modal-container > .modal-control > div > span > i {
+	color: rgba(255, 255, 255, 0.25);
+}
+.modal-container > .modal-control > div:hover > span {
+	background: rgba(255, 255, 255, 0.15);
+}
+.modal-container > .modal-control > div:hover > span > i {
+	color: rgba(255, 255, 255, 1);
+}
+/* 
+	╔═══════════════════════════════════╗
 	║	SCALE RULE						║
 	║									║
 	║	Use attribute scale for work	║
 	╚═══════════════════════════════════╝
 */
-[scale]:not([tabindex]):not([prompt]):not(.icon-button), [scale][tabindex]:not(.icon-button) > span, [scale][prompt]:not(.icon-button) > span {
+[scale]:not([tabindex]):not([prompt]):not(.icon), [scale][tabindex]:not(.icon) > span, [scale][prompt]:not(.icon) > span {
 	display: block;
 	transition: var(--time);
 	user-select: none;
 }
-[scale]:not([tabindex]):not([prompt]):not(.icon-button):active, [scale][tabindex]:not(.icon-button) > span:active, [scale][prompt]:not(.icon-button) > span:active, [scale][tabindex]:not(.icon-button):focus > span, [scale][prompt]:not(.icon-button):focus > span, .icon-button[scale]:active > span > i, .icon-button[scale]:focus > span > i {
+[scale]:not([tabindex]):not([prompt]):not(.icon):active, [scale][tabindex]:not(.icon) > span:active, [scale][prompt]:not(.icon) > span:active, [scale][tabindex]:not(.icon):focus > span, [scale][prompt]:not(.icon):focus > span, .icon[scale]:active > span > i, .icon[scale]:focus > span > i {
 	transform: scale(0.95);
+}
+[disabled] {
+	opacity: 0.5;
+}
+[disabled] > span {
+	cursor: default!important;
+}
+[disabled]:active {
+	transform: scale(1)!important;
 }
 /* 
 	╔═══════════════════════════════════════════╗
@@ -145,7 +312,7 @@
 	font-size: 12px;
 	font-weight: 500;
 	background-color: var(--background-main-white);
-	box-shadow: 0 1px 2px var(--color-line-x1);
+	box-shadow: 0 12px 28px 0 var(--shadow-x1),0 2px 4px 0 var(--shadow-x05),inset 0 0 0 1px var(--shadow-x5);
 	border-radius: 8px;
 	transition: var(--time);
 	width: max-content;
@@ -192,7 +359,7 @@ div[line]:last-child {
 	╔═══════════════════════════════════════╗
 	║	PARENT DIV FOR BUTTONS				║
 	║										║
-	║	Use childs div .*-button for work	║
+	║	Use childs div .button for work		║
 	╚═══════════════════════════════════════╝
 */
 .buttons {
@@ -203,32 +370,31 @@ div[line]:last-child {
 	display: flex;
 }
 /* 
-	╔═══════════════════════════════════════════╗
-	║	SECONDARY BUTTON						║
-	║											║
-	║	Use parent div .buttons for work		║
-	║											║
-	║	Use div and child span with attribute 	║
-	║	'icon' for icon in button				║
-	╚═══════════════════════════════════════════╝
+	╔═══════════════════════════════════════╗
+	║	CHILD DIV OF BUTTONS				║
+	║										║
+	║	Use parent div .buttons for work	║
+	╚═══════════════════════════════════════╝
 */
-.secondary-button {
+.button {
+	display: block;
 	word-spacing: normal;
 	position: relative;
-	margin: 0 0 10px 0;
 	line-height: 1;
-
-	font-size: 14px;
-	font-weight: 500;
-	color: var(--color-main-black);
+	margin: 0 0 10px 0;
+	text-align: left;
 }
-[inline] > .secondary-button {
+[inline] > .button {
 	margin: auto 10px auto 0;
 }
-.secondary-button:last-child {
+.button:last-child {
 	margin: auto 0;
 }
-.secondary-button > span {
+.button.center:not([inline]):not([icon]) {
+	text-align: center;
+}
+.button > span {
+	position: relative;
 	cursor: pointer;
 	display: block;
 	user-select: none;
@@ -236,24 +402,43 @@ div[line]:last-child {
 	margin: 0 auto;
 	border-radius: 8px;
 	transition: var(--time);
-
-	background: transparent;
-	padding: 10px;
 }
-.secondary-button:hover > span, .secondary-button:focus > span {
-	background: var(--color-line-x1);
-}
-.secondary-button[icon] > span {
-	padding: 10px 10px 10px 45px;
-}
-.secondary-button[icon] > span::before {
+.button[icon] > span::before {
 	content: attr(icon);
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	text-align: center;
 	font-family: "Font Awesome 5 Pro";
-
+}
+/* 
+	╔═══════════════════════════════════╗
+	║	SMALL STYLE BUTTON				║
+	║									║
+	║	Use style '.s' for work			║
+	╚═══════════════════════════════════╝
+*/
+.button.s {
+	font-size: 14px;
+	font-weight: 500;
+}
+.button.s > span {
+	padding: 10px;
+}
+.button.s.icon {
+	font-size: 18px;
+	font-weight: 300;
+}
+.button.s.icon > span {
+	padding: 4.5px;
+}
+.button.s.icon.header > span {
+	padding: 4.5px 10px;
+}
+.button.s[icon] > span {
+	padding: 10px 10px 10px 45px;
+}
+.button.s[icon] > span::before {
 	font-size: 20px;
 	font-weight: 300;
 	left: 10px;
@@ -261,57 +446,33 @@ div[line]:last-child {
 	height: 20px;
 }
 /* 
-	╔═══════════════════════════════════════════╗
-	║	PRIMARY BUTTON							║
-	║											║
-	║	Use parent div .buttons for work		║
-	║											║
-	║	Use div and child span with attribute 	║
-	║	'icon' for icon in button				║
-	╚═══════════════════════════════════════════╝
+	╔═══════════════════════════════════╗
+	║	MEDIUM STYLE BUTTON				║
+	║									║
+	║	Use style '.m' for work			║
+	╚═══════════════════════════════════╝
 */
-.primary-button {
-	word-spacing: normal;
-	position: relative;
-	margin: 0 0 10px 0;
-	line-height: 1;
-
+.button.m {
 	font-size: 14px;
 	font-weight: 700;
-	color: var(--color-main-black);
 }
-[inline] > .primary-button {
-	margin: auto 10px auto 0;
-}
-.primary-button:last-child {
-	margin: auto 0;
-}
-.primary-button > span {
-	cursor: pointer;
-	display: block;
-	user-select: none;
-	width: auto;
-	margin: 0 auto;
-	border-radius: 8px;
-	transition: var(--time);
-
-	background: var(--color-line-x1);
+.button.m > span {
 	padding: 15px 25px;
 }
-.primary-button:hover > span, .primary-button:focus > span {
-	background: var(--color-line-x2);
+.button.m.icon {
+	font-size: 22px;
+	font-weight: 700;
 }
-.primary-button[icon] > span {
+.button.m.icon > span {
+	padding: 9.5px;
+}
+.button.m.icon.header > span {
+	padding: 9.5px 25px;
+}
+.button.m[icon] > span {
 	padding: 15px 25px 15px 52.5px;
 }
-.primary-button[icon] > span::before {
-	content: attr(icon);
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	text-align: center;
-	font-family: "Font Awesome 5 Pro";
-
+.button.m[icon] > span::before {
 	font-size: 14px;
 	font-weight: 900;
 	left: 25px;
@@ -319,57 +480,33 @@ div[line]:last-child {
 	height: 14px;
 }
 /* 
-	╔═══════════════════════════════════════════╗
-	║	EXTRA BUTTON							║
-	║											║
-	║	Use parent div .buttons for work		║
-	║											║
-	║	Use div and child span with attribute 	║
-	║	'icon' for icon in button				║
-	╚═══════════════════════════════════════════╝
+	╔═══════════════════════════════════╗
+	║	LARGE STYLE BUTTON				║
+	║									║
+	║	Use style '.l' for work			║
+	╚═══════════════════════════════════╝
 */
-.extra-button {
-	word-spacing: normal;
-	position: relative;
-	margin: 0 0 10px 0;
-	line-height: 1;
-
+.button.l {
 	font-size: 16px;
 	font-weight: 500;
-	color: #fff;
 }
-[inline] > .extra-button {
-	margin: auto 10px auto 0;
-}
-.extra-button:last-child {
-	margin: auto 0;
-}
-.extra-button > span {
-	cursor: pointer;
-	display: block;
-	user-select: none;
-	width: auto;
-	margin: 0 auto;
-	border-radius: 8px;
-	transition: var(--time);
-
-	background: var(--background-extra);
+.button.l > span {
 	padding: 20px;
 }
-.extra-button:hover > span, .extra-button:focus > span {
-	background: #4294ff;
+.button.l.icon {
+	font-size: 26px;
+	font-weight: 300;
 }
-.extra-button[icon] > span {
+.button.l.icon > span {
+	padding: 15.5px;
+}
+.button.l.icon.header > span {
+	padding: 15.5px 40px;
+}
+.button.l[icon] > span {
 	padding: 20px 20px 20px 55px;
 }
-.extra-button[icon] > span::before {
-	content: attr(icon);
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	text-align: center;
-	font-family: "Font Awesome 5 Pro";
-
+.button.l[icon] > span::before {
 	font-size: 20px;
 	font-weight: 300;
 	left: 20px;
@@ -377,53 +514,121 @@ div[line]:last-child {
 	height: 20px;
 }
 /* 
-	╔═══════════════════════════════════════════╗
-	║	ICON BUTTON								║
-	║											║
-	║	Use parent div .buttons for work		║
-	╚═══════════════════════════════════════════╝
+	╔═══════════════════════════════════╗
+	║	EXTRA LARGE STYLE BUTTON		║
+	║									║
+	║	Use style '.xl' for work		║
+	╚═══════════════════════════════════╝
 */
-.icon-button {
-	word-spacing: normal;
-	position: relative;
-	margin: 0 0 10px 0;
-	line-height: 1;
-
+.button.xl {
+	font-size: 20px;
+	font-weight: 500;
+}
+.button.xl > span {
+	padding: 25px;
+}
+.button.xl.icon {
+	font-size: 36px;
+	font-weight: 300;
+}
+.button.xl.icon > span {
+	padding: 22.5px;
+}
+.button.xl.icon.header > span {
+	padding: 22.5px 50px;
+}
+.button.xl[icon] > span {
+	padding: 25px 25px 25px 60px;
+}
+.button.xl[icon] > span::before {
+	font-size: 24px;
+	font-weight: 300;
+	left: 20px;
+	width: 30px;
+	height: 25px;
+}
+/* 
+	╔═══════════════════════════════════╗
+	║	ICON STYLE BUTTON				║
+	║									║
+	║	Use style '.icon' for work		║
+	║	Use style '.round' for radius	║
+	╚═══════════════════════════════════╝
+*/
+.button.icon {
 	font-size: 20px;
 	font-weight: 300;
-	color: var(--color-main-black);
 }
-[inline] > .icon-button {
-	margin: auto 10px auto 0;
-}
-.icon-button:last-child {
-	margin: auto 0;
-}
-.icon-button > span {
-	cursor: pointer;
-	display: block;
-	user-select: none;
+.button.icon > span {
 	width: auto;
-	margin: 0 auto;
-	border-radius: 8px;
-	transition: var(--time);
-
-	background: transparent;
-	padding: 15px 40px;
-	height: 20px;
+	height: 25px;
 	text-align: center;
+	display: flex;
+	justify-content: center;
 }
-[inline] > .icon-button > span {
+[inline] > .button.icon.round > span {
 	width: 25px;
 }
-.icon-button > span > i {
+.button.round > span {
+	border-radius: 45px;
+}
+[inline] > .button.icon > span {
+	width: 25px;
+}
+.button.icon > span > i {
 	transition: var(--time);
 	font-weight: inherit;
+	line-height: 25px;
 }
-.icon-button:hover > span {
+/* 
+	╔═══════════════════════════════════╗
+	║	EXTRA STYLE BUTTON				║
+	║									║
+	║	Use style '.extra' for work		║
+	╚═══════════════════════════════════╝
+*/
+.button.extra > span {
+	color: #fff;
+	background: var(--background-extra);
+}
+.button:not([disabled]).extra:hover > span {
+	background: #4294ff;
+}
+.button:not([disabled]).extra:focus > span, .button:not([disabled]).extra:active > span {
+	background: rgb(28, 113, 224)
+}
+/* 
+	╔═══════════════════════════════════╗
+	║	PRIMARY STYLE BUTTON			║
+	║									║
+	║	Use style '.primary' for work	║
+	╚═══════════════════════════════════╝
+*/
+.button.primary > span {
+	color: var(--color-main-black);
 	background: var(--color-line-x1);
 }
-.icon-button:focus > span, .icon-button:active > span {
+.button:not([disabled]).primary:hover > span {
+	background: var(--color-line-x2);
+}
+.button:not([disabled]).primary:focus > span, .button:not([disabled]).primary:active > span {
+	background: var(--color-line-x3);
+}
+/* 
+	╔═══════════════════════════════════╗
+	║	SECONDARY STYLE BUTTON			║
+	║									║
+	║	Use style '.secondary' for work	║
+	╚═══════════════════════════════════╝
+*/
+.button.secondary > span {
+	color: var(--color-main-black);
+	background: transparent;
+}
+.button:not([disabled]).secondary:hover > span {
+	background: var(--color-line-x1);
+}
+.button:not([disabled]).secondary:focus > span, .button:not([disabled]).secondary:active > span {
 	background: var(--color-line-x2);
 }
 
@@ -436,20 +641,6 @@ div[line]:last-child {
 
 
 
-
-
-
-
-
-body {
-	margin: 0px;
-	user-select: none;
-	background-color: var(--background-secondary);
-	font-family: var(--font);
-	overflow-x: hidden;
-	overflow-y: scroll;
-	color: var(--color-main-black);
-}
 @keyframes dots {
 	50% {
 		opacity: 0;
@@ -517,21 +708,51 @@ body {
 	z-index: 52;
 	width: 100%;
 	background-color: var(--background-main-white);
-	box-shadow: 0 1px 2px var(--color-line-x1);
+	box-shadow: 0 2px 4px 0 var(--shadow-x05), inset 0 0 0 1px var(--shadow-x5);
 }
 .head > div {
 	display: flex;
-	padding: 5px;
+	padding: 5px 0;
+	width: 60%;
+	margin: auto;
+}
+.head > div > .buttons > .button {
+	font-size: 20px!important;
 }
 .head > div > .headmenu {
 	margin: 0 auto;
 }
-.headmenu > .active {
+.headmenu > .active > span {
 	color: var(--color-extra);
 	font-weight: 900;
+}
+.headmenu > .active {
 	box-shadow: 0px 3px 0px 0px var(--background-main-white), 0px 5px 0px 0px var(--background-extra);
 }
-
+.headmenu > .active > span, .headmenu > .active > span > i {
+	background: transparent!important;
+	transform: scale(1)!important;
+}
+i {
+	position: relative;
+}
+.headmenu [data=faves] > span > i[count]::after {
+	content: attr(count);
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	text-align: center;
+	font-size: 8px;
+	font-family: var(--font);
+	font-weight: 500;
+	background: #f02849;
+	color: #fff;
+	line-height: 1;
+	padding: 5px;
+	height: 8px;
+	min-width: 8px;
+	border-radius: 45px;
+}
 
 
 
@@ -542,7 +763,7 @@ body {
 	position: relative;
 	width: 100%;
 	background: linear-gradient(0deg, var(--background-main-white) 0%, var(--background-secondary) 100%);
-	box-shadow: 0 1px 2px var(--color-line-x1);
+	box-shadow: 0 2px 4px 0 var(--shadow-x05), inset 0 0 0 1px var(--shadow-x5);
 }
 .description.sticky {
 	position: sticky;
@@ -588,6 +809,8 @@ body {
 	visibility: hidden;
 	opacity: 0;
 	transition: var(--time);
+	max-width: 655px;
+	overflow: hidden;
 }
 .description > .content > .content-bottom > .content-scroll > div {
 	font-size: 26px;
@@ -595,7 +818,7 @@ body {
 	height: 44px;
 	line-height: 44px;
 	margin: auto 0;
-	max-width: 350px;
+	min-width: max-content;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -604,8 +827,8 @@ body {
 	color: var(--color-secondary);
 	font-size: 14px;
 	font-weight: 500;
-	max-width: 250px;
 	margin: auto 20px;
+	min-width: auto;
 }
 .description > .content > .content-bottom > .content-buttons {
 	margin-left: auto;
@@ -642,7 +865,7 @@ body {
 	background: var(--background-main-white);
 	border-radius: 8px;
 	margin: 0 20px auto 0;
-	box-shadow: 0 1px 2px var(--color-line-x1);
+	box-shadow: 0 2px 4px 0 var(--shadow-x05), inset 0 0 0 1px var(--shadow-x5);
 	padding: 20px;
 }
 .leftmenu[data-logo]:not(:empty)::before {
@@ -712,7 +935,7 @@ body {
 	position: relative;
 }
 .details:hover {
-	background-color: var(--color-line-x05);
+	background-color: var(--color-line-x2);
 }
 .details > summary {
 	outline: none;
@@ -731,19 +954,19 @@ body {
 	display: none;
 }
 .details[open] {
-	background-color: var(--color-line-x05);
+	background-color: var(--color-line-x2);
 }
 .details[open] + .details > summary {
 	box-shadow: none;
 }
-.details > span {
+.details > a {
 	display: block;
 	position: relative;
 	padding: 0px 30px 0px 55px;
 	margin: 0px -30px 0px -30px;
 	transition: var(--time);
 }
-.details > span > a {
+.details > a > span {
 	outline: none;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -752,15 +975,15 @@ body {
 	padding: 10px 15px 10px 25px;
 	transition: var(--time);
 }
-.details > span:hover {
-	background-color: var(--color-line-x05);
+.details > a:hover {
+	background-color: var(--color-line-x3);
 	transition: var(--time);
 }
-.details > span[open] {
-	background-color: var(--color-line-x05);
+.details > a[open] {
+	background-color: var(--color-line-x3);
 	transition: var(--time);
 }
-.details > summary:before, .details > span > a:before {
+.details > summary:before, .details > a > span:before {
 	display: block;
 	content: attr(tag);
 	position: absolute;
@@ -807,6 +1030,7 @@ details[open] summary ~ * {
 	display: inline-block;
 	position: relative;
 	width: 100%;
+	height: fit-content;
 	word-spacing: normal;
 	overflow: hidden;
 	vertical-align: top;
@@ -814,14 +1038,14 @@ details[open] summary ~ * {
 	user-select: text;
 	background: var(--background-main-white);
 	border-radius: 8px;
-	box-shadow: 0 1px 2px var(--color-line-x1);
+	box-shadow: 0 2px 4px 0 var(--shadow-x05), inset 0 0 0 1px var(--shadow-x5);
 }
 .middle > div {
 	margin: 20px;
 }
 .middle > .title:not(:empty) {
 	position: relative;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 700;
 	text-align: center;
 	text-transform: uppercase;
@@ -839,11 +1063,11 @@ details[open] summary ~ * {
 	position: absolute;
 	text-align: right;
 	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
+	top: calc(50% - 20px);
+	transform: translateY(calc(50% - 20px));
 }
 .middle > .secondtitle:not(:empty) {
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 700;
 }
 .middle > .secondtitle:not(:empty)::before {
@@ -860,27 +1084,42 @@ details[open] summary ~ * {
 	font-size: 14px;
 	font-weight: 500;
 }
-.middle > .text > p {
+.middle .placeholder {
+	margin: 100px 0!important;
+	color: var(--color-hint);
+	text-align: center;
+}
+.middle .placeholder::before {
+	content: attr(icon);
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 300;
+	font-size: 50px;
+	margin-bottom: 20px;
+	display: block;
+}
+.middle > .text p {
 	display: block;
 	text-indent: 20px;
 	text-align: justify;
 	margin: 0;
 }
-.middle > .text > .article {
+.middle > .text .article {
 	display: block;
 	font-size: 18px;
 	font-weight: 700;
 	margin: 20px 0;
 	text-align: center;
 }
-.middle > .text > .decoration {
+.middle > .text .decoration::before {
+	content: '\f068  \f00d  \f00d  \f00d  \f068';
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 500;
 	display: block;
-	background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%229%22%20width%3D%2235%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20opacity%3D%22.5%22%3E%3Cpath%20d%3D%22m0%200h35v9h-35z%22%2F%3E%3Cpath%20d%3D%22m3.997%200h1v3h-1zm4.147%201.817.5.866-2.598%201.5-.5-.866zm.5%204.5-.5.866-2.598-1.5.5-.866zm-3.647%202.683h-1v-3h1zm-4.147-1.817-.5-.866%202.598-1.5.5.866zm-.5-4.5.5-.866%202.598%201.5-.5.866zm16.647-2.683h1v3h-1zm4.147%201.817.5.866-2.598%201.5-.5-.866zm.5%204.5-.5.866-2.598-1.5.5-.866zm-3.647%202.683h-1v-3h1zm-4.147-1.817-.5-.866%202.598-1.5.5.866zm-.5-4.5.5-.866%202.598%201.5-.5.866zm16.647-2.683h1v3h-1zm4.147%201.817.5.866-2.598%201.5-.5-.866zm.5%204.5-.5.866-2.598-1.5.5-.866zm-3.647%202.683h-1v-3h1zm-4.147-1.817-.5-.866%202.598-1.5.5.866zm-.5-4.5.5-.866%202.598%201.5-.5.866z%22%20fill%3D%22%23000%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
-	width: 35px;
-	height: 9px;
-	margin: 20px auto;
+	width: fit-content;
+	margin: 25px auto;
+	line-height: 0;
 }
-.middle > .text > .img {
+.middle > .text .img {
 	position: relative;
 	display: block;
 	height: 300px;
@@ -892,17 +1131,31 @@ details[open] summary ~ * {
 	box-shadow: inset 0px 0px 0px 1px var(--color-line-x1);
 }
 .middle > .text > ul, .middle > .text > ol {
-	padding-left: 20px;
+	padding-left: 40px;
 	margin: 0;
 }
+.middle > .text > ol > li::marker {
+	font-weight: 700;
+}
 .middle > .text > ul {
-	list-style-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20512%22%20class%3D%22svg-inline--fa%20fa-horizontal-rule%20fa-w-20%20fa-7x%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M640%20239.87v31.26A15.88%2015.88%200%200%201%20624.14%20287H15.87A15.88%2015.88%200%200%201%200%20271.13v-31.26A15.88%2015.88%200%200%201%2015.87%20224h608.27A15.88%2015.88%200%200%201%20640%20239.87z%22%20class%3D%22%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+	list-style: none;
+	position: relative;
+}
+.middle > .text > ul > li::before {
+	content: '\f068';
+	position: absolute;
+	left: 20px;
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 500;
+}
+.middle > .text > ul[line] {
+	padding-left: 20px;
 }
 .middle > .text > ul[line] > li > p {
-	margin: 0px;
-}
-.middle > .text > ul[line] > li > p:not(:last-of-type) {
 	margin: 10px 0px;
+}
+.middle > .text > ul[line] > li > p:last-of-type, .middle > .text > ul[line] > li > p:first-of-type {
+	margin: 0;
 }
 .middle > .text > ul[line] > li > p > input {
 	display: none;
@@ -955,32 +1208,52 @@ details[open] summary ~ * {
 .card {
 	position: relative;
 	width: 100%;
-	max-height: 150px;
-	border-radius: 8px;
-	transition: var(--time);
 	cursor: pointer;
 	user-select: none;
 	overflow: hidden;
-	color: #fff;
-}
-.card:hover {
-	box-shadow: 0 10px 20px 4px var(--color-line-x3);
-}
-.card:after {
-	z-index: 10;
-	position: absolute;
-	bottom: 0;
-	right: 10px;
-	font-size: 20px;
-	font-family: "Font Awesome 5 Pro";
-	font-weight: 900;
-	content: "\f30b";
+	color: var(--color-main-black);
+	display: inline-block!important;
+	vertical-align: top;
+	border-radius: 8px;
 	transition: var(--time);
 }
-.card:hover:after {
-	right: 5px;
+.card > .image + .text {
+	color: #fff;
+}
+.card > .image + .text {
+	background-color: transparent;
+}
+.card > .image + .text:hover {
+	background-color: transparent;
+}
+.card:nth-child(3n-2) {
+	width: calc(33.333333% - 6.666666px);
+	margin: 0 10px 0 0;
+}
+.card:nth-child(3n-2):last-child {
+	width: 100%;
+	margin: 0 0 0 0;
+}
+.card:nth-child(3n-2):not(:last-child):nth-last-child(-n+2) {
+	width: calc(50% - 5px);
+}
+.card:nth-child(3n-1) {
+	width: calc(33.333333% - 6.666666px);
+	margin: 0 10px 0 0;
+}
+.card:nth-child(3n-1):last-child {
+	width: calc(50% - 5px);
+	margin: 0 0 0 0;
+}
+.card:nth-child(3n-0) {
+	width: calc(33.333333% - 6.666666px);
+	margin: 0 0 0 0;
+}
+.card:nth-child(3n-0):not(:last-child) {
+	margin: 0 0 10px 0;
 }
 .card > .image {
+	z-index: 1;
 	position: absolute;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -991,10 +1264,85 @@ details[open] summary ~ * {
 	filter: brightness(30%);
 }
 .card > .text {
+	display: block;
+	border-radius: 8px;
+	height: 84px;
 	z-index: 5;
 	position: relative;
-	padding: 20px;
-	display: -webkit-box;
-	-webkit-line-clamp: 4;
+	padding: 20px 45px 20px 20px;
+	background: var(--color-line-x1);
+}
+.card > .text:hover {
+	background: var(--color-line-x2);
+}
+.card > .text > b {
+	padding-bottom: 1px;
+	margin-bottom: 19px;
+	line-height: 1;
+	overflow: hidden;
+	display: -webkit-box!important;
+	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
+}
+.card > .text > span {
+	overflow: hidden;
+	display: -webkit-box!important;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.card .buttons {
+	z-index: 10;
+	position: absolute;
+	top: 10;
+	right: 10;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1735px) {
+	.head > div, .main, .description > .content {
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 1270px) {
+	.scrollup, .description {
+		display: none!important;
+	}
+	body {
+		background: var(--background-main-white);
+	}
+	.head > div {
+		width: auto;
+		overflow: hidden;
+	}
+	.head > div > div {
+		display: none!important;
+	}
+	.head > div > .headmenu {
+		display: flex!important;
+	}
+	.main {
+		width: 100%;
+		margin: 0;
+	}
+	.main > .leftmenu {
+		display: none;
+	}
+	.main > .middle {
+		border-radius: 0;
+	}
+	.img {
+		height: 150px!important;
+	}
+	.middle > .title {
+		font-size: 18px!important;
+	}
 }

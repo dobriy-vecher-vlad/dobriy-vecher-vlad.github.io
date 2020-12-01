@@ -4,9 +4,8 @@ var data = {
 	'description': '',
 	'tag': '',
 	'text': `
-		<div class="title">Главная</div>
 		<div class="text">
-			<p>Если Вы попали на эту страницу, то видимо что-то пошло не так.
+			<div class="placeholder" icon="&#xf70d"><b>Привет</b><br>Если Вы попали на эту страницу, то видимо что-то пошло не так.</div>
 		</div>
 	`
 }

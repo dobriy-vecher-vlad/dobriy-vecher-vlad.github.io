@@ -76,6 +76,11 @@ books = [
 		'custom': true,
 		'title': 'Практическая часть'
 	}, {
+		'name': '<i class="far fa-star"></i>',
+		'href': 'faves',
+		'custom': true,
+		'title': 'Избранные страницы'
+	}, {
 		'name': '<i class="far fa-hands-helping"></i>',
 		'href': 'help',
 		'custom': true,
