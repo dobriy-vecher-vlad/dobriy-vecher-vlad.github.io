@@ -302,7 +302,6 @@ a {
 
 @media screen and (orientation: portrait) {
 	.card {
-		transform: scale(3);
 		transform-origin: top;
 		width: 40vw;
 	}
