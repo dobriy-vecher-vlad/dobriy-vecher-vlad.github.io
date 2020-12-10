@@ -302,19 +302,62 @@ a {
 
 @media screen and (orientation: portrait) {
 	.card {
-		transform-origin: top;
-		width: 40vw;
+		width: 90vw;
+		display: block;
+		overflow: hidden;
+	}
+	.card > .profile {
+		width: 80vw;
+		height: 80vw;
+	}
+	.card > .profile > .avatar > img {
+		width: 75%;
+		height: 75%;
+	}
+	.card > .name, .card > .counters > ul > li::before {
+		font-size: 8vw;
+	}
+	.card > .description, .card > .geolocation, .card > .counters > ul > li, .card > .links > ul > li {
+		font-size: 5vw;
+	}
+	.card > .links > ul > li > a > .description, .card > .links > ul > li > a > .date, .card > .links > ul > li > a > .tag {
+		font-size: 4vw;
+	}
+	.card > .links > ul > li > a > .tag {
+		font-size: 2.5vw;
+	}
+	.card > span {
+		margin: 5vw!important;
+	}
+	.card > .links > ul > li > a > .tag > span {
+		padding: 2vw;
+		margin-bottom: 2vw;
+		margin-right: 2vw;
+		border-radius: 2vw;
+	}
+	.card > .links > ul > li > a > span {
+		position: relative;
 	}
 	.card > .links > ul > li {
-		margin: 0.5vw auto;
+		border-radius: 5vw;
+	}
+	.card > .links > ul > li > a > span:not(:last-of-type) {
+		margin-bottom: 2vw;
+	}
+	.card > hr {
+		height: 2px;
+		width: 60vw;
+	}
+	.card > .links > ul > li {
+		margin: 2vw auto;
 		width: calc(100%);
 	}
 	.card > .links > ul > li > a {
-		padding: 2vw;
+		padding: 4vw;
 	}
 	.card > .links > ul > li > a::before {
-		z-index: -1!important;
-		font-size: 5vw!important;
+		z-index: 0!important;
+		font-size: 15vw!important;
 		color: var(--color-line-x1)!important;
 		left: 50%!important;
 		transform: translateX(-50%) translateY(-50%)!important;
