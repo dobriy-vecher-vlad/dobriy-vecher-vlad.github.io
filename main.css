@@ -1,0 +1,383 @@
+@font-face {
+	font-family: 'ProximaNovaSoft';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("fonts/400.woff2") format("truetype");
+}
+@font-face {
+	font-family: 'ProximaNovaSoft';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("fonts/600.woff2") format("truetype");
+}
+@font-face {
+	font-family: 'ProximaNovaSoft';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("fonts/700.woff2") format("truetype");
+}
+
+:root {
+	--font: -apple-system,BlinkMacSystemFont,ProximaNovaSoft,Montserrat,Roboto,Helvetica Neue,Geneva,Noto Sans Armenian,Noto Sans Bengali,Noto Sans Cherokee,Noto Sans Devanagari,Noto Sans Ethiopic,Noto Sans Georgian,Noto Sans Hebrew,Noto Sans Kannada,Noto Sans Khmer,Noto Sans Lao,Noto Sans Osmanya,Noto Sans Tamil,Noto Sans Telugu,Noto Sans Thai,sans-serif;
+	--time: 0.20s;
+}
+:root {
+	--color-main-black: #050505;
+	--color-main-white: #fff;
+	--color-secondary: #65676b;
+	--color-hint: #818c99;
+	--color-line-x05: #f5f6f7;
+	--color-line-x1: #eaecee;
+	--color-line-x2: #d6dade;
+	--color-line-x3: #c1c7cd;
+	--color-extra: #1877f2;
+	--background-main-black: #050505;
+	--background-main-white: #fff;
+	--background-secondary: #f0f2f5;
+	--background-extra: #1877f2;
+	--background-positive: #4bb34b;
+	--background-negative: #e64646;
+	--shadow-x05: rgba(0, 0, 0, 0.05);
+	--shadow-x1: rgba(0, 0, 0, 0.1);
+	--shadow-x2: rgba(0, 0, 0, 0.2);
+	--shadow-x5: rgba(255, 255, 255, 0.5);
+}
+[dark] {
+	--color-main-black: #e4e6eb;
+	--color-main-white: #050505;
+	--color-secondary: #b0b3b8;
+	--color-hint: #676767;
+	--color-line-x05: #292a2b;
+	--color-line-x1: #2f3031;
+	--color-line-x2: #3a3b3c;
+	--color-line-x3: #454546;
+	--color-extra: #1877f2;
+	--background-positive: #4bb34b;
+	--background-negative: #e64646;
+	--background-main-black: #fff;
+	--background-main-white: #242526;
+	--background-secondary: #18191a;
+	--background-extra: #1877f2;
+	--shadow-x05: rgba(0, 0, 0, 0.05);
+	--shadow-x1: rgba(0, 0, 0, 0.1);
+	--shadow-x2: rgba(0, 0, 0, 0.2);
+	--shadow-x5: rgba(255, 255, 255, 0.05);
+}
+body {
+	margin: 0px;
+	user-select: none;
+	background: var(--background-secondary);
+	background: var(--background-main-white);
+	font-family: var(--font);
+	color: var(--color-main-black);
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+
+
+@keyframes animate_round {
+	0% {
+		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+		transform: rotate(0deg);
+	}
+	25% {
+		border-radius: 73% 27% 61% 39% / 69% 83% 17% 31%;
+	}
+	50% {
+		border-radius: 37% 63% 48% 52% / 18% 65% 35% 82%;
+	}
+	75% {
+		border-radius: 78% 22% 44% 56% / 25% 22% 78% 75%;
+	}
+	100% {
+		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+		transform: rotate(360deg);
+	}
+}
+.card {
+	margin: auto;
+	padding: 5vw 0;
+	display: flow-root;
+	position: relative;
+	width: 50vw;
+	height: auto;
+	color: var(--color-main-black);
+}
+.card > hr {
+	width: 30vw;
+	border: 0;
+	height: 1px;
+	background: var(--color-line-x05);
+}
+.card > span {
+	display: block;
+	position: relative;
+	margin: 1vw 5vw;
+	text-align: center;
+}
+.card > .profile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 20vw;
+	height: 20vw;
+	margin: 2.5vw auto;
+	transition: var(--time);
+	cursor: pointer;
+}
+.card > .profile:active {
+	transform: scale(0.95);
+}
+.card > .profile > .avatar {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.card > .profile > .avatar > img {
+	display: block;
+	width: 50%;
+	height: 50%;
+	border-radius: 45em;
+	background: #fff;
+	padding: 1vw;
+}
+.card > .profile > .background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: var(--color-line-x05);
+	animation: animate_round 20s forwards linear infinite;
+	transition: var(--time);
+}
+.card > .name {
+	font-weight: 700;
+	font-size: 1.55vw;
+	color: var(--color-extra);
+}
+.card > .description {
+	font-weight: 500;
+	font-size: 1.05vw;
+}
+.card > .geolocation {
+	font-weight: 700;
+	font-size: 1.05vw;
+}
+.card > .counters {
+	margin: 0 5vw;
+}
+.card > .counters > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.card > .counters > ul > li {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+	font-size: 1.05vw;
+	vertical-align: top;
+	margin: 1.5vw auto;
+	color: var(--color-secondary);
+}
+.card > .counters > ul > li::before {
+	content: attr(count);
+	display: block;
+	font-weight: 700;
+	font-size: 1.55vw;
+	color: var(--color-main-black);
+}
+.card > .links {
+	margin: 0 5vw;
+}
+.card > .links > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.card > .links > ul > li {
+	display: inline-block;
+	font-weight: 500;
+	font-size: 1.05vw;
+	vertical-align: top;
+	margin: 0.5vw auto;
+	width: calc(50% - 1vw);
+	height: auto;
+	text-align: left;
+	background: var(--color-line-x05);
+	border-radius: 1vw;
+	position: relative;
+	overflow: hidden;
+	transition: var(--time);
+	cursor: pointer;
+}
+.card > .links > ul > li > a {
+	padding: 1vw;
+	display: block;
+	position: relative;
+}
+.card > .links > ul > li:hover {
+	transform: scale(1.05);
+}
+.card > .links > ul > li:active {
+	transform: scale(0.95);
+}
+.card > .links > ul > li > a[icon]::before {
+	content: attr(icon);
+	display: block;
+	font-family: "Font Awesome 5 Pro";
+	font-size: 1.55vw;
+	color: var(--color-extra);
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.card > .links[social] > ul > li > a::before {
+	font-family: "Font Awesome 5 Brands";
+}
+.card span {
+	display: block;
+}
+.card > .links > ul > li > a > span:not(:last-of-type) {
+	margin-bottom: 0.5vw;
+}
+.card > .links > ul > li > a > .tag {
+	margin: 0!important;
+	font-size: 0.5vw;
+}
+.card > .links > ul > li > a > .tag > span {
+	display: inline-block;
+	padding: 0.5vw;
+	margin-right: 0.5vw;
+	margin-bottom: 0.5vw;
+	background: var(--color-line-x1);
+	border-radius: 0.5vw;
+	font-weight: 700;
+	color: var(--color-secondary);
+	text-transform: uppercase;
+}
+.card > .links > ul > li > a > .name {
+	font-weight: 700;
+	color: var(--color-main-black);
+	margin-bottom: 0.5vw;
+}
+.card > .links > ul > li > a > .description {
+	font-weight: 500;
+	font-size: 0.75vw;
+	color: var(--color-secondary);
+}
+.card > .links > ul > li > a > .date {
+	font-weight: 500;
+	color: var(--color-secondary);
+	font-size: 0.75vw;
+	text-align: right;
+}
+.card > .links > ul > li > a[icon] > .name, .card > .links > ul > li > a[icon] > .description {
+	margin-left: 2.5vw;
+}
+
+
+@media screen and (orientation: portrait) {
+	.card {
+		transform: scale(3);
+		transform-origin: top;
+		width: 40vw;
+	}
+	.card > .links > ul > li {
+		margin: 0.5vw auto;
+		width: calc(100%);
+	}
+	.card > .links > ul > li > a {
+		padding: 2vw;
+	}
+	.card > .links > ul > li > a::before {
+		z-index: -1!important;
+		font-size: 5vw!important;
+		color: var(--color-line-x1)!important;
+		left: 50%!important;
+		transform: translateX(-50%) translateY(-50%)!important;
+	}
+	.card > .links > ul > li > a > .name, .card > .links > ul > li > a > .description {
+		margin-left: 0!important;
+	}
+}
+
+
+
+
+
+.image_3d {
+	display: block;
+	position: relative;
+	list-style: none;
+	margin: auto;
+	padding: 0;
+	width: fit-content;
+}
+.image_3d > li {
+	display: block;
+	position: absolute;
+}
+.image_3d > li:nth-of-type(5) {
+	position: relative;
+}
+.image_3d > li > img {
+	--shadow_3d_image: rgb(15, 15, 16);
+	display: block;
+	position: relative;
+	border-radius: 45px;
+	transform: translateY(0px) scale(0.5) rotate(-30deg) skew(25deg);
+	transition: var(--time);
+	height: 100rem;
+}
+.image_3d > li:not(:nth-of-type(5)) > img {
+	opacity: 0;
+}
+.image_3d:hover > li:nth-of-type(5) > img {
+	transform: translateY(-100px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 1;
+	filter: blur(0px);
+}
+.image_3d:hover > li:nth-of-type(4) > img {
+	transform: translateY(-80px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.60;
+	filter: blur(2px);
+}
+.image_3d:hover > li:nth-of-type(3) > img {
+	transform: translateY(-60px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.45;
+	filter: blur(4px);
+}
+.image_3d:hover > li:nth-of-type(2) > img {
+	transform: translateY(-40px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.30;
+	filter: blur(6px);
+}
+.image_3d:hover > li:nth-of-type(1) > img {
+	transform: translateY(-20px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.15;
+	filter: blur(8px);
+}

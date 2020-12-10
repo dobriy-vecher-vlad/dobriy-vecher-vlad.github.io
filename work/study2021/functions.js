@@ -1,27 +1,28 @@
 function loadJS(src, callback) {
-    var s = document.createElement('script');
-    s.src = src;
-    s.async = true;
-    s.onreadystatechange = s.onload = function() {
-        var state = s.readyState;
-        if (!callback.done && (!state || /loaded|complete/.test(state))) {
-            callback.done = true;
-            callback();
-        }
-    };
+	var s = document.createElement('script');
+	s.src = src;
+	s.async = true;
+	s.onreadystatechange = s.onload = function() {
+		var state = s.readyState;
+		if (!callback.done && (!state || /loaded|complete/.test(state))) {
+			callback.done = true;
+			callback();
+		}
+	};
 	s.onreadystatechange = s.onerror = function() {
 		window.open('?list=error', '_top');
-    };
-    try { document.querySelector('script[async]').remove(); } catch(error) {}
-    document.getElementsByTagName('head')[0].appendChild(s);
+	};
+	try { document.querySelector('script[async]').remove(); } catch(error) {}
+	document.getElementsByTagName('head')[0].appendChild(s);
 }
 function addFave(e) {
 	let faves = localStorage.getItem('faves') == null ? {} : JSON.parse(localStorage.getItem('faves'));
 	let tag = document.querySelector('title').getAttribute('tag');
 	let title = document.querySelector('title').getAttribute('title');
 	let page = document.querySelector('title').getAttribute('page');
-	let preview = document.querySelector('.middle > .text > p') !== null ? document.querySelector('.middle > .text > p').textContent.slice(0, 300) : 'На странице нет текста, либо он не обнаружен.';
-	faves[`${page}_${tag.replace(/\./gi, '')}`] = {tag: tag, title: title, preview: preview, href: window.location.search};
+	let preview = document.querySelector('.middle > .text > p') !== null ? document.querySelector('.middle > .text > p').textContent.slice(0, 350) : 'На странице нет стандартного текста, либо он не обнаружен.';
+	let image = document.querySelector('.middle > .text > .img') !== null ? document.querySelector('.middle > .text > .img').style.backgroundImage : null;
+	faves[`${page}_${tag.replace(/\./gi, '')}`] = {tag: (tag.length == 0 ? '#' : tag), title: title, preview: preview, image: image, href: window.location.search};
 	localStorage.setItem('faves', JSON.stringify(faves));
 	if (e !== undefined) {
 		e.innerHTML = '<span icon="&#xf00c">В избранном</span>';
@@ -42,8 +43,8 @@ function openModal(data) {
 	if (typeof data == 'object') {
 		document.querySelector('.modal-wrap').innerHTML = `
 			<div ${data.type} class="modal-container" ${data.width !== undefined ? 'style="width: '+data.width+'"' : ''}>${data.html}
-				<div class="buttons modal-control" inline onclick="closeModal();">
-					<div scale class="button icon round s"><span><i class="fas fa-times"></i></span></div>
+				<div class="buttons modal-control" inline>
+					<div scale class="button icon round s" onclick="closeModal();"><span><i class="fas fa-times"></i></span></div>
 				</div>
 			</div>
 		`;
@@ -108,8 +109,8 @@ function constructionCard(type) { // режим
 						<div>${body.description.text}</div>
 					</div>
 					<div class="content-buttons buttons" inline>
-						<div scale icon class="button primary m" onclick="copyText('${window.location.href}');"><span icon="&#xf0c5">Скопировать ссылку</span></div>
-						${localStorage.faves !== undefined ? localStorage.faves.includes(window.location.search) ? '<div scale icon class="button primary m" disabled><span icon="&#xf00c">В избранном</span></div>' : '<div scale icon class="button primary m" onclick="addFave(this);"><span icon="&#xf02e">Добавить в избранное</span></div>' : '<div scale icon class="button primary m" onclick="addFave(this);"><span icon="&#xf02e">Добавить в избранное</span></div>'}
+						<div scale icon_left class="button primary m b" onclick="copyText('${window.location.href}');"><span icon="&#xf0c1">Скопировать ссылку</span></div>
+						${localStorage.faves !== undefined ? localStorage.faves.includes(`"${window.location.search}"`) ? '<div scale icon_left class="button primary m b" disabled><span icon="&#xf00c">В избранном</span></div>' : '<div scale icon_left class="button primary m b" onclick="addFave(this);"><span icon="&#xf005">Добавить в избранное</span></div>' : '<div scale icon_left class="button primary m b" onclick="addFave(this);"><span icon="&#xf005">Добавить в избранное</span></div>'}
 					</div>
 				</div>
 			</div>
@@ -186,7 +187,9 @@ function changeSettings(object, change) { // объект[данные], изм�
 document.addEventListener('DOMContentLoaded', function() {
 	changeSettings({type: 'theme'}), start(), changeSettings({type: 'faves'});
 });
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', updateElements);
+window.addEventListener('resize', updateElements);
+function updateElements() {
 	window.pageYOffset > 1 ? document.querySelector('.scrollup').style = 'visibility: visible; opacity: 0.3;' : document.querySelector('.scrollup').style = 'visibility: hidden; opacity: 0;';
 	if (document.body.getAttribute('custom') == 'false' && window.pageYOffset > document.querySelector('.description').offsetHeight-document.querySelector('.content-bottom').offsetHeight-20) {
 		document.querySelector('.description').classList.add('sticky');
@@ -195,7 +198,7 @@ window.addEventListener('scroll', function() {
 		document.querySelector('.description').classList.remove('sticky')
 		document.querySelector('.description').style.top = 0;
 	}
-});
+}
 window.onload = function () {
 	document.querySelector('.loader').style = 'visibility: hidden; opacity: 0;'
 }

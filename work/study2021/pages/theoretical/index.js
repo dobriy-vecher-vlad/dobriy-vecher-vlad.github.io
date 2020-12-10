@@ -9,22 +9,62 @@ var data = {
 			<p>В настоящее время уровень развития информационно-технических средств обработки, хранения и передачи информации развит настолько, что их использование встречается практически во всех сферах деятельности человека. Современные условия развития общества требуют от специалистов быстрого поиска и принятия правильных решений сложившихся задач. Основным средством, выступающим в роли помощника, в подобных случаях является компьютер. Вследствие широкого распространения компьютеров и информационного бума, который переживает человечество, с азами информатики должен быть знаком всякий грамотный современный человек.
 			</p><p>Данный учебник раскрывает понятие информатики через его основополагающие компоненты – информацию и компьютер. Рассматриваются основные разделы современной информатики как комплексной научно-технической дисциплины.
 			</p>
-			<div class="cards">
-				<div scale class="card">
-					<div class="image" style="background-image: url(image/o1.png)"></div>
-					<a href="?page=theoretical&list=1.1" class="text"><b>Глава 1</b><span>Представление информации в ЭВМ.</span></a>
+			<div class="cards" stretch>
+				<div class="card">
+					<a href="?page=theoretical&list=1.1">
+						<div scale class="text">
+							<span class="header" tag="#">
+								<span>Глава 1</span>
+							</span>
+							<span class="image" style="background-image: url(image/o1.png)"></span>
+							<span class="content">
+								<span class="preview">Представление информации в ЭВМ.</span>
+								<span class="href">?page=theoretical&list=1.1</span>
+							</span>
+						</div>
+					</a>
 				</div>
-				<div scale class="card">
-					<div class="image" style="background-image: url(image/o2.png)"></div>
-					<a href="?page=theoretical&list=2.1" class="text"><b>Глава 2</b><span>Структура хранения данных на внешних носителях информации.</span></a>
+				<div class="card">
+					<a href="?page=theoretical&list=2.1">
+						<div scale class="text">
+							<span class="header" tag="#">
+								<span>Глава 2</span>
+							</span>
+							<span class="image" style="background-image: url(image/o2.png)"></span>
+							<span class="content">
+								<span class="preview">Структура хранения данных на внешних носителях информации.</span>
+								<span class="href">?page=theoretical&list=2.1</span>
+							</span>
+						</div>
+					</a>
 				</div>
-				<div scale class="card">
-					<div class="image" style="background-image: url(image/o3.png)"></div>
-					<a href="?page=theoretical&list=3.1" class="text"><b>Глава 3</b><span>Аппаратные и программные средства реализации информационных процессов.</span></a>
+				<div class="card">
+					<a href="?page=theoretical&list=3.1">
+						<div scale class="text">
+							<span class="header" tag="#">
+								<span>Глава 3</span>
+							</span>
+							<span class="image" style="background-image: url(image/o3.png)"></span>
+							<span class="content">
+								<span class="preview">Аппаратные и программные средства реализации информационных процессов.</span>
+								<span class="href">?page=theoretical&list=3.1</span>
+							</span>
+						</div>
+					</a>
 				</div>
-				<div scale class="card">
-					<div class="image" style="background-image: url(image/o4.png)"></div>
-					<a href="?page=practical" class="text"><b>Тестирование</b><span>Практическое тестирование по материалу.</span></a>
+				<div class="card">
+					<a href="?page=practical">
+						<div scale class="text">
+							<span class="header" tag="#">
+								<span>Тестирование</span>
+							</span>
+							<span class="image" style="background-image: url(image/o4.png)"></span>
+							<span class="content">
+								<span class="preview">Практическое тестирование по материалу.</span>
+								<span class="href">?page=practical</span>
+							</span>
+						</div>
+					</a>
 				</div>
 			</div>
 			<p>Учебник состоит из трёх глав. В первой и второй главах раскрывается понятие структуры информатики. Большое внимание уделено системам счисления и способам кодирования информации. Рассматриваются способы и особенности хранения информации на внешних носителях.
