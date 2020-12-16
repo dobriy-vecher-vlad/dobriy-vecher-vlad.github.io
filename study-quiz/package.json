@@ -1,0 +1,55 @@
+{
+  "name": "study-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "./",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "vk-miniapps-deploy",
+    "clean-source": "rimraf README.md src webroot package.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vkontakte/vk-miniapps-deploy": "0.0.22",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^3.1.0",
+    "react-hot-loader": "^4.13.0",
+    "react-scripts": "^4.0.1"
+  },
+  "dependencies": {
+    "@vkontakte/icons": "^1.66.0",
+    "@vkontakte/vk-bridge": "^2.3.0",
+    "@vkontakte/vk-connect": "^1.9.1",
+    "@vkontakte/vk-miniapps-deploy": "0.0.22",
+    "@vkontakte/vkjs": "^0.17.0",
+    "@vkontakte/vkui": "^4.0.0-beta.37",
+    "babel-eslint": "^10.1.0",
+    "chalk": "^4.1.0",
+    "core-js": "^3.8.1",
+    "html-react-parser": "^1.0.0",
+    "html-to-react": "^1.4.5",
+    "jquery-ajax": "^2.1.4",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-slick": "^0.27.13",
+    "slick-carousel": "^1.8.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

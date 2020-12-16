@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Oleg Poletsky</title>
-		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
+		<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"/>
 		<link href="main.css" rel="stylesheet">
 		<link rel="stylesheet" href="fonts/FontAwesome/css/all.css">
 	</head>
@@ -77,6 +77,9 @@
 				})
 				return data
 			}
+			projects.sort(function(a, b) {
+				return Number(Date.parse(a.date)) < Number(Date.parse(b.date)) ? 1 : -1;
+			});
 			projects.forEach((item) => {
 				document.querySelector('.links[projects] > ul').insertAdjacentHTML('beforeend', `
 					<li>

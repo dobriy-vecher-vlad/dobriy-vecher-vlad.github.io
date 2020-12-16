@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon"/>
+		<title>Group Messages</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link id="stylesheet" href="main.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../fonts/FontAwesome/css/all.css">
+	</head>
+	<body>
+		<div class="settings">
+			<input maxlength="85" placeholder="Token группы" style="width: 340px; margin-right: 10px;" id="group_token" value=""></input><input maxlength="2" placeholder="ID беседы" style="width: 50px;" id="chat_id" value="1"></input>
+			<div class="button button_green" style="width: 100%;" onclick="clearmore();">Получить</div>
+			<div class="button button_blue" style="width: calc(20% - 8px); margin-top: 10px; margin-right: 10px;" onclick="setChat(1);">Helper</div><div class="button button_blue" style="width: calc(20% - 8px); margin-top: 10px; margin-right: 10px;" onclick="setChat(2);">Raid</div><div class="button button_blue" style="width: calc(20% - 8px); margin-top: 10px; margin-right: 10px;" onclick="setChat(3);"> </div><div class="button button_blue" style="width: calc(20% - 8px); margin-top: 10px; margin-right: 10px;" onclick="setChat(4);"> </div><div class="button button_blue" style="width: calc(20% - 8px); margin-top: 10px;" onclick="setChat(5);"> </div>
+		</div>
+		<div class="id_info">Подробная информация сообщества.</div>
+		<div class="chat_info">Подробная информация беседы.</div>
+		<div class="chat_info_more">Все беседы.</div>
+		<div class="main_tooltip"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="script.js"></script>
+		<script>
+		</script>
+	</body>
+</html>
