@@ -1,66 +1,41 @@
-.Card--sz-s {
-	overflow: hidden!important;
+.FixedLayout {
+	background-color: var(--background_content);
 }
-.Card__in > .Banner {
-    margin: 0;
-    margin-bottom: 12px;
-    padding: 0;
+.Snackbar {
+	background-color: transparent;
 }
-.Card__in > .Banner > div {
-    height: 70px;
-    width: 120px;
-}
-.CardGrid .Card--sz-s:nth-child(3n+1) {
-	margin-left: 0;
+.Card__in > a {
+	display: block;
+	padding-bottom: 66%;
+	color: inherit;
+	text-decoration: none;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	border-radius: inherit;
+	position: relative;
 }
 .photos_album_title_wrap {
 	color: #fff;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 35px 12px 9px;
-    background: url(https://vk.com/images/album_top_shadow.png);
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 35px 12px 9px;
+	background: url(https://vk.com/images/album_top_shadow.png);
 }
 .photos_album_counter {
 	float: right;
 	font-size: 13px;
-    opacity: 0.9;
-    padding: 0 0 0 5px;
-    line-height: 14px;
+	opacity: 0.9;
+	padding: 0 0 0 5px;
+	line-height: 14px;
 }
 .photos_album_title {
 	font-weight: 700;
-    font-size: 12.5px;
-    line-height: 1.2em;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.Button--sz-xl {
-    display: block;
-    width: 100%;
-    padding: 0 16px;
-}
-.Button--sz-xl .Button__content {
-    font-size: 17px;
-    font-weight: 500;
-    padding: 11px;
-}
-.FormLayout--ios .FormLayout__row .FormField, .FormLayout--ios .FormLayout__row .Button, .FormLayout--ios .FormLayout__row .FormStatus {
-    margin-left: 12px;
-    margin-right: 12px;
-}
-.FormLayout--ios .FormLayout__row .Button--sz-xl {
-    width: calc(100% - 2*12px);
-}
-.MenuItem {
-    padding: 15px 20px;
-    cursor: pointer;
-}
-.FixedLayout {
-    background-color: var(--background_content);
-}
-.Snackbar {
-    background-color: transparent;
+	font-size: 12.5px;
+	line-height: 1.2em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
