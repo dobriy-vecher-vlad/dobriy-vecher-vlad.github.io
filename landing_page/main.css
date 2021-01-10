@@ -1,12 +1,76 @@
 @font-face {
-	font-family: 'VK Sans';
+	font-weight: 500;
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
 	src: url("../fonts/VK_Sans.woff") format("truetype");
 }
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 100;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Thin.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src: url("../fonts/TTCommons-ExtraLight.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Light.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Regular.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Medium.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("../fonts/TTCommons-DemiBold.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Bold.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url("../fonts/TTCommons-ExtraBold.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Black.woff") format("truetype");
+}
 :root {
 	--font: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	/* --font: 'TTCommons'; */
 	--time: 0.20s;
 	--container-width: 65%;
 }
@@ -58,7 +122,7 @@ header .logo {
 	margin: auto auto auto 0;
 	text-transform: uppercase;
 	font-size: 1.25em;
-	font-family: 'VK Sans';
+	font-weight: 600;
 }
 header .container::before {
 	content: '';
@@ -109,7 +173,7 @@ main .title__ .content {
 }
 main .title__ .title {
 	font-size: 1.75em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 20px;
 }
 main .title__ .text {
@@ -146,7 +210,7 @@ main .cards__ > .description {
 }
 main .cards__ > .title {
 	font-size: 1.75em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 80px;
 	text-align: center;
 }
@@ -162,7 +226,7 @@ main .cards__ .content .card {
 }
 main .cards__ .content .title {
 	font-size: 1.15em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 10px;
 }
 main .cards__ .content .text {
@@ -187,7 +251,7 @@ main .stats__ .content {
 }
 main .stats__ .content .title {
 	font-size: 1.15em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 10px;
 }
 main .stats__ .content .text {
@@ -212,7 +276,7 @@ main .items__ {
 }
 main .items__ > .title {
 	font-size: 1.75em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 10px;
 	text-align: center;
 }
@@ -233,7 +297,7 @@ main .items__ .content .card {
 }
 main .items__ .content .title {
 	font-size: 1.15em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 10px;
 }
 main .items__ .content .text {
@@ -244,7 +308,7 @@ main .team__ {
 }
 main .team__ > .title {
 	font-size: 1.75em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	margin-bottom: 10px;
 	text-align: center;
 }
@@ -268,7 +332,7 @@ main .team__ .content .card {
 }
 main .team__ .content .title {
 	font-size: 1.15em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	grid-area: 1 / 2 / 2 / 2;
 }
 main .team__ .content .text {
@@ -308,7 +372,7 @@ main .quote__ .quote > i:last-child {
 }
 main .quote__ > .title {
 	font-size: .85em;
-	font-family: 'VK Sans';
+	font-weight: 500;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -330,7 +394,7 @@ main .categories__ .category {
 	
 }
 main .categories__ .title {
-	font-family: 'VK Sans';
+	font-weight: 500;
 	font-size: 0.85em;
 	text-transform: uppercase;
 	margin-bottom: 10px;
