@@ -150,11 +150,10 @@ a {
 }
 .card > .profile > .avatar > img {
 	display: block;
-	width: 50%;
-	height: 50%;
+	width: 75%;
+	height: 75%;
 	border-radius: 45em;
 	background: #fff;
-	padding: 1vw;
 }
 .card > .profile > .background {
 	position: absolute;
@@ -309,10 +308,6 @@ a {
 	.card > .profile {
 		width: 80vw;
 		height: 80vw;
-	}
-	.card > .profile > .avatar > img {
-		width: 75%;
-		height: 75%;
 	}
 	.card > .name, .card > .counters > ul > li::before {
 		font-size: 8vw;

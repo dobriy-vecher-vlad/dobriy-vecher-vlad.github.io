@@ -11,7 +11,7 @@
 	<body dark>
 		<div class="card">
 			<span class="profile">
-				<div class="avatar"><img src="img/5.png"></div>
+				<div class="avatar"><img src="img/4.png"></div>
 				<div class="background"></div>
 			</span>
 			<span class="name">Oleg Poletsky</span>
@@ -94,8 +94,8 @@
 			});
 			const parent = document.querySelector('.profile');
 			parent.addEventListener('click', function(e) {
-				parent.childNodes[1].childNodes[0].src = `https://vk.com/sticker/1-${random(1,21921)}-256.png`;
-				//parent.childNodes[1].childNodes[0].src = `img/${random(1,4)}.png`;
+				//parent.childNodes[1].childNodes[0].src = `https://vk.com/sticker/1-${random(1,21921)}-256.png`;
+				parent.childNodes[1].childNodes[0].src = `img/${random(1,12)}.png`;
 			});
 		</script>
 	</body>

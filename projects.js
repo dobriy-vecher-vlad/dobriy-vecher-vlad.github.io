@@ -73,15 +73,21 @@ const projects = [
 		'href': 'warlord/calculator'
 	}, {
 		'name': 'WARLORD Script',
-		'description': 'Вспомогательное расширение, позволяющий смотреть характеристики игроков из игры WARLORD, прямо на страницах ВКонтакте.',
+		'description': 'Вспомогательное расширение, позволяющее смотреть характеристики игроков из игры WARLORD, прямо на страницах ВКонтакте.',
 		'date': 'May 2019',
 		'tag': ['html', 'css', 'js'],
 		'href': 'https://chrome.google.com/webstore/detail/warlord-script/lnohbnecjodgkjkfcfaamadbeiapofoa'
 	}, {
 		'name': 'INVASION Script',
-		'description': 'Вспомогательное расширение, позволяющий смотреть характеристики игроков из игры НАШЕСТВИЕ, прямо на страницах ВКонтакте.',
+		'description': 'Вспомогательное расширение, позволяющее смотреть характеристики игроков из игры НАШЕСТВИЕ, прямо на страницах ВКонтакте.',
 		'date': 'February 2019',
 		'tag': ['html', 'css', 'js'],
 		'href': 'https://chrome.google.com/webstore/detail/invasion-script/babhdbcgmpkbihdjcpfldnedooaojala'
+	}, {
+		'name': 'New Tab',
+		'description': 'Вспомогательное расширение, позволяющее создавать свои закладки. Полностью заменяет стартовую страницу браузера и даёт возможность при помощи ползунков полностью настроить внешний вид под себя.',
+		'date': 'January 2021',
+		'tag': ['html', 'css', 'js'],
+		'href': ''
 	}
 ];
