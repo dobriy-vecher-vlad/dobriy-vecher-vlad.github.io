@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="wheelOfFortune">
+			<canvas id="wheel" width="300" height="300"></canvas>
+			<div id="spin">SPIN</div>
+		  </div>
+		  
+		  
+		  
+		  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		  <script type="text/javascript" charset="utf-8">
+		  const sectors = [
+			{color:"#00ffff", label:""},/////////
+		   {color:"#00ffff", label:""},
+			{color:"#00ffff", label:""},
+			 {color:"#00ffff", label:""},
+			  {color:"#00ffff", label:""},
+			 {color:"#00ffff", label:""},
+			  {color:"#00ffff", label:""},
+				{color:"#00ffff", label:""},
+		   {color:"#00ffff", label:""},
+			{color:"#00ffff", label:""},
+			
+			 {color:"#000080", label:""},///////// 
+			  {color:"#000080", label:""},
+			 {color:"#000080", label:""},
+			  {color:"#000080", label:""},
+				{color:"#000080", label:""},
+		   {color:"#000080", label:""},
+			{color:"#000080", label:""},
+			 {color:"#000080", label:""},
+			  {color:"#000080", label:""},
+			 {color:"#000080", label:""},
+			 
+			  {color:"#008000", label:""},///////// 
+				{color:"#008000", label:""},
+		   {color:"#008000", label:""},
+			{color:"#008000", label:""},
+			 {color:"#008000", label:""},
+			  {color:"#008000", label:""},
+			 {color:"#008000", label:""},
+			  
+			  
+			  
+				{color:"#808000", label:""},///////
+		   {color:"#808000", label:""},
+			{color:"#808000", label:""},
+			 {color:"#808000", label:""},
+			  {color:"#808000", label:""},
+			 {color:"#808000", label:""},
+			  {color:"#808000", label:""},
+			   
+			  
+			  
+			  
+		   {color:"#db3a16", label:""}, ///////// ставим на красное 
+			{color:"#db3a16", label:""},
+			 {color:"#db3a16", label:""},
+			  {color:"#db3a16", label:""},
+			 {color:"#db3a16", label:""},
+			  {color:"#db3a16", label:""},
+			  
+			  
+			   {color:"#0d0d0d", label:""}, /////////  
+			{color:"#0d0d0d", label:""},
+			 {color:"#0d0d0d", label:""},
+			  {color:"#0d0d0d", label:""},
+			 {color:"#0d0d0d", label:""},
+			  {color:"#0d0d0d", label:""},
+			  
+			  {color:"#0000ff", label:""},///////// 
+			  {color:"#0000ff", label:""},
+			 {color:"#0000ff", label:""},
+			  {color:"#0000ff", label:""},
+			  
+			  {color:"#800080", label:""},///////// 
+			  {color:"#800080", label:""},
+			 {color:"#800080", label:""},
+			  {color:"#800080", label:""},
+			  
+			  {color:"#ffff00", label:""},///////// 
+			  {color:"#ffff00", label:""},
+			 {color:"#ffff00", label:""},
+			  {color:"#ffff00", label:""},
+			  
+			  {color:"#d6d934", label:""},///////// 
+			  {color:"#d6d934", label:""},
+			 {color:"#d6d934", label:""},
+			  {color:"#d6d934", label:""},
+			  
+			  {color:"#9e0d38", label:""},///////// 
+			  {color:"#9e0d38", label:""},
+			 {color:"#9e0d38", label:""},
+			  {color:"#9e0d38", label:""},
+			  
+			  {color:"#f79752", label:""},///////// 
+			  {color:"#f79752", label:""},
+			 {color:"#f79752", label:""},
+			  {color:"#f79752", label:""},
+			  
+			  
+			  
+			   {color:"#00FF00", label:""},///////// 
+		  ];
+		  
+		  const rand = (m, M) => Math.random() * (M - m) + m;
+		  const tot = sectors.length;
+		  const EL_spin = document.querySelector("#spin");
+		  const ctx = document.querySelector("#wheel").getContext('2d');
+		  const dia = ctx.canvas.width;
+		  const rad = dia / 2;
+		  const PI = Math.PI;
+		  const TAU = 2 * PI;
+		  const arc = TAU / sectors.length;
+		  
+		  const friction = 0.99; // 0.995=soft, 0.99=mid, 0.98=hard
+		  let angVel = 0; // Angular velocity
+		  let ang = 0; // Angle in radians
+		  
+		  const getIndex = () => Math.floor(tot - ang / TAU * tot) % tot;
+		  
+		  function drawSector(sector, i) {
+			const ang = arc * i;
+			ctx.save();
+			// COLOR
+			ctx.beginPath();
+			ctx.fillStyle = sector.color;
+			ctx.moveTo(rad, rad);
+			ctx.arc(rad, rad, rad, ang, ang + arc);
+			ctx.lineTo(rad, rad);
+			ctx.fill();
+			// TEXT
+			ctx.translate(rad, rad);
+			ctx.rotate(ang + arc / 2);
+			ctx.textAlign = "right";
+			ctx.fillStyle = "#fff";
+			ctx.font = "bold 30px sans-serif";
+			ctx.fillText(sector.label, rad - 10, 10);
+			//
+			ctx.restore();
+		  };
+		  
+		  function rotate() {
+			const sector = sectors[getIndex()];
+			ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
+			EL_spin.textContent = !angVel ? "SPIN" : sector.label;
+			EL_spin.style.background = sector.color;
+		  }
+		  
+		  function frame() {
+			if (!angVel) return;
+			angVel *= friction; // Decrement velocity by friction
+			if (angVel < 0.002) angVel = 0; // Bring to stop
+			ang += angVel; // Update angle
+			ang %= TAU; // Normalize angle
+			rotate();
+		  }
+		  
+		  function engine() {
+			frame();
+			requestAnimationFrame(engine)
+		  }
+		  
+		  // INIT
+		  sectors.forEach(drawSector);
+		  rotate(); // Initial rotation
+		  engine(); // Start engine
+		  EL_spin.addEventListener("click", () => {
+			if (!angVel) angVel = rand(0.25, 0.35);
+		  });
+		  
+		  </script>
+		  
+		  
+		  <style>
+		  
+		  #wheelOfFortune {
+			display: inline-block;
+			position: relative;
+			overflow: hidden;
+		  }
+		  
+		  #wheel {
+			display: block;
+		  }
+		  
+		  #spin {
+			font: 1.5em/0 sans-serif;
+			user-select: none;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 30%;
+			height: 30%;
+			margin: -15%;
+			background: #fff;
+			color: #fff;
+			box-shadow: 0 0 0 8px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
+			border-radius: 50%;
+			transition: 0.8s;
+		  }
+		  
+		  #spin::after {
+			content: "";
+			position: absolute;
+			top: -17px;
+			border: 10px solid transparent;
+			border-bottom-color: currentColor;
+			border-top: none;
+		  }
+		   </style>
+		   
+			<style> 
+		  #rectangle1 {
+			width: 20px;
+			height: 10px;
+			background: #00ffff;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle2 {
+			width: 20px;
+			height: 10px;
+			background: #000080;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle3 {
+			width: 20px;
+			height: 10px;
+			background: #008000;
+		  }
+			</style>
+		   
+		   <style> 
+		  #rectangle4 {
+			width: 20px;
+			height: 10px;
+			background: #808000;
+		  }
+			</style> 
+			
+			 <style> 
+		  #rectangle5 {
+			width: 20px;
+			height: 10px;
+			background: #db3a16;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle6 {
+			width: 20px;
+			height: 10px;
+			background: #0d0d0d;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle7 {
+			width: 20px;
+			height: 10px;
+			background: #0000ff;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle8 {
+			width: 20px;
+			height: 10px;
+			background: #800080;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle9 {
+			width: 20px;
+			height: 10px;
+			background: #ffff00;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle10 {
+			width: 20px;
+			height: 10px;
+			background: #d6d934;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle11 {
+			width: 20px;
+			height: 10px;
+			background: #9e0d38;
+		  }
+			</style>
+			
+			 <style> 
+		  #rectangle12 {
+			width: 20px;
+			height: 10px;
+			background: #f79752;
+		  }
+			</style>
+			
+			<style> 
+		  #rectangle13 {
+			width: 20px;
+			height: 10px;
+			background: #00FF00;
+		  }
+			</style>
+	</body>
+</html>
