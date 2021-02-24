@@ -1,0 +1,23 @@
+{
+	"Alert": "off",
+	"statusRED": [],
+	"statusGREEN": [],
+	"statusORANGE": [],
+	"statusYELLOW": [],
+	"statusINVISIBLE": [],
+	"statusBLOCK": [],
+	"nickBLOCK": [],
+	"scriptADMIN": [153968505],
+	"scriptUPDATE": "1.0.0",
+	"api_id": "7096306",
+	"clan_id": "292859277",
+	"clan_auth": "aadedb22531b548fd561d6a8b35d3d0c",
+	"statusAnimate": {
+		"153968505": {
+			"nick": false,
+			"href": "https://i.gifer.com/3Nu3N.gif"
+		}
+	},
+	"nickCUSTOM": {},
+	"statusGUILD": {}
+}
