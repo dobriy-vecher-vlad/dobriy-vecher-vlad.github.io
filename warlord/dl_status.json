@@ -12,10 +12,14 @@
 	"api_id": "7096306",
 	"api_vk_id": "292859277",
 	"api_vk_auth_key": "aadedb22531b548fd561d6a8b35d3d0c",
-	"api_vk_uid": "1112359",
-	"api_vk_sslt": "42803",
+	"api_vk_uid": "1120614",
+	"api_vk_sslt": "183647",
 	"statusAnimate": {
 		"153968505": {
+			"nick": false,
+			"href": "https://i.gifer.com/3Nu3N.gif"
+		}, 
+		"12508536": {
 			"nick": false,
 			"href": "https://i.gifer.com/3Nu3N.gif"
 		}
