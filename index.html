@@ -10,57 +10,60 @@
 	</head>
 	<body dark>
 		<div class="card">
-			<span class="profile">
-				<div class="avatar"><img src="img/4.png"></div>
-				<div class="background"></div>
-			</span>
-			<span class="name">Oleg Poletsky</span>
-			<span class="description">Developer from <b>Kamensk-Uralsky</b></span>
-			<span class="geolocation"><i class="far fa-map-marker-alt"></i>  Sverdlovsk Oblast, Russia</span>
-			<hr>
-			<span class="counters">
-				<ul>
-					<li count="20">Age</li>
-					<li count="projects.lenght">Projects</li>
-					<li count="0">IQ</li>
-				</ul>
-			</span>
-			<hr>
-			<span class="description">My <b>links</b></span>
-			<span class="links" social>
-				<ul>
-					<li>
-						<a icon="&#xf189" href="https://vk.com/id153968505" target="_blank">
-							<span class="name">VK</span>
-							<span class="description">Моя страница на сайте ВКонтакте.</span>
-						</a>
-					</li>
-					<li>
-						<a icon="&#xf09b" href="https://github.com/dobriy-vecher-vlad" target="_blank">
-							<span class="name">GitHub</span>
-							<span class="description">Моя страница на сайте GitHub.</span>
-						</a>
-					</li>
-					<li>
-						<a icon="&#xf1b6" href="https://steamcommunity.com/id/xolova/" target="_blank">
-							<span class="name">Steam</span>
-							<span class="description">Моя страница на сайте Steam.</span>
-						</a>
-					</li>
-					<li>
-						<a icon="&#xf167" href="https://www.youtube.com/xolova" target="_blank">
-							<span class="name">YouTube</span>
-							<span class="description">Моя страница на сайте YouTube.</span>
-						</a>
-					</li>
-				</ul>
-			</span>
-			<hr>
-			<span class="description">My <b>projects</b></span>
-			<span class="links" projects>
-				<ul>
-				</ul>
-			</span>
+			<div gradient>
+				<span class="profile">
+					<div class="avatar"><img src="img/4.png"></div>
+					<div class="background"></div>
+				</span>
+				<span class="name">Oleg Poletsky</span>
+				<span class="description">Developer from <b>Kamensk-Uralsky</b></span>
+				<span class="geolocation"><i class="far fa-map-marker-alt"></i>  Sverdlovsk Oblast, Russia</span>
+				<hr>
+				<span class="counters">
+					<ul>
+						<li count="20">Age</li>
+						<li count="projects.lenght">Projects</li>
+						<li count="0">IQ</li>
+					</ul>
+				</span>
+			</div>
+			<div>
+				<span class="description">My <b>links</b></span>
+				<span class="links" social>
+					<ul>
+						<li>
+							<a icon="&#xf189" href="https://vk.com/id153968505" target="_blank">
+								<span class="name">VK</span>
+								<span class="description">Моя страница на сайте ВКонтакте.</span>
+							</a>
+						</li>
+						<li>
+							<a icon="&#xf09b" href="https://github.com/dobriy-vecher-vlad" target="_blank">
+								<span class="name">GitHub</span>
+								<span class="description">Моя страница на сайте GitHub.</span>
+							</a>
+						</li>
+						<li>
+							<a icon="&#xf1b6" href="https://steamcommunity.com/id/xolova/" target="_blank">
+								<span class="name">Steam</span>
+								<span class="description">Моя страница на сайте Steam.</span>
+							</a>
+						</li>
+						<li>
+							<a icon="&#xf167" href="https://www.youtube.com/xolova" target="_blank">
+								<span class="name">YouTube</span>
+								<span class="description">Моя страница на сайте YouTube.</span>
+							</a>
+						</li>
+					</ul>
+				</span>
+				<hr>
+				<span class="description">My <b>projects</b></span>
+				<span class="links" projects>
+					<ul>
+					</ul>
+				</span>
+			</div>
 		</div>
 		<script src="projects.js"></script>
 		<script>
@@ -68,7 +71,12 @@
 			function random(min, max) {
 				min = Math.ceil(min);
 				max = Math.floor(max);
-				return Math.floor(Math.random() * (max - min + 1)) + min;
+				let result;
+				do {
+					result = Math.floor(Math.random() * (max - min + 1)) + min;
+				} while (result === random.last);
+				random.last = result;
+				return result;
 			}
 			function returnArrayItems(array) {
 				let data = '';
@@ -92,10 +100,23 @@
 					</li>
 				`);
 			});
-			const parent = document.querySelector('.profile');
-			parent.addEventListener('click', function(e) {
+			let parent = document.querySelector('.profile');
+			parent.addEventListener('click', function() {
 				//parent.childNodes[1].childNodes[0].src = `https://vk.com/sticker/1-${random(1,21921)}-256.png`;
-				parent.childNodes[1].childNodes[0].src = `img/${random(1,12)}.png`;
+				//parent.childNodes[1].childNodes[0].src = `img/${random(1,12)}.png`;
+				if (!this.classList.contains('load')) {
+					try {
+						parent.classList.add('load');
+						setTimeout(async() => {
+							let img = await fetch(`img/${random(1,12)}.png`);
+							parent.childNodes[1].childNodes[0].src = await URL.createObjectURL(await img.blob());
+							parent.classList.remove('load');
+						}, 200);
+					} catch(error) {
+						parent.classList.remove('load');
+						console.log(error);
+					}
+				}
 			});
 		</script>
 	</body>

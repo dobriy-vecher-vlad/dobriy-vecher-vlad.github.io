@@ -89,5 +89,11 @@ const projects = [
 		'date': 'January 2021',
 		'tag': ['html', 'css', 'js'],
 		'href': ''
+	}, {
+		'name': 'DEADLAND Script',
+		'description': 'Вспомогательное расширение, позволяющее смотреть характеристики игроков из игры DEADLAND, прямо на страницах ВКонтакте.',
+		'date': 'February 2021',
+		'tag': ['html', 'css', 'js'],
+		'href': 'https://chrome.google.com/webstore/detail/deadland-script/nfpijfchkkommchpnljlpabngkcmogom'
 	}
 ];
