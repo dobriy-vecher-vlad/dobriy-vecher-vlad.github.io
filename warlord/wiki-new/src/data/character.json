@@ -1,0 +1,92 @@
+{
+	"images": ["character/label_1.png", "character/label_2.png", "character/label_3.png", "character/label_4.png", "character/label_5.png"],
+	"talents": [{
+		"title": "Свирепый удар",
+		"description": "Наносит базовый удар и дополнительный урон от навыка. +5 к урону за единицу навыка.",
+		"currency": 1,
+		"icon": "character/talent_1.png"
+	}, {
+		"title": "Блок щитом",
+		"description": "Наносит базовый удар и блокирует получаемый урон. -1 к ответному урону за единицу навыка.",
+		"currency": 1,
+		"icon": "character/talent_2.png"
+	}, {
+		"title": "Невидимый удар",
+		"description": "Наносит базовый удар и дополнительный урон от навыка. Противник не бьёт в ответ. +7 к урону за единицу навыка.",
+		"currency": 1,
+		"icon": "character/talent_3.png"
+	}, {
+		"title": "Мастер целитель",
+		"description": "Восстанавливает 250 здоровья и дополнительно от навыка. +3 к восстановлению здоровья за единицу навыка.",
+		"currency": 3,
+		"icon": "character/talent_4.png"
+	}],
+	"achievements": [],
+	"resources": [],
+	"pets": [{
+		"title": "Дух Воды",
+		"from": "Поход «Руины Форта»",
+		"food": 10,
+		"time": 7200,
+		"stages": 5,
+		"icon": "character/pet_1.png",
+		"items": []
+	}, {
+		"title": "Северный Волк",
+		"from": "Поход «Кладбище Кораблей»",
+		"food": 15,
+		"time": 10800,
+		"stages": 4,
+		"icon": "character/pet_2.png",
+		"items": []
+	}, {
+		"title": "Полярный Тигр",
+		"from": "Поход «Тропа Шиммеран»",
+		"food": 20,
+		"time": 14400,
+		"stages": 7,
+		"icon": "character/pet_3.png",
+		"items": []
+	}, {
+		"title": "Панда",
+		"from": "Поход «Заброшенный Пост»",
+		"food": 35,
+		"time": 15400,
+		"stages": 6,
+		"icon": "character/pet_4.png",
+		"items": []
+	}, {
+		"title": "Грабоид",
+		"from": "Босс «Грабоид»",
+		"food": 50,
+		"time": 16500,
+		"stages": 1,
+		"icon": "character/pet_5.png",
+		"items": []
+	}],
+	"backgrounds": [{
+		"title": "Риверфорт",
+		"description": "Изначально разблокирован",
+		"icon": "character/background_1.png"
+	}, {
+		"title": "Башня Растхельма",
+		"description": "Поход «Кладбище Кораблей»",
+		"icon": "character/background_2.png"
+	}, {
+		"title": "Военный лагерь",
+		"description": "Любые сундуки рейдов «Подземелье», «Подвал часовни» и «Паучий лес»",
+		"icon": "character/background_3.png"
+	}, {
+		"title": "Пустынная застава",
+		"description": "Награда с боссов «Каменный Гигант» и «Зачарованный Гигант»",
+		"icon": "character/background_4.png"
+	}, {
+		"title": "Личные покои",
+		"description": "-",
+		"icon": "character/background_5.png"
+	}, {
+		"title": "Пиратский корабль",
+		"description": "Награда с босса «Взрывной Билл»",
+		"icon": "character/background_6.png"
+	}]
+}
