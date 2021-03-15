@@ -190,20 +190,32 @@
 		"description": "Изначально разблокирован",
 		"icon": "character/background_1.png"
 	}, {
+		"title": "Зимний Риверфорт",
+		"description": "Изначально разблокирован, включается зимой",
+		"icon": "character/background_7.png"
+	}, {
 		"title": "Башня Растхельма",
 		"description": "Поход «Кладбище Кораблей»",
 		"icon": "character/background_2.png"
 	}, {
+		"title": "Зимняя Башня Растхельма",
+		"description": "Поход «Кладбище Кораблей», включается зимой",
+		"icon": "character/background_8.png"
+	}, {
 		"title": "Военный лагерь",
 		"description": "Любые сундуки рейдов «Подземелье», «Подвал часовни» и «Паучий лес»",
 		"icon": "character/background_3.png"
+	}, {
+		"title": "Зимний Военный лагерь",
+		"description": "Любые сундуки рейдов «Подземелье», «Подвал часовни» и «Паучий лес», включается зимой",
+		"icon": "character/background_9.png"
 	}, {
 		"title": "Пустынная застава",
 		"description": "Награда с боссов «Каменный Гигант» и «Зачарованный Гигант»",
 		"icon": "character/background_4.png"
 	}, {
 		"title": "Личные покои",
-		"description": "-",
+		"description": "Награда с босса «Болотник»",
 		"icon": "character/background_5.png"
 	}, {
 		"title": "Пиратский корабль",

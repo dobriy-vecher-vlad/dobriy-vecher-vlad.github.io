@@ -290,7 +290,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 5 &&
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.description}</Cell>
-							<Link href={dataModal.icon} target="_blank"><Cell className="DescriptionWiki" before={<Icon24ChainOutline />} description="Изображение">Открыть полное изображение фона</Cell></Link>
+							<Link href={`image/${dataModal.icon}`} target="_blank"><Cell className="DescriptionWiki" before={<Icon24ChainOutline />} description="Изображение">Открыть полное изображение фона</Cell></Link>
 						</Group>
 					}
 				</Group>
