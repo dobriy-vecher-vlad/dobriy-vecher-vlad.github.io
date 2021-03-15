@@ -1,5 +1,5 @@
 {
-	"images": ["character/label_1.png", "character/label_2.png", "character/label_3.png", "character/label_4.png", "character/label_5.png"],
+	"images": ["character/label_1.png", "character/label_2.png", "character/label_3.png", "character/label_4.png"],
 	"talents": [{
 		"title": "Свирепый удар",
 		"description": "Наносит базовый удар и дополнительный урон от навыка",
@@ -34,7 +34,30 @@
 		"time": 7200,
 		"stages": 5,
 		"icon": "character/pet_1.png",
-		"items": []
+		"items": [{
+			"id": 642,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 278,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 239,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 186,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 196,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 248,
+			"collection": true
+		}]
 	}, {
 		"title": "Северный Волк",
 		"from": "Поход «Кладбище Кораблей»",
@@ -42,7 +65,29 @@
 		"time": 10800,
 		"stages": 4,
 		"icon": "character/pet_2.png",
-		"items": []
+		"items": [{
+			"id": 305,
+			"item": true
+		}, {
+			"id": 663,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 309,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 306,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 363,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 373,
+			"collection": true
+		}]
 	}, {
 		"title": "Полярный Тигр",
 		"from": "Поход «Тропа Шиммеран»",
@@ -50,7 +95,36 @@
 		"time": 14400,
 		"stages": 7,
 		"icon": "character/pet_3.png",
-		"items": []
+		"items": [{
+			"id": 432,
+			"item": true
+		}, {
+			"id": 334,
+			"item": true
+		}, {
+			"id": 677,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 434,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 389,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 346,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 381,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 619,
+			"collection": true
+		}]
 	}, {
 		"title": "Панда",
 		"from": "Поход «Заброшенный Пост»",
@@ -58,7 +132,29 @@
 		"time": 15400,
 		"stages": 6,
 		"icon": "character/pet_4.png",
-		"items": []
+		"items": [{
+			"id": 359,
+			"item": true
+		}, {
+			"id": 689,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 677,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 389,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 443,
+			"collection": true,
+			"personal": true
+		}, {
+			"id": 619,
+			"collection": true
+		}]
 	}, {
 		"title": "Грабоид",
 		"from": "Босс «Грабоид»",
@@ -66,7 +162,28 @@
 		"time": 16500,
 		"stages": 1,
 		"icon": "character/pet_5.png",
-		"items": []
+		"items": [{
+			"id": 386,
+			"item": true,
+			"scroll": true
+		}, {
+			"id": 415,
+			"item": true,
+			"scroll": true
+		}, {
+			"id": 703,
+			"collection": true,
+			"scroll": true
+		}, {
+			"id": 490,
+			"collection": true,
+			"personal": true,
+			"scroll": true
+		}, {
+			"id": 493,
+			"collection": true,
+			"scroll": true
+		}]
 	}],
 	"backgrounds": [{
 		"title": "Риверфорт",

@@ -164,13 +164,13 @@ const App = withAdaptivity(({ viewWidth }) => {
 	const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
 	const hasHeader = platform !== VKCOM;
 
-	// const [activeStory, setActiveStory] = useState('home');
+	const [activeStory, setActiveStory] = useState('home');
 	const [activePanel, setActivePanel] = useState(null);
 	const [activeModal, setActiveModal] = useState(null);
 	const [user, setUser] = useState({vk: null, game: null});
 	const [popout, setPopout] = useState(null);
 	const [modalOpened, isModalOpened] = useState(false);
-	const [activeStory, setActiveStory] = useState('warlordCharacter');
+	// const [activeStory, setActiveStory] = useState('warlordCharacter');
 	// const [activePanel, setActivePanel] = useState('warlordArena_4');
 	const [dataModal, setDataModal] = useState(null);
 	const [indexModal, setIndexModal] = useState(null);
@@ -229,7 +229,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Стоимость моментального открытия сундука">{numberSpaces(dataModal.skip)} {numberForm(dataModal.skip, ['рубин', 'рубина', 'рубинов'])}</Cell>
 							<Spacing separator size={16} />
 							{dataModal.items.sort((a, b) => {
-								return b.item - a.item || b.collection - a.collection || b.scroll - a.scroll || b.personal - a.personal;
+								return b.item - a.item || b.collection - a.collection || b.personal - a.personal || b.scroll - a.scroll;
 							}).map((data, x) => {
 								if (checkItems.item && data.item) {
 									checkItems.null = false;
@@ -266,7 +266,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Cell className="DescriptionWiki" before={<Icon24PaletteOutline />} description="Визуальных стадий">{dataModal.stages} {numberForm(dataModal.stages, ['стадия', 'стадии', 'стадий'])}</Cell>
 							<Spacing separator size={16} />
 							{dataModal.items.sort((a, b) => {
-								return b.item - a.item || b.collection - a.collection || b.scroll - a.scroll || b.personal - a.personal;
+								return b.item - a.item || b.collection - a.collection || b.personal - a.personal || b.scroll - a.scroll;
 							}).map((data, x) => {
 								if (checkItems.item && data.item) {
 									checkItems.null = false;
