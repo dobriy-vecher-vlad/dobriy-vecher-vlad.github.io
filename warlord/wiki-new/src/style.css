@@ -118,6 +118,9 @@ body::-webkit-scrollbar {
 	display: block;
 	z-index: 1;
 }
+.vkuiCardGrid--m .BannerWiki .vkuiSimpleCell {
+	padding-top: 33%;
+}
 .BannerWiki .vkuiText, .BannerWiki .vkuiTitle, .BannerWiki .vkuiHeadline {
 	color: white!important;
 }

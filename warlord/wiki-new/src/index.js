@@ -90,7 +90,8 @@ import {
 	Icon24GiftOutline,
 	Icon24ChainOutline,
 	Icon24AppleOutline,
-	Icon24PaletteOutline
+	Icon24PaletteOutline,
+	Icon24MagicWandOutline
 } from '@vkontakte/icons';
 
 
@@ -203,6 +204,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 3 && dataModal.title}
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 4 && dataModal.title}
 
+						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 1 && dataModal.title}
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 4 && dataModal.title}
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 5 && dataModal.title}
 					</ModalPageHeader>
@@ -249,6 +251,13 @@ const App = withAdaptivity(({ viewWidth }) => {
 						</Group>
 					}
 
+					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 1 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24MagicWandOutline />} description="Бонус">{dataModal.bonus}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Валюта прокачки навыка">{dataModal.currency === 1 ? 'Золото' : 'Серебро'}</Cell>
+						</Group>
+					}
 					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 4 &&
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.from}</Cell>
@@ -844,6 +853,37 @@ const App = withAdaptivity(({ viewWidth }) => {
 										<Cell before={<Icon24ArticleOutline />} description="Список фонов и другая информация">Прочее</Cell>
 									</Card>
 								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordCharacter_1">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Таланты</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 4 вида навыков и каждый можно прокачать до 9.999 уровня, цена с каждым разом увеличивается.<br/>Также за определённые уровни прокачки навыка можно получить достижение.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size="m">
+									{dataCharacter.talents.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 1)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordCharacter_2">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Достижения</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+							</Group>
+						</Panel>
+						<Panel id="warlordCharacter_3">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Ресурсы</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
 							</Group>
 						</Panel>
 						<Panel id="warlordCharacter_4">
