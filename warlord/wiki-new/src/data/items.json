@@ -1,0 +1,5211 @@
+[
+	{
+		"title": "Рубаха Воина",
+		"dmg": 0,
+		"hp": 4,
+		"price": 250,
+		"currency": 1,
+		"icon": "items/1123.png"
+	}, {
+		"title": "Кожаные Ботинки",
+		"dmg": 0,
+		"hp": 0,
+		"price": 211,
+		"currency": 1,
+		"icon": "items/1118.png"
+	}, {
+		"title": "Штаны Путника",
+		"dmg": 0,
+		"hp": 0,
+		"price": 35,
+		"currency": 2,
+		"icon": "items/1157.png"
+	}, {
+		"title": "Бронзовые Наручи",
+		"dmg": 0,
+		"hp": 8,
+		"price": 500,
+		"currency": 3,
+		"icon": "items/1075.png"
+	}, {
+		"title": "Наручи Дозорного",
+		"dmg": 0,
+		"hp": 8,
+		"price": 375,
+		"currency": 3,
+		"icon": "items/1664.png"
+	}, {
+		"title": "Перчатки Пехотинца",
+		"dmg": 0,
+		"hp": 10,
+		"price": 650,
+		"currency": 1,
+		"icon": "items/1149.png"
+	}, {
+		"title": "Старая Кольчуга",
+		"dmg": 0,
+		"hp": 10,
+		"price": 950,
+		"currency": 3,
+		"icon": "items/1171.png"
+	}, {
+		"title": "Украшенный Наплечник",
+		"dmg": 0,
+		"hp": 10,
+		"price": 25,
+		"currency": 2,
+		"icon": "items/1210.png"
+	}, {
+		"title": "Золотой Щит Новобранца",
+		"dmg": 0,
+		"hp": 10,
+		"price": 25,
+		"currency": 2,
+		"icon": "items/1218.png"
+	}, {
+		"title": "Праздничный Щит",
+		"dmg": 0,
+		"hp": 10,
+		"price": 1250,
+		"currency": 1,
+		"icon": "items/1511.png"
+	}, {
+		"title": "Бронзовая Кольчуга",
+		"dmg": 0,
+		"hp": 12,
+		"price": 1450,
+		"currency": 3,
+		"icon": "items/1294.png"
+	}, {
+		"title": "Бронзовый Шлем",
+		"dmg": 0,
+		"hp": 12,
+		"price": 525,
+		"currency": 3,
+		"icon": "items/1112.png"
+	}, {
+		"title": "Баклер Цитадели",
+		"dmg": 0,
+		"hp": 12,
+		"price": 1250,
+		"currency": 1,
+		"icon": "items/1628.png"
+	}, {
+		"title": "Наручи Воды",
+		"dmg": 0,
+		"hp": 12,
+		"price": 20,
+		"currency": 2,
+		"icon": "items/1144.png"
+	}, {
+		"title": "Баклер Легиона",
+		"dmg": 0,
+		"hp": 12,
+		"price": 1250,
+		"currency": 1,
+		"icon": "items/1676.png"
+	}, {
+		"title": "Щит Новобранца",
+		"dmg": 0,
+		"hp": 12,
+		"price": 1250,
+		"currency": 1,
+		"icon": "items/1174.png"
+	}, {
+		"title": "Солдатские Ботинки",
+		"dmg": 0,
+		"hp": 12,
+		"price": 1150,
+		"currency": 1,
+		"icon": "items/1179.png"
+	}, {
+		"title": "Позолоченный Шлем",
+		"dmg": 0,
+		"hp": 14,
+		"price": 750,
+		"currency": 3,
+		"icon": "items/1296.png"
+	}, {
+		"title": "Бронзовый Наплечник",
+		"dmg": 0,
+		"hp": 14,
+		"price": 1450,
+		"currency": 1,
+		"icon": "items/1131.png"
+	}, {
+		"title": "Щит Разбойника ",
+		"dmg": 0,
+		"hp": 14,
+		"price": 1500,
+		"currency": 3,
+		"icon": "items/1180.png"
+	}, {
+		"title": "Крестьянский Щит",
+		"dmg": 0,
+		"hp": 15,
+		"price": 5750,
+		"currency": 1,
+		"icon": "items/1561.png"
+	}, {
+		"title": "Наручи Ловчего",
+		"dmg": 0,
+		"hp": 15,
+		"price": 1850,
+		"currency": 3,
+		"icon": "items/1361.png"
+	}, {
+		"title": "Наручи Пехотинца",
+		"dmg": 0,
+		"hp": 15,
+		"price": 1450,
+		"currency": 3,
+		"icon": "items/1143.png"
+	}, {
+		"title": "Кожаный Нагрудник",
+		"dmg": 0,
+		"hp": 15,
+		"price": 1750,
+		"currency": 3,
+		"icon": "items/1170.png"
+	}, {
+		"title": "Простой Наплечник Арахны",
+		"dmg": 0,
+		"hp": 15,
+		"price": 1350,
+		"currency": 1,
+		"icon": "items/1213.png"
+	}, {
+		"title": "Амулет Паучье Око",
+		"dmg": 0,
+		"hp": 15,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1256.png"
+	}, {
+		"title": "Наручи Повторения",
+		"dmg": 0,
+		"hp": 15,
+		"price": 1850,
+		"currency": 1,
+		"icon": "items/1522.png"
+	}, {
+		"title": "Дубленый Нагрудник",
+		"dmg": 0,
+		"hp": 17,
+		"price": 35,
+		"currency": 2,
+		"icon": "items/1269.png"
+	}, {
+		"title": "Шлем Разбойника",
+		"dmg": 0,
+		"hp": 18,
+		"price": 1650,
+		"currency": 1,
+		"icon": "items/1109.png"
+	}, {
+		"title": "Ботинки Разбойника",
+		"dmg": 0,
+		"hp": 18,
+		"price": 35,
+		"currency": 2,
+		"icon": "items/1117.png"
+	}, {
+		"title": "Клепаные Наручи",
+		"dmg": 0,
+		"hp": 18,
+		"price": 2150,
+		"currency": 1,
+		"icon": "items/1178.png"
+	}, {
+		"title": "Щит Берсерка",
+		"dmg": 0,
+		"hp": 18,
+		"price": 2225,
+		"currency": 3,
+		"icon": "items/1181.png"
+	}, {
+		"title": "Ботинки Повторения",
+		"dmg": 0,
+		"hp": 20,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1555.png"
+	}, {
+		"title": "Шлем Подгорный",
+		"dmg": 0,
+		"hp": 20,
+		"price": 1800,
+		"currency": 3,
+		"icon": "items/1111.png"
+	}, {
+		"title": "Гвардейские Ботинки",
+		"dmg": 0,
+		"hp": 20,
+		"price": 2150,
+		"currency": 1,
+		"icon": "items/1114.png"
+	}, {
+		"title": "Нагрудник Гоблина",
+		"dmg": 0,
+		"hp": 20,
+		"price": 3000,
+		"currency": 3,
+		"icon": "items/1124.png"
+	}, {
+		"title": "Рыцарский Наплечник",
+		"dmg": 0,
+		"hp": 20,
+		"price": 1950,
+		"currency": 3,
+		"icon": "items/1135.png"
+	}, {
+		"title": "Наплечник Алчности",
+		"dmg": 0,
+		"hp": 20,
+		"price": 1950,
+		"currency": 3,
+		"icon": "items/1136.png"
+	}, {
+		"title": "Наручи Разбойника",
+		"dmg": 0,
+		"hp": 20,
+		"price": 2500,
+		"currency": 3,
+		"icon": "items/1141.png"
+	}, {
+		"title": "Рыцарские Перчатки",
+		"dmg": 0,
+		"hp": 20,
+		"price": 1950,
+		"currency": 3,
+		"icon": "items/1151.png"
+	}, {
+		"title": "Рыцарский Щит",
+		"dmg": 0,
+		"hp": 20,
+		"price": 3850,
+		"currency": 1,
+		"icon": "items/1185.png"
+	}, {
+		"title": "Кольцо Ясновидения",
+		"dmg": 0,
+		"hp": 20,
+		"price": 1850,
+		"currency": 1,
+		"icon": "items/1715.png"
+	}, {
+		"title": "Стеганые Сапоги",
+		"dmg": 0,
+		"hp": 20,
+		"price": 2950,
+		"currency": 3,
+		"icon": "items/1217.png"
+	}, {
+		"title": "Осадный Щит Новобранца",
+		"dmg": 0,
+		"hp": 20,
+		"price": 3975,
+		"currency": 1,
+		"icon": "items/1220.png"
+	}, {
+		"title": "Редкий Подгорный Шлем",
+		"dmg": 0,
+		"hp": 22,
+		"price": 1950,
+		"currency": 3,
+		"icon": "items/1295.png"
+	}, {
+		"title": "Легкий Наплечник",
+		"dmg": 0,
+		"hp": 22,
+		"price": 6050,
+		"currency": 3,
+		"icon": "items/1215.png"
+	}, {
+		"title": "Наручи Льда",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 1,
+		"icon": "items/1280.png"
+	}, {
+		"title": "Полированное Кольцо",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1792.png"
+	}, {
+		"title": "Шлем Ритуалиста",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1793.png"
+	}, {
+		"title": "Морозный Наплечник",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1794.png"
+	}, {
+		"title": "Сердце Эрмуна",
+		"dmg": 0,
+		"hp": 25,
+		"price": 40000,
+		"currency": 2,
+		"icon": "items/1284.png"
+	}, {
+		"title": "Кольцо Искусителя",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1797.png"
+	}, {
+		"title": "Ботинки Стража",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1798.png"
+	}, {
+		"title": "Наручи Арбалетчика",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1799.png"
+	}, {
+		"title": "Кольцо Преданности",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1800.png"
+	}, {
+		"title": "Амулет Храбрости",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1801.png"
+	}, {
+		"title": "Кольцо Скрытности",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1802.png"
+	}, {
+		"title": "Шлем Мучителя",
+		"dmg": 0,
+		"hp": 25,
+		"price": 500,
+		"currency": 2,
+		"icon": "items/1547.png"
+	}, {
+		"title": "Наплечник Отваги ",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1803.png"
+	}, {
+		"title": "Громовые Наплечники",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4500,
+		"currency": 1,
+		"icon": "items/1553.png"
+	}, {
+		"title": "Кольцо Первоцвета",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1810.png"
+	}, {
+		"title": "Чешуйчатые Сапоги",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1300.png"
+	}, {
+		"title": "Перчатки Камнелома",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4500,
+		"currency": 1,
+		"icon": "items/1557.png"
+	}, {
+		"title": "Перчатки Гвардейца",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/795.png"
+	}, {
+		"title": "Наручи Беспощадности",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1316.png"
+	}, {
+		"title": "Лазурные Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3850,
+		"currency": 6,
+		"icon": "items/1317.png"
+	}, {
+		"title": "Наручи Мужества",
+		"dmg": 0,
+		"hp": 25,
+		"price": 175,
+		"currency": 2,
+		"icon": "items/1318.png"
+	}, {
+		"title": "Призовые Пластинчатые Наручи ",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 6,
+		"icon": "items/1319.png"
+	}, {
+		"title": "Плетеные Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1575.png"
+	}, {
+		"title": "Чемпионский Нагрудник",
+		"dmg": 0,
+		"hp": 25,
+		"price": 225,
+		"currency": 2,
+		"icon": "items/1577.png"
+	}, {
+		"title": "Шлем Поколений",
+		"dmg": 0,
+		"hp": 25,
+		"price": 385,
+		"currency": 6,
+		"icon": "items/1578.png"
+	}, {
+		"title": "Наручи Скрытности",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4850,
+		"currency": 1,
+		"icon": "items/1579.png"
+	}, {
+		"title": "Перчатки Скрытности",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4850,
+		"currency": 1,
+		"icon": "items/1580.png"
+	}, {
+		"title": "Наручи Предвестия",
+		"dmg": 0,
+		"hp": 25,
+		"price": 13750,
+		"currency": 3,
+		"icon": "items/1588.png"
+	}, {
+		"title": "Наручи Дружины",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1589.png"
+	}, {
+		"title": "Наплечники Поработителя",
+		"dmg": 0,
+		"hp": 25,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1592.png"
+	}, {
+		"title": "Шлем Гладиатора",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4250,
+		"currency": 1,
+		"icon": "items/1599.png"
+	}, {
+		"title": "Режущие Наплечники",
+		"dmg": 0,
+		"hp": 25,
+		"price": 7800,
+		"currency": 3,
+		"icon": "items/1600.png"
+	}, {
+		"title": "Осадные Ботинки",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1601.png"
+	}, {
+		"title": "Перчатки Культа",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1602.png"
+	}, {
+		"title": "Сапоги Неутомимости",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1603.png"
+	}, {
+		"title": "Нагрудник Претендента",
+		"dmg": 0,
+		"hp": 25,
+		"price": 18500,
+		"currency": 3,
+		"icon": "items/1607.png"
+	}, {
+		"title": "Нагрудник Трясины",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12750,
+		"currency": 3,
+		"icon": "items/1608.png"
+	}, {
+		"title": "Редкий Шлем Смотрителя",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3850,
+		"currency": 1,
+		"icon": "items/1357.png"
+	}, {
+		"title": "Непроницаемый Шлем",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2950,
+		"currency": 6,
+		"icon": "items/1359.png"
+	}, {
+		"title": "Наплечники Заградителя",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1617.png"
+	}, {
+		"title": "Наплечники Решимости",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2950,
+		"currency": 1,
+		"icon": "items/1364.png"
+	}, {
+		"title": "Перчатки Друида",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1623.png"
+	}, {
+		"title": "Кованные Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3850,
+		"currency": 1,
+		"icon": "items/1368.png"
+	}, {
+		"title": "Перчатки Цитадели",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1624.png"
+	}, {
+		"title": "Ботинки Ловчего",
+		"dmg": 0,
+		"hp": 25,
+		"price": 10000,
+		"currency": 6,
+		"icon": "items/1369.png"
+	}, {
+		"title": "Броня мужества",
+		"dmg": 0,
+		"hp": 25,
+		"price": 5000,
+		"currency": 2,
+		"icon": "items/1642.png"
+	}, {
+		"title": "Амулет Блужданий",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1643.png"
+	}, {
+		"title": "Шлем Ордена",
+		"dmg": 0,
+		"hp": 25,
+		"price": 500,
+		"currency": 2,
+		"icon": "items/1644.png"
+	}, {
+		"title": "Кольцо Возрождения",
+		"dmg": 0,
+		"hp": 25,
+		"price": 500,
+		"currency": 2,
+		"icon": "items/1645.png"
+	}, {
+		"title": "Шлем Садиста",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1646.png"
+	}, {
+		"title": "Вилларийские Наплечники",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1647.png"
+	}, {
+		"title": "Наплечник Паладина",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2250,
+		"currency": 1,
+		"icon": "items/1137.png"
+	}, {
+		"title": "Орлиные Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2850,
+		"currency": 3,
+		"icon": "items/1140.png"
+	}, {
+		"title": "Шлем Аристократа",
+		"dmg": 0,
+		"hp": 25,
+		"price": 75,
+		"currency": 2,
+		"icon": "items/1655.png"
+	}, {
+		"title": "Ритуальный Щит",
+		"dmg": 0,
+		"hp": 25,
+		"price": 385,
+		"currency": 6,
+		"icon": "items/1400.png"
+	}, {
+		"title": "Наручи Друида",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2850,
+		"currency": 1,
+		"icon": "items/1145.png"
+	}, {
+		"title": "Громовой Шлем",
+		"dmg": 0,
+		"hp": 25,
+		"price": 195,
+		"currency": 6,
+		"icon": "items/1401.png"
+	}, {
+		"title": "Защитник Эрмуна",
+		"dmg": 0,
+		"hp": 25,
+		"price": 385,
+		"currency": 6,
+		"icon": "items/1402.png"
+	}, {
+		"title": "Наручи Дюны",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1659.png"
+	}, {
+		"title": "Шлем Кавалериста",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 6,
+		"icon": "items/1405.png"
+	}, {
+		"title": "Наплечники Стихий",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1669.png"
+	}, {
+		"title": "Устойчивые Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 6,
+		"icon": "items/1414.png"
+	}, {
+		"title": "Клёпанка",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3750,
+		"currency": 1,
+		"icon": "items/1169.png"
+	}, {
+		"title": "Амулет Вуду",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1681.png"
+	}, {
+		"title": "Перстень Долголетия",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 1,
+		"icon": "items/1684.png"
+	}, {
+		"title": "Устойчивые Краги",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1431.png"
+	}, {
+		"title": "Наручи Глашатая",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1689.png"
+	}, {
+		"title": "Гербовый Щит",
+		"dmg": 0,
+		"hp": 25,
+		"price": 1250,
+		"currency": 2,
+		"icon": "items/1434.png"
+	}, {
+		"title": "Перчатки Конклава",
+		"dmg": 0,
+		"hp": 25,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1690.png"
+	}, {
+		"title": "Перчатки Наследия",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1692.png"
+	}, {
+		"title": "Сапоги Гладиатора",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3850,
+		"currency": 1,
+		"icon": "items/1184.png"
+	}, {
+		"title": "Кольчатые Наплечники",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1447.png"
+	}, {
+		"title": "Латные Рукавицы",
+		"dmg": 0,
+		"hp": 25,
+		"price": 40500,
+		"currency": 1,
+		"icon": "items/1449.png"
+	}, {
+		"title": "Наручи Гладиатора",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2950,
+		"currency": 1,
+		"icon": "items/1195.png"
+	}, {
+		"title": "Ботинки Странника",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1708.png"
+	}, {
+		"title": "Щит Страха",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6875,
+		"currency": 1,
+		"icon": "items/1454.png"
+	}, {
+		"title": "Закрытый Шлем",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3875,
+		"currency": 1,
+		"icon": "items/1456.png"
+	}, {
+		"title": "Стальное Кольцо",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1716.png"
+	}, {
+		"title": "Парадный Шлем",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3850,
+		"currency": 1,
+		"icon": "items/1206.png"
+	}, {
+		"title": "Щит Самайна",
+		"dmg": 0,
+		"hp": 25,
+		"price": 200,
+		"currency": 2,
+		"icon": "items/1718.png"
+	}, {
+		"title": "Кольцо Фиал",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1720.png"
+	}, {
+		"title": "Золотые Наручи Гладиатора",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4850,
+		"currency": 3,
+		"icon": "items/1209.png"
+	}, {
+		"title": "Серебряный Наплечник Арахны",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2250,
+		"currency": 1,
+		"icon": "items/1214.png"
+	}, {
+		"title": "Шлем Стражника",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1470.png"
+	}, {
+		"title": "Нагрудник Решимости",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1728.png"
+	}, {
+		"title": "Ботинки Исполина",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1475.png"
+	}, {
+		"title": "Большой Шлем",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1731.png"
+	}, {
+		"title": "Шлем Уклонения",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1734.png"
+	}, {
+		"title": "Шлем Ликвидации",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1735.png"
+	}, {
+		"title": "Скальная Броня",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1227.png"
+	}, {
+		"title": "Морозный Амулет",
+		"dmg": 0,
+		"hp": 25,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1739.png"
+	}, {
+		"title": "Мундир Капитана",
+		"dmg": 0,
+		"hp": 25,
+		"price": 3750,
+		"currency": 1,
+		"icon": "items/1490.png"
+	}, {
+		"title": "Эльфийское Кольцо",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1747.png"
+	}, {
+		"title": "Кольцо Стража",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1748.png"
+	}, {
+		"title": "Кольцо Озноба",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1749.png"
+	}, {
+		"title": "Кольцо Волхва",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1750.png"
+	}, {
+		"title": "Шлем Захватчика",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2950,
+		"currency": 1,
+		"icon": "items/1496.png"
+	}, {
+		"title": "Бамбуковые Наплечники",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1501.png"
+	}, {
+		"title": "Дуговые Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 3,
+		"icon": "items/1758.png"
+	}, {
+		"title": "Устрашающий Нагрудник",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6875,
+		"currency": 3,
+		"icon": "items/1247.png"
+	}, {
+		"title": "Перчатки Укротителя",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1504.png"
+	}, {
+		"title": "Наплечник Иллюзиониста",
+		"dmg": 0,
+		"hp": 25,
+		"price": 27500,
+		"currency": 3,
+		"icon": "items/1760.png"
+	}, {
+		"title": "Парадные Ботинки",
+		"dmg": 0,
+		"hp": 25,
+		"price": 2950,
+		"currency": 1,
+		"icon": "items/1249.png"
+	}, {
+		"title": "Торжественный Щит",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 1,
+		"icon": "items/1509.png"
+	}, {
+		"title": "Ликующий Щит",
+		"dmg": 0,
+		"hp": 25,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1510.png"
+	}, {
+		"title": "Дубленые Сапоги Охотника",
+		"dmg": 0,
+		"hp": 25,
+		"price": 7450,
+		"currency": 3,
+		"icon": "items/1255.png"
+	}, {
+		"title": "Учебные Перчатки",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4050,
+		"currency": 1,
+		"icon": "items/1770.png"
+	}, {
+		"title": "Наплечник Растхельма",
+		"dmg": 0,
+		"hp": 25,
+		"price": 7850,
+		"currency": 3,
+		"icon": "items/1264.png"
+	}, {
+		"title": "Наручи Упрямства",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4850,
+		"currency": 3,
+		"icon": "items/1521.png"
+	}, {
+		"title": "Наплечники Жреца",
+		"dmg": 0,
+		"hp": 25,
+		"price": 7500,
+		"currency": 3,
+		"icon": "items/1524.png"
+	}, {
+		"title": "Шлем Прогресса ",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1785.png"
+	}, {
+		"title": "Шлем Возмездия",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 1,
+		"icon": "items/1531.png"
+	}, {
+		"title": "Наручи Очищения",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1787.png"
+	}, {
+		"title": "Щит Химеры",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4750,
+		"currency": 1,
+		"icon": "items/1532.png"
+	}, {
+		"title": "Глубинный Шлем",
+		"dmg": 0,
+		"hp": 25,
+		"price": 4500,
+		"currency": 1,
+		"icon": "items/1533.png"
+	}, {
+		"title": "Кольцо Друида",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1789.png"
+	}, {
+		"title": "Наручи Злобности",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1790.png"
+	}, {
+		"title": "Морозные Наручи",
+		"dmg": 0,
+		"hp": 25,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1279.png"
+	}, {
+		"title": "Наплечник Порабощенного",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1791.png"
+	}, {
+		"title": "Редкие Шипастые Наручи",
+		"dmg": 0,
+		"hp": 26,
+		"price": 3850,
+		"currency": 3,
+		"icon": "items/1297.png"
+	}, {
+		"title": "Шипастые Наручи",
+		"dmg": 0,
+		"hp": 26,
+		"price": 3850,
+		"currency": 3,
+		"icon": "items/1177.png"
+	}, {
+		"title": "Редкие Ботинки Ловчего",
+		"dmg": 0,
+		"hp": 27,
+		"price": 55,
+		"currency": 2,
+		"icon": "items/1386.png"
+	}, {
+		"title": "Наручи Гарпии",
+		"dmg": 0,
+		"hp": 27,
+		"price": 4150,
+		"currency": 3,
+		"icon": "items/1193.png"
+	}, {
+		"title": "Старый Гербовый Щит",
+		"dmg": 0,
+		"hp": 27,
+		"price": 5185,
+		"currency": 1,
+		"icon": "items/1513.png"
+	}, {
+		"title": "Наручи Охотника",
+		"dmg": 0,
+		"hp": 28,
+		"price": 4350,
+		"currency": 1,
+		"icon": "items/1194.png"
+	}, {
+		"title": "Пластинчатые Наручи",
+		"dmg": 0,
+		"hp": 28,
+		"price": 4350,
+		"currency": 1,
+		"icon": "items/1208.png"
+	}, {
+		"title": "Парадные Перчатки Гвардейца",
+		"dmg": 0,
+		"hp": 30,
+		"price": 5250,
+		"currency": 1,
+		"icon": "items/1282.png"
+	}, {
+		"title": "Золотой Щит Одиночки",
+		"dmg": 0,
+		"hp": 30,
+		"price": 5750,
+		"currency": 1,
+		"icon": "items/1283.png"
+	}, {
+		"title": "Гвардейский Шлем",
+		"dmg": 0,
+		"hp": 30,
+		"price": 65,
+		"currency": 2,
+		"icon": "items/10.png"
+	}, {
+		"title": "Броня Защитника",
+		"dmg": 0,
+		"hp": 30,
+		"price": 350,
+		"currency": 2,
+		"icon": "items/1358.png"
+	}, {
+		"title": "Кольцо Мудреца",
+		"dmg": 0,
+		"hp": 30,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1629.png"
+	}, {
+		"title": "Наплечник Ястреба",
+		"dmg": 0,
+		"hp": 30,
+		"price": 65,
+		"currency": 2,
+		"icon": "items/1130.png"
+	}, {
+		"title": "Наручи Благородства",
+		"dmg": 0,
+		"hp": 30,
+		"price": 4500,
+		"currency": 1,
+		"icon": "items/1138.png"
+	}, {
+		"title": "Клёпанки",
+		"dmg": 0,
+		"hp": 30,
+		"price": 2250,
+		"currency": 3,
+		"icon": "items/1160.png"
+	}, {
+		"title": "Зазубренные Перчатки",
+		"dmg": 0,
+		"hp": 30,
+		"price": 4350,
+		"currency": 1,
+		"icon": "items/1433.png"
+	}, {
+		"title": "Амулет Выносливости",
+		"dmg": 0,
+		"hp": 30,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1186.png"
+	}, {
+		"title": "Щит Камнелома",
+		"dmg": 0,
+		"hp": 30,
+		"price": 5785,
+		"currency": 1,
+		"icon": "items/1514.png"
+	}, {
+		"title": "Щит Одиночки",
+		"dmg": 0,
+		"hp": 30,
+		"price": 5785,
+		"currency": 3,
+		"icon": "items/1273.png"
+	}, {
+		"title": "Перчатки Терзаний",
+		"dmg": 0,
+		"hp": 32,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1505.png"
+	}, {
+		"title": "Шлем Решимости",
+		"dmg": 0,
+		"hp": 35,
+		"price": 95,
+		"currency": 2,
+		"icon": "items/1336.png"
+	}, {
+		"title": "Поножи Ученика Чародея",
+		"dmg": 0,
+		"hp": 35,
+		"price": 7875,
+		"currency": 3,
+		"icon": "items/1341.png"
+	}, {
+		"title": "Наруч Бандита",
+		"dmg": 0,
+		"hp": 35,
+		"price": 5750,
+		"currency": 3,
+		"icon": "items/1343.png"
+	}, {
+		"title": "Сапоги Пепла",
+		"dmg": 0,
+		"hp": 35,
+		"price": 105,
+		"currency": 2,
+		"icon": "items/1349.png"
+	}, {
+		"title": "Оплот Равновесия",
+		"dmg": 0,
+		"hp": 35,
+		"price": 6850,
+		"currency": 1,
+		"icon": "items/1352.png"
+	}, {
+		"title": "Наручи Цитадели",
+		"dmg": 0,
+		"hp": 35,
+		"price": 75,
+		"currency": 2,
+		"icon": "items/1615.png"
+	}, {
+		"title": "Кольцо с Сапфиром",
+		"dmg": 0,
+		"hp": 35,
+		"price": 675,
+		"currency": 6,
+		"icon": "items/1634.png"
+	}, {
+		"title": "Нагрудник Пехотинца",
+		"dmg": 0,
+		"hp": 35,
+		"price": 75,
+		"currency": 2,
+		"icon": "items/1126.png"
+	}, {
+		"title": "Перчатки Горгульи",
+		"dmg": 0,
+		"hp": 35,
+		"price": 5600,
+		"currency": 1,
+		"icon": "items/1150.png"
+	}, {
+		"title": "Щит Кровь Тролля",
+		"dmg": 0,
+		"hp": 35,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1182.png"
+	}, {
+		"title": "Гербовый Щит Лорда",
+		"dmg": 0,
+		"hp": 35,
+		"price": 135,
+		"currency": 2,
+		"icon": "items/1451.png"
+	}, {
+		"title": "Поножи Востока",
+		"dmg": 0,
+		"hp": 35,
+		"price": 7875,
+		"currency": 3,
+		"icon": "items/1471.png"
+	}, {
+		"title": "Наплечник Мастера",
+		"dmg": 0,
+		"hp": 35,
+		"price": 9625,
+		"currency": 3,
+		"icon": "items/1216.png"
+	}, {
+		"title": "Шлем Арахны",
+		"dmg": 0,
+		"hp": 35,
+		"price": 65,
+		"currency": 2,
+		"icon": "items/1224.png"
+	}, {
+		"title": "Рунический Щит",
+		"dmg": 0,
+		"hp": 35,
+		"price": 135,
+		"currency": 2,
+		"icon": "items/1483.png"
+	}, {
+		"title": "Осадный Щит Берсерка",
+		"dmg": 0,
+		"hp": 35,
+		"price": 35,
+		"currency": 4,
+		"icon": "items/1237.png"
+	}, {
+		"title": "Перчатки Упорства",
+		"dmg": 0,
+		"hp": 35,
+		"price": 5500,
+		"currency": 3,
+		"icon": "items/1503.png"
+	}, {
+		"title": "Дубленые Наручи",
+		"dmg": 0,
+		"hp": 35,
+		"price": 9750,
+		"currency": 3,
+		"icon": "items/1258.png"
+	}, {
+		"title": "Рогатый Шлем",
+		"dmg": 0,
+		"hp": 36,
+		"price": 4250,
+		"currency": 1,
+		"icon": "items/1106.png"
+	}, {
+		"title": "Наручи Фанатика",
+		"dmg": 0,
+		"hp": 36,
+		"price": 375,
+		"currency": 2,
+		"icon": "items/1520.png"
+	}, {
+		"title": "Перчатки Опытного Воина",
+		"dmg": 0,
+		"hp": 37,
+		"price": 6350,
+		"currency": 1,
+		"icon": "items/1281.png"
+	}, {
+		"title": "Стальной Щит",
+		"dmg": 0,
+		"hp": 37,
+		"price": 5750,
+		"currency": 1,
+		"icon": "items/1315.png"
+	}, {
+		"title": "Отражающий Щит",
+		"dmg": 0,
+		"hp": 37,
+		"price": 6850,
+		"currency": 1,
+		"icon": "items/1482.png"
+	}, {
+		"title": "Кубовый Шлем",
+		"dmg": 0,
+		"hp": 37,
+		"price": 5500,
+		"currency": 3,
+		"icon": "items/1229.png"
+	}, {
+		"title": "Кираса Аристократа",
+		"dmg": 0,
+		"hp": 38,
+		"price": 115,
+		"currency": 2,
+		"icon": "items/1381.png"
+	}, {
+		"title": "Гвардейская Броня",
+		"dmg": 0,
+		"hp": 40,
+		"price": 115,
+		"currency": 2,
+		"icon": "items/7.png"
+	}, {
+		"title": "Грубые Наплечники",
+		"dmg": 0,
+		"hp": 40,
+		"price": 13400,
+		"currency": 1,
+		"icon": "items/1807.png"
+	}, {
+		"title": "Кольцо Флетчера",
+		"dmg": 0,
+		"hp": 40,
+		"price": 8700,
+		"currency": 1,
+		"icon": "items/1811.png"
+	}, {
+		"title": "Наплечники Гильдии",
+		"dmg": 0,
+		"hp": 40,
+		"price": 13400,
+		"currency": 1,
+		"icon": "items/1814.png"
+	}, {
+		"title": "Штаны Пилигрима",
+		"dmg": 0,
+		"hp": 40,
+		"price": 9750,
+		"currency": 3,
+		"icon": "items/1340.png"
+	}, {
+		"title": "Щит Форта",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7750,
+		"currency": 1,
+		"icon": "items/1353.png"
+	}, {
+		"title": "Щит Решимости",
+		"dmg": 0,
+		"hp": 40,
+		"price": 125,
+		"currency": 2,
+		"icon": "items/1366.png"
+	}, {
+		"title": "Пластинчатые Ботинки",
+		"dmg": 0,
+		"hp": 40,
+		"price": 6200,
+		"currency": 1,
+		"icon": "items/1119.png"
+	}, {
+		"title": "Орлиный Доспех",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7750,
+		"currency": 3,
+		"icon": "items/1127.png"
+	}, {
+		"title": "Наплечник Воина орков",
+		"dmg": 0,
+		"hp": 40,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1134.png"
+	}, {
+		"title": "Наручи Горгульи",
+		"dmg": 0,
+		"hp": 40,
+		"price": 6750,
+		"currency": 3,
+		"icon": "items/1147.png"
+	}, {
+		"title": "Рыцарские Ботинки",
+		"dmg": 0,
+		"hp": 40,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/640.png"
+	}, {
+		"title": "Перчатки Паладина",
+		"dmg": 0,
+		"hp": 40,
+		"price": 6500,
+		"currency": 3,
+		"icon": "items/1153.png"
+	}, {
+		"title": "Наплечник Легиона",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7500,
+		"currency": 3,
+		"icon": "items/1666.png"
+	}, {
+		"title": "Наплечник Гвардейца",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7500,
+		"currency": 3,
+		"icon": "items/401.png"
+	}, {
+		"title": "Броня Охотника на Троллей",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7750,
+		"currency": 3,
+		"icon": "items/1176.png"
+	}, {
+		"title": "Ботинки Хранителя",
+		"dmg": 0,
+		"hp": 40,
+		"price": 16750,
+		"currency": 1,
+		"icon": "items/1474.png"
+	}, {
+		"title": "Броня Перевертыша",
+		"dmg": 0,
+		"hp": 40,
+		"price": 115,
+		"currency": 2,
+		"icon": "items/1730.png"
+	}, {
+		"title": "Штурмовой Щит Берсерка",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7750,
+		"currency": 1,
+		"icon": "items/1221.png"
+	}, {
+		"title": "Наплечники Посвященного",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7650,
+		"currency": 1,
+		"icon": "items/1502.png"
+	}, {
+		"title": "Дуговые Наплечники",
+		"dmg": 0,
+		"hp": 40,
+		"price": 7500,
+		"currency": 3,
+		"icon": "items/1761.png"
+	}, {
+		"title": "Лесные Наручи",
+		"dmg": 0,
+		"hp": 40,
+		"price": 6350,
+		"currency": 3,
+		"icon": "items/1263.png"
+	}, {
+		"title": "Щит Стража",
+		"dmg": 0,
+		"hp": 40,
+		"price": 9750,
+		"currency": 1,
+		"icon": "items/1265.png"
+	}, {
+		"title": "Осадный Щит Офицера",
+		"dmg": 0,
+		"hp": 42,
+		"price": 115,
+		"currency": 2,
+		"icon": "items/1219.png"
+	}, {
+		"title": "Щит Служителя",
+		"dmg": 0,
+		"hp": 43,
+		"price": 285,
+		"currency": 4,
+		"icon": "items/1303.png"
+	}, {
+		"title": "Глухой Шлем",
+		"dmg": 0,
+		"hp": 44,
+		"price": 125,
+		"currency": 2,
+		"icon": "items/1110.png"
+	}, {
+		"title": "Гвардейская Броня",
+		"dmg": 0,
+		"hp": 45,
+		"price": 9500,
+		"currency": 3,
+		"icon": "items/13.png"
+	}, {
+		"title": "Осадный Щит Командира",
+		"dmg": 0,
+		"hp": 45,
+		"price": 8750,
+		"currency": 1,
+		"icon": "items/1302.png"
+	}, {
+		"title": "Щит Падшего",
+		"dmg": 0,
+		"hp": 45,
+		"price": 145,
+		"currency": 2,
+		"icon": "items/1560.png"
+	}, {
+		"title": "Одеяние Ученика Чародея",
+		"dmg": 0,
+		"hp": 45,
+		"price": 8650,
+		"currency": 1,
+		"icon": "items/1332.png"
+	}, {
+		"title": "Перчатки Торговца",
+		"dmg": 0,
+		"hp": 45,
+		"price": 150,
+		"currency": 2,
+		"icon": "items/1597.png"
+	}, {
+		"title": "Уникальный Оплот Равновесия",
+		"dmg": 0,
+		"hp": 45,
+		"price": 8750,
+		"currency": 1,
+		"icon": "items/1351.png"
+	}, {
+		"title": "Наручи Батальона",
+		"dmg": 0,
+		"hp": 45,
+		"price": 10750,
+		"currency": 3,
+		"icon": "items/1614.png"
+	}, {
+		"title": "Наплечники Цитадели",
+		"dmg": 0,
+		"hp": 45,
+		"price": 9350,
+		"currency": 1,
+		"icon": "items/1619.png"
+	}, {
+		"title": "Подгорные Ходы",
+		"dmg": 0,
+		"hp": 45,
+		"price": 7500,
+		"currency": 3,
+		"icon": "items/1116.png"
+	}, {
+		"title": "Смерть Тролля",
+		"dmg": 0,
+		"hp": 45,
+		"price": 7850,
+		"currency": 1,
+		"icon": "items/1122.png"
+	}, {
+		"title": "Наплечник Скорпиона",
+		"dmg": 0,
+		"hp": 45,
+		"price": 8350,
+		"currency": 3,
+		"icon": "items/1132.png"
+	}, {
+		"title": "Перчатки Полководца",
+		"dmg": 0,
+		"hp": 45,
+		"price": 130,
+		"currency": 2,
+		"icon": "items/1155.png"
+	}, {
+		"title": "Реликвия Кимбу",
+		"dmg": 0,
+		"hp": 45,
+		"price": 7875,
+		"currency": 1,
+		"icon": "items/1688.png"
+	}, {
+		"title": "Штаны Гладиатора",
+		"dmg": 0,
+		"hp": 45,
+		"price": 10125,
+		"currency": 3,
+		"icon": "items/1192.png"
+	}, {
+		"title": "Руна Выносливости",
+		"dmg": 0,
+		"hp": 45,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1722.png"
+	}, {
+		"title": "Наплечник Сумерек",
+		"dmg": 0,
+		"hp": 45,
+		"price": 60,
+		"currency": 4,
+		"icon": "items/1233.png"
+	}, {
+		"title": "Наплечники Ящера",
+		"dmg": 0,
+		"hp": 45,
+		"price": 8350,
+		"currency": 3,
+		"icon": "items/1500.png"
+	}, {
+		"title": "Золотой Наплечник Гвардейца",
+		"dmg": 0,
+		"hp": 45,
+		"price": 7850,
+		"currency": 3,
+		"icon": "items/1245.png"
+	}, {
+		"title": "Дуговые Ботинки",
+		"dmg": 0,
+		"hp": 45,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1762.png"
+	}, {
+		"title": "Поножи Культа Огня",
+		"dmg": 0,
+		"hp": 45,
+		"price": 9750,
+		"currency": 3,
+		"icon": "items/1262.png"
+	}, {
+		"title": "Щит Бастион",
+		"dmg": 0,
+		"hp": 45,
+		"price": 8750,
+		"currency": 1,
+		"icon": "items/1274.png"
+	}, {
+		"title": "Маска Перерожденного",
+		"dmg": 0,
+		"hp": 49,
+		"price": 9500,
+		"currency": 1,
+		"icon": "items/1495.png"
+	}, {
+		"title": "Редкие Сапоги Лучника",
+		"dmg": 0,
+		"hp": 50,
+		"price": 8500,
+		"currency": 1,
+		"icon": "items/1301.png"
+	}, {
+		"title": "Ботинки Гильдии",
+		"dmg": 0,
+		"hp": 50,
+		"price": 220,
+		"currency": 6,
+		"icon": "items/1813.png"
+	}, {
+		"title": "Щит Стража Севера",
+		"dmg": 0,
+		"hp": 50,
+		"price": 9500,
+		"currency": 1,
+		"icon": "items/1307.png"
+	}, {
+		"title": "Шелковые Брюки",
+		"dmg": 0,
+		"hp": 50,
+		"price": 15000,
+		"currency": 1,
+		"icon": "items/1574.png"
+	}, {
+		"title": "Наплечники Преданности",
+		"dmg": 0,
+		"hp": 50,
+		"price": 13750,
+		"currency": 3,
+		"icon": "items/1345.png"
+	}, {
+		"title": "Ботинки Цитадели",
+		"dmg": 0,
+		"hp": 50,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1621.png"
+	}, {
+		"title": "Ботинки Алчности",
+		"dmg": 0,
+		"hp": 50,
+		"price": 150,
+		"currency": 2,
+		"icon": "items/1113.png"
+	}, {
+		"title": "Наплечник Горгульи",
+		"dmg": 0,
+		"hp": 50,
+		"price": 12750,
+		"currency": 1,
+		"icon": "items/1133.png"
+	}, {
+		"title": "Наручи Паладина",
+		"dmg": 0,
+		"hp": 50,
+		"price": 140,
+		"currency": 2,
+		"icon": "items/1142.png"
+	}, {
+		"title": "Наручи Войны",
+		"dmg": 0,
+		"hp": 50,
+		"price": 9500,
+		"currency": 3,
+		"icon": "items/1148.png"
+	}, {
+		"title": "Амулет Октопус",
+		"dmg": 0,
+		"hp": 50,
+		"price": 10750,
+		"currency": 1,
+		"icon": "items/1683.png"
+	}, {
+		"title": "Перчатки Единства",
+		"dmg": 0,
+		"hp": 50,
+		"price": 14500,
+		"currency": 1,
+		"icon": "items/1432.png"
+	}, {
+		"title": "Броня Гладиатора",
+		"dmg": 0,
+		"hp": 50,
+		"price": 8650,
+		"currency": 1,
+		"icon": "items/1188.png"
+	}, {
+		"title": "Шлем Рифохода",
+		"dmg": 0,
+		"hp": 50,
+		"price": 18500,
+		"currency": 1,
+		"icon": "items/1706.png"
+	}, {
+		"title": "Сапоги Лучника",
+		"dmg": 0,
+		"hp": 50,
+		"price": 8850,
+		"currency": 3,
+		"icon": "items/1197.png"
+	}, {
+		"title": "Золотой Наплечник Арахны",
+		"dmg": 0,
+		"hp": 50,
+		"price": 12750,
+		"currency": 1,
+		"icon": "items/1212.png"
+	}, {
+		"title": "Щит Поглощения",
+		"dmg": 0,
+		"hp": 50,
+		"price": 105,
+		"currency": 4,
+		"icon": "items/1238.png"
+	}, {
+		"title": "Наручи Презрения",
+		"dmg": 0,
+		"hp": 50,
+		"price": 10000,
+		"currency": 1,
+		"icon": "items/1759.png"
+	}, {
+		"title": "Шлем Охотника на Пауков",
+		"dmg": 0,
+		"hp": 50,
+		"price": 14750,
+		"currency": 3,
+		"icon": "items/1254.png"
+	}, {
+		"title": "Парадные Поножи Гвардейца",
+		"dmg": 0,
+		"hp": 50,
+		"price": 12750,
+		"currency": 3,
+		"icon": "items/1278.png"
+	}, {
+		"title": "Шлем Правосудия",
+		"dmg": 0,
+		"hp": 52,
+		"price": 9350,
+		"currency": 1,
+		"icon": "items/1354.png"
+	}, {
+		"title": "Шлем Горгульи",
+		"dmg": 0,
+		"hp": 52,
+		"price": 7850,
+		"currency": 3,
+		"icon": "items/1107.png"
+	}, {
+		"title": "Шлем Скорпиона",
+		"dmg": 0,
+		"hp": 52,
+		"price": 9350,
+		"currency": 3,
+		"icon": "items/1191.png"
+	}, {
+		"title": "Поножи Неустрашимости",
+		"dmg": 0,
+		"hp": 54,
+		"price": 375,
+		"currency": 2,
+		"icon": "items/1499.png"
+	}, {
+		"title": "Ботинки Наемника",
+		"dmg": 0,
+		"hp": 55,
+		"price": 225,
+		"currency": 6,
+		"icon": "items/1556.png"
+	}, {
+		"title": "Щит Стражника Ворот",
+		"dmg": 0,
+		"hp": 55,
+		"price": 12950,
+		"currency": 1,
+		"icon": "items/1304.png"
+	}, {
+		"title": "Перчатки Батальона",
+		"dmg": 0,
+		"hp": 55,
+		"price": 275,
+		"currency": 6,
+		"icon": "items/1622.png"
+	}, {
+		"title": "Парадный Доспех",
+		"dmg": 0,
+		"hp": 55,
+		"price": 160,
+		"currency": 2,
+		"icon": "items/1128.png"
+	}, {
+		"title": "Наплечник Войны",
+		"dmg": 0,
+		"hp": 55,
+		"price": 150,
+		"currency": 2,
+		"icon": "items/1129.png"
+	}, {
+		"title": "Шлем Мятежника",
+		"dmg": 0,
+		"hp": 55,
+		"price": 195,
+		"currency": 6,
+		"icon": "items/1394.png"
+	}, {
+		"title": "Перчатки Войны",
+		"dmg": 0,
+		"hp": 55,
+		"price": 170,
+		"currency": 2,
+		"icon": "items/1152.png"
+	}, {
+		"title": "Парадный Доспех",
+		"dmg": 0,
+		"hp": 55,
+		"price": 175,
+		"currency": 2,
+		"icon": "items/1156.png"
+	}, {
+		"title": "Редкий Наплечник Горгульи",
+		"dmg": 0,
+		"hp": 55,
+		"price": 325,
+		"currency": 6,
+		"icon": "items/1421.png"
+	}, {
+		"title": "Латные Сапоги",
+		"dmg": 0,
+		"hp": 55,
+		"price": 9500,
+		"currency": 1,
+		"icon": "items/1196.png"
+	}, {
+		"title": "Отражающий Шлем",
+		"dmg": 0,
+		"hp": 55,
+		"price": 14750,
+		"currency": 3,
+		"icon": "items/1467.png"
+	}, {
+		"title": "Алая Броня",
+		"dmg": 0,
+		"hp": 55,
+		"price": 12000,
+		"currency": 3,
+		"icon": "items/1492.png"
+	}, {
+		"title": "Наручи Единства",
+		"dmg": 0,
+		"hp": 58,
+		"price": 325,
+		"currency": 6,
+		"icon": "items/1412.png"
+	}, {
+		"title": "Лунный Шлем ",
+		"dmg": 0,
+		"hp": 60,
+		"price": 17500,
+		"currency": 1,
+		"icon": "items/1573.png"
+	}, {
+		"title": "Шлем Палача",
+		"dmg": 0,
+		"hp": 60,
+		"price": 210,
+		"currency": 6,
+		"icon": "items/1393.png"
+	}, {
+		"title": "Нагрудник Льда",
+		"dmg": 0,
+		"hp": 60,
+		"price": 12000,
+		"currency": 1,
+		"icon": "items/1204.png"
+	}, {
+		"title": "Латный Наплечник",
+		"dmg": 0,
+		"hp": 60,
+		"price": 16500,
+		"currency": 3,
+		"icon": "items/1211.png"
+	}, {
+		"title": "Наручи Дракона",
+		"dmg": 0,
+		"hp": 60,
+		"price": 80,
+		"currency": 4,
+		"icon": "items/1232.png"
+	}, {
+		"title": "Позолоченные Латные Сапоги",
+		"dmg": 0,
+		"hp": 60,
+		"price": 8850,
+		"currency": 3,
+		"icon": "items/1236.png"
+	}, {
+		"title": "Грозовые Набедренники",
+		"dmg": 0,
+		"hp": 60,
+		"price": 245,
+		"currency": 2,
+		"icon": "items/1498.png"
+	}, {
+		"title": "Окаменевшие Наручи",
+		"dmg": 0,
+		"hp": 65,
+		"price": 10500,
+		"currency": 3,
+		"icon": "items/1551.png"
+	}, {
+		"title": "Золотой Щит Служителя",
+		"dmg": 0,
+		"hp": 65,
+		"price": 14450,
+		"currency": 1,
+		"icon": "items/1305.png"
+	}, {
+		"title": "Одеяние Мастера Чародея",
+		"dmg": 0,
+		"hp": 65,
+		"price": 11500,
+		"currency": 3,
+		"icon": "items/1334.png"
+	}, {
+		"title": "Редкий Шлем Решимости",
+		"dmg": 0,
+		"hp": 65,
+		"price": 9150,
+		"currency": 1,
+		"icon": "items/1335.png"
+	}, {
+		"title": "Перчатки Покрова",
+		"dmg": 0,
+		"hp": 65,
+		"price": 11250,
+		"currency": 1,
+		"icon": "items/1356.png"
+	}, {
+		"title": "Броня Скорпиона",
+		"dmg": 0,
+		"hp": 65,
+		"price": 11375,
+		"currency": 1,
+		"icon": "items/1189.png"
+	}, {
+		"title": "Латный Шлем",
+		"dmg": 0,
+		"hp": 65,
+		"price": 9950,
+		"currency": 1,
+		"icon": "items/1205.png"
+	}, {
+		"title": "Горный Шлем",
+		"dmg": 0,
+		"hp": 65,
+		"price": 9150,
+		"currency": 1,
+		"icon": "items/1469.png"
+	}, {
+		"title": "Боевой Шлем ",
+		"dmg": 0,
+		"hp": 65,
+		"price": 85,
+		"currency": 4,
+		"icon": "items/1228.png"
+	}, {
+		"title": "Лесные Ботинки ",
+		"dmg": 0,
+		"hp": 65,
+		"price": 195,
+		"currency": 2,
+		"icon": "items/1253.png"
+	}, {
+		"title": "Парадный Боевой Шлем",
+		"dmg": 0,
+		"hp": 65,
+		"price": 11375,
+		"currency": 3,
+		"icon": "items/1261.png"
+	}, {
+		"title": "Шлем Батальона",
+		"dmg": 0,
+		"hp": 66,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1610.png"
+	}, {
+		"title": "Грозный Шлем",
+		"dmg": 0,
+		"hp": 67,
+		"price": 235,
+		"currency": 6,
+		"icon": "items/1395.png"
+	}, {
+		"title": "Кожаный Доспех",
+		"dmg": 0,
+		"hp": 67,
+		"price": 12725,
+		"currency": 3,
+		"icon": "items/1190.png"
+	}, {
+		"title": "Щит Легиона",
+		"dmg": 0,
+		"hp": 67,
+		"price": 275,
+		"currency": 6,
+		"icon": "items/1512.png"
+	}, {
+		"title": "Броня Стражника",
+		"dmg": 0,
+		"hp": 70,
+		"price": 11500,
+		"currency": 3,
+		"icon": "items/1292.png"
+	}, {
+		"title": "Наплечники Доблести",
+		"dmg": 0,
+		"hp": 70,
+		"price": 17500,
+		"currency": 3,
+		"icon": "items/1552.png"
+	}, {
+		"title": "Броня Вестника",
+		"dmg": 0,
+		"hp": 70,
+		"price": 199,
+		"currency": 2,
+		"icon": "items/1809.png"
+	}, {
+		"title": "Нагрудник Гильдии",
+		"dmg": 0,
+		"hp": 70,
+		"price": 199,
+		"currency": 2,
+		"icon": "items/1815.png"
+	}, {
+		"title": "Шлем Смотрителя",
+		"dmg": 0,
+		"hp": 70,
+		"price": 11250,
+		"currency": 3,
+		"icon": "items/1311.png"
+	}, {
+		"title": "Шлем Разлома",
+		"dmg": 0,
+		"hp": 70,
+		"price": 195,
+		"currency": 2,
+		"icon": "items/1572.png"
+	}, {
+		"title": "Редкая Броня Скорпиона",
+		"dmg": 0,
+		"hp": 70,
+		"price": 225,
+		"currency": 2,
+		"icon": "items/1331.png"
+	}, {
+		"title": "Поножи Мастера Чародея",
+		"dmg": 0,
+		"hp": 70,
+		"price": 16500,
+		"currency": 3,
+		"icon": "items/1342.png"
+	}, {
+		"title": "Скальные Наручи",
+		"dmg": 0,
+		"hp": 70,
+		"price": 13250,
+		"currency": 1,
+		"icon": "items/1362.png"
+	}, {
+		"title": "Латный Щит",
+		"dmg": 0,
+		"hp": 70,
+		"price": 245,
+		"currency": 6,
+		"icon": "items/1399.png"
+	}, {
+		"title": "Наручи Алчности",
+		"dmg": 0,
+		"hp": 70,
+		"price": 13250,
+		"currency": 1,
+		"icon": "items/1146.png"
+	}, {
+		"title": "Набедренники Мошенника",
+		"dmg": 0,
+		"hp": 70,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1406.png"
+	}, {
+		"title": "Шлем Заклинателя",
+		"dmg": 0,
+		"hp": 70,
+		"price": 195,
+		"currency": 2,
+		"icon": "items/1497.png"
+	}, {
+		"title": "Наручи Стража",
+		"dmg": 0,
+		"hp": 70,
+		"price": 150,
+		"currency": 4,
+		"icon": "items/1251.png"
+	}, {
+		"title": "Иноземные Поножи",
+		"dmg": 0,
+		"hp": 70,
+		"price": 20000,
+		"currency": 1,
+		"icon": "items/1518.png"
+	}, {
+		"title": "Латные Поножи",
+		"dmg": 0,
+		"hp": 72,
+		"price": 17500,
+		"currency": 3,
+		"icon": "items/1312.png"
+	}, {
+		"title": "Золотые Парадные Ботинки",
+		"dmg": 0,
+		"hp": 75,
+		"price": 675,
+		"currency": 5,
+		"icon": "items/1313.png"
+	}, {
+		"title": "Редкие Наплечники Преданности",
+		"dmg": 0,
+		"hp": 75,
+		"price": 20750,
+		"currency": 3,
+		"icon": "items/1346.png"
+	}, {
+		"title": "Песчаные Ботинки",
+		"dmg": 0,
+		"hp": 75,
+		"price": 12850,
+		"currency": 3,
+		"icon": "items/1115.png"
+	}, {
+		"title": "Стальные Набедренники ",
+		"dmg": 0,
+		"hp": 75,
+		"price": 195,
+		"currency": 6,
+		"icon": "items/1391.png"
+	}, {
+		"title": "Чешуйчатые Наручи Ярости",
+		"dmg": 0,
+		"hp": 75,
+		"price": 195,
+		"currency": 6,
+		"icon": "items/1392.png"
+	}, {
+		"title": "Позолоченные Штаны",
+		"dmg": 0,
+		"hp": 75,
+		"price": 195,
+		"currency": 6,
+		"icon": "items/1396.png"
+	}, {
+		"title": "Позолоченные Набедренники Мошенника",
+		"dmg": 0,
+		"hp": 75,
+		"price": 195,
+		"currency": 2,
+		"icon": "items/1407.png"
+	}, {
+		"title": "Перчатки Песка",
+		"dmg": 0,
+		"hp": 75,
+		"price": 12750,
+		"currency": 1,
+		"icon": "items/1154.png"
+	}, {
+		"title": "Наплечники Акила",
+		"dmg": 0,
+		"hp": 75,
+		"price": 145,
+		"currency": 2,
+		"icon": "items/1668.png"
+	}, {
+		"title": "Редкие Наручи Единства",
+		"dmg": 0,
+		"hp": 75,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1413.png"
+	}, {
+		"title": "Наручи Мудрости",
+		"dmg": 0,
+		"hp": 75,
+		"price": 325,
+		"currency": 6,
+		"icon": "items/1416.png"
+	}, {
+		"title": "Перчатки Легиона",
+		"dmg": 0,
+		"hp": 75,
+		"price": 20000,
+		"currency": 1,
+		"icon": "items/1674.png"
+	}, {
+		"title": "Морозные Ботинки",
+		"dmg": 0,
+		"hp": 75,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1422.png"
+	}, {
+		"title": "Штаны Наемника",
+		"dmg": 0,
+		"hp": 75,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1473.png"
+	}, {
+		"title": "Сияющий Щит",
+		"dmg": 0,
+		"hp": 75,
+		"price": 16250,
+		"currency": 1,
+		"icon": "items/1508.png"
+	}, {
+		"title": "Щит Глубин",
+		"dmg": 0,
+		"hp": 75,
+		"price": 228,
+		"currency": 2,
+		"icon": "items/1774.png"
+	}, {
+		"title": "Наручи Неустрашимости",
+		"dmg": 0,
+		"hp": 75,
+		"price": 14500,
+		"currency": 1,
+		"icon": "items/1519.png"
+	}, {
+		"title": "Штаны Ликантропа",
+		"dmg": 0,
+		"hp": 77,
+		"price": 18250,
+		"currency": 3,
+		"icon": "items/1207.png"
+	}, {
+		"title": "Наплечники Кузнеца",
+		"dmg": 0,
+		"hp": 80,
+		"price": 275,
+		"currency": 6,
+		"icon": "items/1805.png"
+	}, {
+		"title": "Наплечники Гроккара",
+		"dmg": 0,
+		"hp": 80,
+		"price": 25000,
+		"currency": 3,
+		"icon": "items/1363.png"
+	}, {
+		"title": "Алчный",
+		"dmg": 0,
+		"hp": 80,
+		"price": 11250,
+		"currency": 1,
+		"icon": "items/1108.png"
+	}, {
+		"title": "Ботинки Батальона",
+		"dmg": 0,
+		"hp": 80,
+		"price": 9750,
+		"currency": 1,
+		"icon": "items/1620.png"
+	}, {
+		"title": "Малахитовая Броня",
+		"dmg": 0,
+		"hp": 80,
+		"price": 210,
+		"currency": 6,
+		"icon": "items/1373.png"
+	}, {
+		"title": "Фамильные Наручи",
+		"dmg": 0,
+		"hp": 80,
+		"price": 425,
+		"currency": 6,
+		"icon": "items/1411.png"
+	}, {
+		"title": "Латный Наплечник Офицера",
+		"dmg": 0,
+		"hp": 80,
+		"price": 225,
+		"currency": 4,
+		"icon": "items/1235.png"
+	}, {
+		"title": "Воротник Полководца",
+		"dmg": 0,
+		"hp": 83,
+		"price": 21150,
+		"currency": 1,
+		"icon": "items/1298.png"
+	}, {
+		"title": "Шлем Атлантиды",
+		"dmg": 0,
+		"hp": 85,
+		"price": 225,
+		"currency": 6,
+		"icon": "items/1546.png"
+	}, {
+		"title": "Ботинки Неустрашимости",
+		"dmg": 0,
+		"hp": 85,
+		"price": 325,
+		"currency": 6,
+		"icon": "items/1554.png"
+	}, {
+		"title": "Церемониальная Броня",
+		"dmg": 0,
+		"hp": 85,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1571.png"
+	}, {
+		"title": "Плетеные Перчатки",
+		"dmg": 0,
+		"hp": 85,
+		"price": 40050,
+		"currency": 1,
+		"icon": "items/1576.png"
+	}, {
+		"title": "Броня Скаута",
+		"dmg": 0,
+		"hp": 85,
+		"price": 18375,
+		"currency": 3,
+		"icon": "items/1330.png"
+	}, {
+		"title": "Шлем Ястреб",
+		"dmg": 0,
+		"hp": 85,
+		"price": 27500,
+		"currency": 3,
+		"icon": "items/1586.png"
+	}, {
+		"title": "Ботинки Атлантиды",
+		"dmg": 0,
+		"hp": 85,
+		"price": 350,
+		"currency": 6,
+		"icon": "items/1595.png"
+	}, {
+		"title": "Перчатки Налетчика",
+		"dmg": 0,
+		"hp": 85,
+		"price": 195,
+		"currency": 2,
+		"icon": "items/1596.png"
+	}, {
+		"title": "Роковой Щит",
+		"dmg": 0,
+		"hp": 85,
+		"price": 16250,
+		"currency": 1,
+		"icon": "items/1350.png"
+	}, {
+		"title": "Маска Культа",
+		"dmg": 0,
+		"hp": 85,
+		"price": 27500,
+		"currency": 3,
+		"icon": "items/1360.png"
+	}, {
+		"title": "Перчатки Пепла",
+		"dmg": 0,
+		"hp": 85,
+		"price": 18500,
+		"currency": 1,
+		"icon": "items/1365.png"
+	}, {
+		"title": "Наплечники Ловчего",
+		"dmg": 0,
+		"hp": 85,
+		"price": 275,
+		"currency": 6,
+		"icon": "items/1384.png"
+	}, {
+		"title": "Шлем Дюны",
+		"dmg": 0,
+		"hp": 85,
+		"price": 245,
+		"currency": 6,
+		"icon": "items/1652.png"
+	}, {
+		"title": "Щит Правосудия",
+		"dmg": 0,
+		"hp": 85,
+		"price": 325,
+		"currency": 6,
+		"icon": "items/1398.png"
+	}, {
+		"title": "Рог Тура",
+		"dmg": 0,
+		"hp": 85,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1687.png"
+	}, {
+		"title": "Небесный Щит",
+		"dmg": 0,
+		"hp": 85,
+		"price": 425,
+		"currency": 6,
+		"icon": "items/1479.png"
+	}, {
+		"title": "Щит Обреченного",
+		"dmg": 0,
+		"hp": 85,
+		"price": 225,
+		"currency": 4,
+		"icon": "items/1246.png"
+	}, {
+		"title": "Лесные Поножи",
+		"dmg": 0,
+		"hp": 85,
+		"price": 26750,
+		"currency": 3,
+		"icon": "items/1250.png"
+	}, {
+		"title": "Перчатки Древних",
+		"dmg": 0,
+		"hp": 85,
+		"price": 21450,
+		"currency": 1,
+		"icon": "items/1506.png"
+	}, {
+		"title": "Наплечники Лорда",
+		"dmg": 0,
+		"hp": 88,
+		"price": 185,
+		"currency": 2,
+		"icon": "items/1667.png"
+	}, {
+		"title": "Поножи Странника",
+		"dmg": 0,
+		"hp": 90,
+		"price": 31050,
+		"currency": 3,
+		"icon": "items/1339.png"
+	}, {
+		"title": "Наплечники Пепла",
+		"dmg": 0,
+		"hp": 90,
+		"price": 17500,
+		"currency": 1,
+		"icon": "items/1344.png"
+	}, {
+		"title": "Сапоги Мастера",
+		"dmg": 0,
+		"hp": 90,
+		"price": 15500,
+		"currency": 3,
+		"icon": "items/1355.png"
+	}, {
+		"title": "Штаны Паломника",
+		"dmg": 0,
+		"hp": 90,
+		"price": 285,
+		"currency": 6,
+		"icon": "items/1383.png"
+	}, {
+		"title": "Наручи Хищника",
+		"dmg": 0,
+		"hp": 90,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1661.png"
+	}, {
+		"title": "Наручи Доблести",
+		"dmg": 0,
+		"hp": 90,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1417.png"
+	}, {
+		"title": "Наплечники Величия",
+		"dmg": 0,
+		"hp": 90,
+		"price": 18500,
+		"currency": 1,
+		"icon": "items/1430.png"
+	}, {
+		"title": "Шлем Древних",
+		"dmg": 0,
+		"hp": 90,
+		"price": 250,
+		"currency": 6,
+		"icon": "items/1494.png"
+	}, {
+		"title": "Щит Бездны",
+		"dmg": 0,
+		"hp": 90,
+		"price": 500,
+		"currency": 6,
+		"icon": "items/1772.png"
+	}, {
+		"title": "Наплечник Князя",
+		"dmg": 0,
+		"hp": 95,
+		"price": 26750,
+		"currency": 3,
+		"icon": "items/1299.png"
+	}, {
+		"title": "Перчатки Лорда",
+		"dmg": 0,
+		"hp": 95,
+		"price": 16650,
+		"currency": 1,
+		"icon": "items/1558.png"
+	}, {
+		"title": "Редкие Сапоги Пепла",
+		"dmg": 0,
+		"hp": 95,
+		"price": 17500,
+		"currency": 3,
+		"icon": "items/1347.png"
+	}, {
+		"title": "Щит Батальона",
+		"dmg": 0,
+		"hp": 95,
+		"price": 18500,
+		"currency": 3,
+		"icon": "items/1625.png"
+	}, {
+		"title": "Чешуйчатые Ботинки Ярости",
+		"dmg": 0,
+		"hp": 95,
+		"price": 250,
+		"currency": 6,
+		"icon": "items/1385.png"
+	}, {
+		"title": "Пепельный Шлем ",
+		"dmg": 0,
+		"hp": 95,
+		"price": 275,
+		"currency": 6,
+		"icon": "items/1403.png"
+	}, {
+		"title": "Наручи Отступника",
+		"dmg": 0,
+		"hp": 95,
+		"price": 30000,
+		"currency": 1,
+		"icon": "items/1662.png"
+	}, {
+		"title": "Штаны Купца",
+		"dmg": 0,
+		"hp": 95,
+		"price": 35,
+		"currency": 2,
+		"icon": "items/1408.png"
+	}, {
+		"title": "Песчаный Доспех",
+		"dmg": 0,
+		"hp": 95,
+		"price": 22500,
+		"currency": 3,
+		"icon": "items/1158.png"
+	}, {
+		"title": "Орлиный Доспех",
+		"dmg": 0,
+		"hp": 95,
+		"price": 22500,
+		"currency": 1,
+		"icon": "items/1159.png"
+	}, {
+		"title": "Штаны Следопыта",
+		"dmg": 0,
+		"hp": 95,
+		"price": 25000,
+		"currency": 1,
+		"icon": "items/1472.png"
+	}, {
+		"title": "Ботинки Осквернителя",
+		"dmg": 0,
+		"hp": 95,
+		"price": 17250,
+		"currency": 1,
+		"icon": "items/1476.png"
+	}, {
+		"title": "Шлем Стража",
+		"dmg": 0,
+		"hp": 95,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1732.png"
+	}, {
+		"title": "Ботинки Князя",
+		"dmg": 0,
+		"hp": 95,
+		"price": 295,
+		"currency": 2,
+		"icon": "items/1477.png"
+	}, {
+		"title": "Шлем Империя",
+		"dmg": 0,
+		"hp": 95,
+		"price": 475,
+		"currency": 6,
+		"icon": "items/1733.png"
+	}, {
+		"title": "Ботинки Ополчения",
+		"dmg": 0,
+		"hp": 95,
+		"price": 495,
+		"currency": 6,
+		"icon": "items/1763.png"
+	}, {
+		"title": "Поножи Стихий",
+		"dmg": 0,
+		"hp": 95,
+		"price": 22800,
+		"currency": 1,
+		"icon": "items/1271.png"
+	}, {
+		"title": "Наручи Резчика",
+		"dmg": 0,
+		"hp": 100,
+		"price": 450,
+		"currency": 6,
+		"icon": "items/1806.png"
+	}, {
+		"title": "Щит Элридор",
+		"dmg": 0,
+		"hp": 100,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1306.png"
+	}, {
+		"title": "Амулет Света",
+		"dmg": 0,
+		"hp": 100,
+		"price": 35000,
+		"currency": 3,
+		"icon": "items/1566.png"
+	}, {
+		"title": "Сапоги Чародея",
+		"dmg": 0,
+		"hp": 100,
+		"price": 17250,
+		"currency": 1,
+		"icon": "items/1348.png"
+	}, {
+		"title": "Церемониальный Шлем",
+		"dmg": 0,
+		"hp": 100,
+		"price": 32500,
+		"currency": 1,
+		"icon": "items/1653.png"
+	}, {
+		"title": "Шлем Легиона",
+		"dmg": 0,
+		"hp": 100,
+		"price": 17500,
+		"currency": 1,
+		"icon": "items/1654.png"
+	}, {
+		"title": "Шлем Акила",
+		"dmg": 0,
+		"hp": 100,
+		"price": 32500,
+		"currency": 1,
+		"icon": "items/1656.png"
+	}, {
+		"title": "Наплечники Очистителя",
+		"dmg": 0,
+		"hp": 100,
+		"price": 19500,
+		"currency": 1,
+		"icon": "items/1445.png"
+	}, {
+		"title": "Облачение Гарпунщика",
+		"dmg": 0,
+		"hp": 100,
+		"price": 16750,
+		"currency": 1,
+		"icon": "items/1703.png"
+	}, {
+		"title": "Грозовой Щит",
+		"dmg": 0,
+		"hp": 100,
+		"price": 12500,
+		"currency": 1,
+		"icon": "items/1481.png"
+	}, {
+		"title": "Змеиный Щит",
+		"dmg": 0,
+		"hp": 100,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1507.png"
+	}, {
+		"title": "Редкие Иноземные Поножи ",
+		"dmg": 0,
+		"hp": 100,
+		"price": 350,
+		"currency": 2,
+		"icon": "items/1517.png"
+	}, {
+		"title": "Поножи Культа Воды",
+		"dmg": 0,
+		"hp": 100,
+		"price": 34500,
+		"currency": 3,
+		"icon": "items/1270.png"
+	}, {
+		"title": "Плетеные Сапоги",
+		"dmg": 0,
+		"hp": 100,
+		"price": 6750,
+		"currency": 1,
+		"icon": "items/1527.png"
+	}, {
+		"title": "Щит из Древа Стража",
+		"dmg": 0,
+		"hp": 105,
+		"price": 19950,
+		"currency": 1,
+		"icon": "items/1314.png"
+	}, {
+		"title": "Редкие Поножи Странника",
+		"dmg": 0,
+		"hp": 105,
+		"price": 24850,
+		"currency": 1,
+		"icon": "items/1337.png"
+	}, {
+		"title": "Панцирь Пустынника",
+		"dmg": 0,
+		"hp": 105,
+		"price": 18375,
+		"currency": 3,
+		"icon": "items/1121.png"
+	}, {
+		"title": "Одеяние Купца",
+		"dmg": 0,
+		"hp": 105,
+		"price": 275,
+		"currency": 6,
+		"icon": "items/1379.png"
+	}, {
+		"title": "Орочий Нагрудник",
+		"dmg": 0,
+		"hp": 105,
+		"price": 18375,
+		"currency": 1,
+		"icon": "items/1125.png"
+	}, {
+		"title": "Перчатки Очистителя",
+		"dmg": 0,
+		"hp": 105,
+		"price": 22500,
+		"currency": 1,
+		"icon": "items/1450.png"
+	}, {
+		"title": "Закаленные Наплечники",
+		"dmg": 0,
+		"hp": 105,
+		"price": 735,
+		"currency": 4,
+		"icon": "items/1234.png"
+	}, {
+		"title": "Броня Полководца",
+		"dmg": 0,
+		"hp": 110,
+		"price": 22500,
+		"currency": 1,
+		"icon": "items/1293.png"
+	}, {
+		"title": "Поножи Гвардейца Шиммеран",
+		"dmg": 0,
+		"hp": 110,
+		"price": 37950,
+		"currency": 3,
+		"icon": "items/1338.png"
+	}, {
+		"title": "Наплечник Исполина",
+		"dmg": 0,
+		"hp": 110,
+		"price": 21450,
+		"currency": 1,
+		"icon": "items/1448.png"
+	}, {
+		"title": "Драконий Нагрудник",
+		"dmg": 0,
+		"hp": 110,
+		"price": 25000,
+		"currency": 1,
+		"icon": "items/1465.png"
+	}, {
+		"title": "Штаны Скитальца",
+		"dmg": 0,
+		"hp": 110,
+		"price": 285,
+		"currency": 4,
+		"icon": "items/1231.png"
+	}, {
+		"title": "Перчатки Октопус",
+		"dmg": 0,
+		"hp": 110,
+		"price": 625,
+		"currency": 6,
+		"icon": "items/1529.png"
+	}, {
+		"title": "Боевые Ножные Латы",
+		"dmg": 0,
+		"hp": 112,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1397.png"
+	}, {
+		"title": "Поножи Темных Хранителей",
+		"dmg": 0,
+		"hp": 115,
+		"price": 45000,
+		"currency": 3,
+		"icon": "items/1549.png"
+	}, {
+		"title": "Нагрудник Бесстрашия",
+		"dmg": 0,
+		"hp": 115,
+		"price": 20175,
+		"currency": 3,
+		"icon": "items/1333.png"
+	}, {
+		"title": "Наручи Изгоя",
+		"dmg": 0,
+		"hp": 115,
+		"price": 35000,
+		"currency": 3,
+		"icon": "items/1591.png"
+	}, {
+		"title": "Шлем Цитадели",
+		"dmg": 0,
+		"hp": 115,
+		"price": 19500,
+		"currency": 1,
+		"icon": "items/1611.png"
+	}, {
+		"title": "Морозная Броня Полководца",
+		"dmg": 0,
+		"hp": 115,
+		"price": 300,
+		"currency": 6,
+		"icon": "items/1374.png"
+	}, {
+		"title": "Броня Послушника",
+		"dmg": 0,
+		"hp": 115,
+		"price": 300,
+		"currency": 6,
+		"icon": "items/1376.png"
+	}, {
+		"title": "Опаленные Поножи",
+		"dmg": 0,
+		"hp": 115,
+		"price": 28500,
+		"currency": 1,
+		"icon": "items/1409.png"
+	}, {
+		"title": "Наплечники Авангарда",
+		"dmg": 0,
+		"hp": 115,
+		"price": 22500,
+		"currency": 1,
+		"icon": "items/1446.png"
+	}, {
+		"title": "Обувь Жреца Песков",
+		"dmg": 0,
+		"hp": 115,
+		"price": 500,
+		"currency": 6,
+		"icon": "items/1710.png"
+	}, {
+		"title": "Ботинки Очистителя",
+		"dmg": 0,
+		"hp": 115,
+		"price": 22500,
+		"currency": 1,
+		"icon": "items/1526.png"
+	}, {
+		"title": "Щит Кодекса",
+		"dmg": 0,
+		"hp": 120,
+		"price": 25000,
+		"currency": 3,
+		"icon": "items/1559.png"
+	}, {
+		"title": "Броня Гвардейца Шиммеран",
+		"dmg": 0,
+		"hp": 120,
+		"price": 25000,
+		"currency": 3,
+		"icon": "items/1329.png"
+	}, {
+		"title": "Щит Командира Цитадели",
+		"dmg": 0,
+		"hp": 120,
+		"price": 22800,
+		"currency": 1,
+		"icon": "items/1388.png"
+	}, {
+		"title": "Золотые Наручи Стража",
+		"dmg": 0,
+		"hp": 120,
+		"price": 250,
+		"currency": 4,
+		"icon": "items/1252.png"
+	}, {
+		"title": "Наплечники Наемника",
+		"dmg": 0,
+		"hp": 120,
+		"price": 25000,
+		"currency": 1,
+		"icon": "items/1525.png"
+	}, {
+		"title": "Наручи Ловца Змей",
+		"dmg": 0,
+		"hp": 125,
+		"price": 475,
+		"currency": 6,
+		"icon": "items/1550.png"
+	}, {
+		"title": "Щит Бесконечности",
+		"dmg": 0,
+		"hp": 125,
+		"price": 45000,
+		"currency": 1,
+		"icon": "items/1562.png"
+	}, {
+		"title": "Наручи Последователя",
+		"dmg": 0,
+		"hp": 125,
+		"price": 14500,
+		"currency": 1,
+		"icon": "items/1590.png"
+	}, {
+		"title": "Наплечники Последователя",
+		"dmg": 0,
+		"hp": 125,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1593.png"
+	}, {
+		"title": "Ботинки Авангарда",
+		"dmg": 0,
+		"hp": 125,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1594.png"
+	}, {
+		"title": "Наплечники Батальона",
+		"dmg": 0,
+		"hp": 125,
+		"price": 75000,
+		"currency": 3,
+		"icon": "items/1616.png"
+	}, {
+		"title": "Наплечник Скорби",
+		"dmg": 0,
+		"hp": 125,
+		"price": 37500,
+		"currency": 1,
+		"icon": "items/1618.png"
+	}, {
+		"title": "Латный Нагрудник",
+		"dmg": 0,
+		"hp": 125,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1375.png"
+	}, {
+		"title": "Боевой Доспех",
+		"dmg": 0,
+		"hp": 125,
+		"price": 27500,
+		"currency": 3,
+		"icon": "items/1377.png"
+	}, {
+		"title": "Позолоченная Кираса",
+		"dmg": 0,
+		"hp": 125,
+		"price": 27500,
+		"currency": 2,
+		"icon": "items/1380.png"
+	}, {
+		"title": "Опаленный Нагрудник",
+		"dmg": 0,
+		"hp": 125,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1382.png"
+	}, {
+		"title": "Наручи Раскола",
+		"dmg": 0,
+		"hp": 125,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1410.png"
+	}, {
+		"title": "Щит Павшего Война",
+		"dmg": 0,
+		"hp": 125,
+		"price": 17500,
+		"currency": 1,
+		"icon": "items/1453.png"
+	}, {
+		"title": "Перчатки Сущности",
+		"dmg": 0,
+		"hp": 125,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1714.png"
+	}, {
+		"title": "Небесная Кираса",
+		"dmg": 0,
+		"hp": 125,
+		"price": 35000,
+		"currency": 1,
+		"icon": "items/1466.png"
+	}, {
+		"title": "Парадный Камзол",
+		"dmg": 0,
+		"hp": 125,
+		"price": 375,
+		"currency": 2,
+		"icon": "items/1729.png"
+	}, {
+		"title": "Броня Наблюдателя",
+		"dmg": 0,
+		"hp": 125,
+		"price": 38500,
+		"currency": 1,
+		"icon": "items/1491.png"
+	}, {
+		"title": "Ботинки Упрямства",
+		"dmg": 0,
+		"hp": 125,
+		"price": 26000,
+		"currency": 1,
+		"icon": "items/1528.png"
+	}, {
+		"title": "Талисман Хранителя",
+		"dmg": 0,
+		"hp": 130,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1564.png"
+	}, {
+		"title": "Ботинки Преданности",
+		"dmg": 0,
+		"hp": 130,
+		"price": 35000,
+		"currency": 1,
+		"icon": "items/1711.png"
+	}, {
+		"title": "Наручи Князя",
+		"dmg": 0,
+		"hp": 130,
+		"price": 25000,
+		"currency": 3,
+		"icon": "items/1523.png"
+	}, {
+		"title": "Ботинки Грубости",
+		"dmg": 0,
+		"hp": 135,
+		"price": 38500,
+		"currency": 1,
+		"icon": "items/1808.png"
+	}, {
+		"title": "Нагрудник Наёмника",
+		"dmg": 0,
+		"hp": 135,
+		"price": 30000,
+		"currency": 1,
+		"icon": "items/1583.png"
+	}, {
+		"title": "Редкий Нагрудник Наёмника",
+		"dmg": 0,
+		"hp": 135,
+		"price": 295,
+		"currency": 2,
+		"icon": "items/1584.png"
+	}, {
+		"title": "Поножи Цитадели",
+		"dmg": 0,
+		"hp": 135,
+		"price": 350,
+		"currency": 2,
+		"icon": "items/1613.png"
+	}, {
+		"title": "Астральный Щит",
+		"dmg": 0,
+		"hp": 135,
+		"price": 395,
+		"currency": 6,
+		"icon": "items/1419.png"
+	}, {
+		"title": "Ботинки Обманщика",
+		"dmg": 0,
+		"hp": 135,
+		"price": 16750,
+		"currency": 1,
+		"icon": "items/1709.png"
+	}, {
+		"title": "Перчатки Умельца",
+		"dmg": 0,
+		"hp": 135,
+		"price": 30000,
+		"currency": 1,
+		"icon": "items/1713.png"
+	}, {
+		"title": "Перчатки Вознесения",
+		"dmg": 0,
+		"hp": 136,
+		"price": 32500,
+		"currency": 1,
+		"icon": "items/1712.png"
+	}, {
+		"title": "Шлем Искателя Славы",
+		"dmg": 0,
+		"hp": 140,
+		"price": 385,
+		"currency": 4,
+		"icon": "items/1230.png"
+	}, {
+		"title": "Наручи Разведчика",
+		"dmg": 0,
+		"hp": 145,
+		"price": 550,
+		"currency": 6,
+		"icon": "items/1587.png"
+	}, {
+		"title": "Щит Скорби",
+		"dmg": 0,
+		"hp": 145,
+		"price": 21500,
+		"currency": 1,
+		"icon": "items/1626.png"
+	}, {
+		"title": "Щит Стража Цитадели",
+		"dmg": 0,
+		"hp": 145,
+		"price": 385,
+		"currency": 6,
+		"icon": "items/1387.png"
+	}, {
+		"title": "Алые Ботинки",
+		"dmg": 0,
+		"hp": 145,
+		"price": 575,
+		"currency": 6,
+		"icon": "items/1707.png"
+	}, {
+		"title": "Демонический Шлем",
+		"dmg": 0,
+		"hp": 145,
+		"price": 415,
+		"currency": 4,
+		"icon": "items/1468.png"
+	}, {
+		"title": "Шлем Законника",
+		"dmg": 0,
+		"hp": 145,
+		"price": 37500,
+		"currency": 1,
+		"icon": "items/1757.png"
+	}, {
+		"title": "Броня Неустрашимости",
+		"dmg": 0,
+		"hp": 150,
+		"price": 575,
+		"currency": 6,
+		"icon": "items/1544.png"
+	}, {
+		"title": "Броня Гримдрифт",
+		"dmg": 0,
+		"hp": 150,
+		"price": 30800,
+		"currency": 1,
+		"icon": "items/1585.png"
+	}, {
+		"title": "Броня Цитадели",
+		"dmg": 0,
+		"hp": 150,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1609.png"
+	}, {
+		"title": "Костяной Щит",
+		"dmg": 0,
+		"hp": 150,
+		"price": 75000,
+		"currency": 1,
+		"icon": "items/1627.png"
+	}, {
+		"title": "Перстень Батальона",
+		"dmg": 0,
+		"hp": 150,
+		"price": 325,
+		"currency": 2,
+		"icon": "items/1633.png"
+	}, {
+		"title": "Броня Воеводы",
+		"dmg": 0,
+		"hp": 150,
+		"price": 395,
+		"currency": 6,
+		"icon": "items/1378.png"
+	}, {
+		"title": "Броня Дюны",
+		"dmg": 0,
+		"hp": 150,
+		"price": 450,
+		"currency": 6,
+		"icon": "items/1650.png"
+	}, {
+		"title": "Поножи Дюны",
+		"dmg": 0,
+		"hp": 150,
+		"price": 450,
+		"currency": 6,
+		"icon": "items/1657.png"
+	}, {
+		"title": "Наплечники Дюны",
+		"dmg": 0,
+		"hp": 150,
+		"price": 450,
+		"currency": 6,
+		"icon": "items/1665.png"
+	}, {
+		"title": "Ботинки Дюны",
+		"dmg": 0,
+		"hp": 150,
+		"price": 450,
+		"currency": 6,
+		"icon": "items/1671.png"
+	}, {
+		"title": "Перчатки Дюны",
+		"dmg": 0,
+		"hp": 150,
+		"price": 500,
+		"currency": 6,
+		"icon": "items/1673.png"
+	}, {
+		"title": "Боевой Щит Дюны",
+		"dmg": 0,
+		"hp": 150,
+		"price": 12500,
+		"currency": 1,
+		"icon": "items/1675.png"
+	}, {
+		"title": "Броня Рифохода",
+		"dmg": 0,
+		"hp": 150,
+		"price": 425,
+		"currency": 6,
+		"icon": "items/1701.png"
+	}, {
+		"title": "Непробиваемый Щит",
+		"dmg": 0,
+		"hp": 150,
+		"price": 425,
+		"currency": 4,
+		"icon": "items/1478.png"
+	}, {
+		"title": "Перчатки Праотцов",
+		"dmg": 0,
+		"hp": 150,
+		"price": 550,
+		"currency": 6,
+		"icon": "items/1771.png"
+	}, {
+		"title": "Броня Мистика",
+		"dmg": 0,
+		"hp": 155,
+		"price": 1250,
+		"currency": 6,
+		"icon": "items/1704.png"
+	}, {
+		"title": "Амулет Порабощенного",
+		"dmg": 0,
+		"hp": 160,
+		"price": 550,
+		"currency": 4,
+		"icon": "items/1563.png"
+	}, {
+		"title": "Жилет Странника",
+		"dmg": 0,
+		"hp": 160,
+		"price": 975,
+		"currency": 6,
+		"icon": "items/1702.png"
+	}, {
+		"title": "Шлем Хранителя",
+		"dmg": 0,
+		"hp": 165,
+		"price": 550,
+		"currency": 4,
+		"icon": "items/1548.png"
+	}, {
+		"title": "Алая Кираса",
+		"dmg": 0,
+		"hp": 165,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1705.png"
+	}, {
+		"title": "Амулет Ловца",
+		"dmg": 0,
+		"hp": 170,
+		"price": 45000,
+		"currency": 3,
+		"icon": "items/1565.png"
+	}, {
+		"title": "Нагрудник Законника",
+		"dmg": 0,
+		"hp": 170,
+		"price": 47500,
+		"currency": 1,
+		"icon": "items/1755.png"
+	}, {
+		"title": "Поножи Батальона",
+		"dmg": 0,
+		"hp": 175,
+		"price": 750,
+		"currency": 2,
+		"icon": "items/1612.png"
+	}, {
+		"title": "Наплечники Фанатика",
+		"dmg": 0,
+		"hp": 175,
+		"price": 1145,
+		"currency": 4,
+		"icon": "items/1670.png"
+	}, {
+		"title": "Ботинки Легиона",
+		"dmg": 0,
+		"hp": 175,
+		"price": 850,
+		"currency": 4,
+		"icon": "items/1672.png"
+	}, {
+		"title": "Щит Праотцов",
+		"dmg": 0,
+		"hp": 175,
+		"price": 125000,
+		"currency": 1,
+		"icon": "items/1773.png"
+	}, {
+		"title": "Броня Ополчения",
+		"dmg": 0,
+		"hp": 190,
+		"price": 75000,
+		"currency": 3,
+		"icon": "items/1756.png"
+	}, {
+		"title": "Щит Октопус",
+		"dmg": 0,
+		"hp": 200,
+		"price": 175,
+		"currency": 2,
+		"icon": "items/1530.png"
+	}, {
+		"title": "Наручи Центуриона",
+		"dmg": 0,
+		"hp": 210,
+		"price": 1125,
+		"currency": 4,
+		"icon": "items/1663.png"
+	}, {
+		"title": "Лесной Амулет",
+		"dmg": 0,
+		"hp": 225,
+		"price": 75000,
+		"currency": 1,
+		"icon": "items/1567.png"
+	}, {
+		"title": "Амулет Очистителя",
+		"dmg": 0,
+		"hp": 225,
+		"price": 1750,
+		"currency": 4,
+		"icon": "items/1679.png"
+	}, {
+		"title": "Тотемный Щит",
+		"dmg": 0,
+		"hp": 225,
+		"price": 750,
+		"currency": 6,
+		"icon": "items/1480.png"
+	}, {
+		"title": "Поножи Легиона",
+		"dmg": 0,
+		"hp": 235,
+		"price": 2150,
+		"currency": 4,
+		"icon": "items/1658.png"
+	}, {
+		"title": "Наручи Легиона",
+		"dmg": 0,
+		"hp": 245,
+		"price": 2500,
+		"currency": 4,
+		"icon": "items/1660.png"
+	}, {
+		"title": "Броня Батальона",
+		"dmg": 0,
+		"hp": 250,
+		"price": 175,
+		"currency": 2,
+		"icon": "items/1606.png"
+	}, {
+		"title": "Мерцающий Амулет",
+		"dmg": 0,
+		"hp": 265,
+		"price": 3700,
+		"currency": 4,
+		"icon": "items/1680.png"
+	}, {
+		"title": "Броня Легиона",
+		"dmg": 0,
+		"hp": 285,
+		"price": 4450,
+		"currency": 4,
+		"icon": "items/1651.png"
+	}, {
+		"title": "Клинок Давыдова",
+		"dmg": 5,
+		"hp": 25,
+		"price": 50000,
+		"currency": 2,
+		"icon": "items/1435.png"
+	}, {
+		"title": "Амулет Ярости",
+		"dmg": 15,
+		"hp": 15,
+		"price": 65,
+		"currency": 2,
+		"icon": "items/1222.png"
+	}, {
+		"title": "Наручи Маркуса",
+		"dmg": 15,
+		"hp": 30,
+		"price": 50,
+		"currency": 2,
+		"icon": "items/1779.png"
+	}, {
+		"title": "Наплечники Маркуса",
+		"dmg": 15,
+		"hp": 31,
+		"price": 67,
+		"currency": 2,
+		"icon": "items/1780.png"
+	}, {
+		"title": "Перчатки Маркуса",
+		"dmg": 15,
+		"hp": 55,
+		"price": 170,
+		"currency": 2,
+		"icon": "items/1782.png"
+	}, {
+		"title": "Ботинки Маркуса",
+		"dmg": 15,
+		"hp": 73,
+		"price": 214,
+		"currency": 2,
+		"icon": "items/1781.png"
+	}, {
+		"title": "Шлем Маркуса",
+		"dmg": 15,
+		"hp": 84,
+		"price": 228,
+		"currency": 2,
+		"icon": "items/1777.png"
+	}, {
+		"title": "Поножи Маркуса",
+		"dmg": 15,
+		"hp": 110,
+		"price": 295,
+		"currency": 2,
+		"icon": "items/1778.png"
+	}, {
+		"title": "Щит Маркуса",
+		"dmg": 15,
+		"hp": 125,
+		"price": 375,
+		"currency": 2,
+		"icon": "items/1783.png"
+	}, {
+		"title": "Броня Маркуса",
+		"dmg": 15,
+		"hp": 185,
+		"price": 549,
+		"currency": 2,
+		"icon": "items/1776.png"
+	}, {
+		"title": "Крестьянский Серп",
+		"dmg": 20,
+		"hp": 0,
+		"price": 5,
+		"currency": 1,
+		"icon": "items/1167.png"
+	}, {
+		"title": "Амулет Солнца",
+		"dmg": 20,
+		"hp": 15,
+		"price": 75,
+		"currency": 2,
+		"icon": "items/1223.png"
+	}, {
+		"title": "Кузнечный Молоток",
+		"dmg": 25,
+		"hp": 0,
+		"price": 750,
+		"currency": 3,
+		"icon": "items/1165.png"
+	}, {
+		"title": "Кольцо Новобранца",
+		"dmg": 25,
+		"hp": 10,
+		"price": 50,
+		"currency": 2,
+		"icon": "items/1636.png"
+	}, {
+		"title": "Медное Кольцо",
+		"dmg": 25,
+		"hp": 15,
+		"price": 49,
+		"currency": 2,
+		"icon": "items/1632.png"
+	}, {
+		"title": "Талисман Весны",
+		"dmg": 25,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1321.png"
+	}, {
+		"title": "Небесный Амулет",
+		"dmg": 25,
+		"hp": 25,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1598.png"
+	}, {
+		"title": "Амулет Воды",
+		"dmg": 25,
+		"hp": 25,
+		"price": 105,
+		"currency": 4,
+		"icon": "items/1239.png"
+	}, {
+		"title": "Талисман Гладиатора",
+		"dmg": 25,
+		"hp": 25,
+		"price": 6750,
+		"currency": 3,
+		"icon": "items/1248.png"
+	}, {
+		"title": "Стальной Молоток",
+		"dmg": 27,
+		"hp": 0,
+		"price": 925,
+		"currency": 3,
+		"icon": "items/1288.png"
+	}, {
+		"title": "Амулет Токсина",
+		"dmg": 30,
+		"hp": 25,
+		"price": 8750,
+		"currency": 3,
+		"icon": "items/1240.png"
+	}, {
+		"title": "Дубинка Гоблина",
+		"dmg": 35,
+		"hp": 0,
+		"price": 34,
+		"currency": 2,
+		"icon": "items/1090.png"
+	}, {
+		"title": "Перстень Торговца",
+		"dmg": 35,
+		"hp": 20,
+		"price": 59,
+		"currency": 2,
+		"icon": "items/1639.png"
+	}, {
+		"title": "Дубина",
+		"dmg": 40,
+		"hp": 0,
+		"price": 1350,
+		"currency": 3,
+		"icon": "items/1166.png"
+	}, {
+		"title": "Трофей Ошейник Крала",
+		"dmg": 45,
+		"hp": 0,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1682.png"
+	}, {
+		"title": "Амулет Ужаса",
+		"dmg": 45,
+		"hp": 35,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1266.png"
+	}, {
+		"title": "Амулет Мудрости",
+		"dmg": 45,
+		"hp": 55,
+		"price": 750,
+		"currency": 5,
+		"icon": "items/1308.png"
+	}, {
+		"title": "Меч Ястреб",
+		"dmg": 50,
+		"hp": 5,
+		"price": 50,
+		"currency": 2,
+		"icon": "items/1095.png"
+	}, {
+		"title": "Перстень Змея",
+		"dmg": 50,
+		"hp": 25,
+		"price": 4750,
+		"currency": 3,
+		"icon": "items/1641.png"
+	}, {
+		"title": "Кольцо Новолуния",
+		"dmg": 50,
+		"hp": 30,
+		"price": 98,
+		"currency": 2,
+		"icon": "items/1717.png"
+	}, {
+		"title": "Шлем Очистителя",
+		"dmg": 50,
+		"hp": 105,
+		"price": 425,
+		"currency": 6,
+		"icon": "items/1404.png"
+	}, {
+		"title": "Шлем Чернокнижника",
+		"dmg": 50,
+		"hp": 145,
+		"price": 550,
+		"currency": 6,
+		"icon": "items/1493.png"
+	}, {
+		"title": "Щит Непокорного",
+		"dmg": 50,
+		"hp": 150,
+		"price": 475,
+		"currency": 6,
+		"icon": "items/1418.png"
+	}, {
+		"title": "Медальон Огня",
+		"dmg": 55,
+		"hp": 45,
+		"price": 16500,
+		"currency": 3,
+		"icon": "items/1309.png"
+	}, {
+		"title": "Ржавый Меч",
+		"dmg": 65,
+		"hp": 0,
+		"price": 2750,
+		"currency": 3,
+		"icon": "items/1162.png"
+	}, {
+		"title": "Кольцо Культа",
+		"dmg": 65,
+		"hp": 85,
+		"price": 350,
+		"currency": 6,
+		"icon": "items/1630.png"
+	}, {
+		"title": "Топор Дровосека",
+		"dmg": 75,
+		"hp": 0,
+		"price": 8500,
+		"currency": 3,
+		"icon": "items/1085.png"
+	}, {
+		"title": "Простой Лук",
+		"dmg": 75,
+		"hp": 0,
+		"price": 4950,
+		"currency": 3,
+		"icon": "items/1103.png"
+	}, {
+		"title": "Бойцовский Кастет",
+		"dmg": 75,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1766.png"
+	}, {
+		"title": "Кольцо Ястреба",
+		"dmg": 75,
+		"hp": 15,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1736.png"
+	}, {
+		"title": "Кольцо Орка",
+		"dmg": 75,
+		"hp": 25,
+		"price": 8750,
+		"currency": 3,
+		"icon": "items/1631.png"
+	}, {
+		"title": "Морозное Кольцо",
+		"dmg": 75,
+		"hp": 25,
+		"price": 375,
+		"currency": 6,
+		"icon": "items/1737.png"
+	}, {
+		"title": "Ядовитое Кольцо",
+		"dmg": 75,
+		"hp": 45,
+		"price": 175,
+		"currency": 2,
+		"icon": "items/1740.png"
+	}, {
+		"title": "Чешуйчатый Нагрудник",
+		"dmg": 75,
+		"hp": 125,
+		"price": 750,
+		"currency": 6,
+		"icon": "items/1545.png"
+	}, {
+		"title": "Бронзовый Топорик",
+		"dmg": 78,
+		"hp": 0,
+		"price": 5250,
+		"currency": 3,
+		"icon": "items/1087.png"
+	}, {
+		"title": "Редкий Лук Дозорного",
+		"dmg": 80,
+		"hp": 0,
+		"price": 9500,
+		"currency": 3,
+		"icon": "items/1289.png"
+	}, {
+		"title": "Разбойничий Топорик",
+		"dmg": 85,
+		"hp": 0,
+		"price": 5750,
+		"currency": 1,
+		"icon": "items/1089.png"
+	}, {
+		"title": "Стальной Меч",
+		"dmg": 85,
+		"hp": 0,
+		"price": 5750,
+		"currency": 1,
+		"icon": "items/1163.png"
+	}, {
+		"title": "Кольцо Скорби",
+		"dmg": 85,
+		"hp": 65,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1640.png"
+	}, {
+		"title": "Меч Гвардейца",
+		"dmg": 95,
+		"hp": 0,
+		"price": 11500,
+		"currency": 1,
+		"icon": "items/1098.png"
+	}, {
+		"title": "Амулет Падшего",
+		"dmg": 95,
+		"hp": 85,
+		"price": 425,
+		"currency": 4,
+		"icon": "items/1241.png"
+	}, {
+		"title": "Кольцо Предсказателя",
+		"dmg": 100,
+		"hp": 25,
+		"price": 7500,
+		"currency": 1,
+		"icon": "items/1635.png"
+	}, {
+		"title": "Наручи Арагона",
+		"dmg": 100,
+		"hp": 50,
+		"price": 52500,
+		"currency": 1,
+		"icon": "items/1139.png"
+	}, {
+		"title": "Морская Реликвия",
+		"dmg": 100,
+		"hp": 50,
+		"price": 3450,
+		"currency": 6,
+		"icon": "items/1738.png"
+	}, {
+		"title": "Солдатский Меч",
+		"dmg": 105,
+		"hp": 0,
+		"price": 12500,
+		"currency": 3,
+		"icon": "items/1082.png"
+	}, {
+		"title": "Латный Клинок",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1568.png"
+	}, {
+		"title": "Топор Гладиатора",
+		"dmg": 125,
+		"hp": 0,
+		"price": 10000,
+		"currency": 6,
+		"icon": "items/1320.png"
+	}, {
+		"title": "Боевой Молот",
+		"dmg": 125,
+		"hp": 0,
+		"price": 18500,
+		"currency": 1,
+		"icon": "items/1164.png"
+	}, {
+		"title": "Кинжал Легиона",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 3,
+		"icon": "items/1423.png"
+	}, {
+		"title": "Коса Друида",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1427.png"
+	}, {
+		"title": "Кинжал Тени",
+		"dmg": 125,
+		"hp": 0,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1691.png"
+	}, {
+		"title": "Лук Хранителя",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 3,
+		"icon": "items/1436.png"
+	}, {
+		"title": "Боевой Серп",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 3,
+		"icon": "items/1455.png"
+	}, {
+		"title": "Кровавый Колун",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1462.png"
+	}, {
+		"title": "Метательный Топорик",
+		"dmg": 125,
+		"hp": 0,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1719.png"
+	}, {
+		"title": "Проклятый Кинжал",
+		"dmg": 125,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1721.png"
+	}, {
+		"title": "Меч Таура",
+		"dmg": 125,
+		"hp": 0,
+		"price": 8000,
+		"currency": 1,
+		"icon": "items/1726.png"
+	}, {
+		"title": "Фламберг",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 3,
+		"icon": "items/1485.png"
+	}, {
+		"title": "Короткий Посох",
+		"dmg": 125,
+		"hp": 0,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1751.png"
+	}, {
+		"title": "Дуговой Клинок",
+		"dmg": 125,
+		"hp": 0,
+		"price": 25000,
+		"currency": 1,
+		"icon": "items/1752.png"
+	}, {
+		"title": "Учебный Меч",
+		"dmg": 125,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1764.png"
+	}, {
+		"title": "Клинок Гладиатора",
+		"dmg": 125,
+		"hp": 0,
+		"price": 64800,
+		"currency": 3,
+		"icon": "items/1259.png"
+	}, {
+		"title": "Изогнутый Клинок",
+		"dmg": 125,
+		"hp": 0,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1784.png"
+	}, {
+		"title": "Меч Сатира",
+		"dmg": 125,
+		"hp": 0,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1786.png"
+	}, {
+		"title": "Когти",
+		"dmg": 125,
+		"hp": 0,
+		"price": 64800,
+		"currency": 3,
+		"icon": "items/1275.png"
+	}, {
+		"title": "Фантомный Кинжал",
+		"dmg": 125,
+		"hp": 0,
+		"price": 450,
+		"currency": 2,
+		"icon": "items/1788.png"
+	}, {
+		"title": "Морозные Когти",
+		"dmg": 125,
+		"hp": 0,
+		"price": 67500,
+		"currency": 3,
+		"icon": "items/1277.png"
+	}, {
+		"title": "Гоблинский Топор",
+		"dmg": 125,
+		"hp": 0,
+		"price": 24500,
+		"currency": 1,
+		"icon": "items/1534.png"
+	}, {
+		"title": "Сосновая Ветвь",
+		"dmg": 125,
+		"hp": 5,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1795.png"
+	}, {
+		"title": "Череп Фальбала",
+		"dmg": 125,
+		"hp": 15,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1796.png"
+	}, {
+		"title": "Клык Орка",
+		"dmg": 125,
+		"hp": 25,
+		"price": 12500,
+		"currency": 1,
+		"icon": "items/1685.png"
+	}, {
+		"title": "Перстень Воплощения",
+		"dmg": 125,
+		"hp": 150,
+		"price": 675,
+		"currency": 4,
+		"icon": "items/1638.png"
+	}, {
+		"title": "Секира Гладиатора",
+		"dmg": 130,
+		"hp": 0,
+		"price": 24500,
+		"currency": 3,
+		"icon": "items/1183.png"
+	}, {
+		"title": "Палица с Шипами",
+		"dmg": 135,
+		"hp": 0,
+		"price": 165,
+		"currency": 2,
+		"icon": "items/1105.png"
+	}, {
+		"title": "Редкий Кинжал Легиона",
+		"dmg": 135,
+		"hp": 0,
+		"price": 19500,
+		"currency": 1,
+		"icon": "items/1429.png"
+	}, {
+		"title": "Меч Смерть Тролля",
+		"dmg": 140,
+		"hp": 0,
+		"price": 26500,
+		"currency": 3,
+		"icon": "items/1175.png"
+	}, {
+		"title": "Гномья Секира",
+		"dmg": 145,
+		"hp": 0,
+		"price": 27500,
+		"currency": 3,
+		"icon": "items/1093.png"
+	}, {
+		"title": "Костяной Лук",
+		"dmg": 145,
+		"hp": 0,
+		"price": 45000,
+		"currency": 3,
+		"icon": "items/1099.png"
+	}, {
+		"title": "Морской Луч",
+		"dmg": 150,
+		"hp": 0,
+		"price": 47000,
+		"currency": 3,
+		"icon": "items/1077.png"
+	}, {
+		"title": "Кольцо Вьюги",
+		"dmg": 150,
+		"hp": 25,
+		"price": 3450,
+		"currency": 6,
+		"icon": "items/1741.png"
+	}, {
+		"title": "Щит Орка",
+		"dmg": 150,
+		"hp": 80,
+		"price": 15750,
+		"currency": 1,
+		"icon": "items/1272.png"
+	}, {
+		"title": "Бронзовая Палица",
+		"dmg": 155,
+		"hp": 0,
+		"price": 48500,
+		"currency": 1,
+		"icon": "items/1079.png"
+	}, {
+		"title": "Когти Ярости",
+		"dmg": 160,
+		"hp": 0,
+		"price": 38500,
+		"currency": 3,
+		"icon": "items/1276.png"
+	}, {
+		"title": "Драгарский Меч",
+		"dmg": 165,
+		"hp": 0,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1161.png"
+	}, {
+		"title": "Редкий Лук Хранителя",
+		"dmg": 165,
+		"hp": 0,
+		"price": 195,
+		"currency": 2,
+		"icon": "items/1437.png"
+	}, {
+		"title": "Гномий Молот",
+		"dmg": 170,
+		"hp": 0,
+		"price": 68500,
+		"currency": 1,
+		"icon": "items/1168.png"
+	}, {
+		"title": "Старый Боевой Серп",
+		"dmg": 175,
+		"hp": 0,
+		"price": 75000,
+		"currency": 3,
+		"icon": "items/1484.png"
+	}, {
+		"title": "Кольцо Пустоты",
+		"dmg": 175,
+		"hp": 45,
+		"price": 188,
+		"currency": 2,
+		"icon": "items/1637.png"
+	}, {
+		"title": "Лапка Феникса",
+		"dmg": 175,
+		"hp": 75,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1686.png"
+	}, {
+		"title": "Палица Храмовника",
+		"dmg": 185,
+		"hp": 0,
+		"price": 75000,
+		"currency": 3,
+		"icon": "items/1080.png"
+	}, {
+		"title": "Меч Змеи",
+		"dmg": 185,
+		"hp": 0,
+		"price": 75000,
+		"currency": 1,
+		"icon": "items/1083.png"
+	}, {
+		"title": "Меч Орлиное Перо",
+		"dmg": 185,
+		"hp": 0,
+		"price": 75000,
+		"currency": 3,
+		"icon": "items/1084.png"
+	}, {
+		"title": "Ожег Солнца",
+		"dmg": 185,
+		"hp": 0,
+		"price": 75000,
+		"currency": 3,
+		"icon": "items/1096.png"
+	}, {
+		"title": "Эльфийский Лук",
+		"dmg": 195,
+		"hp": 0,
+		"price": 85800,
+		"currency": 3,
+		"icon": "items/1102.png"
+	}, {
+		"title": "Клык",
+		"dmg": 195,
+		"hp": 0,
+		"price": 295,
+		"currency": 2,
+		"icon": "items/1104.png"
+	}, {
+		"title": "Оберег Гронта",
+		"dmg": 195,
+		"hp": 150,
+		"price": 1500,
+		"currency": 4,
+		"icon": "items/1678.png"
+	}, {
+		"title": "Меч Подгорный",
+		"dmg": 205,
+		"hp": 0,
+		"price": 85000,
+		"currency": 1,
+		"icon": "items/1097.png"
+	}, {
+		"title": "Кристалл",
+		"dmg": 215,
+		"hp": 0,
+		"price": 98500,
+		"currency": 3,
+		"icon": "items/1078.png"
+	}, {
+		"title": "Бронзовая Секира",
+		"dmg": 215,
+		"hp": 1,
+		"price": 415,
+		"currency": 2,
+		"icon": "items/1092.png"
+	}, {
+		"title": "Алчный",
+		"dmg": 245,
+		"hp": 5,
+		"price": 550,
+		"currency": 2,
+		"icon": "items/1081.png"
+	}, {
+		"title": "Рассекающая Секира",
+		"dmg": 250,
+		"hp": 0,
+		"price": 98500,
+		"currency": 1,
+		"icon": "items/1291.png"
+	}, {
+		"title": "Меч Рыцаря",
+		"dmg": 250,
+		"hp": 0,
+		"price": 135000,
+		"currency": 3,
+		"icon": "items/1260.png"
+	}, {
+		"title": "Наручи Жестокости",
+		"dmg": 250,
+		"hp": 15,
+		"price": 450,
+		"currency": 6,
+		"icon": "items/1415.png"
+	}, {
+		"title": "Магическая Руна",
+		"dmg": 250,
+		"hp": 25,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1743.png"
+	}, {
+		"title": "Руна Воды",
+		"dmg": 250,
+		"hp": 50,
+		"price": 7450,
+		"currency": 6,
+		"icon": "items/1744.png"
+	}, {
+		"title": "Копье Стража",
+		"dmg": 255,
+		"hp": 0,
+		"price": 135000,
+		"currency": 3,
+		"icon": "items/1198.png"
+	}, {
+		"title": "Магическая Палица",
+		"dmg": 265,
+		"hp": 3,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/5.png"
+	}, {
+		"title": "Несущий Смерть",
+		"dmg": 265,
+		"hp": 3,
+		"price": 50000,
+		"currency": 2,
+		"icon": "items/1693.png"
+	}, {
+		"title": "Копьё Призыва",
+		"dmg": 275,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1438.png"
+	}, {
+		"title": "Меч Солнца",
+		"dmg": 275,
+		"hp": 0,
+		"price": 1850,
+		"currency": 5,
+		"icon": "items/1226.png"
+	}, {
+		"title": "Кровавая Заря",
+		"dmg": 275,
+		"hp": 6,
+		"price": 170000,
+		"currency": 3,
+		"icon": "items/1086.png"
+	}, {
+		"title": "Посох Чародея",
+		"dmg": 300,
+		"hp": 0,
+		"price": 52250,
+		"currency": 3,
+		"icon": "items/1328.png"
+	}, {
+		"title": "Ледяной Меч",
+		"dmg": 300,
+		"hp": 0,
+		"price": 135000,
+		"currency": 3,
+		"icon": "items/1187.png"
+	}, {
+		"title": "Секира Полководца",
+		"dmg": 300,
+		"hp": 10,
+		"price": 695,
+		"currency": 2,
+		"icon": "items/1091.png"
+	}, {
+		"title": "Клинок Гвардейца Растхельма",
+		"dmg": 310,
+		"hp": 0,
+		"price": 165000,
+		"currency": 3,
+		"icon": "items/1199.png"
+	}, {
+		"title": "Кистень Цитадели",
+		"dmg": 325,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1605.png"
+	}, {
+		"title": "Руна Скверны",
+		"dmg": 325,
+		"hp": 25,
+		"price": 345,
+		"currency": 6,
+		"icon": "items/1745.png"
+	}, {
+		"title": "Ядовитый Клинок",
+		"dmg": 335,
+		"hp": 0,
+		"price": 175000,
+		"currency": 3,
+		"icon": "items/1200.png"
+	}, {
+		"title": "Морозный Клинок",
+		"dmg": 345,
+		"hp": 0,
+		"price": 186500,
+		"currency": 3,
+		"icon": "items/1286.png"
+	}, {
+		"title": "Ядовитый Шип",
+		"dmg": 350,
+		"hp": 0,
+		"price": 495,
+		"currency": 2,
+		"icon": "items/1765.png"
+	}, {
+		"title": "Руна Земли",
+		"dmg": 350,
+		"hp": 75,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1746.png"
+	}, {
+		"title": "Сумеречный Клинок",
+		"dmg": 355,
+		"hp": 0,
+		"price": 2750,
+		"currency": 5,
+		"icon": "items/1244.png"
+	}, {
+		"title": "Ятаган Скитальца",
+		"dmg": 360,
+		"hp": 0,
+		"price": 195000,
+		"currency": 3,
+		"icon": "items/1203.png"
+	}, {
+		"title": "Арбалет Следопыта",
+		"dmg": 375,
+		"hp": 0,
+		"price": 115000,
+		"currency": 1,
+		"icon": "items/1428.png"
+	}, {
+		"title": "Лук Меридиан",
+		"dmg": 385,
+		"hp": 0,
+		"price": 105000,
+		"currency": 1,
+		"icon": "items/1101.png"
+	}, {
+		"title": "Боевой Топор",
+		"dmg": 400,
+		"hp": 0,
+		"price": 1350,
+		"currency": 6,
+		"icon": "items/1541.png"
+	}, {
+		"title": "Малахитовый Кинжал",
+		"dmg": 400,
+		"hp": 0,
+		"price": 1250,
+		"currency": 6,
+		"icon": "items/1812.png"
+	}, {
+		"title": "Жертвенный Меч",
+		"dmg": 410,
+		"hp": 0,
+		"price": 225000,
+		"currency": 3,
+		"icon": "items/1285.png"
+	}, {
+		"title": "Парадный Меч",
+		"dmg": 410,
+		"hp": 0,
+		"price": 225000,
+		"currency": 3,
+		"icon": "items/1201.png"
+	}, {
+		"title": "Лунный Клинок",
+		"dmg": 435,
+		"hp": 0,
+		"price": 240000,
+		"currency": 3,
+		"icon": "items/1202.png"
+	}, {
+		"title": "Шпага Аристократа",
+		"dmg": 445,
+		"hp": 0,
+		"price": 1425,
+		"currency": 6,
+		"icon": "items/1371.png"
+	}, {
+		"title": "Боевой Меч Шиммеран",
+		"dmg": 450,
+		"hp": 0,
+		"price": 245000,
+		"currency": 3,
+		"icon": "items/1310.png"
+	}, {
+		"title": "Змеиный Клинок",
+		"dmg": 450,
+		"hp": 0,
+		"price": 276850,
+		"currency": 3,
+		"icon": "items/1324.png"
+	}, {
+		"title": "Ритуальный Кинжал",
+		"dmg": 450,
+		"hp": 0,
+		"price": 1450,
+		"currency": 6,
+		"icon": "items/1464.png"
+	}, {
+		"title": "Страж Эрмуна",
+		"dmg": 450,
+		"hp": 50,
+		"price": 185000,
+		"currency": 3,
+		"icon": "items/1225.png"
+	}, {
+		"title": "Клинок Служителя",
+		"dmg": 450,
+		"hp": 50,
+		"price": 135000,
+		"currency": 3,
+		"icon": "items/1257.png"
+	}, {
+		"title": "Руна Огня",
+		"dmg": 450,
+		"hp": 95,
+		"price": 500,
+		"currency": 2,
+		"icon": "items/1742.png"
+	}, {
+		"title": "Орочий Мясник",
+		"dmg": 455,
+		"hp": 0,
+		"price": 130000,
+		"currency": 1,
+		"icon": "items/1088.png"
+	}, {
+		"title": "Абордажный Топорик",
+		"dmg": 475,
+		"hp": 0,
+		"price": 115000,
+		"currency": 1,
+		"icon": "items/1570.png"
+	}, {
+		"title": "Пламенный Клинок",
+		"dmg": 475,
+		"hp": 0,
+		"price": 277000,
+		"currency": 2,
+		"icon": "items/1327.png"
+	}, {
+		"title": "Зачарованный Клинок",
+		"dmg": 475,
+		"hp": 0,
+		"price": 345,
+		"currency": 4,
+		"icon": "items/1243.png"
+	}, {
+		"title": "Секира Гиганта",
+		"dmg": 475,
+		"hp": 10,
+		"price": 185000,
+		"currency": 1,
+		"icon": "items/1094.png"
+	}, {
+		"title": "Устрашающий Клинок",
+		"dmg": 495,
+		"hp": 0,
+		"price": 275000,
+		"currency": 3,
+		"icon": "items/1267.png"
+	}, {
+		"title": "Топор Утренней Зари",
+		"dmg": 500,
+		"hp": 0,
+		"price": 275500,
+		"currency": 3,
+		"icon": "items/1323.png"
+	}, {
+		"title": "Топор Вихря",
+		"dmg": 500,
+		"hp": 0,
+		"price": 210000,
+		"currency": 1,
+		"icon": "items/1694.png"
+	}, {
+		"title": "Топор Бездны",
+		"dmg": 500,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1768.png"
+	}, {
+		"title": "Меч Правосудия",
+		"dmg": 525,
+		"hp": 0,
+		"price": 300000,
+		"currency": 3,
+		"icon": "items/1326.png"
+	}, {
+		"title": "Клинок Некроманта",
+		"dmg": 525,
+		"hp": 0,
+		"price": 285000,
+		"currency": 3,
+		"icon": "items/1268.png"
+	}, {
+		"title": "Клинок Каина",
+		"dmg": 535,
+		"hp": 0,
+		"price": 290000,
+		"currency": 3,
+		"icon": "items/1322.png"
+	}, {
+		"title": "Жезл Скверны",
+		"dmg": 545,
+		"hp": 25,
+		"price": 295000,
+		"currency": 3,
+		"icon": "items/1367.png"
+	}, {
+		"title": "Клинок Искупителя",
+		"dmg": 550,
+		"hp": 0,
+		"price": 749,
+		"currency": 2,
+		"icon": "items/1699.png"
+	}, {
+		"title": "Копьё Вихря",
+		"dmg": 570,
+		"hp": 0,
+		"price": 280000,
+		"currency": 3,
+		"icon": "items/1439.png"
+	}, {
+		"title": "Клинок Команчи",
+		"dmg": 570,
+		"hp": 0,
+		"price": 280000,
+		"currency": 3,
+		"icon": "items/1443.png"
+	}, {
+		"title": "Рассекатель Востока",
+		"dmg": 575,
+		"hp": 0,
+		"price": 295000,
+		"currency": 3,
+		"icon": "items/1372.png"
+	}, {
+		"title": "Клинок Непокорного",
+		"dmg": 575,
+		"hp": 0,
+		"price": 285000,
+		"currency": 3,
+		"icon": "items/1460.png"
+	}, {
+		"title": "Имперский Боевой Посох",
+		"dmg": 575,
+		"hp": 0,
+		"price": 300000,
+		"currency": 3,
+		"icon": "items/1487.png"
+	}, {
+		"title": "Рассекатель",
+		"dmg": 595,
+		"hp": 0,
+		"price": 295000,
+		"currency": 3,
+		"icon": "items/1425.png"
+	}, {
+		"title": "Тесак Людоеда",
+		"dmg": 595,
+		"hp": 0,
+		"price": 295000,
+		"currency": 3,
+		"icon": "items/1442.png"
+	}, {
+		"title": "Копье Атлантиды",
+		"dmg": 600,
+		"hp": 0,
+		"price": 335000,
+		"currency": 3,
+		"icon": "items/1542.png"
+	}, {
+		"title": "Рифовый Меч",
+		"dmg": 600,
+		"hp": 0,
+		"price": 1750,
+		"currency": 6,
+		"icon": "items/1804.png"
+	}, {
+		"title": "Рассекатель Небес",
+		"dmg": 600,
+		"hp": 0,
+		"price": 950,
+		"currency": 2,
+		"icon": "items/1426.png"
+	}, {
+		"title": "Кистень Губителя",
+		"dmg": 620,
+		"hp": 0,
+		"price": 310000,
+		"currency": 3,
+		"icon": "items/1452.png"
+	}, {
+		"title": "Боевой Клинок Авангарда",
+		"dmg": 625,
+		"hp": 0,
+		"price": 1835,
+		"currency": 6,
+		"icon": "items/1370.png"
+	}, {
+		"title": "Демонический Лук",
+		"dmg": 625,
+		"hp": 0,
+		"price": 345000,
+		"currency": 3,
+		"icon": "items/1389.png"
+	}, {
+		"title": "Алебарда Дозорного",
+		"dmg": 625,
+		"hp": 0,
+		"price": 325000,
+		"currency": 3,
+		"icon": "items/1424.png"
+	}, {
+		"title": "Секира Железных Гор",
+		"dmg": 635,
+		"hp": 0,
+		"price": 290500,
+		"currency": 3,
+		"icon": "items/1290.png"
+	}, {
+		"title": "Меч Очистителя",
+		"dmg": 635,
+		"hp": 0,
+		"price": 340000,
+		"currency": 3,
+		"icon": "items/1444.png"
+	}, {
+		"title": "Топор Вуку",
+		"dmg": 645,
+		"hp": 0,
+		"price": 320000,
+		"currency": 3,
+		"icon": "items/1441.png"
+	}, {
+		"title": "Меч Преисподней",
+		"dmg": 645,
+		"hp": 0,
+		"price": 1750,
+		"currency": 6,
+		"icon": "items/1458.png"
+	}, {
+		"title": "Рунический Клинок",
+		"dmg": 650,
+		"hp": 0,
+		"price": 385000,
+		"currency": 3,
+		"icon": "items/1540.png"
+	}, {
+		"title": "Рунический Кинжал",
+		"dmg": 650,
+		"hp": 0,
+		"price": 275000,
+		"currency": 1,
+		"icon": "items/1698.png"
+	}, {
+		"title": "Сокрушающий Топор",
+		"dmg": 650,
+		"hp": 0,
+		"price": 295000,
+		"currency": 3,
+		"icon": "items/1461.png"
+	}, {
+		"title": "Клинок Ра",
+		"dmg": 650,
+		"hp": 0,
+		"price": 1350,
+		"currency": 6,
+		"icon": "items/1727.png"
+	}, {
+		"title": "Шкуродер ",
+		"dmg": 650,
+		"hp": 0,
+		"price": 285000,
+		"currency": 3,
+		"icon": "items/1488.png"
+	}, {
+		"title": "Турнирное Копье",
+		"dmg": 655,
+		"hp": 0,
+		"price": 10,
+		"currency": 1,
+		"icon": "items/1515.png"
+	}, {
+		"title": "Клинок Следопыта",
+		"dmg": 675,
+		"hp": 0,
+		"price": 315000,
+		"currency": 3,
+		"icon": "items/1287.png"
+	}, {
+		"title": "Секира Ястреба",
+		"dmg": 675,
+		"hp": 0,
+		"price": 975,
+		"currency": 2,
+		"icon": "items/1569.png"
+	}, {
+		"title": "Магический Клинок Служителя",
+		"dmg": 675,
+		"hp": 0,
+		"price": 1495,
+		"currency": 6,
+		"icon": "items/1390.png"
+	}, {
+		"title": "Кинжал Дюны",
+		"dmg": 675,
+		"hp": 0,
+		"price": 450000,
+		"currency": 3,
+		"icon": "items/1648.png"
+	}, {
+		"title": "Лунный Кинжал",
+		"dmg": 675,
+		"hp": 0,
+		"price": 175000,
+		"currency": 1,
+		"icon": "items/1696.png"
+	}, {
+		"title": "Болотный Труподел",
+		"dmg": 675,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1697.png"
+	}, {
+		"title": "Алебарда Преисподней",
+		"dmg": 675,
+		"hp": 0,
+		"price": 325000,
+		"currency": 3,
+		"icon": "items/1457.png"
+	}, {
+		"title": "Быстрый Клинок",
+		"dmg": 675,
+		"hp": 0,
+		"price": 325000,
+		"currency": 1,
+		"icon": "items/1459.png"
+	}, {
+		"title": "Кинжал Бездны",
+		"dmg": 675,
+		"hp": 0,
+		"price": 250000,
+		"currency": 1,
+		"icon": "items/1769.png"
+	}, {
+		"title": "Иноземный Клинок",
+		"dmg": 675,
+		"hp": 0,
+		"price": 285000,
+		"currency": 3,
+		"icon": "items/1516.png"
+	}, {
+		"title": "Меч Часового",
+		"dmg": 700,
+		"hp": 0,
+		"price": 75000,
+		"currency": 1,
+		"icon": "items/1724.png"
+	}, {
+		"title": "Клинок Скверны",
+		"dmg": 715,
+		"hp": 0,
+		"price": 285000,
+		"currency": 1,
+		"icon": "items/1582.png"
+	}, {
+		"title": "Клинок Испытаний",
+		"dmg": 715,
+		"hp": 0,
+		"price": 3250,
+		"currency": 6,
+		"icon": "items/1535.png"
+	}, {
+		"title": "Астральный Клинок ",
+		"dmg": 725,
+		"hp": 0,
+		"price": 985,
+		"currency": 2,
+		"icon": "items/1581.png"
+	}, {
+		"title": "Трофейный Клинок",
+		"dmg": 725,
+		"hp": 0,
+		"price": 2785,
+		"currency": 6,
+		"icon": "items/1695.png"
+	}, {
+		"title": "Жезл Инквизитора",
+		"dmg": 725,
+		"hp": 0,
+		"price": 1055,
+		"currency": 4,
+		"icon": "items/1242.png"
+	}, {
+		"title": "Кинжал Равновесия",
+		"dmg": 725,
+		"hp": 50,
+		"price": 27500,
+		"currency": 1,
+		"icon": "items/1677.png"
+	}, {
+		"title": "Гримдрифт",
+		"dmg": 750,
+		"hp": 0,
+		"price": 3250,
+		"currency": 6,
+		"icon": "items/1538.png"
+	}, {
+		"title": "Костяной Рубака",
+		"dmg": 750,
+		"hp": 0,
+		"price": 750000,
+		"currency": 3,
+		"icon": "items/1753.png"
+	}, {
+		"title": "Имперский Маятник",
+		"dmg": 775,
+		"hp": 0,
+		"price": 995,
+		"currency": 2,
+		"icon": "items/1723.png"
+	}, {
+		"title": "Эльфийский Клинок",
+		"dmg": 800,
+		"hp": 0,
+		"price": 1650,
+		"currency": 4,
+		"icon": "items/1325.png"
+	}, {
+		"title": "Топор Двалина",
+		"dmg": 805,
+		"hp": 0,
+		"price": 3500,
+		"currency": 6,
+		"icon": "items/1700.png"
+	}, {
+		"title": "Топор Непрерывности",
+		"dmg": 815,
+		"hp": 0,
+		"price": 825000,
+		"currency": 3,
+		"icon": "items/1767.png"
+	}, {
+		"title": "Булава Инквизиции",
+		"dmg": 825,
+		"hp": 45,
+		"price": 2425,
+		"currency": 6,
+		"icon": "items/1420.png"
+	}, {
+		"title": "Меч Законника",
+		"dmg": 845,
+		"hp": 0,
+		"price": 2500,
+		"currency": 6,
+		"icon": "items/1754.png"
+	}, {
+		"title": "Безупречный Арбалет",
+		"dmg": 850,
+		"hp": 0,
+		"price": 2450,
+		"currency": 4,
+		"icon": "items/1440.png"
+	}, {
+		"title": "Штормовое Копье",
+		"dmg": 875,
+		"hp": 0,
+		"price": 2850,
+		"currency": 4,
+		"icon": "items/1463.png"
+	}, {
+		"title": "Палица Маркуса",
+		"dmg": 875,
+		"hp": 15,
+		"price": 350000,
+		"currency": 1,
+		"icon": "items/1775.png"
+	}, {
+		"title": "Утерянный Клинок",
+		"dmg": 900,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1725.png"
+	}, {
+		"title": "Копье Темного Эльфа",
+		"dmg": 925,
+		"hp": 0,
+		"price": 2950,
+		"currency": 6,
+		"icon": "items/1100.png"
+	}, {
+		"title": "Клинок Доблести",
+		"dmg": 950,
+		"hp": 0,
+		"price": 3650,
+		"currency": 6,
+		"icon": "items/1537.png"
+	}, {
+		"title": "Клинок Батальона",
+		"dmg": 950,
+		"hp": 0,
+		"price": 145000,
+		"currency": 3,
+		"icon": "items/1604.png"
+	}, {
+		"title": "Кувалда Дозорного",
+		"dmg": 965,
+		"hp": 0,
+		"price": 3250,
+		"currency": 4,
+		"icon": "items/1539.png"
+	}, {
+		"title": "Вселенский Клинок",
+		"dmg": 1000,
+		"hp": 0,
+		"price": 3750,
+		"currency": 6,
+		"icon": "items/1536.png"
+	}, {
+		"title": "Демонический Жезл",
+		"dmg": 1000,
+		"hp": 100,
+		"price": 500000,
+		"currency": 3,
+		"icon": "items/1486.png"
+	}, {
+		"title": "Рассекатель Легиона",
+		"dmg": 1050,
+		"hp": 0,
+		"price": 9635,
+		"currency": 4,
+		"icon": "items/1649.png"
+	}, {
+		"title": "Алебарда Губителя",
+		"dmg": 1425,
+		"hp": 0,
+		"price": 14850,
+		"currency": 4,
+		"icon": "items/1543.png"
+	}, {
+		"title": "Астральный Костолом",
+		"dmg": 1450,
+		"hp": 50,
+		"price": 1500,
+		"currency": 2,
+		"icon": "items/1489.png"
+	}
+]

@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon"/>
+		<title>Учебник</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="main.css" rel="stylesheet">
+		<link rel="stylesheet" href="../fonts/FontAwesome/css/all.css">
+	</head>
+	<body>
+		<div scale class="scrollup" onclick="window.scrollTo({top:0,behavior:'smooth'});"><center><i class="fas fa-angle-double-up"></i></center></div>
+		<div class="modal-wrap"></div>
+		<div class="head">
+			<div>
+				<div class="headmenu buttons" inline></div>
+			</div>
+		</div>
+		<div class="description"></div>
+		<div class="main">
+			<div class="leftmenu" data-logo="Меню"></div>
+			<div class="middle"></div>
+		</div>
+		<script> </script>
+		<script type="text/javascript" src="values.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+		<script type="text/javascript" src="dragscroll.js"></script>
+		<script>
+			let test_modal = `
+				<div class="modal-image">
+					<img src="https://sun9-70.userapi.com/impg/KNCuKJlzvCdffc8jIye782Iy_hNHTguGEVpxhg/4Z_-_Zg9IWc.jpg?size=604x340&quality=96&proxy=1&sign=61f13181ea81add28efc51638219e7d7"></img>
+				</div>
+				<div class="modal-title">
+					Short modal with image
+				</div>
+				<div class="modal-content">
+					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim veritatis modi dolorum consequatur ipsa. Officia animi veniam optio repudiandae molestias corrupti nihil totam dolores, repellendus itaque voluptate? Nihil, ut blanditiis?
+				</div>
+				<div class="buttons">
+					<div line></div>
+					<div scale class="button primary m center" onclick="closeModal();"><span icon="&#xf00d">Close modal</span></div>
+				</div>
+			`;
+			let start_html_1 = `
+				<div class="buttons" inline>
+					<a href="${window.location.origin + window.location.pathname}" scale class="button icon secondary l header" prompt="Главная"><span><i class="far fa-books"></i></span></a>
+				</div>
+			`;
+			let start_html_2 = `
+				<div class="buttons" inline>
+					<div scale tabindex="0" class="button icon secondary l header" prompt="Настройки"><span><i class="far fa-cogs"></i></span>
+						<div class="tooltip">
+							<div class="buttons">
+								<div line>Общее</div>
+								<div scale icon icon_left class="button secondary s" onclick="localStorage.clear(); location.reload();"><span icon="&#xf65f">Сбросить сохранённые данные</span></div>
+								<div scale icon icon_left class="button secondary s" onclick="changeSettings({type: 'theme'}, true);"><span icon="&#xf672">Переключить тему</span></div>
+								<div scale icon icon_left class="button secondary s" onclick="openModal({html: test_modal, width: '40vw'});"><span icon="&#xf8c4">Открыть модальное окно</span></div>
+								<div scale icon icon_left class="button secondary s" onclick="addFave();"><span icon="&#xf02e">Добавить в избранное</span></div>
+								<a scale icon icon_left class="button secondary s" href="https://dobriy-vecher-vlad.github.io/" target="_blank"><span icon="&#xf126">dobriy-vecher-vlad.github.io</span></a>
+								<div line>Pages for test work</div>
+								<a href="?list=buttons" scale class="button primary s"><span>Styles of buttons</span></a>
+								<a href="?list=modals" scale class="button primary s"><span>Styles of modals</span></a>
+								<a href="?list=error" scale class="button primary s"><span>Error 404 page</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+			document.querySelector('.headmenu').insertAdjacentHTML('beforebegin', start_html_1);
+			document.querySelector('.headmenu').insertAdjacentHTML('afterend', start_html_2);
+			document.body.insertAdjacentHTML('afterbegin', '<div class="loader" style="visibility: hidden; opacity: 0;"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1528 @@
+{
+	"images": ["label_1.png", "label_2.png", "label_3.png", "label_4.png", "label_5.png"],
+	"season": [{
+		"name": "Предметы за 2016 год",
+		"month": [
+			{
+				"name": "Июль 2016",
+				"items": [
+					{
+						"id": 116,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 603,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2016_7.png"
+			}, {
+				"name": "Август 2016",
+				"items": [
+					{
+						"id": 181,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 40,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2016_8.png"
+			}, {
+				"name": "Сентябрь 2016",
+				"items": [
+					{
+						"id": 127,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 124,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2016_9.png"
+			}, {
+				"name": "Октябрь 2016",
+				"items": [
+					{
+						"id": 148,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 539,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2016_10.png"
+			}, {
+				"name": "Ноябрь 2016",
+				"items": [
+					{
+						"id": 592,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 153,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2016_11.png"
+			}, {
+				"name": "Декабрь 2016",
+				"items": [
+					{
+						"id": 595,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 163,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2016_12.png"
+			}
+		]
+	}, {
+		"name": "Предметы за 2017 год",
+		"month": [
+			{
+				"name": "Январь 2017",
+				"items": [
+					{
+						"id": 135,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 61,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_1.png"
+			}, {
+				"name": "Февраль 2017",
+				"items": [
+					{
+						"id": 577,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 67,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_2.png"
+			}, {
+				"name": "Март 2017",
+				"items": [
+					{
+						"id": 83,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 65,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_3.png"
+			}, {
+				"name": "Апрель 2017",
+				"items": [
+					{
+						"id": 84,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 86,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_4.png"
+			}, {
+				"name": "Май 2017",
+				"items": [
+					{
+						"id": 90,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 88,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_5.png"
+			}, {
+				"name": "Июнь 2017",
+				"items": [
+					{
+						"id": 102,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 100,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_6.png"
+			}, {
+				"name": "Июль 2017",
+				"items": [
+					{
+						"id": 105,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 107,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_7.png"
+			}, {
+				"name": "Август 2017",
+				"items": [
+					{
+						"id": 579,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 111,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_8.png"
+			}, {
+				"name": "Сентябрь 2017",
+				"items": [
+					{
+						"id": 582,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 117,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_9.png"
+			}, {
+				"name": "Октябрь 2017",
+				"items": [
+					{
+						"id": 122,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 583,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_10.png"
+			}, {
+				"name": "Ноябрь 2017",
+				"items": [
+					{
+						"id": 129,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 131,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_11.png"
+			}, {
+				"name": "Декабрь 2017",
+				"items": [
+					{
+						"id": 142,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 146,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2017_12.png"
+			}
+		]
+	}, {
+		"name": "Предметы за 2018 год",
+		"month": [
+			{
+				"name": "Январь 2018",
+				"items": [
+					{
+						"id": 584,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 143,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_1.png"
+			}, {
+				"name": "Февраль 2018",
+				"items": [
+					{
+						"id": 154,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 155,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_2.png"
+			}, {
+				"name": "Март 2018",
+				"items": [
+					{
+						"id": 157,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 159,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_3.png"
+			}, {
+				"name": "Апрель 2018",
+				"items": [
+					{
+						"id": 160,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 598,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_4.png"
+			}, {
+				"name": "Май 2018",
+				"items": [
+					{
+						"id": 62,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 59,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_5.png"
+			}, {
+				"name": "Июнь 2018",
+				"items": [
+					{
+						"id": 576,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 68,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_6.png"
+			}, {
+				"name": "Июль 2018",
+				"items": [
+					{
+						"id": 71,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 72,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_7.png"
+			}, {
+				"name": "Август 2018",
+				"items": [
+					{
+						"id": 580,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 73,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_8.png"
+			}, {
+				"name": "Сентябрь 2018",
+				"items": [
+					{
+						"id": 76,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 537,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_9.png"
+			}, {
+				"name": "Октябрь 2018",
+				"items": [
+					{
+						"id": 77,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 78,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_10.png"
+			}, {
+				"name": "Ноябрь 2018",
+				"items": [
+					{
+						"id": 80,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 79,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_11.png"
+			}, {
+				"name": "Декабрь 2018",
+				"items": [
+					{
+						"id": 561,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 87,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2018_12.png"
+			}
+		]
+	}, {
+		"name": "Предметы за 2019 год",
+		"month": [
+			{
+				"name": "Январь 2019",
+				"items": [
+					{
+						"id": 572,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 82,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_1.png"
+			}, {
+				"name": "Февраль 2019",
+				"items": [
+					{
+						"id": 12,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 92,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_2.png"
+			}, {
+				"name": "Март 2019",
+				"items": [
+					{
+						"id": 95,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 96,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_3.png"
+			}, {
+				"name": "Апрель 2019",
+				"items": [
+					{
+						"id": 104,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 507,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_4.png"
+			}, {
+				"name": "Май 2019",
+				"items": [
+					{
+						"id": 4,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 106,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_5.png"
+			}, {
+				"name": "Июнь 2019",
+				"items": [
+					{
+						"id": 99,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 109,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_6.png"
+			}, {
+				"name": "Июль 2019",
+				"items": [
+					{
+						"id": 601,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 112,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_7.png"
+			}, {
+				"name": "Август 2019",
+				"items": [
+					{
+						"id": 581,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 115,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_8.png"
+			}, {
+				"name": "Сентябрь 2019",
+				"items": [
+					{
+						"id": 123,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 120,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_9.png"
+			}, {
+				"name": "Октябрь 2019",
+				"items": [
+					{
+						"id": 126,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 585,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_10.png"
+			}, {
+				"name": "Ноябрь 2019",
+				"items": [
+					{
+						"id": 250,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 586,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_11.png"
+			}, {
+				"name": "Декабрь 2019",
+				"items": [
+					{
+						"id": 560,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					},
+					{
+						"id": 132,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2019_12.png"
+			}
+		]
+	}, {
+		"name": "Предметы за 2020 год",
+		"month": [
+			{
+				"name": "Январь 2020",
+				"items": [
+					{
+						"id": 150,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 89,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_1.png"
+			}, {
+				"name": "Февраль 2020",
+				"items": [
+					{
+						"id": 589,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 141,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_2.png"
+			}, {
+				"name": "Март 2020",
+				"items": [
+					{
+						"id": 140,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 74,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_3.png"
+			}, {
+				"name": "Апрель 2020",
+				"items": [
+					{
+						"id": 590,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 139,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_4.png"
+			}, {
+				"name": "Май 2020",
+				"items": [
+					{
+						"id": 147,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 114,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_5.png"
+			}, {
+				"name": "Июнь 2020",
+				"items": [
+					{
+						"id": 591,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 152,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_6.png"
+			}, {
+				"name": "Июль 2020",
+				"items": [
+					{
+						"id": 593,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 133,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_7.png"
+			}, {
+				"name": "Август 2020",
+				"items": [
+					{
+						"id": 594,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 156,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_8.png"
+			}, {
+				"name": "Сентябрь 2020",
+				"items": [
+					{
+						"id": 596,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 158,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_9.png"
+			}, {
+				"name": "Октябрь 2020",
+				"items": [
+					{
+						"id": 161,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 162,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_10.png"
+			}, {
+				"name": "Ноябрь 2020",
+				"items": [
+					{
+						"id": 48,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 47,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_11.png"
+			}, {
+				"name": "Декабрь 2020",
+				"items": [
+					{
+						"id": 600,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 51,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2020_12.png"
+			}
+		]
+	}, {
+		"name": "Предметы за 2021 год",
+		"month": [
+			{
+				"name": "Январь 2021",
+				"items": [
+					{
+						"id": 53,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 52,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2021_1.png"
+			}, {
+				"name": "Февраль 2021",
+				"items": [
+					{
+						"id": 56,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}, {
+						"id": 58,
+						"item": true,
+						"scroll": false,
+						"collection": false
+					}
+				],
+				"icon": "season_2021_2.png"
+			}
+		]
+	}],
+	"league": [
+		{
+			"title": "Лига новичков",
+			"from": 0,
+			"to": 200,
+			"price": 10,
+			"icon": "league_1.png"
+		}, {
+			"title": "Лига воинов I",
+			"from": 200,
+			"to": 800,
+			"price": 30,
+			"icon": "league_2.png"
+		}, {
+			"title": "Лига воинов II",
+			"from": 800,
+			"to": 1100,
+			"price": 50,
+			"icon": "league_3.png"
+		}, {
+			"title": "Лига мастеров",
+			"from": 1100,
+			"to": 1400,
+			"price": 90,
+			"icon": "league_4.png"
+		}, {
+			"title": "Лига рыцарей",
+			"from": 1400,
+			"to": 1700,
+			"price": 150,
+			"icon": "league_5.png"
+		}, {
+			"title": "Лига чемпионов",
+			"from": 1700,
+			"to": 2000,
+			"price": 250,
+			"icon": "league_6.png"
+		}, {
+			"title": "Тёмная лига",
+			"from": 2000,
+			"to": 3000,
+			"price": 350,
+			"icon": "league_7.png"
+		}, {
+			"title": "Кровавая лига",
+			"from": 3000,
+			"to": 5000,
+			"price": 500,
+			"icon": "league_8.png"
+		}, {
+			"title": "Легендарная лига",
+			"from": 5000,
+			"to": 0,
+			"price": 650,
+			"icon": "league_9.png"
+		}
+	],
+	"chest": [
+		{
+			"title": "Деревянный сундук",
+			"time": 900,
+			"skip": 1,
+			"items": [],
+			"icon": "chest_1.png"
+		}, {
+			"title": "Серебряный сундук",
+			"time": 10800,
+			"skip": 15,
+			"items": [
+				{
+					"id": 224,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 119,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 174,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 63,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 180,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 190,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 275,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 598,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 576,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 580,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 584,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 548,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 588,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 122,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 129,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 142,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 76,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 93,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 91,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 175,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 69,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 75,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 77,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 143,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 219,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 246,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 155,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 13,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 22,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 154,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 71,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 73,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 68,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 74,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 64,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 62,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 72,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 87,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 89,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 116,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 131,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 365,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 113,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 149,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 121,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 537,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 536,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 92,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 94,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}
+			],
+			"icon": "chest_2.png"
+		}, {
+			"title": "Трофейный сундук",
+			"time": 18000,
+			"skip": 25,
+			"items": [
+				{
+					"id": 208,
+					"item": true,
+					"scroll": false,
+					"collection": false
+				}, {
+					"id": 253,
+					"item": true,
+					"scroll": false,
+					"collection": false
+				}, {
+					"id": 300,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 541,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 269,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 243,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 190,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}
+			],
+			"icon": "chest_5.png"
+		}, {
+			"title": "Пиратский сундук",
+			"time": 18000,
+			"skip": 25,
+			"items": [
+				{
+					"id": 669,
+					"item": false,
+					"scroll": true,
+					"collection": true
+				}, {
+					"id": 322,
+					"item": false,
+					"scroll": true,
+					"collection": true
+				}, {
+					"id": 413,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 362,
+					"item": false,
+					"scroll": true,
+					"collection": true
+				}, {
+					"id": 271,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 331,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 416,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 295,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 57,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}
+			],
+			"icon": "chest_6.png"
+		}, {
+			"title": "Золотой сундук",
+			"time": 28800,
+			"skip": 40,
+			"items": [
+				{
+					"id": 298,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 570,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 236,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 249,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 221,
+					"item": false,
+					"scroll": true,
+					"collection": true
+				}, {
+					"id": 241,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 209,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 605,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 226,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 344,
+					"item": true,
+					"scroll": false,
+					"collection": false
+				}, {
+					"id": 218,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 192,
+					"item": false,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 263,
+					"item": false,
+					"scroll": true,
+					"collection": true
+				}
+			],
+			"icon": "chest_3.png"
+		}, {
+			"title": "Магический сундук",
+			"time": 43200,
+			"skip": 60,
+			"items": [
+				{
+					"id": 637,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 648,
+					"item": true,
+					"scroll": true,
+					"collection": false
+				}, {
+					"id": 643,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 641,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 210,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 267,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 670,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 654,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 510,
+					"item": false,
+					"scroll": true,
+					"collection": true
+				}, {
+					"id": 457,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 646,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}, {
+					"id": 739,
+					"item": false,
+					"scroll": false,
+					"collection": true
+				}
+			],
+			"icon": "chest_4.png"
+		}
+	]
+}

@@ -1,0 +1,143 @@
+body {
+	overflow-y: overlay;
+}
+body::-webkit-scrollbar {
+	width: 0;
+}
+.Placeholder__icon:first-child:last-child {
+	margin: 0!important;
+}
+.vkuiLink .vkuiIcon {
+	margin: 0!important;
+}
+.vkuiGroup--card .vkuiCardGrid {
+	padding: 0!important;
+	margin: 0!important;
+}
+.vkuiCard {
+	overflow: hidden;
+}
+.DescriptionCardWiki {
+	background: transparent;
+}
+.DescriptionWiki .vkuiSimpleCell {
+	white-space: pre-wrap;
+}
+.vkuiPanelHeader__right {
+	min-width: auto!important;
+}
+.ModalWiki .vkuiModalPageHeader__content {
+	justify-content: center;
+}
+.itemAvatarPreloadWiki, .bannerPreloadWiki {
+	background: var(--content_tint_background);
+	position: absolute;
+}
+.itemAvatarPreloadWiki {
+	width: 60px!important;
+	height: 60px!important;
+	margin: 15.5px 3.5px;
+	border-radius: 10px;
+}
+.itemPricePreloadWiki {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+}
+.itemAvatarWiki {
+	width: 67px;
+	height: 71px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	position: relative;
+}
+.itemTextSWiki {
+	color: var(--text_secondary);
+	font-weight: 500;
+	font-size: 12px;
+	width: 40px;
+	text-align: right;
+	display: inline-block;
+}
+.itemTypeWiki, .itemPriceWiki {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.itemPriceWiki {
+	margin-bottom: 5px;
+	margin-left: 10px;
+	color: var(--text_primary);
+	font-weight: 500;
+}
+.itemPriceWiki i {
+	width: 24px;
+	height: 24px;
+	margin-left: 5px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+.BannerWiki .vkuiCard__in {
+	overflow: hidden;
+}
+.BannerWiki .vkuiCard__in::before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	background: linear-gradient(0deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 100%);
+	z-index: 1;
+}
+.BannerWiki .vkuiCell {
+	background-size: cover;
+	background-position: center;
+}
+.BannerWiki .vkuiSimpleCell {
+	padding-top: 50%;
+	display: block;
+	z-index: 1;
+}
+.BannerWiki .vkuiText, .BannerWiki .vkuiTitle, .BannerWiki .vkuiHeadline {
+	color: white!important;
+}
+.headBannerWiki {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+.GradientBannerWiki .vkuiHeader__main {
+	margin: 0 0 8px 0!important;
+}
+@media screen and (orientation: landscape) {
+	.BannerWiki.Scroll {
+		width: 25%!important;
+	}
+	.GradientBannerWiki {
+		margin: 0 -7px!important;
+		padding: 16px 8px!important;
+		overflow: hidden;
+	}
+	.GradientBannerWiki:last-child {
+		margin-bottom: -7px!important;
+		border-radius: inherit;
+	}
+	.GradientBannerWiki .vkuiHeader__in {
+		padding: 0 8px!important;
+	}
+}
+@media screen and (orientation: portrait) {
+	.GradientBannerWiki {
+		margin: 0!important;
+		padding: 16px 0!important;
+		overflow: 'hidden';
+	}
+	.GradientBannerWiki:last-child {
+		margin-bottom: -7px!important;
+	}
+}
