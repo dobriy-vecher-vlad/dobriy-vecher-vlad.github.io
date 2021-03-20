@@ -57,6 +57,7 @@ import Items from './data/items.json';
 
 import dataArena from './data/arena.json';
 import dataCharacter from './data/character.json';
+import dataGuild from './data/guild.json';
 
 import X2JS from './xml2js.js';
 const x2js = new X2JS();
@@ -144,9 +145,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 					<span>
 						<span className="itemPriceWiki">{numberSpaces(Items[data.id].price)}<Spinner size="small" className="itemPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/${Items[data.id].currency}.png)`}}/></span>
 						<span className="itemTypeWiki">
-							{data.item && <Icon24TshirtOutline />}
-							{data.scroll && <Icon24StickerOutline />}
-							{data.collection && <Icon24CubeBoxOutline style={{color: data.personal && 'var(--destructive)'}}/>}
+							{checkItems.item && data.item && <Icon24TshirtOutline />}
+							{checkItems.collection && data.collection && !data.personal && <Icon24CubeBoxOutline />}
+							{checkItems.personal && data.personal && <Icon24CubeBoxOutline style={{color: 'var(--destructive)'}}/>}
+							{checkItems.scroll && data.scroll && <Icon24StickerOutline />}
 						</span>
 					</span>
 				} 
@@ -160,17 +162,69 @@ const App = withAdaptivity(({ viewWidth }) => {
 		)
 	}
 
+
+	
+	const Parser = async() => {
+		let xml = `
+		`;
+		let json = await x2js.xml_str2json(xml);
+		console.log(json);
+		let arrayOld = [];
+		let array = [{
+			_1title: 'Боевые',
+			_2items: []
+		}, {
+			_1title: 'Развитие',
+			_2items: []
+		}, {
+			_1title: 'Выживание',
+			_2items: []
+		}];
+		json.achs.a.forEach((item, x) => {
+			arrayOld.push({
+				_1name: item._name,
+				_2description: item._descr,
+				_3levels: [],
+				_4type: item._cat_id,
+				_5icon: `character/ach_${x+1}.png`
+			});
+			Number(item._r1) !== 0 && arrayOld[x]._3levels.push(Number(item._r1));
+			Number(item._r2) !== 0 && arrayOld[x]._3levels.push(Number(item._r2));
+			Number(item._r3) !== 0 && arrayOld[x]._3levels.push(Number(item._r3));
+			Number(item._r4) !== 0 && arrayOld[x]._3levels.push(Number(item._r4));
+			Number(item._r5) !== 0 && arrayOld[x]._3levels.push(Number(item._r5));
+			Number(item._r6) !== 0 && arrayOld[x]._3levels.push(Number(item._r6));
+			Number(item._r7) !== 0 && arrayOld[x]._3levels.push(Number(item._r7));
+			Number(item._r8) !== 0 && arrayOld[x]._3levels.push(Number(item._r8));
+			Number(item._r9) !== 0 && arrayOld[x]._3levels.push(Number(item._r9));
+			Number(item._r10) !== 0 && arrayOld[x]._3levels.push(Number(item._r10));
+		});
+		arrayOld.forEach((item, x) => {
+			array[item._4type-1]._2items.push({
+				_1name: item._1name,
+				_2description: item._2description,
+				_3levels: item._3levels,
+				_4icon: item._5icon
+			});
+		});
+		console.log(array);
+		console.log(JSON.stringify(array));
+	}
+	// Parser();
+
+
+
 	const platform = usePlatform();
 	const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
 	const hasHeader = platform !== VKCOM;
 
-	const [activeStory, setActiveStory] = useState('home');
+	// const [activeStory, setActiveStory] = useState('home');
 	const [activePanel, setActivePanel] = useState(null);
 	const [activeModal, setActiveModal] = useState(null);
 	const [user, setUser] = useState({vk: null, game: null});
 	const [popout, setPopout] = useState(null);
 	const [modalOpened, isModalOpened] = useState(false);
-	// const [activeStory, setActiveStory] = useState('warlordCharacter');
+	const [activeStory, setActiveStory] = useState('warlordGuild');
 	// const [activePanel, setActivePanel] = useState('warlordArena_4');
 	const [dataModal, setDataModal] = useState(null);
 	const [indexModal, setIndexModal] = useState(null);
@@ -179,6 +233,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 	
 	const [count_arena_1, setCountArena1] = useState(0);
 	const [count_arena_2, setCountArena2] = useState(0);
+	const [count_guild_1, setCountGuild1] = useState(0);
+	const [count_guild_2, setCountGuild2] = useState(0);
 	const [checkItems, setCheckItems] = useState({null: true, item: true, scroll: true, collection: true, personal: true});
 
 	const isCheckItems = (e, id) => {
@@ -205,8 +261,11 @@ const App = withAdaptivity(({ viewWidth }) => {
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 4 && dataModal.title}
 
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 1 && dataModal.title}
+						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 2 && dataModal.name}
+						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 3 && dataModal.title}
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 4 && dataModal.title}
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 5 && dataModal.title}
+						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 6 && dataModal.title}
 					</ModalPageHeader>
 				}
 			>
@@ -228,19 +287,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Cell className="DescriptionWiki" before={<Icon24ClockOutline />} description="Время, требуемое на открытие сундука">{getTime(dataModal.time)}</Cell>
 							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Стоимость моментального открытия сундука">{numberSpaces(dataModal.skip)} {numberForm(dataModal.skip, ['рубин', 'рубина', 'рубинов'])}</Cell>
 							<Spacing separator size={16} />
-							{dataModal.items.sort((a, b) => {
-								return b.item - a.item || b.collection - a.collection || b.personal - a.personal || b.scroll - a.scroll;
-							}).map((data, x) => {
-								if (checkItems.item && data.item) {
-									checkItems.null = false;
-									return getItem(data, x);
-								} else if (checkItems.collection && data.collection && !data.personal) {
-									checkItems.null = false;
-									return getItem(data, x);
-								} else if (checkItems.scroll && data.scroll) {
-									checkItems.null = false;
-									return getItem(data, x);
-								} else if (checkItems.personal && data.personal) {
+							{dataModal.items.map((data, x) => {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
 									checkItems.null = false;
 									return getItem(data, x);
 								}
@@ -258,6 +306,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Валюта прокачки навыка">{dataModal.currency === 1 ? 'Золото' : 'Серебро'}</Cell>
 						</Group>
 					}
+					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 2 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Spacing separator size={16} />
+							{dataModal.levels.map((data, x) => {
+								return (<Cell key={x} className="DescriptionWiki" before={<Icon24CupOutline />} description={`${x+1} стадия`}>{numberSpaces(data)}</Cell>);
+							})}
+						</Group>
+					}
+					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 3 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.from}</Cell>
+						</Group>
+					}
 					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 4 &&
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.from}</Cell>
@@ -268,16 +331,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							{dataModal.items.sort((a, b) => {
 								return b.item - a.item || b.collection - a.collection || b.personal - a.personal || b.scroll - a.scroll;
 							}).map((data, x) => {
-								if (checkItems.item && data.item) {
-									checkItems.null = false;
-									return getItem(data, x);
-								} else if (checkItems.collection && data.collection && !data.personal) {
-									checkItems.null = false;
-									return getItem(data, x);
-								} else if (checkItems.scroll && data.scroll) {
-									checkItems.null = false;
-									return getItem(data, x);
-								} else if (checkItems.personal && data.personal) {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
 									checkItems.null = false;
 									return getItem(data, x);
 								}
@@ -291,6 +345,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.description}</Cell>
 							<Link href={`image/${dataModal.icon}`} target="_blank"><Cell className="DescriptionWiki" before={<Icon24ChainOutline />} description="Изображение">Открыть полное изображение фона</Cell></Link>
+						</Group>
+					}
+					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 6 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.description}</Cell>
+							<Link href={`image/${dataModal.icon}`} target="_blank"><Cell className="DescriptionWiki" before={<Icon24ChainOutline />} description="Изображение">Открыть полное изображение аватара</Cell></Link>
 						</Group>
 					}
 				</Group>
@@ -509,7 +569,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					
 					<View id="home" activePanel="home">
 						<Panel id="home">
-							<PanelHeader>WARLORD: Helper</PanelHeader>
+							<PanelHeader>WARLORD Helper</PanelHeader>
 							<Group>
 								<Placeholder
 									icon={<Icon28HomeOutline width={56} height={56} />}
@@ -846,11 +906,11 @@ const App = withAdaptivity(({ viewWidth }) => {
 									<Card onClick={() => setActivePanel('warlordCharacter_4')}>
 										<Cell before={<Icon24ArticleOutline />} description="Список питомцев и их награды">Питомцы</Cell>
 									</Card>
-								</CardGrid>
-								<Spacing size={8} />
-								<CardGrid size="l">
+									<Card onClick={() => setActivePanel('warlordCharacter_6')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список аватаров и их получение">Аватары</Cell>
+									</Card>
 									<Card onClick={() => setActivePanel('warlordCharacter_5')}>
-										<Cell before={<Icon24ArticleOutline />} description="Список фонов и другая информация">Прочее</Cell>
+										<Cell before={<Icon24ArticleOutline />} description="Список фонов и их получение">Фоны</Cell>
 									</Card>
 								</CardGrid>
 							</Group>
@@ -877,13 +937,43 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Panel id="warlordCharacter_2">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Достижения</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 80 достижений и почти каждое имеет 10 стадий.<br/>За каждую стадию достижения игрок получает награду в виде 1 рубина.</span>}></Cell>
+								{dataCharacter.achievements.map((data, x_main) =>
+										<Gradient className="GradientBannerWiki" key={x_main}>
+											<Header indicator={<Counter size="s" mode="secondary">{data.items.length} {numberForm(data.items.length, ['достижение', 'достижения', 'достижений'])}</Counter>}>{data.title}</Header>
+											<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
+												{data.items.map((data, x) => 
+													<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 2)}>
+														<Spinner size="regular" className="bannerPreloadWiki" />
+														<Cell
+															style={{
+																backgroundImage: `url(image/${data.icon})`
+															}}
+														>{data.name}</Cell>
+													</Card>
+												)}
+											</CardScroll>
+										</Gradient>
+								)}
 							</Group>
 						</Panel>
 						<Panel id="warlordCharacter_3">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Ресурсы</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 8 видов причёсок, 5 видов бород и 5 видов шрамов.<br/>Смена ника стоит 10 рубинов и он должен быть от 2 до 16 символов.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size="s">
+									{dataCharacter.resources.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 3)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
 							</Group>
 						</Panel>
 						<Panel id="warlordCharacter_4">
@@ -921,13 +1011,32 @@ const App = withAdaptivity(({ viewWidth }) => {
 							</Group>
 						</Panel>
 						<Panel id="warlordCharacter_5">
-							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Прочее</PanelHeader>
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Фоны</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 8 видов причёсок, 5 видов бород и 5 видов шрамов.<br/>Смена ника стоит 10 рубинов и он должен быть от 2 до 16 символов.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 9 видов фонов.<br/>Зимние фоны включаются сами в новогодние праздники.</span>}></Cell>
 								<Spacing size={8} />
 								<CardGrid size="s">
 									{dataCharacter.backgrounds.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 5)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordCharacter_6">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Аватары</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 27 видов аватаров.<br/>Выбранный аватар отображается в списке друзей и боя.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size="s">
+									{dataCharacter.avatars.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 6)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
 											<Cell
 												style={{
@@ -944,33 +1053,146 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-					<View id="warlordGuild" activePanel="warlordGuild">
+					<View id="warlordGuild" activePanel={!activePanel ? 'warlordGuild' : activePanel} modal={modal}>
 						<Panel id="warlordGuild">
-							<PanelHeader>Гильдия</PanelHeader>
+							<PanelHeader>Персонаж</PanelHeader>
 							<Group>
-								<Placeholder
-									icon={<Icon28Users3Outline width={56} height={56} />}
-									action={<Link href="https://vk.com/wiki.warlord" target="_blank"><Button size="m">Пиши нам!</Button></Link>}
+								<Gallery
+									slideWidth="100%"
+									style={{ 
+										height: 200,
+										margin: isDesktop ? '-7px -7px 0 -7px' : 0,
+										borderRadius: isDesktop ? '8px 8px 0 0' : 0
+									}}
+									bullets="dark"
+									showArrows
 								>
-									Заметил ошибку или есть идеи по улучшению приложения?
-								</Placeholder>
-								<Spacing separator size={16} />
+									{dataGuild.images.map((data, x) =>
+										<div key={x}>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div className="headBannerWiki" style={{backgroundImage: `url(image/${data})`}} />
+										</div>
+									)}
+								</Gallery>
+								<Spacing size={8} />
 								<CardGrid size="m">
-									<Card onClick={() => bridge.send("VKWebAppAddToFavorites")}>
-										<Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Добавляй приложение в избранное, чтобы всегда было под рукой!">Добавить в избранное</Cell>
+									<Card onClick={() => setActivePanel('warlordGuild_1')}>
+										<Cell before={<Icon24ArticleOutline />} description="Затраты на казну гильдии">Калькулятор</Cell>
 									</Card>
-									<Card onClick={() => bridge.send("VKWebAppGetGroupInfo", {"group_id": 138604865})}>
-										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
+									<Card onClick={() => setActivePanel('warlordGuild_2')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список улучшений и цен">Улучшения</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordGuild_3')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список экипировки и её цен">Кузница</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordGuild_4')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список навыков и их цен">Академия</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordGuild_5')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список набегов и их наград">Набеги</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordGuild_6')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список рейдов и их наград">Рейды</Cell>
 									</Card>
 								</CardGrid>
-								<Spacing separator size={16} />
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={
-									<span>
-										Требуются скриншоты наград с сундуков арены, а именно с серебряного, трофейного, золотого, магического и пиратского.
-										<br/>
-										За помощь в сборе информации возможна награда, в виде привелегий в Warlord Script.
-									</span>
-								}></Cell>
+							</Group>
+						</Panel>
+						<Panel id="warlordGuild_1">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Калькулятор</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Аметисты и Топазы можно получить только вкладываясь в улучшения навыков гильдии и при пополнении казны.<br/>Пополнять казну гильдии можно только в определённом количестве.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size="m">
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(75*1)} золота`}>{numberSpaces(1)} {numberForm(1, ['топаз', 'топаза', 'топазов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(55*1)} серебра`}>{numberSpaces(1)} {numberForm(1, ['аметист', 'аметиста', 'аметистов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(75*5)} золота`}>{numberSpaces(5)} {numberForm(5, ['топаз', 'топаза', 'топазов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(55*5)} серебра`}>{numberSpaces(5)} {numberForm(5, ['аметист', 'аметиста', 'аметистов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(75*25)} золота`}>{numberSpaces(25)} {numberForm(25, ['топаз', 'топаза', 'топазов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(55*25)} серебра`}>{numberSpaces(25)} {numberForm(25, ['аметист', 'аметиста', 'аметистов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(75*50)} золота`}>{numberSpaces(50)} {numberForm(50, ['топаз', 'топаза', 'топазов'])}</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell before={<Icon24MoneyCircleOutline />} description={`${numberSpaces(55*50)} серебра`}>{numberSpaces(50)} {numberForm(50, ['аметист', 'аметиста', 'аметистов'])}</Cell>
+									</Card>
+								</CardGrid>
+								<Spacing size={8} />
+								<CardGrid size="m">
+									<Card mode="shadow">
+										<FormItem top="Необходимое количество Топазов">
+											<Slider
+												step={1}
+												min={0}
+												max={50000}
+												value={Number(count_guild_1)}
+												onChange={count => setCountGuild1(Number(count))}
+											/>
+										</FormItem>
+										<FormItem>
+											<Input value={String(count_guild_1)} min={0} onChange={e => setCountGuild1(Number(e.target.value))} type="number"/>
+										</FormItem>
+									</Card>
+									<Card mode="shadow">
+										<FormItem top="Необходимое количество Аметистов">
+											<Slider
+												step={1}
+												min={0}
+												max={50000}
+												value={Number(count_guild_2)}
+												onChange={count => setCountGuild2(Number(count))}
+											/>
+										</FormItem>
+										<FormItem>
+											<Input value={String(count_guild_2)} min={0} onChange={e => setCountGuild2(Number(e.target.value))} type="number"/>
+										</FormItem>
+									</Card>
+								</CardGrid>
+								<Spacing size={8} />
+								<CardGrid size="m">
+									<Card className="DescriptionCardWiki">
+										<Cell className="DescriptionWiki" before={<Icon24RobotOutline />}>
+											<InfoRow style={{marginBottom: '10px'}} header="Потратить золота необходимо">{numberSpaces(count_guild_1*75)}</InfoRow>
+											<InfoRow header="Пополнений казны необходимо">{numberSpaces(Math.ceil(count_guild_1*75/3750))}</InfoRow>
+										</Cell>
+									</Card>
+									<Card className="DescriptionCardWiki">
+										<Cell className="DescriptionWiki" before={<Icon24RobotOutline />}>
+											<InfoRow style={{marginBottom: '10px'}} header="Потратить серебра необходимо">{numberSpaces(count_guild_2*55)}</InfoRow>
+											<InfoRow header="Пополнений казны необходимо">{numberSpaces(Math.ceil(count_guild_2*55/2750))}</InfoRow>
+										</Cell>
+									</Card>
+								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordGuild_2">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Улучшения</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Благодаря улучшениям зданий, вам открываются новые ступени навыков, вещи в кузнице и сборщики налогов, позволяющие собирать различные бонусы.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size="s">
+									{dataCharacter.avatars.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 6)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
 							</Group>
 						</Panel>
 					</View>
@@ -1005,10 +1227,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 										За помощь в сборе информации возможна награда, в виде привелегий в Warlord Script.
 									</span>
 								}></Cell>
-								<Spacing separator size={16} />
-								{Items.map((data, x) => {
-									return getItem({id: x}, x);
-								})}
 							</Group>
 						</Panel>
 					</View>

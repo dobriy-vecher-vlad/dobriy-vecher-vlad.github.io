@@ -1003,8 +1003,7 @@
 			"items": [
 				{
 					"id": 669,
-					"scroll": true,
-					"collection": true
+					"scroll": true
 				}, {
 					"id": 322,
 					"scroll": true,
@@ -1016,10 +1015,6 @@
 					"id": 362,
 					"scroll": true,
 					"collection": true
-				}, {
-					"id": 271,
-					"item": true,
-					"scroll": true
 				}, {
 					"id": 331,
 					"item": true,
