@@ -23,6 +23,17 @@ body::-webkit-scrollbar {
 .DescriptionWiki .vkuiSimpleCell {
 	white-space: pre-wrap;
 }
+.DescriptionWiki i {
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	display: inline-flex;
+	margin-left: 5px;
+	margin-bottom: -2px;
+}
 .vkuiPanelHeader__right {
 	min-width: auto!important;
 }
@@ -110,16 +121,15 @@ body::-webkit-scrollbar {
 	z-index: 1;
 }
 .BannerWiki .vkuiCell {
-	background-size: cover;
 	background-position: center;
+}
+.BannerWiki:not(.Scroll) .vkuiCell {
+	background-size: cover;
 }
 .BannerWiki .vkuiSimpleCell {
 	padding-top: 50%;
 	display: block;
 	z-index: 1;
-}
-.vkuiCardGrid--m .BannerWiki .vkuiSimpleCell {
-	padding-top: 33%;
 }
 .BannerWiki .vkuiText, .BannerWiki .vkuiTitle, .BannerWiki .vkuiHeadline {
 	color: white!important;
@@ -150,6 +160,25 @@ body::-webkit-scrollbar {
 	.GradientBannerWiki .vkuiHeader__in {
 		padding: 0 8px!important;
 	}
+	.vkuiCardGrid--m .BannerWiki .vkuiSimpleCell {
+		padding-top: 33%;
+	}
+	.DescriptionPricePreloadWiki {
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		display: inline-flex;
+		margin-left: 5px;
+		padding-top: 2px;
+		transform: scale(0.65);
+	}
+	.vkuiCardGrid--m .DescriptionCardWiki {
+		margin: 0!important;
+		width: calc((100%)/2);
+	}
+	.vkuiGroup .vkuiCardGrid:last-child {
+		margin-bottom: 0;
+	}
 }
 @media screen and (orientation: portrait) {
 	.GradientBannerWiki {
@@ -159,5 +188,20 @@ body::-webkit-scrollbar {
 	}
 	.GradientBannerWiki:last-child {
 		margin-bottom: -8px!important;
+	}
+	.BannerWiki .vkuiSimpleCell {
+		min-height: auto;
+	}
+	.vkuiCardGrid--m .BannerWiki .vkuiSimpleCell {
+		padding-top: 75%;
+	}
+	.DescriptionPricePreloadWiki {
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		display: inline-flex;
+		margin-left: 5px;
+		padding-top: 4px;
+		transform: scale(0.6);
 	}
 }

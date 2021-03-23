@@ -1,6 +1,5 @@
-//Подключаем элементы интерфейса
 import bridge from "@vkontakte/vk-bridge";
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
 	InfoRow,
@@ -31,7 +30,6 @@ import {
 	Gallery,
 	Gradient,
 	Title,
-	Text,
 	Spacing,
 	SplitLayout,
 	PanelHeader,
@@ -48,22 +46,6 @@ import {
 	Button,
 	Counter
 } from '@vkontakte/vkui';
-
-//Подключаем css
-import '@vkontakte/vkui/dist/vkui.css';
-import './style.css';
-
-import Items from './data/items.json';
-
-import dataArena from './data/arena.json';
-import dataCharacter from './data/character.json';
-import dataGuild from './data/guild.json';
-
-import X2JS from './xml2js.js';
-const x2js = new X2JS();
-
-
-//Подключаем иконки
 import {
 	Icon28HomeOutline,
 	Icon28UserCircleOutline,
@@ -73,7 +55,6 @@ import {
 	Icon28Users3Outline,
 	Icon28Smiles2Outline,
 	Icon28GridSquareOutline,
-	Icon24LikeOutline,
 	Icon24SkullOutline,
 	Icon24MentionOutline,
 	Icon24ArticleOutline,
@@ -92,9 +73,25 @@ import {
 	Icon24ChainOutline,
 	Icon24AppleOutline,
 	Icon24PaletteOutline,
-	Icon24MagicWandOutline
+	Icon24MagicWandOutline,
+	Icon24UserSquareOutline,
+	Icon24StatisticsOutline,
+	Icon24KeyOutline,
+	Icon24LocationOutline
 } from '@vkontakte/icons';
 
+import '@vkontakte/vkui/dist/vkui.css';
+import './style.css';
+
+import Items from './data/items.json';
+import dataMap from './data/map.json';
+import dataArena from './data/arena.json';
+dataArena.season = dataArena.season.reverse();
+import dataCharacter from './data/character.json';
+import dataGuild from './data/guild.json';
+
+import X2JS from './xml2js.js';
+const x2js = new X2JS();
 
 bridge.subscribe(({ detail: { type, data }}) => {
 	if (type === 'VKWebAppUpdateConfig') {
@@ -111,7 +108,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 	}
 	const numberForm = (number, titles) => {
 		number = Math.abs(number);
-		let cases = [2, 0, 1, 1, 1, 2];  
+		let cases = [2, 0, 1, 1, 1, 2];
 		return titles[(number%100>4&&number%100<20)?2:cases[(number%10<5)?number%10:5]];
 	}
 	const getTime = (s = 0) => {
@@ -157,75 +154,25 @@ const App = withAdaptivity(({ viewWidth }) => {
 				<InfoRow style={{marginBottom: '10px'}}><b>{Items[data.id].title}</b></InfoRow>
 				<InfoRow><span className='itemTextWiki'>DMG</span> {numberSpaces(Items[data.id].dmg)}</InfoRow>
 				<InfoRow><span className='itemTextWiki'>HP</span> {numberSpaces(Items[data.id].hp*15)}</InfoRow>
-				{data.tooltip && <InfoRow style={{marginTop: '10px'}}><span className='itemDescriptionWiki'>{data.tooltip}</span></InfoRow>}
+				{data.tooltip && data.tooltip.map((data, x) => 
+					<InfoRow key={x} style={{marginTop: '10px'}}><span className='itemDescriptionWiki'>{data}</span></InfoRow>
+				)}
 			</Cell>
 		)
 	}
-
-
-	
-	const Parser = async() => {
-		let xml = `
-		`;
-		let json = await x2js.xml_str2json(xml);
-		console.log(json);
-		let arrayOld = [];
-		let array = [{
-			_1title: 'Боевые',
-			_2items: []
-		}, {
-			_1title: 'Развитие',
-			_2items: []
-		}, {
-			_1title: 'Выживание',
-			_2items: []
-		}];
-		json.achs.a.forEach((item, x) => {
-			arrayOld.push({
-				_1name: item._name,
-				_2description: item._descr,
-				_3levels: [],
-				_4type: item._cat_id,
-				_5icon: `character/ach_${x+1}.png`
-			});
-			Number(item._r1) !== 0 && arrayOld[x]._3levels.push(Number(item._r1));
-			Number(item._r2) !== 0 && arrayOld[x]._3levels.push(Number(item._r2));
-			Number(item._r3) !== 0 && arrayOld[x]._3levels.push(Number(item._r3));
-			Number(item._r4) !== 0 && arrayOld[x]._3levels.push(Number(item._r4));
-			Number(item._r5) !== 0 && arrayOld[x]._3levels.push(Number(item._r5));
-			Number(item._r6) !== 0 && arrayOld[x]._3levels.push(Number(item._r6));
-			Number(item._r7) !== 0 && arrayOld[x]._3levels.push(Number(item._r7));
-			Number(item._r8) !== 0 && arrayOld[x]._3levels.push(Number(item._r8));
-			Number(item._r9) !== 0 && arrayOld[x]._3levels.push(Number(item._r9));
-			Number(item._r10) !== 0 && arrayOld[x]._3levels.push(Number(item._r10));
-		});
-		arrayOld.forEach((item, x) => {
-			array[item._4type-1]._2items.push({
-				_1name: item._1name,
-				_2description: item._2description,
-				_3levels: item._3levels,
-				_4icon: item._5icon
-			});
-		});
-		console.log(array);
-		console.log(JSON.stringify(array));
-	}
-	// Parser();
-
-
 
 	const platform = usePlatform();
 	const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
 	const hasHeader = platform !== VKCOM;
 
-	// const [activeStory, setActiveStory] = useState('home');
+	const [activeStory, setActiveStory] = useState('home');
 	const [activePanel, setActivePanel] = useState(null);
 	const [activeModal, setActiveModal] = useState(null);
 	const [user, setUser] = useState({vk: null, game: null});
 	const [popout, setPopout] = useState(null);
 	const [modalOpened, isModalOpened] = useState(false);
-	const [activeStory, setActiveStory] = useState('warlordGuild');
-	// const [activePanel, setActivePanel] = useState('warlordArena_4');
+	// const [activeStory, setActiveStory] = useState('warlordMap');
+	// const [activePanel, setActivePanel] = useState('warlordMap_4');
 	const [dataModal, setDataModal] = useState(null);
 	const [indexModal, setIndexModal] = useState(null);
 	// const [modalOpened, isModalOpened] = useState(true);
@@ -242,6 +189,23 @@ const App = withAdaptivity(({ viewWidth }) => {
 		setCheckItems({null: checkItems.null, item: checkItems.item, scroll: checkItems.scroll, collection: checkItems.collection, personal: checkItems.personal});
 	}
 
+	const SortableItems = (
+		<CardGrid size="m">
+			<Card className="DescriptionCardWiki">
+				<Cell selectable checked={checkItems.item} after={<Icon24TshirtOutline style={{color: checkItems.item ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'item')}>Предмет</Cell>
+			</Card>
+			<Card className="DescriptionCardWiki">
+				<Cell selectable checked={checkItems.scroll} after={<Icon24StickerOutline style={{color: checkItems.scroll ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'scroll')}>Заточка</Cell>
+			</Card>
+			<Card className="DescriptionCardWiki">
+				<Cell selectable checked={checkItems.collection} after={<Icon24CubeBoxOutline style={{color: checkItems.collection ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'collection')}>Коллекция</Cell>
+			</Card>
+			<Card className="DescriptionCardWiki">
+				<Cell selectable checked={checkItems.personal} after={<Icon24CubeBoxOutline style={{color: checkItems.personal ? 'var(--destructive)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'personal')}>Личная коллекция</Cell>
+			</Card>
+		</CardGrid>
+	);
+
 	const modal = (
 		<ModalRoot
 			activeModal={modalOpened ? 'modal-warlord' : null}
@@ -256,6 +220,11 @@ const App = withAdaptivity(({ viewWidth }) => {
 						left={platform !== IOS && !isDesktop && <PanelHeaderClose onClick={() => isModalOpened(false)} />}
 						right={platform === IOS && !isDesktop && <PanelHeaderButton onClick={() => isModalOpened(false)}><Icon24Dismiss /></PanelHeaderButton>}
 					>
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 2 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 3.1 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 3.2 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 4 && dataModal.title}
+
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 2 && dataModal.name}
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 3 && dataModal.title}
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 4 && dataModal.title}
@@ -266,10 +235,94 @@ const App = withAdaptivity(({ viewWidth }) => {
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 4 && dataModal.title}
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 5 && dataModal.title}
 						{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 6 && dataModal.title}
+
+						{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 2 && dataModal.title}
+						{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 3 && dataModal.title}
+						{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 4 && dataModal.title}
+						{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 5 && dataModal.title}
+						{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 6 && dataModal.title}
 					</ModalPageHeader>
 				}
 			>
 				<Group>
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 2 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24LocationOutline />} description="Местоположение">{dataModal.map}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24KeyOutline />} description="Предмет для улучшения">{dataModal.item}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24ClockOutline />} description="Задержка перед обыском">{getTime(dataModal.time)}</Cell>
+							<Spacing separator size={16} />
+							<CardGrid size="m">
+							{dataModal.levels.map((data, x) => {
+								return (<Card key={x} className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description={`${x+1} уровень`}>{data[0]} {numberForm(data[0], dataModal.sign)}<br/>{numberSpaces(data[1])} {numberForm(data[1], ['ресурс', 'ресурса', 'ресурсов'])}</Cell></Card>);
+							})}
+							</CardGrid>
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 3.1 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Spacing separator size={16} />
+							{dataModal.items.map((data, x) => {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
+									checkItems.null = false;
+									return getItem(data, x);
+								}
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 3.2 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Spacing separator size={16} />
+							<CardGrid size="m">
+								<Card className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description={<span style={{whiteSpace: 'nowrap'}}>Требуемый уровень</span>}>{dataModal.lvl} уровень</Cell></Card>
+								<Card className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24ClockOutline />} description={<span style={{whiteSpace: 'nowrap'}}>Длительность похода</span>}>{getTime(dataModal.time)}</Cell></Card>
+								<Card className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description={<span style={{whiteSpace: 'nowrap'}}>Стоимость похода</span>}>{dataModal.price} энергии</Cell></Card>
+								<Card className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24SkullOutline />} description={<span style={{whiteSpace: 'nowrap'}}>Обход противника</span>}>{dataModal.skip} рубинов</Cell></Card>
+							</CardGrid>
+							<Spacing separator size={16} />
+							{dataModal.pet && <Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description={<span style={{whiteSpace: 'nowrap'}}>Питомец</span>}>{dataModal.pet}</Cell>}
+							{dataModal.chests && <Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description={<span style={{whiteSpace: 'nowrap'}}>Дополнительная награда</span>}><span style={{whiteSpace: 'nowrap'}}>{dataModal.chests}</span></Cell>}
+							<Link href={`image/${dataModal.icon}`} target="_blank"><Cell className="DescriptionWiki" before={<Icon24ChainOutline />} description="Изображение">Открыть полное изображение похода</Cell></Link>
+							<Spacing separator size={16} />
+							{dataModal.items.map((data, x) => {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
+									checkItems.null = false;
+									return getItem(data, x);
+								}
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 4 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24SkullOutline />} description="Хранитель рейда">{numberSpaces(dataModal.guard[0])} здоровья<br/>{numberSpaces(dataModal.guard[1])} атаки</Cell>
+							<Spacing separator size={16} />
+							<CardGrid size="m">
+								{dataModal.chests.map((data, x) => 
+									<Card key={x} className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description={<span style={{whiteSpace: 'nowrap'}}>{data.title}</span>}>{data.count} {numberForm(data.count, ["штука", "штуки", "штук"])}</Cell></Card>
+								)}
+							</CardGrid>
+							<Spacing separator size={16} />
+							{dataModal.items.map((data, x) => {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
+									checkItems.null = false;
+									return getItem(data, x);
+								}
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
+						</Group>
+					}
+
 					{activeModal === 'modal-warlordArena' && dataModal && indexModal === 2 && dataModal.items.map((data, x) => {
 						return getItem(data, x);
 					})}
@@ -310,9 +363,11 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
 							<Spacing separator size={16} />
+							<CardGrid size="m">
 							{dataModal.levels.map((data, x) => {
-								return (<Cell key={x} className="DescriptionWiki" before={<Icon24CupOutline />} description={`${x+1} стадия`}>{numberSpaces(data)}</Cell>);
+								return (<Card key={x} className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description={`${x+1} стадия`}>{numberSpaces(data)} {Array.isArray(dataModal.sign) ? numberForm(data, dataModal.sign) : dataModal.sign}</Cell></Card>);
 							})}
+							</CardGrid>
 						</Group>
 					}
 					{activeModal === 'modal-warlordCharacter' && dataModal && indexModal === 3 &&
@@ -351,6 +406,67 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24GiftOutline />} description="Получение">{dataModal.description}</Cell>
 							<Link href={`image/${dataModal.icon}`} target="_blank"><Cell className="DescriptionWiki" before={<Icon24ChainOutline />} description="Изображение">Открыть полное изображение аватара</Cell></Link>
+						</Group>
+					}
+
+					{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 2 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24MagicWandOutline />} description="Бонус за каждый уровень">{dataModal.bonus}</Cell>
+							<Spacing separator size={16} />
+							<CardGrid size="m">
+							{dataModal.levels.map((data, x) => {
+								if ((dataModal.title === 'Стража Форта' || dataModal.title === 'Таран') && x === dataModal.levels.length-1) {
+									return (<Card key={x} className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description={`За каждый уровень`}>+2.000<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/1.png)`}}/><br/>+5.000<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/3.png)`}}/></Cell></Card>);
+								} else {
+									return (<Card key={x} className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description={`${x+1} уровень`}>{numberSpaces(data[0])}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/1.png)`}}/><br/>{numberSpaces(data[1])}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/3.png)`}}/></Cell></Card>);
+								}
+							})}
+							</CardGrid>
+						</Group>
+					}
+					{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 4 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24MagicWandOutline />} description="Бонус за каждый уровень">{dataModal.bonus}</Cell>
+							<Spacing separator size={16} />
+							<CardGrid size="m">
+							{dataModal.levels.map((data, x) => {
+								return (<Card key={x} className="DescriptionCardWiki"><Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description={`${x+1} уровень`}>{numberSpaces(data)}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/${dataModal.currency === 1 ? 5 : 4}.png)`}}/></Cell></Card>);
+							})}
+							</CardGrid>
+						</Group>
+					}
+					{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 5 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Spacing separator size={16} />
+							{dataModal.items.map((data, x) => {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
+									checkItems.null = false;
+									return getItem(data, x);
+								}
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
+						</Group>
+					}
+					{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 6 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24ClockOutline />} description="Стаж">{dataModal.days} дней</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24UserSquareOutline />} description="Характеристики">{numberSpaces(dataModal.hp)} здоровья и {numberSpaces(dataModal.dmg)} атаки</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Стоимость создания">{numberSpaces(dataModal.price[0])}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/1.png)`}}/><br/>{numberSpaces(dataModal.price[1])}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/3.png)`}}/></Cell>
+							<Spacing separator size={16} />
+							{dataModal.items.map((data, x) => {
+								if ((checkItems.item && data.item) || (checkItems.collection && data.collection && !data.personal) || (checkItems.scroll && data.scroll) || (checkItems.personal && data.personal)) {
+									checkItems.null = false;
+									return getItem(data, x);
+								}
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
 						</Group>
 					}
 				</Group>
@@ -410,8 +526,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 	const VKBridge = async() => {
 		setPopout(<ScreenSpinner />);
 		let dataVK = await getBridge('VKWebAppGetUserInfo');
-		let dataGame = await getData('xml', `https://backup1.geronimo.su/warlord_vk/udata.php?user=${dataVK.id}`);
-		setUser({vk: dataVK, game: dataGame.u});
+		let dataGame = await getData('xml', `https://backup1.geronimo.su/gameHub/index.php?api_uid=${dataVK.id}&api_type=vk`);
+		setUser({vk: dataVK, game: dataGame.s});
 		setActiveStory('profile');
 		setPopout(null);
 	}
@@ -515,21 +631,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 					<Tabbar>
 						<TabbarItem
 							onClick={onStoryChange}
-							selected={activeStory === 'home'}
-							data-story="home"
-							text="Главная"
-						><Icon28HomeOutline/></TabbarItem>
-						<TabbarItem
-							onClick={VKBridge}
-							selected={activeStory === 'profile'}
-							data-story="profile"
-							text="Мой профиль"
-						><Icon28UserCircleOutline /></TabbarItem>
-						<TabbarItem
-							onClick={onStoryChange}
 							selected={activeStory === 'warlordMap'}
 							data-story="warlordMap"
 							text="Карта"
+							indicator={<Counter size="s" mode="prominent">7</Counter>}
 						><Icon28GlobeOutline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
@@ -542,18 +647,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 							selected={activeStory === 'warlordArena'}
 							data-story="warlordArena"
 							text="Арена"
+							indicator={<Counter size="s" mode="prominent">4</Counter>}
 						><Icon28Smiles2Outline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
 							selected={activeStory === 'warlordCharacter'}
 							data-story="warlordCharacter"
 							text="Персонаж"
+							indicator={<Counter size="s" mode="prominent">6</Counter>}
 						><Icon28IncognitoOutline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
 							selected={activeStory === 'warlordGuild'}
 							data-story="warlordGuild"
 							text="Гильдия"
+							indicator={<Counter size="s" mode="prominent">6</Counter>}
 						><Icon28Users3Outline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
@@ -569,7 +677,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					
 					<View id="home" activePanel="home">
 						<Panel id="home">
-							<PanelHeader>WARLORD Helper</PanelHeader>
+							<PanelHeader>Warlord Helper</PanelHeader>
 							<Group>
 								<Placeholder
 									icon={<Icon28HomeOutline width={56} height={56} />}
@@ -586,14 +694,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
 									</Card>
 								</CardGrid>
-								<Spacing separator size={16} />
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={
-									<span>
-										Требуются скриншоты наград с сундуков арены, а именно с серебряного, трофейного, золотого, магического и пиратского.
-										<br/>
-										За помощь в сборе информации возможна награда, в виде привелегий в Warlord Script.
-									</span>
-								}></Cell>
 							</Group>
 						</Panel>
 					</View>
@@ -603,7 +703,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 					<View id="profile" activePanel="profile">
 						<Panel id="profile">
-							<PanelHeader>Мой профиль</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Мой профиль</PanelHeader>
 								{user.vk && user.game &&
 								<Group>
 									<Gradient style={{
@@ -617,22 +717,26 @@ const App = withAdaptivity(({ viewWidth }) => {
 									}}>
 										<Avatar size={96} src={user.vk.photo_200 ? user.vk.photo_200 : null} />
 										<Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="medium">{user.vk.first_name} {user.vk.last_name}</Title>
-										<Text style={{ color: 'var(--text_secondary)' }}>@{user.vk.id}</Text>
+										<Link style={{ color: 'var(--text_secondary)' }} href={`https://vk.com/id${user.vk.id}`} target="_blank">@{user.vk.id}</Link>
 									</Gradient>
-									<Group mode="plain">
-										<Header>Характеристики в игре WARLORD</Header>
-										<CardGrid size="s">
-											<Card>
-												<Cell before={<Icon24MentionOutline />} description="Игровой ник">{user.game._name}</Cell>
-											</Card>
-											<Card>
-												<Cell before={<Icon24LikeOutline />} description="Здоровье">{numberSpaces(Number(user.game._end) + Number(user.game._endi) * 15)}</Cell>
-											</Card>
-											<Card>
-												<Cell before={<Icon24SkullOutline />} description="Урон">{numberSpaces(user.game._dmgi)}</Cell>
-											</Card>
-										</CardGrid>
-									</Group>
+									<Spacing size={8} />
+									{user.game.map((data, x) =>
+										<React.Fragment>
+											{x != 0 && <Spacing separator size={16} />}
+											<Header subtitle={data._url}>Сервер {data._n}</Header>
+											<CardGrid size="s">
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon24KeyOutline />} description="Игровой ID">{data._uid}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon24MentionOutline />} description="Игровой ник">{data._un}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon24StatisticsOutline />} description="Уровень">{data._ulvl}</Cell>
+												</Card>
+											</CardGrid>
+										</React.Fragment>
+									)}
 								</Group>
 								}
 						</Panel>
@@ -641,33 +745,154 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-					<View id="warlordMap" activePanel="warlordMap">
+					<View id="warlordMap" activePanel={!activePanel ? 'warlordMap' : activePanel} modal={modal}>
 						<Panel id="warlordMap">
-							<PanelHeader>Карта</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Карта</PanelHeader>
 							<Group>
-								<Placeholder
-									icon={<Icon28GlobeOutline width={56} height={56} />}
-									action={<Link href="https://vk.com/wiki.warlord" target="_blank"><Button size="m">Пиши нам!</Button></Link>}
+								<Gallery
+									slideWidth="100%"
+									style={{ 
+										height: 200,
+										margin: isDesktop ? '-7px -7px 0 -7px' : 0,
+										borderRadius: isDesktop ? '8px 8px 0 0' : 0
+									}}
+									bullets="dark"
+									showArrows
 								>
-									Заметил ошибку или есть идеи по улучшению приложения?
-								</Placeholder>
-								<Spacing separator size={16} />
+									{dataMap.images.map((data, x) =>
+										<div key={x}>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div className="headBannerWiki" style={{backgroundImage: `url(image/${data})`}} />
+										</div>
+									)}
+								</Gallery>
+								<Spacing size={8} />
 								<CardGrid size="m">
-									<Card onClick={() => bridge.send("VKWebAppAddToFavorites")}>
-										<Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Добавляй приложение в избранное, чтобы всегда было под рукой!">Добавить в избранное</Cell>
+									<Card onClick={() => setActivePanel('warlordMap_1')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список предметов и цен">Мустафа</Cell>
 									</Card>
-									<Card onClick={() => bridge.send("VKWebAppGetGroupInfo", {"group_id": 138604865})}>
-										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
+									<Card onClick={() => setActivePanel('warlordMap_2')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список зданий для обыска">Обыск</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordMap_3')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список походов и наград">Походы</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordMap_4')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список рейдов и наград">Рейды</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordMap_5')}>
+										<Cell before={<Icon24ArticleOutline />} description="Список приключений и наград">Приключения</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordMap_6')}>
+										<Cell before={<Icon24ArticleOutline />} description="Описание районов">Районы</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordMap_7')}>
+										<Cell before={<Icon24ArticleOutline />} description="Описание захвата района">Захват</Cell>
 									</Card>
 								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_1">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Мустафа</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_2">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Обыск</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>При помощи обыска можно получать различные ресурсы со зданий.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataMap.builds.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 2)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_3">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Походы</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Походы доступны с 10 уровня. В день возможно запустить поход 7 раз.<br/>В походах можно найти уникальных питомцев, а также ключи к фонам.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataMap.crusade.chests.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 3.1)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
 								<Spacing separator size={16} />
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={
-									<span>
-										Требуются скриншоты наград с сундуков арены, а именно с серебряного, трофейного, золотого, магического и пиратского.
-										<br/>
-										За помощь в сборе информации возможна награда, в виде привелегий в Warlord Script.
-									</span>
-								}></Cell>
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataMap.crusade.points.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 3.2)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+								<Spacing separator size={16} />
+								{SortableItems}
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_4">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Рейды</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Рейды доступны с 40 уровня. В день возможно войти в рейд 3 раза.<br/>Чтобы открыть новый режим сложности, требуется убить финального босса на предыдущем режиме.</span>}></Cell>
+								<Spacing size={8} />
+								{dataMap.raids.map((data, x) =>
+										<Gradient className="GradientBannerWiki" key={x}>
+											<Header indicator={<Link href={data.map} target="_blank"><Counter size="s" mode="primary">Открыть карту</Counter></Link>} subtitle={data.description}>{data.title}</Header>
+											<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
+												{data.levels.map((data, x) =>
+													<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 4)}>
+														<Spinner size="regular" className="bannerPreloadWiki" />
+														<Cell
+															style={{
+																backgroundImage: `url(image/${data.icon})`
+															}}
+														>{data.title}</Cell>
+													</Card>
+												)}
+											</CardScroll>
+										</Gradient>
+								)}
+								<Spacing size={8} />
+								{SortableItems}
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_5">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Приключения</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_6">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Районы</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+							</Group>
+						</Panel>
+						<Panel id="warlordMap_7">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Захват</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
 							</Group>
 						</Panel>
 					</View>
@@ -677,7 +902,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 					<View id="warlordBosses" activePanel="warlordBosses">
 						<Panel id="warlordBosses">
-							<PanelHeader>Боссы</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Боссы</PanelHeader>
 							<Group>
 								<Placeholder
 									icon={<Icon28PawOutline width={56} height={56} />}
@@ -694,14 +919,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
 									</Card>
 								</CardGrid>
-								<Spacing separator size={16} />
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={
-									<span>
-										Требуются скриншоты наград с сундуков арены, а именно с серебряного, трофейного, золотого, магического и пиратского.
-										<br/>
-										За помощь в сборе информации возможна награда, в виде привелегий в Warlord Script.
-									</span>
-								}></Cell>
 							</Group>
 						</Panel>
 					</View>
@@ -711,7 +928,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 					<View id="warlordArena" activePanel={!activePanel ? 'warlordArena' : activePanel} modal={modal}>
 						<Panel id="warlordArena">
-							<PanelHeader>Арена</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Арена</PanelHeader>
 							<Group>
 								<Gallery
 									slideWidth="100%"
@@ -818,7 +1035,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Подбор противников осуществляется из игроков в той же лиге, что и Вы.<br/>Чем выше ваша лига - тем выше шанс на выпадение более редкого сундука.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataArena.league.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 3)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -837,7 +1054,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Из сундуков могут выпасть вещи, заточки, а так же ценные ресурсы.<br/>Трофейные сундуки могут выпасть только с противника, который состоит в гильдии."</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataArena.chest.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 4)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -850,20 +1067,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 									)}
 								</CardGrid>
 								<Spacing separator size={16} />
-								<CardGrid size="m">
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.item} after={<Icon24TshirtOutline style={{color: checkItems.item ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'item')}>Предмет</Cell>
-									</Card>
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.scroll} after={<Icon24StickerOutline style={{color: checkItems.scroll ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'scroll')}>Заточка</Cell>
-									</Card>
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.collection} after={<Icon24CubeBoxOutline style={{color: checkItems.collection ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'collection')}>Коллекция</Cell>
-									</Card>
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.personal} after={<Icon24CubeBoxOutline style={{color: checkItems.personal ? 'var(--destructive)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'personal')}>Личная коллекция</Cell>
-									</Card>
-								</CardGrid>
+								{SortableItems}
 							</Group>
 						</Panel>
 					</View>
@@ -873,7 +1077,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 					<View id="warlordCharacter" activePanel={!activePanel ? 'warlordCharacter' : activePanel} modal={modal}>
 						<Panel id="warlordCharacter">
-							<PanelHeader>Персонаж</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Персонаж</PanelHeader>
 							<Group>
 								<Gallery
 									slideWidth="100%"
@@ -920,7 +1124,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 4 вида навыков и каждый можно прокачать до 9.999 уровня, цена с каждым разом увеличивается.<br/>Также за определённые уровни прокачки навыка можно получить достижение.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="m">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataCharacter.talents.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 1)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -960,9 +1164,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Panel id="warlordCharacter_3">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Ресурсы</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 8 видов причёсок, 5 видов бород и 5 видов шрамов.<br/>Смена ника стоит 10 рубинов и он должен быть от 2 до 16 символов.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>В игре множество ресурсов и каждый добывается своим способом.<br/>Иногда ресурсы можно получить по подарочной ссылке в официальной группе.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataCharacter.resources.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 3)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -981,7 +1185,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Чем выше уровень питомца, тем больше и лучше добыча с поисков.<br/>Питомца необходимо найти и выращивать, коллекции с поисков являются личными.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataCharacter.pets.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 4)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -994,20 +1198,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 									)}
 								</CardGrid>
 								<Spacing separator size={16} />
-								<CardGrid size="m">
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.item} after={<Icon24TshirtOutline style={{color: checkItems.item ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'item')}>Предмет</Cell>
-									</Card>
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.scroll} after={<Icon24StickerOutline style={{color: checkItems.scroll ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'scroll')}>Заточка</Cell>
-									</Card>
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.collection} after={<Icon24CubeBoxOutline style={{color: checkItems.collection ? 'var(--accent)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'collection')}>Коллекция</Cell>
-									</Card>
-									<Card className="DescriptionCardWiki">
-										<Cell selectable checked={checkItems.personal} after={<Icon24CubeBoxOutline style={{color: checkItems.personal ? 'var(--destructive)' : 'var(--icon_secondary)'}}/>} description="Отображение в списке" onChange={(e) => isCheckItems(e, 'personal')}>Личная коллекция</Cell>
-									</Card>
-								</CardGrid>
+								{SortableItems}
 							</Group>
 						</Panel>
 						<Panel id="warlordCharacter_5">
@@ -1015,7 +1206,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 9 видов фонов.<br/>Зимние фоны включаются сами в новогодние праздники.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataCharacter.backgrounds.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 5)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -1034,7 +1225,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 27 видов аватаров.<br/>Выбранный аватар отображается в списке друзей и боя.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
+								<CardGrid size={isDesktop ? "s" : "m"}>
 									{dataCharacter.avatars.map((data, x) =>
 										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 6)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
@@ -1055,7 +1246,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 					<View id="warlordGuild" activePanel={!activePanel ? 'warlordGuild' : activePanel} modal={modal}>
 						<Panel id="warlordGuild">
-							<PanelHeader>Персонаж</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Гильдия</PanelHeader>
 							<Group>
 								<Gallery
 									slideWidth="100%"
@@ -1181,9 +1372,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Благодаря улучшениям зданий, вам открываются новые ступени навыков, вещи в кузнице и сборщики налогов, позволяющие собирать различные бонусы.</span>}></Cell>
 								<Spacing size={8} />
-								<CardGrid size="s">
-									{dataCharacter.avatars.map((data, x) =>
-										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 6)}>
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataGuild.builds.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 2)}>
 											<Spinner size="regular" className="bannerPreloadWiki" />
 											<Cell
 												style={{
@@ -1195,6 +1386,86 @@ const App = withAdaptivity(({ viewWidth }) => {
 								</CardGrid>
 							</Group>
 						</Panel>
+						<Panel id="warlordGuild_3">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Кузница</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Аметисты и Топазы можно получить только вкладываясь в улучшения навыков и при пополнении казны.<br/>Заточки можно купить после покупки самого предмета.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataGuild.items.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 3)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordGuild_4">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Академия</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Навыки гильдии это уникальные бонусы, чей бонус зависим от уровня самого навыка.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataGuild.academy.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 4)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+							</Group>
+						</Panel>
+						<Panel id="warlordGuild_5">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Набеги</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Набеги это уникальный вид боя всех участников гильдии против вражеской гильдии или NPC.<br/>Набеги доступны всем гильдиям, начиная с 5 уровня.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataGuild.raids.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 5)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+								<Spacing separator size={16} />
+								{SortableItems}
+							</Group>
+						</Panel>
+						<Panel id="warlordGuild_6">
+							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Рейды</PanelHeader>
+							<Group>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Глава гильдии или её генералы могут создавать рейдовых боссов гильдии.<br/>Золото и серебро, требуемое для создания, взимается с казны гильдии.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataGuild.bosses.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 6)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
+								<Spacing separator size={16} />
+								{SortableItems}
+							</Group>
+						</Panel>
 					</View>
 
 
@@ -1202,7 +1473,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					
 					<View id="warlordOther" activePanel="warlordOther">
 						<Panel id="warlordOther">
-							<PanelHeader>Разное</PanelHeader>
+							<PanelHeader left={!isDesktop && <PanelHeaderButton onClick={() => setActiveStory('home')}><Icon28HomeOutline /></PanelHeaderButton>}>Разное</PanelHeader>
 							<Group>
 								<Placeholder
 									icon={<Icon28GridSquareOutline width={56} height={56} />}
@@ -1219,14 +1490,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
 									</Card>
 								</CardGrid>
-								<Spacing separator size={16} />
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={
-									<span>
-										Требуются скриншоты наград с сундуков арены, а именно с серебряного, трофейного, золотого, магического и пиратского.
-										<br/>
-										За помощь в сборе информации возможна награда, в виде привелегий в Warlord Script.
-									</span>
-								}></Cell>
 							</Group>
 						</Panel>
 					</View>

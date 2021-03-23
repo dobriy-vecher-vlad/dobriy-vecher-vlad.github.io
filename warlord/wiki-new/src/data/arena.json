@@ -1028,6 +1028,9 @@
 				}, {
 					"id": 57,
 					"scroll": true
+				}, {
+					"id": 271,
+					"item": true
 				}
 			],
 			"icon": "arena/chest_6.png"
@@ -1127,7 +1130,7 @@
 					"id": 739,
 					"collection": true,
 					"personal": true,
-					"tooltip": "Часть 5"
+					"tooltip": ["Часть 5"]
 				}
 			],
 			"icon": "arena/chest_4.png"
