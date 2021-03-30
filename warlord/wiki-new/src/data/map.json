@@ -338,7 +338,7 @@
 		"levels": [{
 			"title": "Лёгкий режим",
 			"description": "Можно найти турмалины и прочий лут",
-			"guard": [0, 0],
+			"guard": [475000, 438],
 			"chests": [{
 				"title": "Бочка",
 				"count": 24
@@ -707,8 +707,8 @@
 		"map": "https://vk.com/photo-138604865_457239632",
 		"levels": [{
 			"title": "Лёгкий режим",
-			"description": "Можно найти Панду и прочий лут",
-			"guard": [0, 0],
+			"description": "Можно найти различный лут",
+			"guard": [1311036, 1298],
 			"chests": [{
 				"title": "Бочка",
 				"count": 15
@@ -736,11 +736,19 @@
 				"id": 282,
 				"item": true,
 				"tooltip": ["Железный сундук"]
+			}, {
+				"id": 302,
+				"collection": true,
+				"tooltip": ["Сапфировый сундук"]
+			}, {
+				"id": 407,
+				"collection": true,
+				"tooltip": ["Древний сундук"]
 			}],
 			"icon": "map/raid_9.png"
 		}, {
 			"title": "Обычный режим",
-			"description": "Можно найти Панду и прочий лут",
+			"description": "Можно найти различный лут",
 			"guard": [1966553, 1947],
 			"chests": [{
 				"title": "Бочка",
@@ -769,11 +777,19 @@
 				"id": 360,
 				"item": true,
 				"tooltip": ["Сапфировый сундук"]
+			}, {
+				"id": 318,
+				"collection": true,
+				"tooltip": ["Железный сундук"]
+			}, {
+				"id": 466,
+				"collection": true,
+				"tooltip": ["Древний сундук"]
 			}],
 			"icon": "map/raid_10.png"
 		}, {
 			"title": "Героический режим",
-			"description": "Можно найти Панду и прочий лут",
+			"description": "Можно найти различный лут",
 			"guard": [4916382, 4868],
 			"chests": [{
 				"title": "Бочка",
@@ -802,6 +818,19 @@
 				"id": 448,
 				"item": true,
 				"tooltip": ["Железный сундук"]
+			}, {
+				"id": 433,
+				"collection": true,
+				"tooltip": ["Сапфировый сундук"]
+			}, {
+				"id": 504,
+				"collection": true,
+				"tooltip": ["Древний сундук"]
+			}, {
+				"id": 739,
+				"collection": true,
+				"personal": true,
+				"tooltip": ["Древний сундук", "Часть 3"]
 			}],
 			"icon": "map/raid_11.png"
 		}, {
@@ -835,8 +864,773 @@
 				"id": 484,
 				"item": true,
 				"tooltip": ["Сапфировый сундук"]
+			}, {
+				"id": 449,
+				"collection": true,
+				"tooltip": ["Железный сундук"]
+			}, {
+				"id": 513,
+				"collection": true,
+				"tooltip": ["Древний сундук"]
+			}, {
+				"id": 739,
+				"collection": true,
+				"personal": true,
+				"tooltip": ["Древний сундук", "Часть 4"]
 			}],
 			"icon": "map/raid_12.png"
 		}]
+	}],
+	"adventures": [{
+		"title": "Древняя гробница",
+		"description": "Руины подземелий, охраняемые скелетами...",
+		"scrolls": {
+			"title": "Выпадающие заточки",
+			"items": []
+		},
+		"floors": [{
+			"title": "1 - 5 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 182,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_1.png"
+		}, {
+			"title": "6 - 10 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 201,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_2.png"
+		}, {
+			"title": "11 - 15 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 617,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_3.png"
+		}, {
+			"title": "16 - 20 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 252,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_4.png"
+		}, {
+			"title": "21 - 25 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 293,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_5.png"
+		}, {
+			"title": "26 - 30 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 301,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_6.png"
+		}, {
+			"title": "31 - 35 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 347,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_7.png"
+		}, {
+			"title": "36 - 40 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 377,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_8.png"
+		}, {
+			"title": "41 - 45 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 704,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_9.png"
+		}, {
+			"title": "46 - 50 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 464,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_10.png"
+		}, {
+			"title": "51 - 55 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 552,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_11.png"
+		}, {
+			"title": "56 - 60 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 515,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_12.png"
+		}, {
+			"title": "61 - 65 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 743,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_13.png"
+		}]
+	}, {
+		"title": "Пещера гоблинов",
+		"description": "Древние пещеры, охраняемые гоблинами...",
+		"scrolls": {
+			"title": "Выпадающие заточки",
+			"items": []
+		},
+		"floors": [{
+			"title": "1 - 5 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 169,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_14.png"
+		}, {
+			"title": "6 - 10 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 184,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_15.png"
+		}, {
+			"title": "11 - 15 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 204,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_16.png"
+		}, {
+			"title": "16 - 20 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 229,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_17.png"
+		}, {
+			"title": "21 - 25 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 257,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_18.png"
+		}, {
+			"title": "26 - 30 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 281,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_19.png"
+		}, {
+			"title": "31 - 35 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 316,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_20.png"
+		}, {
+			"title": "36 - 40 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 349,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_21.png"
+		}, {
+			"title": "41 - 45 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 686,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_22.png"
+		}, {
+			"title": "46 - 50 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 431,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_23.png"
+		}, {
+			"title": "51 - 55 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 468,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_24.png"
+		}, {
+			"title": "56 - 60 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 511,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_25.png"
+		}, {
+			"title": "61 - 65 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 740,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_26.png"
+		}]
+	}, {
+		"title": "Гробница батальона",
+		"description": "Руины подземелий, охраняемые скелетами...",
+		"scrolls": {
+			"title": "Выпадающие заточки",
+			"items": []
+		},
+		"floors": [{
+			"title": "1 - 5 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 191,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_27.png"
+		}, {
+			"title": "6 - 10 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 242,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_28.png"
+		}, {
+			"title": "11 - 15 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 284,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_29.png"
+		}, {
+			"title": "16 - 20 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 313,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_30.png"
+		}, {
+			"title": "21 - 25 этаж",
+			"guards": [0, 0],
+			"items": [],
+			"icon": "map/adventure_31.png"
+		}, {
+			"title": "26 - 30 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 354,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_32.png"
+		}, {
+			"title": "31 - 35 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 391,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_33.png"
+		}, {
+			"title": "36 - 40 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 618,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_34.png"
+		}, {
+			"title": "41 - 45 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 453,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_35.png"
+		}, {
+			"title": "46 - 50 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 488,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_36.png"
+		}, {
+			"title": "51 - 55 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 737,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_37.png"
+		}, {
+			"title": "56 - 60 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 506,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_38.png"
+		}, {
+			"title": "61 - 65 этаж",
+			"guards": [0, 0],
+			"items": [{
+				"id": 518,
+				"collection": true,
+				"personal": true
+			}],
+			"icon": "map/adventure_39.png"
+		}]
+	}],
+	"regions": [{
+		"title": "Риверфорт",
+		"items": [{
+			"title": "Южный Риверфорт",
+			"description": "Южная часть Риверфорта",
+			"lvl": false,
+			"boss": false,
+			"bosses": [],
+			"builds": [],
+			"icon": "map/region_1.png"
+		}, {
+			"title": "Риверфорт",
+			"description": "Центральная часть Риверфорта",
+			"lvl": false,
+			"boss": false,
+			"bosses": [0],
+			"builds": [0],
+			"icon": "map/region_2.png"
+		}, {
+			"title": "Северный Риверфорт",
+			"description": "Северная часть Риверфорта",
+			"lvl": false,
+			"boss": 0,
+			"bosses": [1, 4],
+			"builds": [1],
+			"icon": "map/region_3.png"
+		}, {
+			"title": "Паучий лес",
+			"description": "Деревья до крон оплетены паутиной, а из глубин доносится непонятный треск",
+			"lvl": 10,
+			"boss": false,
+			"bosses": [3],
+			"builds": [],
+			"icon": "map/region_4.png"
+		}, {
+			"title": "Лесной отшельник",
+			"description": "Одинокая хижина, окруженная лесными зарослями",
+			"lvl": 10,
+			"boss": 3,
+			"bosses": [],
+			"builds": [2],
+			"icon": "map/region_5.png"
+		}, {
+			"title": "Разбойничий лагерь",
+			"description": "Дорога к руинам форта, контролируемая бандитами",
+			"lvl": 12,
+			"boss": false,
+			"bosses": [2, 5],
+			"builds": [],
+			"icon": "map/region_6.png"
+		}, {
+			"title": "Руины древнего форта",
+			"description": "Полуразрушенный форт, который облюбовала шайка Гоблинов",
+			"lvl": 18,
+			"boss": 5,
+			"bosses": [6, 7],
+			"builds": [],
+			"icon": "map/region_7.png"
+		}]
+	}, {
+		"title": "Растхельм",
+		"items": [{
+			"title": "Перевал мертвецов",
+			"description": "Единственная дорога к Растхельму, таящая в себе большую опасность",
+			"lvl": 21,
+			"boss": 7,
+			"bosses": [8, 16],
+			"builds": [],
+			"icon": "map/region_8.png"
+		}, {
+			"title": "Заброшенная деревня",
+			"description": "Судя по разрухе, жители давно покинули эту деревню",
+			"lvl": 24,
+			"boss": 16,
+			"bosses": [9, 15],
+			"builds": [3],
+			"icon": "map/region_9.png"
+		}, {
+			"title": "Северный  Растхельм",
+			"description": "Северный вход в Растхельм",
+			"lvl": 30,
+			"boss": 9,
+			"bosses": [10],
+			"builds": [4],
+			"icon": "map/region_10.png"
+		}, {
+			"title": "Крепость Растхельма",
+			"description": "Крепость одного из крупнейших городов Эрмуна",
+			"lvl": 35,
+			"boss": 10,
+			"bosses": [11],
+			"builds": [],
+			"icon": "map/region_11.png"
+		}, {
+			"title": "Южный  Растхельм",
+			"description": "Южный вход в Растхельм",
+			"lvl": 38,
+			"boss": false,
+			"bosses": [12],
+			"builds": [5],
+			"icon": "map/region_12.png"
+		}, {
+			"title": "Форт Надежда",
+			"description": "Когда-то данный форт защищал жителей Растхельма от набегов",
+			"lvl": 40,
+			"boss": false,
+			"bosses": [13, 14, 400],
+			"builds": [],
+			"icon": "map/region_13.png"
+		}, {
+			"title": "Долина Тайн",
+			"description": "Случалось,что некоторые путники навсегда оставались в этом загадочном месте",
+			"lvl": 42,
+			"boss": 13,
+			"bosses": [221, 232],
+			"builds": [],
+			"icon": "map/region_14.png"
+		}]
+	}, {
+		"title": "Шимерран",
+		"items": [{
+			"title": "Мыс Буря Запада",
+			"description": "Здесь располагается маяк, в котором живет Некромант",
+			"lvl": 44,
+			"boss": 221,
+			"bosses": [222],
+			"builds": [],
+			"icon": "map/region_15.png"
+		}, {
+			"title": "Город Шимерран",
+			"description": "Крупнейший город южной части Эрмуна",
+			"lvl": 45,
+			"boss": 222,
+			"bosses": [230, 233],
+			"builds": [6, 7],
+			"icon": "map/region_16.png"
+		}, {
+			"title": "Южный тракт",
+			"description": "Единственный проход между западным и восточным Эрмуном",
+			"lvl": 46,
+			"boss": false,
+			"bosses": [231],
+			"builds": [],
+			"icon": "map/region_17.png"
+		}, {
+			"title": "Рыбацкая деревня",
+			"description": "Поселение на границе западного и восточного Эрмуна",
+			"lvl": 47,
+			"boss": 231,
+			"bosses": [255],
+			"builds": [],
+			"icon": "map/region_18.png"
+		}, {
+			"title": "Перешеек дракона",
+			"description": "Единственный сухопутный путь в восточную часть Эрмуна",
+			"lvl": 48,
+			"boss": false,
+			"bosses": [278, 279, 397],
+			"builds": [],
+			"icon": "map/region_19.png"
+		}]
+	}, {
+		"title": "Мидгард",
+		"items": [{
+			"title": "Межводье",
+			"description": "Место обитания Людоедов, нападающих на путников",
+			"lvl": 50,
+			"boss": 279,
+			"bosses": [280],
+			"builds": [],
+			"icon": "map/region_20.png"
+		}, {
+			"title": "Рыбацкая деревня",
+			"description": "Брошенное поселение",
+			"lvl": 52,
+			"boss": 280,
+			"bosses": [281],
+			"builds": [],
+			"icon": "map/region_21.png"
+		}, {
+			"title": "Руины Мидгарда",
+			"description": "Первый город, разрушенный армией Эльодура",
+			"lvl": 53,
+			"boss": 281,
+			"bosses": [282],
+			"builds": [],
+			"icon": "map/region_22.png"
+		}, {
+			"title": "Пустыня безмолвия",
+			"description": "Жаркая пустыня, место обитания Големов",
+			"lvl": 54,
+			"boss": false,
+			"bosses": [298, 398],
+			"builds": [],
+			"icon": "map/region_23.png"
+		}]
+	}, {
+		"title": "Гримдрифт",
+		"items": [{
+			"title": "Оазис",
+			"description": "Единственный островок растительности в пустыне безмолвия",
+			"lvl": 55,
+			"boss": 298,
+			"bosses": [299],
+			"builds": [],
+			"icon": "map/region_24.png"
+		}, {
+			"title": "Город Гримдрифт",
+			"description": "Крупное поселение на границе пустыни безмолвия",
+			"lvl": 56,
+			"boss": 299,
+			"bosses": [331, 332],
+			"builds": [8],
+			"icon": "map/region_25.png"
+		}, {
+			"title": "Южная деревня",
+			"description": "Небольшая деревушка вблизи Гримдрифта",
+			"lvl": 57,
+			"boss": 332,
+			"bosses": [349, 350, 351, 352],
+			"builds": [],
+			"icon": "map/region_26.png"
+		}, {
+			"title": "Тёмный лес",
+			"description": "Из глубин веет древним злом",
+			"lvl": 58,
+			"boss": false,
+			"bosses": [334, 391],
+			"builds": [],
+			"icon": "map/region_27.png"
+		}, {
+			"title": "Руины отчаяния",
+			"description": "Все что осталось от крупного поселения",
+			"lvl": 59,
+			"boss": false,
+			"bosses": [333, 396],
+			"builds": [],
+			"icon": "map/region_28.png"
+		}]
+	}, {
+		"title": "Гринвол",
+		"items": [{
+			"title": "Ястребиный мыс",
+			"description": "Восточная часть Эрмуна",
+			"lvl": 60,
+			"boss": 333,
+			"bosses": [393],
+			"builds": [],
+			"icon": "map/region_29.png"
+		}, {
+			"title": "Заброшенная тюрьма",
+			"description": "Заброшенная тюрьма для особо опасных узников Гринвола",
+			"lvl": 61,
+			"boss": false,
+			"bosses": [394],
+			"builds": [],
+			"icon": "map/region_30.png"
+		}, {
+			"title": "Гринвол",
+			"description": "Крупнейший город северной части Эрмуна",
+			"lvl": 62,
+			"boss": 394,
+			"bosses": [395],
+			"builds": [9],
+			"icon": "map/region_31.png"
+		}, {
+			"title": "Лесной перешеек",
+			"description": "В кронах деревьев до сих пор сохранились наблюдательные посты",
+			"lvl": 63,
+			"boss": 395,
+			"bosses": [399],
+			"builds": [],
+			"icon": "map/region_32.png"
+		}]
+	}, {
+		"title": "Серозимняя застава",
+		"items": [{
+			"title": "Разделенное ущелье",
+			"description": "Единственный проход к крепости Эльоддура",
+			"lvl": 64,
+			"boss": 399,
+			"bosses": [401],
+			"builds": [],
+			"icon": "map/region_33.png"
+		}, {
+			"title": "Серозимняя застава",
+			"description": "Ворота сломаны, на стенах никого нет",
+			"lvl": 85,
+			"boss": 401,
+			"bosses": [],
+			"builds": [],
+			"icon": "map/region_34.png"
+		}]
+	}],
+	"capture": [{
+		"title": "Паучий лес",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1250,
+		"icon": "map/capture_1.png"
+	}, {
+		"title": "Разбойничий лагерь",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 2000,
+		"icon": "map/capture_2.png"
+	}, {
+		"title": "Руины древнего форта",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1850,
+		"icon": "map/capture_3.png"
+	}, {
+		"title": "Перевал мертвецов",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1750,
+		"icon": "map/capture_4.png"
+	}, {
+		"title": "Заброшенная деревня",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1900,
+		"icon": "map/capture_5.png"
+	}, {
+		"title": "Северный Растхельм",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1000,
+		"icon": "map/capture_6.png"
+	}, {
+		"title": "Форт Надежда",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1150,
+		"icon": "map/capture_7.png"
+	}, {
+		"title": "Долина Тайн",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 950,
+		"icon": "map/capture_8.png"
+	}, {
+		"title": "Мыс Буря Запада",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 500,
+		"icon": "map/capture_9.png"
+	}, {
+		"title": "Город Шимерран",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 500,
+		"icon": "map/capture_10.png"
+	}, {
+		"title": "Перешеек дракона",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 1050,
+		"icon": "map/capture_11.png"
+	}, {
+		"title": "Межводье",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 650,
+		"icon": "map/capture_12.png"
+	}, {
+		"title": "Рыбацкая деревня",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 650,
+		"icon": "map/capture_13.png"
+	}, {
+		"title": "Руины Мидгарда",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 625,
+		"icon": "map/capture_14.png"
+	}, {
+		"title": "Пустыня безмолвия",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 650,
+		"icon": "map/capture_15.png"
+	}, {
+		"title": "Оазис",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 650,
+		"icon": "map/capture_16.png"
+	}, {
+		"title": "Город Гримдрифт",
+		"description": "Размер дани зависит от суммарного числа боссов, побежденных всеми игроками в районе за прошедшие сутки",
+		"score": 950,
+		"icon": "map/capture_17.png"
 	}]
 }

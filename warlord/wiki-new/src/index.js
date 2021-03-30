@@ -44,7 +44,8 @@ import {
 	Placeholder,
 	Cell,
 	Button,
-	Counter
+	Counter,
+	Banner
 } from '@vkontakte/vkui';
 import {
 	Icon28HomeOutline,
@@ -77,13 +78,16 @@ import {
 	Icon24UserSquareOutline,
 	Icon24StatisticsOutline,
 	Icon24KeyOutline,
-	Icon24LocationOutline
+	Icon24LocationOutline,
+	Icon24HomeOutline,
+	Icon24PawOutline
 } from '@vkontakte/icons';
 
 import '@vkontakte/vkui/dist/vkui.css';
 import './style.css';
 
 import Items from './data/items.json';
+import Bosses from './data/bosses.json';
 import dataMap from './data/map.json';
 import dataArena from './data/arena.json';
 dataArena.season = dataArena.season.reverse();
@@ -103,6 +107,13 @@ bridge.subscribe(({ detail: { type, data }}) => {
 bridge.send("VKWebAppInit");
 
 const App = withAdaptivity(({ viewWidth }) => {
+	/* 
+	Full item image
+	https://80831.selcdn.ru/storage2/clients/wl/vk/20210326_1/img_external/items/wshop/1816.png
+
+	Full boss image
+	https://80831.selcdn.ru/storage2/clients/wl/vk/20210326_1/img_external/npc/463.png
+	*/
 	const numberSpaces = (number, symbol = '.') => {
 		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, symbol);
 	}
@@ -110,6 +121,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 		number = Math.abs(number);
 		let cases = [2, 0, 1, 1, 1, 2];
 		return titles[(number%100>4&&number%100<20)?2:cases[(number%10<5)?number%10:5]];
+	}
+	function numberRandom(min = 1, max = 2) {
+		return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
 	}
 	const getTime = (s = 0) => {
 		let hours = Math.floor(s/(60*60));
@@ -135,7 +149,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 			}
 		}
 	}
-	const getItem = (data, x) => {
+	const getItem = (data, x = numberRandom(1, 999)) => {
 		return (
 			<Cell 
 				after={
@@ -161,6 +175,43 @@ const App = withAdaptivity(({ viewWidth }) => {
 		)
 	}
 
+	const getParse = async() => {
+		let xml = `
+		<xml>
+		</xml>
+		`;
+		let response = await x2js.xml_str2json(xml);
+		let result = [];
+		response.xml.i.forEach((item, x) => {
+			result.push({
+				_1title: item._name,
+				_2dmg: Number(item._d2),
+				_3hp: Number(item._d4),
+				_4price: Number(
+						Number(item._p1) !== 0 ? item._p1 :
+						Number(item._p2) !== 0 ? item._p2 :
+						Number(item._p3) !== 0 ? item._p3 :
+						Number(item._p4) !== 0 ? item._p4 :
+						Number(item._p5) !== 0 ? item._p5 :
+						Number(item._p6)
+					),
+				_5currency: Number(
+					Number(item._p1) !== 0 ? 1 :
+					Number(item._p2) !== 0 ? 2 :
+					Number(item._p3) !== 0 ? 3 :
+					Number(item._p4) !== 0 ? 4 :
+					Number(item._p5) !== 0 ? 5 :
+					6
+				),
+				_6icon: `items/${item._id}.png`
+			});
+		});
+		console.log(response);
+		console.log(result);
+		console.log(JSON.stringify(result));
+	}
+	// getParse();
+
 	const platform = usePlatform();
 	const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
 	const hasHeader = platform !== VKCOM;
@@ -172,11 +223,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 	const [popout, setPopout] = useState(null);
 	const [modalOpened, isModalOpened] = useState(false);
 	// const [activeStory, setActiveStory] = useState('warlordMap');
-	// const [activePanel, setActivePanel] = useState('warlordMap_4');
+	// const [activePanel, setActivePanel] = useState('warlordMap_6');
 	const [dataModal, setDataModal] = useState(null);
 	const [indexModal, setIndexModal] = useState(null);
 	// const [modalOpened, isModalOpened] = useState(true);
-	
 	
 	const [count_arena_1, setCountArena1] = useState(0);
 	const [count_arena_2, setCountArena2] = useState(0);
@@ -224,6 +274,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 3.1 && dataModal.title}
 						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 3.2 && dataModal.title}
 						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 4 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 5.1 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 5.2 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 6 && dataModal.title}
+						{activeModal === 'modal-warlordMap' && dataModal && indexModal === 7 && dataModal.title}
 
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 2 && dataModal.name}
 						{activeModal === 'modal-warlordArena' && dataModal && indexModal === 3 && dataModal.title}
@@ -320,6 +374,49 @@ const App = withAdaptivity(({ viewWidth }) => {
 							{checkItems.null && 
 								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
 							}
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 5.1 &&
+						<Group>
+							{dataModal.items.map((data, x) => {
+								checkItems.null = false;
+								return getItem(data, x);
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 5.2 &&
+						<Group>
+							{dataModal.items.map((data, x) => {
+								checkItems.null = false;
+								return getItem(data, x);
+							})}
+							{checkItems.null && 
+								<Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>
+							}
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 6 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							{typeof dataModal.lvl != 'boolean' && <Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Требуемый уровень">{dataModal.lvl} уровень</Cell>}
+							{typeof dataModal.boss != 'boolean' && <Cell className="DescriptionWiki" before={<Icon24PawOutline />} description="Необходимо убить босса">{Bosses[dataModal.boss].name}</Cell>}
+							{dataModal.bosses.length !== 0 && <Spacing separator size={16} />}
+							{dataModal.bosses.map((data, x) => {
+								return <Cell key={x} className="DescriptionWiki" before={<Icon24SkullOutline />} description={Bosses[data].description}>{Bosses[data].name}</Cell>
+							})}
+							{dataModal.builds.length !== 0 && <Spacing separator size={16} />}
+							{dataModal.builds.map((data, x) => {
+								return <Cell key={x} className="DescriptionWiki" before={<Icon24HomeOutline />} description={dataMap.builds[data].description}>{dataMap.builds[data].title}</Cell>
+							})}
+						</Group>
+					}
+					{activeModal === 'modal-warlordMap' && dataModal && indexModal === 7 &&
+						<Group>
+							<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description="Описание">{dataModal.description}</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24CupOutline />} description="Необходимо очков для захвата района">{numberSpaces(dataModal.score)} очков</Cell>
 						</Group>
 					}
 
@@ -634,7 +731,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 							selected={activeStory === 'warlordMap'}
 							data-story="warlordMap"
 							text="Карта"
-							indicator={<Counter size="s" mode="prominent">7</Counter>}
 						><Icon28GlobeOutline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
@@ -647,21 +743,18 @@ const App = withAdaptivity(({ viewWidth }) => {
 							selected={activeStory === 'warlordArena'}
 							data-story="warlordArena"
 							text="Арена"
-							indicator={<Counter size="s" mode="prominent">4</Counter>}
 						><Icon28Smiles2Outline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
 							selected={activeStory === 'warlordCharacter'}
 							data-story="warlordCharacter"
 							text="Персонаж"
-							indicator={<Counter size="s" mode="prominent">6</Counter>}
 						><Icon28IncognitoOutline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
 							selected={activeStory === 'warlordGuild'}
 							data-story="warlordGuild"
 							text="Гильдия"
-							indicator={<Counter size="s" mode="prominent">6</Counter>}
 						><Icon28Users3Outline/></TabbarItem>
 						<TabbarItem
 							onClick={onStoryChange}
@@ -679,13 +772,106 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Panel id="home">
 							<PanelHeader>Warlord Helper</PanelHeader>
 							<Group>
-								<Placeholder
-									icon={<Icon28HomeOutline width={56} height={56} />}
-									action={<Link href="https://vk.com/wiki.warlord" target="_blank"><Button size="m">Пиши нам!</Button></Link>}
-								>
-									Заметил ошибку или есть идеи по улучшению приложения?
-								</Placeholder>
-								<Spacing separator size={16} />
+								<Banner
+									className="HeadBannerWiki toLeft"
+									mode="image"
+									size="m"
+									header={<span>Warlord Script</span>}
+									subheader={<span>Расширение, позволяющее смотреть<br/>любые характеристики игроков</span>}
+									background={
+										<React.Fragment>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div
+												className="LabelBannerWiki"
+												style={{
+													backgroundImage: 'url(image/main/label_1.png)'
+												}}
+											/>
+										</React.Fragment>
+									}
+									actions={<Button href="https://chrome.google.com/webstore/detail/warlord-script/lnohbnecjodgkjkfcfaamadbeiapofoa" target="_blank" mode="overlay_primary" size="l">Установить</Button>}
+								/>
+								<Spacing size={8} />
+								<Banner
+									className="HeadBannerWiki toRight"
+									mode="image"
+									size="m"
+									header={<span>Сообщество приложения</span>}
+									subheader={<span>Вся информация по игре<br/>и многое другое</span>}
+									background={
+										<React.Fragment>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div
+												className="LabelBannerWiki"
+												style={{
+													backgroundImage: 'url(image/main/label_2.png)'
+												}}
+											/>
+										</React.Fragment>
+									}
+									actions={<Button href="https://vk.com/wiki.warlord" target="_blank" mode="overlay_primary" size="l">Вступить</Button>}
+								/>
+								<Spacing size={8} />
+								<Banner
+									className="HeadBannerWiki toLeft"
+									mode="image"
+									size="m"
+									header={<span>События Warlord</span>}
+									subheader={<span>Новости игры, энергия<br/>и многое другое</span>}
+									background={
+										<React.Fragment>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div
+												className="LabelBannerWiki"
+												style={{
+													backgroundImage: 'url(image/main/label_5.png)'
+												}}
+											/>
+										</React.Fragment>
+									}
+									actions={<Button href="https://vk.com/club125247255" target="_blank" mode="overlay_primary" size="l">Вступить</Button>}
+								/>
+								<Spacing size={8} />
+								<Banner
+									className="HeadBannerWiki toRight"
+									mode="image"
+									size="m"
+									header={<span>Конституционный Cуд</span>}
+									subheader={<span>Вас кинули? Обманули?<br/>Вам некуда податься?</span>}
+									background={
+										<React.Fragment>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div
+												className="LabelBannerWiki"
+												style={{
+													backgroundImage: 'url(image/main/label_4.png)'
+												}}
+											/>
+										</React.Fragment>
+									}
+									actions={<Button href="https://vk.com/club133931816" target="_blank" mode="overlay_primary" size="l">Сообщить</Button>}
+								/>
+								<Spacing size={8} />
+								<Banner
+									className="HeadBannerWiki toLeft"
+									mode="image"
+									size="m"
+									header={<span>Сообщество игры</span>}
+									subheader={<span>Официальное сообщество<br/>с розыгрышами призов</span>}
+									background={
+										<React.Fragment>
+											<Spinner size="large" className="bannerPreloadWiki" />
+											<div
+												className="LabelBannerWiki"
+												style={{
+													backgroundImage: 'url(image/main/label_3.png)'
+												}}
+											/>
+										</React.Fragment>
+									}
+									actions={<Button href="https://vk.com/club122851042" target="_blank" mode="overlay_primary" size="l">Вступить</Button>}
+								/>
+								{/* <Spacing separator size={16} />
 								<CardGrid size="m">
 									<Card onClick={() => bridge.send("VKWebAppAddToFavorites")}>
 										<Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Добавляй приложение в избранное, чтобы всегда было под рукой!">Добавить в избранное</Cell>
@@ -693,7 +879,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 									<Card onClick={() => bridge.send("VKWebAppGetGroupInfo", {"group_id": 138604865})}>
 										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
 									</Card>
-								</CardGrid>
+								</CardGrid> */}
 							</Group>
 						</Panel>
 					</View>
@@ -854,24 +1040,24 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Panel id="warlordMap_4">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Рейды</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Рейды доступны с 40 уровня. В день возможно войти в рейд 3 раза.<br/>Чтобы открыть новый режим сложности, требуется убить финального босса на предыдущем режиме.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Рейды доступны с 40 уровня. В день возможно войти в рейд не более 3 раз.<br/>Чтобы открыть новый режим сложности, требуется убить финального босса на предыдущем режиме.</span>}></Cell>
 								<Spacing size={8} />
 								{dataMap.raids.map((data, x) =>
-										<Gradient className="GradientBannerWiki" key={x}>
-											<Header indicator={<Link href={data.map} target="_blank"><Counter size="s" mode="primary">Открыть карту</Counter></Link>} subtitle={data.description}>{data.title}</Header>
-											<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-												{data.levels.map((data, x) =>
-													<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 4)}>
-														<Spinner size="regular" className="bannerPreloadWiki" />
-														<Cell
-															style={{
-																backgroundImage: `url(image/${data.icon})`
-															}}
-														>{data.title}</Cell>
-													</Card>
-												)}
-											</CardScroll>
-										</Gradient>
+									<Gradient className="GradientBannerWiki" key={x}>
+										<Header indicator={<Link href={data.map} target="_blank"><Counter size="s" mode="primary">Открыть карту</Counter></Link>} subtitle={data.description}>{data.title}</Header>
+										<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
+											{data.levels.map((data, x) =>
+												<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 4)}>
+													<Spinner size="regular" className="bannerPreloadWiki" />
+													<Cell
+														style={{
+															backgroundImage: `url(image/${data.icon})`
+														}}
+													>{data.title}</Cell>
+												</Card>
+											)}
+										</CardScroll>
+									</Gradient>
 								)}
 								<Spacing size={8} />
 								{SortableItems}
@@ -880,19 +1066,68 @@ const App = withAdaptivity(({ viewWidth }) => {
 						<Panel id="warlordMap_5">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Приключения</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Приключения доступны с 30 уровня. В день возможно войти в приключения не более 8 раз.<br/>После прохождения всех этажей, открывается возможность получать заточки за каждый бой.</span>}></Cell>
+								<Spacing size={8} />
+								{dataMap.adventures.map((data, x) =>
+									<Gradient className="GradientBannerWiki" key={x}>
+										<Header indicator={<Link onClick={() => OpenModal(`modal-warlordMap`, data.scrolls, 5.2)}><Counter size="s" mode="primary">Посмотреть заточки</Counter></Link>} subtitle={data.description}>{data.title}</Header>
+										<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
+											{data.floors.map((data, x) =>
+												<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 5.1)}>
+													<Spinner size="regular" className="bannerPreloadWiki" />
+													<Cell
+														style={{
+															backgroundImage: `url(image/${data.icon})`
+														}}
+													>{data.title}</Cell>
+												</Card>
+											)}
+										</CardScroll>
+									</Gradient>
+								)}
 							</Group>
 						</Panel>
 						<Panel id="warlordMap_6">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Районы</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Районы это главная часть всей игры. Всего их 34 штуки.<br/>Каждый район имеет внутри себя босса и по возможности постройку.</span>}></Cell>
+								<Spacing size={8} />
+								{dataMap.regions.map((data, x) =>
+									<Gradient className="GradientBannerWiki" key={x}>
+										<Header indicator={<Counter size="s" mode="secondary">{data.items.length} {numberForm(data.items.length, ['район', 'района', 'районов'])}</Counter>}>{data.title}</Header>
+										<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
+											{data.items.map((data, x) =>
+												<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 6)}>
+													<Spinner size="regular" className="bannerPreloadWiki" />
+													<Cell
+														style={{
+															backgroundImage: `url(image/${data.icon})`
+														}}
+													>{data.title}</Cell>
+												</Card>
+											)}
+										</CardScroll>
+									</Gradient>
+								)}
 							</Group>
 						</Panel>
 						<Panel id="warlordMap_7">
 							<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Захват</PanelHeader>
 							<Group>
-								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Описание.</span>}></Cell>
+								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Приключения доступны с 30 уровня. В день возможно войти в приключения не более 8 раз.<br/>После прохождения всех этажей, открывается возможность получать заточки за каждый бой.</span>}></Cell>
+								<Spacing size={8} />
+								<CardGrid size={isDesktop ? "s" : "m"}>
+									{dataMap.capture.map((data, x) =>
+										<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 7)}>
+											<Spinner size="regular" className="bannerPreloadWiki" />
+											<Cell
+												style={{
+													backgroundImage: `url(image/${data.icon})`
+												}}
+											>{data.title}</Cell>
+										</Card>
+									)}
+								</CardGrid>
 							</Group>
 						</Panel>
 					</View>
@@ -910,15 +1145,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 								>
 									Заметил ошибку или есть идеи по улучшению приложения?
 								</Placeholder>
-								<Spacing separator size={16} />
-								<CardGrid size="m">
-									<Card onClick={() => bridge.send("VKWebAppAddToFavorites")}>
-										<Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Добавляй приложение в избранное, чтобы всегда было под рукой!">Добавить в избранное</Cell>
-									</Card>
-									<Card onClick={() => bridge.send("VKWebAppGetGroupInfo", {"group_id": 138604865})}>
-										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
-									</Card>
-								</CardGrid>
 							</Group>
 						</Panel>
 					</View>
@@ -1012,21 +1238,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Group>
 								<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Ежемесячно в игру поступают 2 новых предмета экипировки, которые доступны в качестве награды за арену.<br/>Чем выше лига - тем лучше и больше награда с ежемесячного сундука.</span>}></Cell>
 								{dataArena.season.map((data, x_main) =>
-										<Gradient className="GradientBannerWiki" key={x_main}>
-											<Header indicator={<Counter size="s" mode="secondary">{data.month.length} {numberForm(data.month.length, ['месяц', 'месяца', 'месяцев'])}</Counter>}>{data.name}</Header>
-											<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-												{data.month.map((data, x) =>
-													<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 2)}>
-														<Spinner size="regular" className="bannerPreloadWiki" />
-														<Cell
-															style={{
-																backgroundImage: `url(image/${data.icon})`
-															}}
-														>{data.name}</Cell>
-													</Card>
-												)}
-											</CardScroll>
-										</Gradient>
+									<Gradient className="GradientBannerWiki" key={x_main}>
+										<Header indicator={<Counter size="s" mode="secondary">{data.month.length} {numberForm(data.month.length, ['месяц', 'месяца', 'месяцев'])}</Counter>}>{data.name}</Header>
+										<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
+											{data.month.map((data, x) =>
+												<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 2)}>
+													<Spinner size="regular" className="bannerPreloadWiki" />
+													<Cell
+														style={{
+															backgroundImage: `url(image/${data.icon})`
+														}}
+													>{data.name}</Cell>
+												</Card>
+											)}
+										</CardScroll>
+									</Gradient>
 								)}
 							</Group>
 						</Panel>
@@ -1482,14 +1708,14 @@ const App = withAdaptivity(({ viewWidth }) => {
 									Заметил ошибку или есть идеи по улучшению приложения?
 								</Placeholder>
 								<Spacing separator size={16} />
-								<CardGrid size="m">
-									<Card onClick={() => bridge.send("VKWebAppAddToFavorites")}>
-										<Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Добавляй приложение в избранное, чтобы всегда было под рукой!">Добавить в избранное</Cell>
-									</Card>
-									<Card onClick={() => bridge.send("VKWebAppGetGroupInfo", {"group_id": 138604865})}>
-										<Cell className="DescriptionWiki" before={<Icon24UsersOutline />} description="Вступай в сообщество и отслеживай новинки приложения!">Вступить в сообщество</Cell>
-									</Card>
-								</CardGrid>
+								{getItem({id: 744, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 745, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 746, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 747, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 748, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 749, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 750, tooltip: ["Новый предмет в игре"]})}
+								{getItem({id: 751, tooltip: ["Новый предмет в игре"]})}
 							</Group>
 						</Panel>
 					</View>

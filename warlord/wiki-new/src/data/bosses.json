@@ -1,0 +1,6031 @@
+[{
+	"name": "Крысюк",
+	"description": "Обитатель сточных канав и канализаций",
+	"hp": 30,
+	"dmg": 15,
+	"type": 1,
+	"time": 900,
+	"tries": 30,
+	"energy": 1,
+	"rewards": [{
+		"exp": 75,
+		"m1": 0,
+		"m2": 20
+		}],
+	"icon": "bosses/1.png"
+}, {
+	"name": "Паучище",
+	"description": "Паук переросток",
+	"hp": 80,
+	"dmg": 36,
+	"type": 1,
+	"time": 1800,
+	"tries": 20,
+	"energy": 2,
+	"rewards": [{
+		"exp": 125,
+		"m1": 0,
+		"m2": 30
+		}],
+	"icon": "bosses/3.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 2500,
+	"dmg": 30,
+	"type": 1,
+	"time": 7200,
+	"tries": 16,
+	"energy": 3,
+	"rewards": [{
+		"exp": 275,
+		"m1": 0,
+		"m2": 100
+		}],
+	"icon": "bosses/11.png"
+}, {
+	"name": "Паук Солдат",
+	"description": "Солдат паучьего гнезда",
+	"hp": 850,
+	"dmg": 30,
+	"type": 1,
+	"time": 5400,
+	"tries": 20,
+	"energy": 3,
+	"rewards": [{
+		"exp": 175,
+		"m1": 0,
+		"m2": 90
+		}],
+	"icon": "bosses/12.png"
+}, {
+	"name": "Черная Крыса",
+	"description": "Огромная черная крыса",
+	"hp": 275,
+	"dmg": 40,
+	"type": 1,
+	"time": 1800,
+	"tries": 20,
+	"energy": 2,
+	"rewards": [{
+		"exp": 150,
+		"m1": 0,
+		"m2": 60
+		}],
+	"icon": "bosses/27.png"
+}, {
+	"name": "Киор",
+	"description": "Главарь банды разбойников",
+	"hp": 4000,
+	"dmg": 45,
+	"type": 1,
+	"time": 7200,
+	"tries": 16,
+	"energy": 3,
+	"rewards": [{
+		"exp": 300,
+		"m1": 0,
+		"m2": 110
+		}],
+	"icon": "bosses/60.png"
+}, {
+	"name": "Гоблин ",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7500,
+	"dmg": 35,
+	"type": 1,
+	"time": 7800,
+	"tries": 14,
+	"energy": 3,
+	"rewards": [{
+		"exp": 325,
+		"m1": 0,
+		"m2": 130
+		}],
+	"icon": "bosses/61.png"
+}, {
+	"name": "Зохай",
+	"description": "Главарь гоблинской шайки у разрушенного форта",
+	"hp": 10000,
+	"dmg": 45,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 4,
+	"rewards": [{
+		"exp": 350,
+		"m1": 0,
+		"m2": 140
+		}],
+	"icon": "bosses/62.png"
+}, {
+	"name": "Горный Тролль",
+	"description": "Крайне сильное и крайне тупое создание",
+	"hp": 15000,
+	"dmg": 50,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 5,
+	"rewards": [{
+		"exp": 750,
+		"m1": 0,
+		"m2": 180
+		}],
+	"icon": "bosses/63.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 35000,
+	"dmg": 85,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 5,
+	"rewards": [{
+		"exp": 800,
+		"m1": 0,
+		"m2": 200
+		}],
+	"icon": "bosses/64.png"
+}, {
+	"name": "Тарон",
+	"description": "Уличный бандит Растхельма",
+	"hp": 75000,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 10,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1000,
+		"m1": 0,
+		"m2": 250
+		}],
+	"icon": "bosses/65.png"
+}, {
+	"name": "Оборотень",
+	"description": "Получеловек - Полуволк. Смертельно опасен",
+	"hp": 175000,
+	"dmg": 200,
+	"type": 1,
+	"time": 14400,
+	"tries": 8,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1125,
+		"m1": 0,
+		"m2": 270
+		}],
+	"icon": "bosses/66.png"
+}, {
+	"name": "Пещерный Тролль",
+	"description": "Рейдовый Титан",
+	"hp": 15000000,
+	"dmg": 1000,
+	"type": 0,
+	"time": 14400,
+	"tries": 6,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1250,
+		"m1": 0,
+		"m2": 300
+		}],
+	"icon": "bosses/67.png"
+}, {
+	"name": "Орк Воин",
+	"description": "Рядовой солдат орков",
+	"hp": 250000,
+	"dmg": 350,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1200,
+		"m1": 0,
+		"m2": 300
+		}],
+	"icon": "bosses/68.png"
+}, {
+	"name": "Гроккар",
+	"description": "Командир отряда орков, засевших у форта Надежда",
+	"hp": 45000000,
+	"dmg": 3500,
+	"type": 0,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1900,
+		"m1": 0,
+		"m2": 310
+		}],
+	"icon": "bosses/69.png"
+}, {
+	"name": "Скелет Лучник",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 25000,
+	"dmg": 75,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 4,
+	"rewards": [{
+		"exp": 800,
+		"m1": 0,
+		"m2": 210
+		}],
+	"icon": "bosses/70.png"
+}, {
+	"name": "Грог",
+	"description": "Тролль с молотом? Какого черта?",
+	"hp": 25000,
+	"dmg": 50,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 5,
+	"rewards": [{
+		"exp": 750,
+		"m1": 0,
+		"m2": 190
+		}],
+	"icon": "bosses/71.png"
+}, {
+	"name": "Земляной паук",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 1,
+	"time": 1,
+	"tries": 20,
+	"energy": 2,
+	"rewards": [{
+		"exp": 50,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/74.png"
+}, {
+	"name": "Ледяной паук",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 1,
+	"time": 1,
+	"tries": 20,
+	"energy": 3,
+	"rewards": [{
+		"exp": 50,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/75.png"
+}, {
+	"name": "Магический паук",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 1,
+	"time": 1,
+	"tries": 20,
+	"energy": 4,
+	"rewards": [{
+		"exp": 50,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/76.png"
+}, {
+	"name": "Ядовитый паук",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 1,
+	"time": 1,
+	"tries": 20,
+	"energy": 3,
+	"rewards": [{
+		"exp": 50,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/77.png"
+}, {
+	"name": "Стража",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 0,
+	"time": 1,
+	"tries": 20,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/78.png"
+}, {
+	"name": "Таран",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 0,
+	"time": 1,
+	"tries": 20,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/79.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/80.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/81.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/82.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/83.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/84.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/85.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/86.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/87.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/88.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/89.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/90.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/91.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/92.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/93.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/94.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/95.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/96.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/97.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/98.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/99.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/100.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/101.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/102.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/103.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/104.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/105.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/106.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/107.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/108.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/109.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/110.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/111.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/112.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/113.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/114.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/115.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/116.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/117.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/118.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/119.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/120.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/121.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/122.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/123.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/124.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/125.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/126.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/127.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/128.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/129.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/130.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/131.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/132.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/133.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/134.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/135.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/136.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/137.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/138.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/139.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/140.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/141.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/142.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/143.png"
+}, {
+	"name": "Разбойник",
+	"description": "Разбойник с большой дороги",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/144.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/145.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/146.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/147.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/148.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/149.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/150.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/151.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/152.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/153.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/154.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/155.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/156.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/157.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/158.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/159.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/160.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/161.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/162.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/163.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/164.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/165.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/166.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/167.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/168.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/169.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/170.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/171.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/172.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/173.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/174.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/175.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/176.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/177.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/178.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/179.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/180.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/181.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/182.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/183.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/184.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/185.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/186.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/187.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/188.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/189.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/190.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/191.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/192.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/193.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/194.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/195.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/196.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/197.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/198.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/199.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/200.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/201.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/202.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/203.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/204.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/205.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/206.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/207.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/208.png"
+}, {
+	"name": "Скелет Воин",
+	"description": "Оживленный прислужник тьмы",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/209.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/210.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/211.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/212.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/213.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/214.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/215.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/216.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/217.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/218.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/219.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/220.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/221.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/222.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/223.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/224.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/225.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/226.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/227.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/228.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/229.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/230.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/231.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/232.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/233.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/234.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/235.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/236.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/237.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/238.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/239.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/240.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/241.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/242.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/243.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/244.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/245.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/246.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/247.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/248.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/249.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/250.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/251.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/252.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/253.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/254.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/255.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/256.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/257.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/258.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/259.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/260.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/261.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/262.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/263.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/264.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/265.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/266.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/267.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/268.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/269.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/270.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/271.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/272.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/273.png"
+}, {
+	"name": "Гоблин",
+	"description": "Уродливый прислужник короля Лича",
+	"hp": 7000,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 3,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/274.png"
+}, {
+	"name": "Стража бандитов",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 0,
+	"time": 1,
+	"tries": 20,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/275.png"
+}, {
+	"name": "Стража гоблинов",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 0,
+	"time": 1,
+	"tries": 20,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/276.png"
+}, {
+	"name": "Стража скелетов",
+	"description": "Нет описания",
+	"hp": 80,
+	"dmg": 36,
+	"type": 0,
+	"time": 1,
+	"tries": 20,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/277.png"
+}, {
+	"name": "Болотник",
+	"description": "Обитатель долины",
+	"hp": 350000,
+	"dmg": 450,
+	"type": 1,
+	"time": 25200,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1380,
+		"m1": 0,
+		"m2": 350
+		}],
+	"icon": "bosses/278.png"
+}, {
+	"name": "Некромант",
+	"description": "Обитатель маяка",
+	"hp": 450000,
+	"dmg": 650,
+	"type": 1,
+	"time": 25200,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1500,
+		"m1": 0,
+		"m2": 390
+		}],
+	"icon": "bosses/279.png"
+}, {
+	"name": "Дорожный Бандит",
+	"description": "-",
+	"hp": 100,
+	"dmg": 50,
+	"type": 1,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/281.png"
+}, {
+	"name": "Скелет Охотник",
+	"description": "-",
+	"hp": 100,
+	"dmg": 50,
+	"type": 1,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/282.png"
+}, {
+	"name": "Орк Налетчик",
+	"description": "-",
+	"hp": 100,
+	"dmg": 50,
+	"type": 1,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/283.png"
+}, {
+	"name": "Главарь Скелетов",
+	"description": "-",
+	"hp": 650000,
+	"dmg": 1500,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/284.png"
+}, {
+	"name": "Ассасин",
+	"description": "-",
+	"hp": 1855000,
+	"dmg": 4950,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/285.png"
+}, {
+	"name": "Древо Страж",
+	"description": "-",
+	"hp": 3000000,
+	"dmg": 5850,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/286.png"
+}, {
+	"name": "Северный Гоблин",
+	"description": "-",
+	"hp": 150000,
+	"dmg": 450,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/287.png"
+}, {
+	"name": "Каин",
+	"description": "Убийца Шиммерана",
+	"hp": 700000,
+	"dmg": 750,
+	"type": 1,
+	"time": 25200,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 1800,
+		"m1": 0,
+		"m2": 510
+		}],
+	"icon": "bosses/288.png"
+}, {
+	"name": "Орк-Шаман",
+	"description": "Главная опасность Южного Тракта",
+	"hp": 900000,
+	"dmg": 900,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 2000,
+		"m1": 0,
+		"m2": 600
+		}],
+	"icon": "bosses/289.png"
+}, {
+	"name": "Страж Долины",
+	"description": "Охраняет долину от чужаков",
+	"hp": 50000000,
+	"dmg": 4500,
+	"type": 0,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 2500,
+		"m1": 0,
+		"m2": 400
+		}],
+	"icon": "bosses/290.png"
+}, {
+	"name": "Взрывной Билл",
+	"description": "Капитан пиратского судна",
+	"hp": 250000000,
+	"dmg": 7250,
+	"type": 0,
+	"time": 7200,
+	"tries": 3,
+	"energy": 5,
+	"rewards": [{
+		"exp": 2350,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/291.png"
+}, {
+	"name": "Слепая Тварь [60]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/292.png"
+}, {
+	"name": "Скорпион Падальщик [48]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/293.png"
+}, {
+	"name": "Скорпион Падальщик [38]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/294.png"
+}, {
+	"name": "Кровавый Скорпион [56]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/295.png"
+}, {
+	"name": "Ледяной Скорпион [42]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/296.png"
+}, {
+	"name": "Скорпион Падальщик [36]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/297.png"
+}, {
+	"name": "Инсектоид  [71]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/298.png"
+}, {
+	"name": "Скорпион Падальщик [45]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/299.png"
+}, {
+	"name": "Ледяной Скорпион [53]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/300.png"
+}, {
+	"name": "Слепая Тварь [73]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/301.png"
+}, {
+	"name": "Кровавый Скорпион [68]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/302.png"
+}, {
+	"name": "Слепая Тварь [58]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/303.png"
+}, {
+	"name": "Страж Подземелья [100]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 6,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/304.png"
+}, {
+	"name": "Ледяной Скорпион [74]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/305.png"
+}, {
+	"name": "Инсектоид  [82]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/306.png"
+}, {
+	"name": "Инсектоид [90]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/307.png"
+}, {
+	"name": "Кровавый Скорпион [76]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/308.png"
+}, {
+	"name": "Скорпион Падальщик [80]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/309.png"
+}, {
+	"name": "Слепая Тварь [85]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/310.png"
+}, {
+	"name": "Инсектоид  [90]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/311.png"
+}, {
+	"name": "Кровавый Скорпион [86]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/312.png"
+}, {
+	"name": "Молох",
+	"description": "Терроризирующий деревню монстр. Титан",
+	"hp": 90000000,
+	"dmg": 6250,
+	"type": 0,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 6250,
+		"m1": 0,
+		"m2": 700
+		}],
+	"icon": "bosses/313.png"
+}, {
+	"name": "Последователь Культа [48]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/314.png"
+}, {
+	"name": "Жнец Душ  [100]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/315.png"
+}, {
+	"name": "Адепт Культа [58]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/316.png"
+}, {
+	"name": "Последователь Культа [80]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/317.png"
+}, {
+	"name": "Адепт Культа [54]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/318.png"
+}, {
+	"name": "Последователь Культа [60]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/319.png"
+}, {
+	"name": "Адепт Культа [60]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/320.png"
+}, {
+	"name": "Адепт Культа [80]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/321.png"
+}, {
+	"name": "Адепт Культа [90]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/323.png"
+}, {
+	"name": "Адепт Культа [82]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/324.png"
+}, {
+	"name": "Последователь Культа [70]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/325.png"
+}, {
+	"name": "Последователь Культа [83]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/326.png"
+}, {
+	"name": "Ледяной Скорпион [84]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/327.png"
+}, {
+	"name": "Последователь Культа [90]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/328.png"
+}, {
+	"name": "Скорпион Падальщик [40]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/329.png"
+}, {
+	"name": "Скорпион Падальщик [50]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/330.png"
+}, {
+	"name": "Ледяной Скорпион [51]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/331.png"
+}, {
+	"name": "Скорпион Падальщик [56]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/332.png"
+}, {
+	"name": "Ледяной Скорпион [86]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/333.png"
+}, {
+	"name": "Кровавый Скорпион [73]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/334.png"
+}, {
+	"name": "Ледяной Скорпион [72]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/335.png"
+}, {
+	"name": "Скорпион Падальщик [66]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/336.png"
+}, {
+	"name": "Ургат",
+	"description": "Предводитель клана орков Команчи",
+	"hp": 92500000,
+	"dmg": 7500,
+	"type": 0,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 6375,
+		"m1": 0,
+		"m2": 790
+		}],
+	"icon": "bosses/337.png"
+}, {
+	"name": "Орк Команчи",
+	"description": "Воин клана Команчи",
+	"hp": 1000000,
+	"dmg": 1125,
+	"type": 1,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 2400,
+		"m1": 0,
+		"m2": 730
+		}],
+	"icon": "bosses/338.png"
+}, {
+	"name": "Людоед Налетчик",
+	"description": "Питается сбившимися с тропы путниками",
+	"hp": 1000000,
+	"dmg": 2500,
+	"type": 1,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 2700,
+		"m1": 0,
+		"m2": 1050
+		}],
+	"icon": "bosses/339.png"
+}, {
+	"name": "Огр",
+	"description": "Обитает в окрестностях рыбацкой деревни",
+	"hp": 1350000,
+	"dmg": 5000,
+	"type": 1,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 3100,
+		"m1": 0,
+		"m2": 1050
+		}],
+	"icon": "bosses/340.png"
+}, {
+	"name": "Мясник Вуку",
+	"description": "Опасайтесь его тесака",
+	"hp": 150000000,
+	"dmg": 10000,
+	"type": 0,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 7500,
+		"m1": 0,
+		"m2": 1200
+		}],
+	"icon": "bosses/341.png"
+}, {
+	"name": "Кровавый Молох",
+	"description": "-",
+	"hp": 7500000,
+	"dmg": 11250,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/342.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/343.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/344.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/345.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/346.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/347.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/348.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/349.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/350.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/351.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/352.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/353.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/354.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/355.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 125000,
+	"dmg": 375,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/356.png"
+}, {
+	"name": "Каменный Гигант",
+	"description": "Безмолвный обитатель пустыни",
+	"hp": 2250000,
+	"dmg": 10000,
+	"type": 1,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 3670,
+		"m1": 0,
+		"m2": 1700
+		}],
+	"icon": "bosses/357.png"
+}, {
+	"name": "Зачарованный Гигант",
+	"description": "Последняя преграда перед Гримдрифтом",
+	"hp": 2850000,
+	"dmg": 20000,
+	"type": 1,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4250,
+		"m1": 0,
+		"m2": 1500
+		}],
+	"icon": "bosses/358.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/359.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/360.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/361.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/362.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/363.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/364.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/365.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/366.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/367.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/368.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/369.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/370.png"
+}, {
+	"name": "Земляной Паук [54]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/371.png"
+}, {
+	"name": "Ледяной Паук [56]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/372.png"
+}, {
+	"name": "Ядовитый Паук [100]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/373.png"
+}, {
+	"name": "Ядовитый Паук [90]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/374.png"
+}, {
+	"name": "Солдат Паук [70]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/375.png"
+}, {
+	"name": "Земляной Паук [90]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/376.png"
+}, {
+	"name": "Земляной Паук [80]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/377.png"
+}, {
+	"name": "Ледяной Паук [86]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/378.png"
+}, {
+	"name": "Ледяной Паук [66]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/379.png"
+}, {
+	"name": "Магический Паук [100]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/380.png"
+}, {
+	"name": "Ядовитый Паук [58]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/381.png"
+}, {
+	"name": "Солдат Паук [86]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/382.png"
+}, {
+	"name": "Солдат Паук [82]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/383.png"
+}, {
+	"name": "Земляной Рейд Паук",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/384.png"
+}, {
+	"name": "Ледяной Паук [72]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/385.png"
+}, {
+	"name": "Ядовитый Паук [60]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/386.png"
+}, {
+	"name": "Земляной Паук [80]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/387.png"
+}, {
+	"name": "Ледяной Паук [72]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/388.png"
+}, {
+	"name": "Ядовитый Паук [83]",
+	"description": "-",
+	"hp": 100,
+	"dmg": 65,
+	"type": 1,
+	"time": 7200,
+	"tries": 2,
+	"energy": 1,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/389.png"
+}, {
+	"name": "Циклоп",
+	"description": "Свирепый обитатель гор Гримдрифта",
+	"hp": 300000000,
+	"dmg": 13125,
+	"type": 0,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 5000,
+		"m1": 0,
+		"m2": 1750
+		}],
+	"icon": "bosses/390.png"
+}, {
+	"name": "Джейн",
+	"description": "Охотница за головами",
+	"hp": 4500000,
+	"dmg": 26250,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 5250,
+		"m1": 0,
+		"m2": 2250
+		}],
+	"icon": "bosses/391.png"
+}, {
+	"name": "Защитник Кургана",
+	"description": "Вечный житель Руин. ",
+	"hp": 5000000,
+	"dmg": 28500,
+	"type": 1,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 7250,
+		"m1": 0,
+		"m2": 2500
+		}],
+	"icon": "bosses/392.png"
+}, {
+	"name": "Темный Жнец",
+	"description": "Древнее зло",
+	"hp": 315000000,
+	"dmg": 14250,
+	"type": 0,
+	"time": 14400,
+	"tries": 4,
+	"energy": 5,
+	"rewards": [{
+		"exp": 5250,
+		"m1": 0,
+		"m2": 1850
+		}],
+	"icon": "bosses/393.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/394.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/395.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/396.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/397.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/398.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/399.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/400.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/401.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/402.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/403.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/404.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/405.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/406.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 125000,
+	"dmg": 375,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 0,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/407.png"
+}, {
+	"name": "Болотник",
+	"description": "Нет описания",
+	"hp": 325000,
+	"dmg": 3250,
+	"type": 1,
+	"time": 3600,
+	"tries": 2,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4150,
+		"m1": 0,
+		"m2": 700
+		}],
+	"icon": "bosses/408.png"
+}, {
+	"name": "Болотник",
+	"description": "Нет описания",
+	"hp": 325000,
+	"dmg": 3250,
+	"type": 1,
+	"time": 3600,
+	"tries": 2,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4150,
+		"m1": 0,
+		"m2": 700
+		}],
+	"icon": "bosses/409.png"
+}, {
+	"name": "Болотник",
+	"description": "Нет описания",
+	"hp": 325000,
+	"dmg": 3250,
+	"type": 1,
+	"time": 3600,
+	"tries": 2,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4150,
+		"m1": 0,
+		"m2": 700
+		}],
+	"icon": "bosses/410.png"
+}, {
+	"name": "Болотник",
+	"description": "Нет описания",
+	"hp": 325000,
+	"dmg": 3250,
+	"type": 1,
+	"time": 3600,
+	"tries": 2,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4150,
+		"m1": 0,
+		"m2": 700
+		}],
+	"icon": "bosses/411.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/413.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/414.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/415.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/416.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/417.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/418.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/419.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/420.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/421.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/422.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/423.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/424.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/425.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 125000,
+	"dmg": 375,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/426.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/427.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/428.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/429.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/430.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/431.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/432.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/433.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/434.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/435.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/436.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/437.png"
+}, {
+	"name": "Пещерный гоблин",
+	"description": "Нет описания",
+	"hp": 100,
+	"dmg": 100,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/438.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/439.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/440.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/441.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/442.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/443.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/444.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/445.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/446.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/447.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/448.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/449.png"
+}, {
+	"name": "Скелет Руин",
+	"description": "Нет описания",
+	"hp": 4500000,
+	"dmg": 650,
+	"type": 1,
+	"time": 7800,
+	"tries": 12,
+	"energy": 15,
+	"rewards": [{
+		"exp": 0,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/450.png"
+}, {
+	"name": "Актлак",
+	"description": "Житель морских глубин",
+	"hp": 5000000,
+	"dmg": 28500,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 7500,
+		"m1": 0,
+		"m2": 2750
+		}],
+	"icon": "bosses/453.png"
+}, {
+	"name": "Зачарованное Древо",
+	"description": "-",
+	"hp": 35000000,
+	"dmg": 20000,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": [{
+		"exp": 17500,
+		"m1": 0,
+		"m2": 3000
+		}],
+	"icon": "bosses/454.png"
+}, {
+	"name": "Болотный Трупоед",
+	"description": "Опасное существо, в битве с которым сгинуло много героев",
+	"hp": 335000000,
+	"dmg": 15000,
+	"type": 0,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4500,
+		"m1": 0,
+		"m2": 2500
+		}],
+	"icon": "bosses/455.png"
+}, {
+	"name": "Изгой",
+	"description": "Бывший осужденный",
+	"hp": 5150000,
+	"dmg": 29500,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 7500,
+		"m1": 0,
+		"m2": 2750
+		}],
+	"icon": "bosses/456.png"
+}, {
+	"name": "Двалин",
+	"description": "Местный задира",
+	"hp": 5250000,
+	"dmg": 30000,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 8000,
+		"m1": 0,
+		"m2": 2790
+		}],
+	"icon": "bosses/457.png"
+}, {
+	"name": "Каменный Голем",
+	"description": "Появившееся из песков существо",
+	"hp": 325000000,
+	"dmg": 14500,
+	"type": 0,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 4000,
+		"m1": 0,
+		"m2": 2000
+		}],
+	"icon": "bosses/458.png"
+}, {
+	"name": "Зимний Страж",
+	"description": "Пробудившийся в снегах страж",
+	"hp": 325000000,
+	"dmg": 17500,
+	"type": 0,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 6200,
+		"m1": 0,
+		"m2": 2450
+		}],
+	"icon": "bosses/459.png"
+}, {
+	"name": "Грабоид",
+	"description": "Легендарный подземный хищник",
+	"hp": 450000000,
+	"dmg": 22750,
+	"type": 0,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 10000,
+		"m1": 0,
+		"m2": 0
+		}],
+	"icon": "bosses/460.png"
+}, {
+	"name": "Проклятый Гигант",
+	"description": "Гигант под 3 метра ростом",
+	"hp": 7875000,
+	"dmg": 35000,
+	"type": 1,
+	"time": 14400,
+	"tries": 5,
+	"energy": 5,
+	"rewards": [{
+		"exp": 12000,
+		"m1": 0,
+		"m2": 4000
+		}],
+	"icon": "bosses/461.png"
+}, {
+	"name": "Флетчер",
+	"description": "Наёмник Гильдии",
+	"hp": 300000,
+	"dmg": 475,
+	"type": 1,
+	"time": 7200,
+	"tries": 12,
+	"energy": 8,
+	"rewards": [{
+		"exp": 1300,
+		"m1": 35,
+		"m2": 0
+		}],
+	"icon": "bosses/462.png"
+}, {
+	"name": "Охотник Шауда",
+	"description": "Охотник за головами",
+	"hp": 10000000,
+	"dmg": 45000,
+	"type": 1,
+	"time": 14400,
+	"tries": 6,
+	"energy": 5,
+	"rewards": [{
+		"exp": 15500,
+		"m1": 0,
+		"m2": 5000
+		}],
+	"icon": "bosses/463.png"
+}]

@@ -144,6 +144,24 @@ body::-webkit-scrollbar {
 .GradientBannerWiki .vkuiHeader__main {
 	margin: 0 0 8px 0!important;
 }
+.HeadBannerWiki .bannerPreloadWiki, .HeadBannerWiki .vkuiBanner__bg, .HeadBannerWiki .LabelBannerWiki {
+	border-radius: inherit;
+}
+.HeadBannerWiki .LabelBannerWiki {
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+.HeadBannerWiki.toLeft {
+	text-align: left;
+}
+.HeadBannerWiki.toRight {
+	text-align: right;
+}
+.HeadBannerWiki.toRight .vkuiBanner__actions >.vkuiButton {
+	margin-left: 16px;
+	margin-right: 0!important;
+}
 @media screen and (orientation: landscape) {
 	.BannerWiki.Scroll {
 		width: 25%!important;
@@ -179,6 +197,10 @@ body::-webkit-scrollbar {
 	.vkuiGroup .vkuiCardGrid:last-child {
 		margin-bottom: 0;
 	}
+	.HeadBannerWiki {
+		margin: 0!important;
+		padding: 0!important;
+	}
 }
 @media screen and (orientation: portrait) {
 	.GradientBannerWiki {
@@ -203,5 +225,8 @@ body::-webkit-scrollbar {
 		margin-left: 5px;
 		padding-top: 4px;
 		transform: scale(0.6);
+	}
+	.HeadBannerWiki {
+		margin: 0!important;
 	}
 }

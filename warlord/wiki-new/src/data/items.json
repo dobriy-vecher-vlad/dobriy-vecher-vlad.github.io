@@ -5207,5 +5207,61 @@
 		"price": 1500,
 		"currency": 2,
 		"icon": "items/1489.png"
+	}, {
+		"title": "Перчатки Ликвидации",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1816.png"
+	}, {
+		"title": "Кольцо Ловчего",
+		"dmg": 0,
+		"hp": 25,
+		"price": 250,
+		"currency": 2,
+		"icon": "items/1817.png"
+	}, {
+		"title": "Кольцо Шауда",
+		"dmg": 150,
+		"hp": 85,
+		"price": 45000,
+		"currency": 1,
+		"icon": "items/1818.png"
+	}, {
+		"title": "Секира Шауда",
+		"dmg": 930,
+		"hp": 0,
+		"price": 3000,
+		"currency": 6,
+		"icon": "items/1819.png"
+	}, {
+		"title": "Перчатки Ловчего",
+		"dmg": 0,
+		"hp": 100,
+		"price": 228,
+		"currency": 2,
+		"icon": "items/1820.png"
+	}, {
+		"title": "Наручи Оправдания",
+		"dmg": 0,
+		"hp": 160,
+		"price": 785,
+		"currency": 6,
+		"icon": "items/1821.png"
+	}, {
+		"title": "Шлем Осквернителя",
+		"dmg": 0,
+		"hp": 150,
+		"price": 40000,
+		"currency": 1,
+		"icon": "items/1822.png"
+	}, {
+		"title": "Броня Уклонения",
+		"dmg": 0,
+		"hp": 190,
+		"price": 55000,
+		"currency": 1,
+		"icon": "items/1823.png"
 	}
 ]

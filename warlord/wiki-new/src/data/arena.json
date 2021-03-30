@@ -742,6 +742,18 @@
 					}
 				],
 				"icon": "arena/season_2021_2.png"
+			}, {
+				"name": "Март 2021",
+				"items": [
+					{
+						"id": 744,
+						"item": true
+					}, {
+						"id": 745,
+						"item": true
+					}
+				],
+				"icon": "arena/season_2021_3.png"
 			}
 		]
 	}],
