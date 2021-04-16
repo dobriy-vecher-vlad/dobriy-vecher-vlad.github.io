@@ -480,6 +480,11 @@
 				"id": 392,
 				"collection": true,
 				"tooltip": ["Железный сундук"]
+			}, {
+				"id": 739,
+				"collection": true,
+				"personal": true,
+				"tooltip": ["Древний сундук", "Часть 1"]
 			}],
 			"icon": "map/raid_3.png"
 		}, {
@@ -657,6 +662,11 @@
 				"id": 393,
 				"collection": true,
 				"tooltip": ["Древний сундук"]
+			}, {
+				"id": 739,
+				"collection": true,
+				"personal": true,
+				"tooltip": ["Древний сундук", "Часть 2"]
 			}],
 			"icon": "map/raid_7.png"
 		}, {
