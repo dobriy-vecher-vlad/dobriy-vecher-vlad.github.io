@@ -51,7 +51,8 @@ import {
 	TabsItem,
 	ModalCard,
 	Select,
-	CustomSelectOption
+	CustomSelectOption,
+	Div
 } from '@vkontakte/vkui';
 import {
 	Icon28HomeOutline,
@@ -789,25 +790,22 @@ const App = withAdaptivity(({ viewWidth }) => {
 					
 					{activeModal === 'modal-warlordBossCreate' &&
 						<Group>
-							<Gradient style={{
-								margin: isDesktop ? '-8px' : 0,
-								padding: 8
-							}}>
-								<CardGrid size="m">
-									<Card>
-										<FormItem top="Здоровье" bottom="Введите здоровье вашего противника">
-											<Input placeholder="Здоровье" value={String(newBossHP)} min={0} onChange={e => setNewBossHP(Number(e.target.value))} type="number"/>
-										</FormItem>
-									</Card>
-									<Card>
-										<FormItem top="Атака" bottom="Введите атаку вашего противника">
-											<Input placeholder="Атака" value={String(newBossDMG)} min={0} onChange={e => setNewBossDMG(Number(e.target.value))} type="number"/>
-										</FormItem>
-									</Card>
-								</CardGrid>
-								<Spacing size={8} />
+							<CardGrid size="m">
+								<Card>
+									<FormItem top="Здоровье" bottom="Введите здоровье вашего противника">
+										<Input placeholder="Здоровье" value={String(newBossHP)} min={0} onChange={e => setNewBossHP(Number(e.target.value))} type="number"/>
+									</FormItem>
+								</Card>
+								<Card>
+									<FormItem top="Атака" bottom="Введите атаку вашего противника">
+										<Input placeholder="Атака" value={String(newBossDMG)} min={0} onChange={e => setNewBossDMG(Number(e.target.value))} type="number"/>
+									</FormItem>
+								</Card>
+							</CardGrid>
+							<Spacing size={8} />
+							<Div>
 								<Button stretched size="l" mode="commerce" onClick={() => setNewBoss('create')}>Подтвердить</Button>
-							</Gradient>
+							</Div>
 						</Group>
 					}
 
@@ -923,7 +921,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					{activeModal === 'modal-warlordGuild' && dataModal && indexModal === 3 &&
 						<Group>
 							<Cell className="DescriptionWiki" before={<Icon24ClockOutline />} description="Требуемый стаж">{dataModal.days} {numberForm(dataModal.days, ['день', 'дня', 'дней'])}</Cell>
-							<Cell className="DescriptionWiki" before={<Icon24ClockOutline />} description="Требуемый уровень Кузницы">{dataModal.build} уровень</Cell>
+							<Cell className="DescriptionWiki" before={<Icon24FavoriteOutline />} description="Требуемый уровень Кузницы">{dataModal.build} уровень</Cell>
 							<Spacing separator size={16} />
 							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Стоимость предмета">{numberSpaces(dataModal.price[0])}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/4.png)`}}/> или {numberSpaces(dataModal.price[0]*55)}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/1.png)`}}/><br/>{numberSpaces(dataModal.price[1])}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/5.png)`}}/> или {numberSpaces(dataModal.price[1]*75)}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/3.png)`}}/></Cell>
 							<Cell className="DescriptionWiki" before={<Icon24MoneyCircleOutline />} description="Стоимость заточки">{numberSpaces(Math.ceil(dataModal.price[0]/10))}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/4.png)`}}/> или {numberSpaces(Math.ceil(dataModal.price[0]/10)*55)}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/1.png)`}}/><br/>{numberSpaces(Math.ceil(dataModal.price[1]/10))}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/5.png)`}}/> или {numberSpaces(Math.ceil(dataModal.price[1]/10)*75)}<Spinner size="small" className="DescriptionPricePreloadWiki" /><i style={{backgroundImage: `url(image/currency/3.png)`}}/><br/></Cell>
@@ -1725,7 +1723,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 									<Card onClick={() => setActivePanel('warlordBosses_1', true)} className="CardWithAvatar">
 										<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/8.png' /></div>} description="Затраты на убийство боссов">Калькулятор</Cell>
 									</Card>
-									{/* <Card onClick={() => setActivePanel('warlordBosses_2')} className="CardWithAvatar">
+									<Card onClick={() => setActivePanel('warlordBosses_6', true)} className="CardWithAvatar">
+										<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/9.png' /></div>} description="Удобный список наград боссов">Награда</Cell>
+									</Card>
+									<Card onClick={() => setActivePanel('warlordBosses_2')} className="CardWithAvatar">
 										<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/9.png' /></div>} description="Список общих боссов и их наград">Общие боссы</Cell>
 									</Card>
 									<Card onClick={() => setActivePanel('warlordBosses_3')} className="CardWithAvatar">
@@ -1736,7 +1737,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 									</Card>
 									<Card onClick={() => setActivePanel('warlordBosses_5')} className="CardWithAvatar">
 										<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/9.png' /></div>} description="Список уникальных боссов и их наград">Уникальные боссы</Cell>
-									</Card> */}
+									</Card>
 								</CardGrid>
 							</Group>
 						</Panel>

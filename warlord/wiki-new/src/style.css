@@ -29,6 +29,9 @@ body::-webkit-scrollbar {
 .vkuiHorizontalScroll {
 	overflow: visible;
 }
+.CardWithAvatar > .Card__in {
+	overflow: hidden;
+}
 .CardWithAvatar .vkuiAvatar {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -180,7 +183,7 @@ body::-webkit-scrollbar {
 .BannerWiki .vkuiSimpleCell {
 	display: block;
 	z-index: 1;
-	padding: 0;
+	/* padding: 0; */
 }
 .BannerWiki.Form .SimpleCell__main {
 	padding: 0;
@@ -314,6 +317,13 @@ body::-webkit-scrollbar {
 	position: absolute;
 }
 
+.CustomSelectOption__before .Avatar__in {
+	overflow: hidden;
+}
+.CustomSelectOption__before .Avatar__img {
+	transform: scale(1.15);
+}
+
 
 @media screen and (orientation: landscape) {
 	.BannerWiki.Scroll {
@@ -411,6 +421,10 @@ body::-webkit-scrollbar {
 	.vkuiFormItem {
 		padding: 12px;
 	}
+	.Div {
+		padding: 0!important;
+		margin: 0!important;
+	}
 }
 @media screen and (orientation: portrait) {
 	.GradientBannerWiki {
@@ -461,12 +475,16 @@ body::-webkit-scrollbar {
 		padding: 0 8px!important;
 		margin: 0!important;
 	}
-	#modal-warlord-page .CardGrid {
+	/* #modal-warlord-page .CardGrid {
 		padding: 0!important;
 		margin: 0!important;
 	}
 	#modal-warlord-page .vkuiGroup__inner {
 		padding: 0;
+	} */
+	.Div {
+		padding: 0 8px!important;
+		margin: 0!important;
 	}
 	.CardWithAvatar .vkuiAvatar:not(.withPreload) {
 		margin-left: -16px;
