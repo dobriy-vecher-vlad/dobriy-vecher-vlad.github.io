@@ -1,0 +1,54 @@
+{
+	"news": [{
+		"link": "https://vk.com/wall-138604865_2577",
+		"title": "Боссы, Обыск и Мустафа",
+		"description": "03 мая 2021",
+		"icon": "main/news_4.png"
+	}, {
+		"link": "https://vk.com/wall-138604865_2500",
+		"title": "Калькулятор боссов",
+		"description": "16 апреля 2021",
+		"icon": "main/news_3.png"
+	}, {
+		"link": "https://vk.com/wall-138604865_2489",
+		"title": "Антарес и Разное",
+		"description": "12 апреля 2021",
+		"icon": "main/news_2.png"
+	}, {
+		"link": "https://vk.com/wall-138604865_2459",
+		"title": "Коллекции и Кузница",
+		"description": "10 апреля 2021",
+		"icon": "main/news_1.png"
+	}],
+	"banners": [{
+		"link": "https://chrome.google.com/webstore/detail/warlord-script/lnohbnecjodgkjkfcfaamadbeiapofoa",
+		"title": "Warlord Script",
+		"description": "Расширение, позволяющее смотреть\nлюбые характеристики игроков",
+		"action": "Установить",
+		"icon": "main/label_1.png"
+	}, {
+		"link": "https://vk.com/wiki.warlord",
+		"title": "Сообщество приложения",
+		"description": "Вся информация по игре\nи многое другое",
+		"action": "Вступить",
+		"icon": "main/label_2.png"
+	}, {
+		"link": "https://vk.com/club125247255",
+		"title": "События Warlord",
+		"description": "Новости игры, энергия\nи многое другое",
+		"action": "Вступить",
+		"icon": "main/label_5.png"
+	}, {
+		"link": "https://vk.com/club133931816",
+		"title": "Конституционный Cуд",
+		"description": "Вас кинули? Обманули?\nВам некуда податься?",
+		"action": "Сообщить",
+		"icon": "main/label_4.png"
+	}, {
+		"link": "https://vk.com/club122851042",
+		"title": "Сообщество игры",
+		"description": "Официальное сообщество\nс розыгрышами призов",
+		"action": "Вступить",
+		"icon": "main/label_3.png"
+	}]
+}

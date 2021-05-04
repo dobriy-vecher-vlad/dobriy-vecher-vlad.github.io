@@ -1,7 +1,7 @@
-body {
+body, .ModalPage__content {
 	overflow-y: overlay;
 }
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	width: 0;
 }
 .Placeholder__icon:first-child:last-child {
@@ -39,8 +39,11 @@ body::-webkit-scrollbar {
 .CardWithAvatar .Avatar__in {
 	border-radius: 0!important;
 }
-.CardWithAvatar .vkuiAvatar__shadow {
+.CardWithAvatar.Card--android .Avatar__shadow {
 	border-radius: 8px 0 0 8px;
+}
+.CardWithAvatar.Card--ios .Avatar__shadow {
+	border-radius: 10px 0 0 10px;
 }
 .CardWithAvatar .vkuiText {
 	font-weight: 500;
@@ -171,7 +174,7 @@ body::-webkit-scrollbar {
 	height: 100%;
 	display: block;
 	position: absolute;
-	background: linear-gradient(0deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 100%);
+	background: linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%);
 	z-index: 1;
 }
 .BannerWiki .vkuiCell {
@@ -202,7 +205,10 @@ body::-webkit-scrollbar {
 	-webkit-backdrop-filter: blur(10px);
 }
 .BannerWiki:not(.Form) .vkuiSimpleCell {
-	padding-top: 50%;
+	padding-top: 40%;
+}
+.CardGrid--s:not(.size-x4) .BannerWiki:not(.Form) .vkuiSimpleCell {
+	padding-top: 30%;
 }
 .BannerWiki .vkuiText, .BannerWiki .vkuiTitle, .BannerWiki .vkuiHeadline {
 	color: white!important;
@@ -225,6 +231,12 @@ body::-webkit-scrollbar {
 	background-position: center;
 	position: relative;
 }
+.HeadBannerWiki.toLeft .LabelBannerWiki {
+	background-position: right;
+}
+.HeadBannerWiki.toRight .LabelBannerWiki {
+	background-position: left;
+}
 .HeadBannerWiki.toLeft {
 	text-align: left;
 }
@@ -234,6 +246,9 @@ body::-webkit-scrollbar {
 .HeadBannerWiki.toRight .vkuiBanner__actions >.vkuiButton {
 	margin-left: 16px;
 	margin-right: 0!important;
+}
+.HeadBannerWiki .Banner__subheader {
+	white-space: pre;
 }
 .Tabs {
 	margin: 0!important;
@@ -325,6 +340,59 @@ body::-webkit-scrollbar {
 }
 
 
+.CardsNews .vkuiLink {
+	color: var(--text_primary);
+}
+.CardsNews .vkuiCard {
+	/* background: transparent; */
+}
+.CardsNews .Link {
+	width: 100%;
+}
+.CardsNews .HorizontalCell {
+	display: block;
+}
+.CardsNews .HorizontalCell::before, .CardsNews .HorizontalCell::after {
+	content: none;
+}
+.CardsNews .HorizontalCell__image {
+	padding: 0;
+	display: block;
+}
+.CardsNews .Avatar__img {
+    background-size: cover;
+    background-position: center;
+}
+.CardsNews .HorizontalCell__content {
+	padding: 8px;
+}
+.CardsNews .Avatar__in {
+	width: auto!important;
+}
+.CardsNews .HorizontalCell__title, .CardsNews .HorizontalCell__subtitle {
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.GalleryBanners .Gallery__slide:not(:last-child) {
+	padding-right: 8px;
+}
+
+.BannerWiki .Text span, .BannerWiki .Title span {
+	display: block;
+	text-overflow: ellipsis;
+    overflow: hidden;
+	font-size: 12px;
+	opacity: .5;
+}
+
+.CardsNews .Avatar--ios .Avatar__in {
+	border-radius: 10px!important;
+}
+
+
+
 @media screen and (orientation: landscape) {
 	.BannerWiki.Scroll {
 		width: 25%!important;
@@ -381,8 +449,12 @@ body::-webkit-scrollbar {
 	.CardWithAvatar .vkuiAvatar:not(.withPreload) {
 		margin-left: -16px;
 	}
-	.CardWithAvatar:not(.ForInput) .cardAvatar {
+	.CardWithAvatar.Card--android:not(.ForInput) .cardAvatar {
 		margin-left: -16px;
+		padding-right: 12px;
+	}
+	.CardWithAvatar.Card--ios:not(.ForInput) .cardAvatar {
+		margin-left: -12px;
 		padding-right: 12px;
 	}
 	.CardWithAvatar.ForInput .SimpleCell__main {
@@ -425,6 +497,21 @@ body::-webkit-scrollbar {
 		padding: 0!important;
 		margin: 0!important;
 	}
+
+	.HeaderFix .PanelHeader__in {
+		height: 38px;
+	}
+	.HeaderFix .PanelHeader__content-in {
+		line-height: normal;
+	}
+	.HeaderFix .Separator__in {
+		height: 1px;
+		background: currentColor;
+		margin: 7px -7px!important;
+	}
+	.SplitCol--spaced {
+		margin: 0 0 0 16px;
+	}
 }
 @media screen and (orientation: portrait) {
 	.GradientBannerWiki {
@@ -438,8 +525,11 @@ body::-webkit-scrollbar {
 	.BannerWiki .vkuiSimpleCell {
 		min-height: auto;
 	}
+	.BannerWiki:not(.Form):not(.Scroll) .vkuiSimpleCell {
+		padding-top: 50%!important;
+	}
 	.vkuiCardGrid--m .BannerWiki:not(.Form) .vkuiSimpleCell {
-		padding-top: 75%;
+		padding-top: 35%!important;
 	}
 	.GradientBannerWiki {
 		margin: 0 -7px!important;
@@ -531,5 +621,17 @@ body::-webkit-scrollbar {
 
 	.Section .CardGrid, .Section .Banner {
 		padding: 0!important;
+	}
+	
+	.GalleryBanners .Gallery__slide {
+		width: calc(100% - 16px);
+		padding-right: 8px;
+	}
+	.GalleryBanners .Gallery__slide:last-child {
+		padding-right: 16px;
+	}
+
+	.BannerWiki .Text span, .BannerWiki .Title span {
+		font-size: 14px;
 	}
 }

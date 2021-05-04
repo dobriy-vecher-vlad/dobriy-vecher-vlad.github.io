@@ -1,8 +1,7 @@
 {
   "name": "kvok",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "./",
+  "homepage": "http://./",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10888 HTTPS=true react-scripts start",
@@ -44,5 +43,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": ""
 }

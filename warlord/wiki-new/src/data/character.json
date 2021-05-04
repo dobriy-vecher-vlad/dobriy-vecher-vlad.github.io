@@ -776,111 +776,111 @@
 		"icon": "character/background_6.png"
 	}],
 	"avatars": [{
-		"title": "Название",
+		"title": "Женщина-орк",
 		"description": "Описание",
 		"icon": "character/avatar_2.png"
 	}, {
-		"title": "Название",
+		"title": "Мужчина-орк",
 		"description": "Описание",
 		"icon": "character/avatar_3.png"
 	}, {
-		"title": "Название",
+		"title": "Женщина",
 		"description": "Описание",
 		"icon": "character/avatar_4.png"
 	}, {
-		"title": "Название",
+		"title": "Мужчина",
 		"description": "Описание",
 		"icon": "character/avatar_6.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_7.png"
 	}, {
-		"title": "Название",
+		"title": "Женщина",
 		"description": "Описание",
 		"icon": "character/avatar_14.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_17.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_25.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_26.png"
 	}, {
-		"title": "Название",
+		"title": "Гном",
 		"description": "Описание",
 		"icon": "character/avatar_27.png"
 	}, {
-		"title": "Название",
+		"title": "Скелет",
 		"description": "Описание",
 		"icon": "character/avatar_1.png"
 	}, {
-		"title": "Название",
+		"title": "Женщина",
 		"description": "Описание",
 		"icon": "character/avatar_5.png"
 	}, {
-		"title": "Название",
+		"title": "Мужчина",
 		"description": "Описание",
 		"icon": "character/avatar_8.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_9.png"
 	}, {
-		"title": "Название",
+		"title": "Рыцарь",
 		"description": "Описание",
 		"icon": "character/avatar_10.png"
 	}, {
-		"title": "Название",
+		"title": "Гном",
 		"description": "Описание",
 		"icon": "character/avatar_11.png"
 	}, {
-		"title": "Название",
+		"title": "Гном",
 		"description": "Описание",
 		"icon": "character/avatar_12.png"
 	}, {
-		"title": "Название",
+		"title": "Женщина",
 		"description": "Описание",
 		"icon": "character/avatar_13.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_15.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_16.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_18.png"
 	}, {
-		"title": "Название",
+		"title": "Рыцарь",
 		"description": "Описание",
-		"icon": "character/avatar_10.png"
+		"icon": "character/avatar_19.png"
 	}, {
-		"title": "Название",
+		"title": "Мужчина",
 		"description": "Описание",
 		"icon": "character/avatar_20.png"
 	}, {
-		"title": "Название",
+		"title": "Гном",
 		"description": "Описание",
 		"icon": "character/avatar_21.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_22.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_23.png"
 	}, {
-		"title": "Название",
+		"title": "Эльф",
 		"description": "Описание",
 		"icon": "character/avatar_24.png"
 	}]
