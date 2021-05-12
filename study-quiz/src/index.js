@@ -31,10 +31,12 @@ import {
 	Card,
 	Snackbar,
 	RichCell,
-	Counter
+	Counter,
+	CardGrid
 } from '@vkontakte/vkui';
 import {
 	Icon16Done,
+	Icon16LikeOutline,
 	Icon16Link,
 	Icon16SadFaceOutline,
 	Icon24ClockOutline,
@@ -52,6 +54,7 @@ import {
 import '@vkontakte/vkui/dist/vkui.css';
 import './style.css';
 
+let isStart = false;
 let answers = [];
 const questions = [
 	{
@@ -138,7 +141,7 @@ const questions = [
 		}
 	}
 ];
-let interests = [
+const interests = [
 	{
 		'head': 'Работа с людьми',
 		'body': `Профессии, связанные с обслуживанием, управлением, воспитанием и обучением\n\nЛюди, успешные в профессиях этой группы, должны уметь и любить общаться, находить общий язык с разными людьми, понимать их настроение, намерения и особенности`
@@ -156,6 +159,56 @@ let interests = [
 		'body': 'Профессии, связанные с расчетами и планированием; делопроизводством, анализом и преобразованием текстов; схематическим изображением объектов\n\nЭти профессии требуют от человека собранности и аккуратности'
 	}
 ];
+const jobs = {
+	'Радиотехнический техникум': [
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Управление качеством продукции, процессов и услуг':'forwork', 'Радиоаппаратостроение':'forwork', 'Прикладная информатика':'forwork', 'Технология металлообрабатывающего производства':'forwork', 'Техническая эксплуатация и обслуживание электрического и электромеханического оборудования':'forwork'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Управление качеством продукции, процессов и услуг':'ПАО «СинтТЗ»<br>УПКБ «Деталь»<br>ОАО «КУЛЗ»<br>...и ещё 15 мест!', 'Прикладная информатика':'forwork'}
+	],
+	'Политехнический колледж': [
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Техническая эксплуатация и обслуживание электрического и электромеханического оборудования':'forwork', 'Монтаж и техническая эксплуатация промышленного оборудования':'forwork', 'Технология машиностроения':'forwork', 'Металлургия цветных металлов':'forwork', 'Обработка металлов давлением':'forwork'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Информационные системы и программирование':'forwork', 'Экономика и бухгалтерский учет':'forwork'}
+	], 
+	'Педагогический колледж': [
+		{'Дошкольное образование':'forwork', 'Коррекционная педагогика в начальном образовании':'forwork', 'Социальная работа':'forwork'}, 
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'}
+	], 
+	'Техникум торговли и сервиса': [
+		{'Правоохранительная деятельность':'forwork', 'Гостиничное дело':'forwork', 'Поварское и кондитерское дело':'forwork', 'Земельно-имущественные отношения':'forwork', 'Гостиничный сервис':'forwork', 'Организация обслуживания в общественном питании':'forwork'}, 
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Строительство и эксплуатация зданий и сооружений':'forwork', 'Организация перевозок и управление на транспорте':'forwork'}, 
+		{'Парикмахерское искусство':'forwork', 'Дизайн':'forwork', 'Гостиничное дело':'forwork', 'Поварское и кондитерское дело':'forwork'}, 
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Информационные системы и программирование':'forwork', 'Технология продукции общественного питания':'forwork', 'Операционная деятельность в логистике':'forwork', 'Коммерция':'forwork', 'Финансы':'forwork', 'Прикладная информатика':'forwork', 'Земельно-имущественные отношения':'forwork', 'Гостиничный сервис':'forwork', 'Экономика и бухгалтерский учет':'forwork'}
+	], 
+	'Агропромышленный техникум': [
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Автомеханик':'forwork', 'Мастер по техническому обслуживанию и ремонту машинно-тракторного парка':'forwork', 'Сварщик ручной и частично механизированной сварки':'forwork', 'Эксплуатация и ремонт сельскохозяйственной техники и оборудования':'forwork', 'Техническое обслуживание и ремонт автомобильного транспорта':'forwork'}, 
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Информационные системы':'forwork'}
+	], 
+	'Областной медицинский колледж': [
+		{'Сестринское дело':'forwork', 'Медико-профилактическое дело':'forwork', 'Лабораторная диагностика':'forwork', 'Социальная работа':'forwork', 'Стоматология ортопедическая':'forwork', 'Лечебное дело':'forwork', 'Акушерское дело':'forwork'}, 
+		{'Лабораторная диагностика':'forwork'}, 
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'},
+		{'Нет подходящих специальностей':'Нет подходящих работ'}
+	]
+};
 const level = [
 	'Нет профессионального интереса',
 	'Нет профессионального интереса',
@@ -237,7 +290,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 	}
 
 	const [activePanel, setPanel] = useState('home');
-	const [popout, setPopout] = useState(null);
+	const [popout, setPopout] = useState(<ScreenSpinner />);
 	const [snackbar, setSnackbar] = useState(null);
 
 	const [isChecked, setIsChecked] = useState(false);
@@ -254,8 +307,16 @@ const App = withAdaptivity(({ viewWidth }) => {
 		return data;
 	};
 	const getActivePanel = async(name, settings) => {
-		setPopout(<ScreenSpinner />);
+		if (name == 'home' && !isStart) {
+			isStart = true;
+			setPopout(<ScreenSpinner />);
+			console.log(name);
+			let dataBridge = await getBridge('VKWebAppGetUserInfo');
+			setUserData({user: dataBridge, result: null});
+			setPopout(null);
+		}
 		if (name == 'myResults') {
+			setPopout(<ScreenSpinner />);
 			let dataBridge;
 			let data;
 			if (settings[0]) {
@@ -364,8 +425,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 			}
 			setUserData({user: dataBridge, result: data});
 			setActivePanel(name);
+			setPopout(null);
 		}
 		if (name == 'lastPassed') {
+			setPopout(<ScreenSpinner />);
 			let data = await fetch("https://kurt-database.000webhostapp.com/for_db.php", {
 				"headers": {
 					"content-type": "application/x-www-form-urlencoded; charset=UTF-8"
@@ -418,8 +481,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 			}
 			setLastScore(users);
 			setActivePanel(name);
+			setPopout(null);
 		}
-		setPopout(null);
 	}
 	const setActivePanel = (name, reset = true) => {
 		setIsChecked(reset ? false : true);
@@ -433,40 +496,63 @@ const App = withAdaptivity(({ viewWidth }) => {
 		setIsChecked(true);
 		answers.splice(answer-1, 1, question);
 	}
+	getActivePanel('home');
 
 	return (
 		<View popout={popout} activePanel={activePanel}>
 			<Panel id="home" className="Flex">
 				<Group>
-					<FormItem>
-						<FormStatus header="Привет!" mode="default">
-							<br/><b>КВОК</b> – это проект по ранней профориентации обучающихся 8-9 классов, студентов и выпускников ОО, который дает возможность выстроить свою карьеру в г. Каменск-Уральский
-							<br/><br/>Этот тест <b>определит</b> твои способности и интересы и поможет в выборе будущей профессии и специальности и дальнейшего трудоустройства
-						</FormStatus>
-					</FormItem>
-					<Banner
-						header={<span style={{marginTop: '10px', display: 'block'}}>Тестирование</span>}
-						subheader={<span style={{marginBottom: '10px', display: 'block'}}>Пройди тестирование и<br/>узнай свои способности</span>}
-						asideMode="expand"
-						onClick={() => setActivePanel('question-1')}
-						className="headBanner headBanner_1"
-					/>
-					<Banner
-						header={<span style={{marginTop: '10px', display: 'block'}}>Мои результаты</span>}
-						subheader={<span style={{marginBottom: '10px', display: 'block'}}>Посмотри свои результаты<br/>последнего тестирования</span>}
-						asideMode="expand"
-						onClick={() => getActivePanel('myResults', [true, true])}
-						className="headBanner headBanner_2"
-					/>
-					<Banner
-						header={<span style={{marginTop: '10px', display: 'block'}}>Недавно прошли</span>}
-						subheader={<span style={{marginBottom: '10px', display: 'block'}}>Узнай кто прошёл<br/>тестирование</span>}
-						asideMode="expand"
-						onClick={() => getActivePanel('lastPassed')}
-						className="headBanner headBanner_3"
-					/>
-					<Footer>© Олег Давыдов, 2020</Footer>
+					{userData && console.log(userData.user)}
+					{userData && userData.user && <React.Fragment>
+						<RichCell className="CenterCell"
+							disabled
+							before={<Avatar size={72} mode="app" src={userData.user.photo_200} />}
+							text={userData.user.city ? `из города ${userData.user.city.title},` : ''}
+							caption="приветствуем тебя в КВОК!"
+						>
+							{userData.user.first_name} {userData.user.last_name},
+						</RichCell>
+					</React.Fragment>}
+					<CardGrid size="m" className="CardForBanners">
+						<Card>
+						<Banner
+							header={<span>Тестирование</span>}
+							subheader={<span>Пройди тестирование и узнай свои способности</span>}
+							asideMode="expand"
+							onClick={() => setActivePanel('question-1')}
+							className="headBanner headBanner_1"
+						/>
+						</Card>
+						<Card>
+						<Banner
+							header={<span>Мои результаты</span>}
+							subheader={<span>Посмотри свои результаты последнего тестирования</span>}
+							asideMode="expand"
+							onClick={() => getActivePanel('myResults', [true, true])}
+							className="headBanner headBanner_2"
+						/>
+						</Card>
+						<Card>
+						<Banner
+							header={<span>Недавно прошли</span>}
+							subheader={<span>Узнай кто прошёл тестирование</span>}
+							asideMode="expand"
+							onClick={() => getActivePanel('lastPassed')}
+							className="headBanner headBanner_3"
+						/>
+						</Card>
+						<Card>
+						<Banner
+							header={<span>Подробнее о проекте</span>}
+							subheader={<span>Возможности и смысл приложения</span>}
+							asideMode="expand"
+							onClick={() => setActivePanel('aboutApp')}
+							className="headBanner headBanner_4"
+						/>
+						</Card>
+					</CardGrid>
 				</Group>
+				<Footer className="Author">Сделано с <Icon16LikeOutline/> <Link href="https://vk.com/xolova" target="_blank">@xolova</Link></Footer>
 				{snackbar}
 			</Panel>
 			{questions && questions.map((data, x) =>
@@ -548,19 +634,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 								</Card>
 							)}
 						</CardScroll>
-						{/* <Spacing separator size={24} />
+						<Spacing separator size={24} />
 						<Header subtitle="Заведения подобраны по вашим интересам">Куда можно поступить?</Header>
-						<Gallery
-							slideWidth="50%"
-							align="center"
-							style={{ height: 150 }}
-							bullets="dark"
-							showArrows
-						>
-							<div style={{ backgroundColor: 'var(--destructive)' }} />
-							<div style={{ backgroundColor: 'var(--button_commerce_background)' }} />
-							<div style={{ backgroundColor: 'var(--accent)' }} />
-						</Gallery> */}
+						<CardScroll className="vkuiCardScroll--b">
+							{Object.keys(jobs).map((title, count) => 
+								Object.keys(Object.values(jobs)[count][userData.result.score[0].index]).map((name, x) =>
+									<Card key={x} className="card">
+										<Avatar className={`myAvatar_${count+1} House`} size={72} shadow={false}></Avatar>
+										<span className="slider-card__title" style={{width: '100%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{name}</span>
+										<Spacing separator size={48} />
+										<span className="slider-card__text">Тут должно быть описание работы, но его забыли придумать</span>
+										<br/><span className="slider-card__text">{title}</span>
+									</Card>
+								)
+							)}
+						</CardScroll>
 						<Spacing size={12} />
 					</Group>}
 				</Group>}
@@ -603,6 +691,26 @@ const App = withAdaptivity(({ viewWidth }) => {
 					{lastScore.total-lastScore.users.length > 0 && <Footer>И ещё {lastScore.total-lastScore.users.length} {numberForm(lastScore.total-lastScore.users.length, ['человек', 'человека', 'человек'])}</Footer>}
 					</Group>
 				</Group>}
+			</Panel>
+			<Panel id="aboutApp">
+				<PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('home')}/>}>
+					Подробнее о проекте
+				</PanelHeader>
+				<Group>
+					<FormItem>
+						<FormStatus header="Привет, это – КВОК" mode="default">
+							<br/><b>КВОК</b> – это проект по ранней профориентации обучающихся 8-9 классов, студентов и выпускников ОО, который дает возможность выстроить свою карьеру в г. Каменск-Уральский
+							<br/><br/>Этот тест <b>определит</b> твои способности и интересы и поможет в выборе будущей профессии и специальности и дальнейшего трудоустройства
+						</FormStatus>
+					</FormItem>
+					<FormItem>
+						<FormStatus header="О проекте" mode="default">
+							<br/>Данное приложение является дипломной работой для Радиотехнического техникума
+							<br/><br/>Ученики школ и студенты любых заведений с лёгкостью могут пройти тестирование за 5 минут и получить результат, который им покажет их профессиональную наклонность
+							<br/><br/>Исходя из результатов уже можно понять, на какую работу можно устроиться, и где на неё выучиться
+						</FormStatus>
+					</FormItem>
+				</Group>
 			</Panel>
 		</View>
 	);

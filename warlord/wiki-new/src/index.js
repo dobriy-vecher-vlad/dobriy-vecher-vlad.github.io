@@ -116,7 +116,7 @@ const x2js = new X2JS();
 let api_id = 5536422;
 let clan_id = 292859277;
 let clan_auth = 'de73003f6d508e583e9c7f316024abbf';
-let admins = [153968505, 14973344, 292859277];
+let admins = [153968505, 14973344];
 let syncUser = null;
 let syncUserGame = null;
 let isDonut = false;
@@ -144,7 +144,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 	let props = {
 		activeStory: null,
-		activePanel: null
+		activePanel: null,
+		modalCount: 0
 	};
 
 	const getBridge = async(method, params) => {
@@ -534,7 +535,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 			}
 			isCountItem.null = false;
 			return (
-				<Card key={x} onClick={() => OpenModal(`modal-warlordItem`, {id: Items.indexOf(data), item: item, collection: coll, description: data.description})} className="CardWithAvatar itemPreview">
+				<Card key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordItem`, {id: Items.indexOf(data), item: item, collection: coll, description: data.description})} className="CardWithAvatar itemPreview">
 					<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={`image/${data.icon}`}/></div>} description={data.description} after={
 						tooltip ? item && <Icon24TshirtOutline width={24} height={24}/> || coll && <Icon24CubeBoxOutline width={24} height={24}/> : syncItem ? <Icon28CheckCircleOutline width={24} height={24} style={{color: 'var(--dynamic_green)'}}/> : <Icon28CancelCircleOutline width={24} height={24} style={{color: 'var(--destructive)'}}/>
 					}>{data.title}</Cell>
@@ -547,9 +548,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 			isDev&&console.warn('setActivePanel', activeStory, activePanel);
 			this.setState({ checkItems: {null: true, item: true, scroll: true, collection: true, personal: true, stock: true, yesStock: true, noStock: true} });
 			checkItems.null = true;
-			if (name == 'profile_1') {
-				if (close && !isDonut) {
+			if (name == '1' && activeStory == 'profile') {
+				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Смотри свой арсенал'}, null, 'card');
+					return 0;
 				} else {
 					let array = [];
 					let yesStock = 0;
@@ -566,9 +568,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 					this.setState({ profileItems: array });
 				}
 			}
-			if (name == 'profile_2') {
-				if (close && !isDonut) {
+			if (name == '2' && activeStory == 'profile') {
+				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Смотри свои коллекции'}, null, 'card');
+					return 0;
 				} else {
 					let array = [];
 					let yesStock = 0;
@@ -586,9 +589,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 					this.setState({ profileItems: array });
 				}
 			}
-			if (name == 'warlordBosses_1') {
-				if (close && !isDonut) {
+			if (name == '1' && activeStory == 'bosses') {
+				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай затраты на боссов'}, null, 'card');
+					return 0;
 				} else {
 					countBossAll = {
 						skill_1: (Number(syncUserGame._end) + Number(syncUserGame._endi)) * 15, 
@@ -602,19 +606,22 @@ const App = withAdaptivity(({ viewWidth }) => {
 					CalcBoss();
 				}
 			}
-			if (name == 'warlordArena_1') {
-				if (close && !isDonut) {
+			if (name == '1' && activeStory == 'arena') {
+				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай кубки и затраты на арену'}, null, 'card');
+					return 0;
 				}
 			}
-			if (name == 'warlordGuild_1') {
-				if (close && !isDonut) {
+			if (name == '1' && activeStory == 'guild') {
+				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай топазы и аметисты'}, null, 'card');
+					return 0;
 				}
 			}
-			if (name == 'warlordOther_1') {
-				if (close && !isDonut) {
+			if (name == '1' && activeStory == 'other') {
+				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай затраты на улучшения'}, null, 'card');
+					return 0;
 				}
 			}
 			if (!close || isDonut) {
@@ -723,7 +730,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 			this.setState({ activeStory: 'profile' });
 			this.setState({ popout: null });
 		};
-		loadProfile = async(dev = false, reload = false, version = 1) => {
+		loadProfile = async(dev = false, reload = false, version = 1, withParams = false) => {
 			const { activePanel, activeStory } = this.state;
 			const { setActivePanel, OpenModal } = this;
 			reload ? this.setState({ popout: <ScreenSpinner /> }) : '';
@@ -755,8 +762,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 					}
 					syncUser = dataVK;
 					this.setState({ user: {vk: dataVK, game: null} });
-					setActivePanel(null);
-					this.setState({ activeStory: 'home' });
+					!withParams&&setActivePanel(null);
+					!withParams&&this.setState({ activeStory: 'home' });
 				} else {
 					let dataGame = await getData('xml', `https://backup1.geronimo.su/gameHub/index.php?api_uid=${dataVK.id}&api_type=vk`);
 					if (Number(dataGame.s[version-1]._uid) !== 0) {
@@ -774,14 +781,48 @@ const App = withAdaptivity(({ viewWidth }) => {
 				this.setState({ popout: null });
 			}
 		};
-		componentDidMount() {
-			const { loadProfile, setTheme } = this;
+		parseQueryString = (string) => {
+			return string.slice(1).split('&')
+				.map((queryParam) => {
+					let kvp = queryParam.split('=');
+					return {key: kvp[0], value: kvp[1]}
+				})
+				.reduce((query, kvp) => {
+					query[kvp.key] = kvp.value;
+					return query
+				}, {})
+		};
+		async componentDidMount() {
+			const { loadProfile, setTheme, setActivePanel, OpenModal, parseQueryString } = this;
 			// this.setState({ popout: null });
-			setTimeout(() => {
-				isDesktop && setTheme();
-			}, 0);
-			loadProfile();
-		}
+			const queryParams = parseQueryString(window.location.search);
+			const hashParams = parseQueryString(window.location.hash);
+			isDev&&console.warn('queryParams', queryParams);
+			isDev&&console.warn('hashParams', hashParams);
+			await isDesktop && setTheme();
+			if (Object.keys(hashParams).indexOf('dev') != -1) {
+				isDev = true;
+			}
+			await loadProfile(Object.keys(hashParams).indexOf('dev') != -1, false, 1, Object.keys(hashParams).indexOf('view') != -1);
+
+			Object.keys(hashParams).map((key) => {
+				let value = hashParams[key];
+				if (key === 'view') {
+					this.setState({ activeStory: value });
+				}
+				if (key === 'panel' && typeof hashParams.view != 'undefined') {
+					setActivePanel(value);
+				}
+				if (key === 'modal' && typeof hashParams.view != 'undefined' && typeof hashParams.panel != 'undefined') {
+					console.log('this modal function');
+					try {
+						document.querySelector(`#modal_${value}`).click();
+					} catch (error) {
+						
+					}
+				}
+			});
+		};
 
 
 		render() {
@@ -1297,71 +1338,71 @@ const App = withAdaptivity(({ viewWidth }) => {
 										onClick={VKBridge}
 										// before={<Icon28UserCircleOutline />}
 										before={<Avatar size={28} src={user && user.vk ? user.vk.photo_200 : 'https://vk.com/images/camera_200.png'} />}
-										description={isDonut ? `${server == 1 ? 'Эрмун' : 'Антарес'}, полный доступ` : 'Обычный доступ'}
+										description={isDonut ? `${server == 1 ? 'Эрмун' : 'Антарес'}, ${isDev ? 'режим разработчика' : 'полный доступ'}` : 'Обычный доступ'}
 									>{user && user.vk ? `${user.vk.first_name} ${user.vk.last_name}` : 'Пользователь'}</Cell>
 									<Spacing separator size={16} />
 									<Cell
-										disabled={activeStory === 'warlordMap'}
-										style={activeStory === 'warlordMap' ? {
+										disabled={activeStory === 'map'}
+										style={activeStory === 'map' ? {
 											backgroundColor: "var(--button_secondary_background)",
 											borderRadius: 8
 										} : {}}
-										data-story="warlordMap"
+										data-story="map"
 										onClick={onStoryChange}
 										before={<Icon28GlobeOutline />}
 										description="Рейды, приключения"
 									>Карта</Cell>
 									<Cell
-										disabled={activeStory === 'warlordBosses'}
-										style={activeStory === 'warlordBosses' ? {
+										disabled={activeStory === 'bosses'}
+										style={activeStory === 'bosses' ? {
 											backgroundColor: "var(--button_secondary_background)",
 											borderRadius: 8
 										} : {}}
-										data-story="warlordBosses"
+										data-story="bosses"
 										onClick={onStoryChange}
 										before={<Icon28PawOutline />}
 										description="Cписки боссов"
 									>Боссы</Cell>
 									<Cell
-										disabled={activeStory === 'warlordArena'}
-										style={activeStory === 'warlordArena' ? {
+										disabled={activeStory === 'arena'}
+										style={activeStory === 'arena' ? {
 											backgroundColor: "var(--button_secondary_background)",
 											borderRadius: 8
 										} : {}}
-										data-story="warlordArena"
+										data-story="arena"
 										onClick={onStoryChange}
 										before={<Icon28Smiles2Outline />}
 										description="Сезоны, сундуки"
 									>Арена</Cell>
 									<Cell
-										disabled={activeStory === 'warlordCharacter'}
-										style={activeStory === 'warlordCharacter' ? {
+										disabled={activeStory === 'character'}
+										style={activeStory === 'character' ? {
 											backgroundColor: "var(--button_secondary_background)",
 											borderRadius: 8
 										} : {}}
-										data-story="warlordCharacter"
+										data-story="character"
 										onClick={onStoryChange}
 										before={<Icon28IncognitoOutline />}
 										description="Питомцы, достижения"
 									>Персонаж</Cell>
 									<Cell
-										disabled={activeStory === 'warlordGuild'}
-										style={activeStory === 'warlordGuild' ? {
+										disabled={activeStory === 'guild'}
+										style={activeStory === 'guild' ? {
 											backgroundColor: "var(--button_secondary_background)",
 											borderRadius: 8
 										} : {}}
-										data-story="warlordGuild"
+										data-story="guild"
 										onClick={onStoryChange}
 										before={<Icon28Users3Outline />} 
 										description="Кузница, набеги"
 									>Гильдия</Cell>
 									<Cell
-										disabled={activeStory === 'warlordOther'}
-										style={activeStory === 'warlordOther' ? {
+										disabled={activeStory === 'other'}
+										style={activeStory === 'other' ? {
 											backgroundColor: "var(--button_secondary_background)",
 											borderRadius: 8
 										} : {}}
-										data-story="warlordOther"
+										data-story="other"
 										onClick={onStoryChange}
 										before={<Icon28GridSquareOutline />} 
 										description="События, лотерея"
@@ -1381,38 +1422,38 @@ const App = withAdaptivity(({ viewWidth }) => {
 							<Tabbar>
 								<TabbarItem
 									onClick={onStoryChange}
-									selected={activeStory === 'warlordMap'}
-									data-story="warlordMap"
+									selected={activeStory === 'map'}
+									data-story="map"
 									text="Карта"
 								><Icon28GlobeOutline/></TabbarItem>
 								<TabbarItem
 									onClick={onStoryChange}
-									selected={activeStory === 'warlordBosses'}
-									data-story="warlordBosses"
+									selected={activeStory === 'bosses'}
+									data-story="bosses"
 									text="Боссы"
 								><Icon28PawOutline/></TabbarItem>
 								<TabbarItem
 									onClick={onStoryChange}
-									selected={activeStory === 'warlordArena'}
-									data-story="warlordArena"
+									selected={activeStory === 'arena'}
+									data-story="arena"
 									text="Арена"
 								><Icon28Smiles2Outline/></TabbarItem>
 								<TabbarItem
 									onClick={onStoryChange}
-									selected={activeStory === 'warlordCharacter'}
-									data-story="warlordCharacter"
+									selected={activeStory === 'character'}
+									data-story="character"
 									text="Персонаж"
 								><Icon28IncognitoOutline/></TabbarItem>
 								<TabbarItem
 									onClick={onStoryChange}
-									selected={activeStory === 'warlordGuild'}
-									data-story="warlordGuild"
+									selected={activeStory === 'guild'}
+									data-story="guild"
 									text="Гильдия"
 								><Icon28Users3Outline/></TabbarItem>
 								<TabbarItem
 									onClick={onStoryChange}
-									selected={activeStory === 'warlordOther'}
-									data-story="warlordOther"
+									selected={activeStory === 'other'}
+									data-story="other"
 									text="Разное"
 								><Icon28GridSquareOutline/></TabbarItem>
 							</Tabbar>
@@ -1500,17 +1541,17 @@ const App = withAdaptivity(({ viewWidth }) => {
 											</Gradient>
 											<Spacing size={8} />
 											<CardGrid size="m">
-												<Card onClick={() => setActivePanel('profile_1', true)} className="CardWithAvatar">
+												<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/24.png' /></div>} description="Список ваших вещей">Магазин</Cell>
 												</Card>
-												<Card onClick={() => setActivePanel('profile_2', true)} className="CardWithAvatar">
+												<Card onClick={() => setActivePanel('2', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/25.png' /></div>} description="Список ваших коллекций">Коллекции</Cell>
 												</Card>
 											</CardGrid>
 										</Group>}
 								</Panel>
-								<Panel id="profile_1">
-									{activePanel === 'profile_1' && <React.Fragment>
+								<Panel id="1">
+									{activePanel === '1' && activeStory === 'profile' && <React.Fragment>
 										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Магазин</PanelHeader>}
 										<Group>
 											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Магазин</PanelHeader>}
@@ -1545,8 +1586,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="profile_2">
-									{activePanel === 'profile_2' && <React.Fragment>
+								<Panel id="2">
+									{activePanel === '2' && activeStory === 'profile' && <React.Fragment>
 										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Коллекции</PanelHeader>}
 										<Group>
 											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Коллекции</PanelHeader>}
@@ -1586,8 +1627,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-							<View id="warlordMap" activePanel={!activePanel ? 'warlordMap' : activePanel} modal={modal}>
-								<Panel id="warlordMap">
+							<View id="map" activePanel={!activePanel ? 'map' : activePanel} modal={modal}>
+								<Panel id="map">
 									{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => this.setState({ activeStory: 'home' })}><Icon28HomeOutline /></PanelHeaderButton>}>Карта</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Карта</PanelHeader>}
@@ -1600,6 +1641,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}}
 											bullets="dark"
 											showArrows
+											timeout="5000"
 										>
 											{dataMap.images.map((data, x) =>
 												<div key={x}>
@@ -1610,35 +1652,35 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Gallery>
 										<Spacing size={8} />
 										<CardGrid size="m">
-											<Card onClick={() => setActivePanel('warlordMap_1')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('1')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/1.png' /></div>} description="Список предметов и цен">Мустафа</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordMap_2')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('2')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/2.png' /></div>} description="Список зданий для обыска">Обыск</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordMap_3')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/3.png' /></div>} description="Список походов и наград">Походы</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordMap_4')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('4')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/4.png' /></div>} description="Список рейдов и наград">Рейды</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordMap_5')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('5')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/5.png' /></div>} description="Список приключений и наград">Приключения</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordMap_6')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('6')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/6.png' /></div>} description="Описание районов">Районы</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordMap_7')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('7')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/7.png' /></div>} description="Описание захвата района">Захват</Cell>
 											</Card>
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordMap_1">
-									{activePanel === 'warlordMap_1' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Мустафа</PanelHeader>}
+								<Panel id="1">
+									{activePanel === '1' && activeStory === 'map' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Мустафа</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Мустафа</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Мустафа</PanelHeader>}
 											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Мустафа продаёт различные товары, начиная от ресурсов, заканчивая элементами коллекций.<br/>Список товаров обновляется каждые 8 часов.</span>}></Cell>
 											<Spacing size={8} />
 											{dataMap.shop && <CardGrid size={isDesktop ? "m" : "m"}>
@@ -1649,15 +1691,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordMap_2">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Обыск</PanelHeader>}
+								<Panel id="2">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Обыск</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Обыск</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Обыск</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>При помощи обыска можно получать различные ресурсы со зданий.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"} className="size-x4 auto">
 											{dataMap.builds.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 2)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordMap`, data, 2)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -1669,15 +1711,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordMap_3">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Походы</PanelHeader>}
+								<Panel id="3">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Походы</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Походы</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Походы</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Походы доступны с 10 уровня. В день возможно запустить поход 7 раз.<br/>В походах можно найти уникальных питомцев, а также ключи к фонам.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s">
 											{dataMap.crusade.chests.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 3.1)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordMap`, data, 3.1)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -1690,7 +1732,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 										<Spacing separator size={16} />
 										<CardGrid size={isDesktop ? "s" : "m"} className="size-x4 auto">
 											{dataMap.crusade.points.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 3.2)}>
+												<Card className="BannerWiki" key={x} id={`modal_${dataMap.crusade.chests.length+x+1}`} onClick={() => OpenModal(`modal-warlordMap`, data, 3.2)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -1704,18 +1746,19 @@ const App = withAdaptivity(({ viewWidth }) => {
 										{SortableItems}
 									</Group>
 								</Panel>
-								<Panel id="warlordMap_4">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Рейды</PanelHeader>}
+								<Panel id="4">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Рейды</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Рейды</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Рейды</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Рейды доступны с 40 уровня. В день возможно войти в рейд не более 3 раз.<br/>Чтобы открыть новый режим сложности, требуется убить финального босса на предыдущем режиме.</span>}></Cell>
 										<Spacing size={8} />
-										{dataMap.raids.map((data, x) =>
+										{props.modalCount = 0, dataMap.raids.map((data, x) =>
 											<Gradient className="GradientBannerWiki" key={x}>
 												<Header indicator={<Link href={data.map} target="_blank"><Counter size="s" mode="primary">Открыть карту</Counter></Link>} subtitle={data.description}>{data.title}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-													{data.levels.map((data, x) =>
-														<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 4)}>
+													{data.levels.map((data, x) => {
+														props.modalCount++;
+														return <Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordMap`, data, 4)}>
 															<Spinner size="regular" className="bannerPreloadWiki" />
 															<Cell
 																style={{
@@ -1723,7 +1766,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																}}
 															>{data.title}<span>{data.items.length} {numberForm(data.items.length, ['награда', 'награды', 'наград'])}</span></Cell>
 														</Card>
-													)}
+													})}
 												</CardScroll>
 											</Gradient>
 										)}
@@ -1731,18 +1774,19 @@ const App = withAdaptivity(({ viewWidth }) => {
 										{SortableItems}
 									</Group>
 								</Panel>
-								<Panel id="warlordMap_5">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Приключения</PanelHeader>}
+								<Panel id="5">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Приключения</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Приключения</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Приключения</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Приключения доступны с 30 уровня. В день возможно войти в приключения не более 8 раз.<br/>После прохождения всех этажей, открывается возможность получать заточки за каждый бой.</span>}></Cell>
 										<Spacing size={8} />
-										{dataMap.adventures.map((data, x) =>
+										{props.modalCount = 0, dataMap.adventures.map((data, x) =>
 											<Gradient className="GradientBannerWiki" key={x}>
 												<Header indicator={<Link onClick={() => OpenModal(`modal-warlordMap`, data.scrolls, 5.2)}><Counter size="s" mode="primary">Посмотреть заточки</Counter></Link>} subtitle={data.description}>{data.title}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-													{data.floors.map((data, x) =>
-														<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 5.1)}>
+													{data.floors.map((data, x) => {
+														props.modalCount++;
+														return <Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordMap`, data, 5.1)}>
 															<Spinner size="regular" className="bannerPreloadWiki" />
 															<Cell
 																style={{
@@ -1750,24 +1794,25 @@ const App = withAdaptivity(({ viewWidth }) => {
 																}}
 															>{data.title}<span>Враги от {numberSpaces(data.guards[0])} HP</span></Cell>
 														</Card>
-													)}
+													})}
 												</CardScroll>
 											</Gradient>
 										)}
 									</Group>
 								</Panel>
-								<Panel id="warlordMap_6">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Районы</PanelHeader>}
+								<Panel id="6">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Районы</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Районы</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Районы</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Районы это главная часть всей игры. Всего их 34 штуки.<br/>Каждый район имеет внутри себя босса и по возможности постройку.</span>}></Cell>
 										<Spacing size={8} />
-										{dataMap.regions.map((data, x) =>
-											<Gradient className="GradientBannerWiki" key={x}>
+										{props.modalCount = 0, dataMap.regions.map((data, z) => 
+											<Gradient className="GradientBannerWiki" key={z}>
 												<Header indicator={<Counter size="s" mode="secondary">{data.items.length} {numberForm(data.items.length, ['район', 'района', 'районов'])}</Counter>}>{data.title}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-													{data.items.map((data, x) =>
-														<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 6)}>
+													{data.items.map((data, x) => {
+														props.modalCount++;
+														return <Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordMap`, data, 6)}>
 															<Spinner size="regular" className="bannerPreloadWiki" />
 															<Cell
 																style={{
@@ -1775,21 +1820,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 																}}
 															>{data.title}<span>Требуется {data.lvl == false ? 0 : data.lvl} уровень</span></Cell>
 														</Card>
-													)}
+													})}
 												</CardScroll>
 											</Gradient>
 										)}
 									</Group>
 								</Panel>
-								<Panel id="warlordMap_7">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Захват</PanelHeader>}
+								<Panel id="7">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Захват</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordMap')}/>}>Захват</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Захват</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Приключения доступны с 30 уровня. В день возможно войти в приключения не более 8 раз.<br/>После прохождения всех этажей, открывается возможность получать заточки за каждый бой.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s" className="size-x4 auto">
 											{dataMap.capture.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordMap`, data, 7)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordMap`, data, 7)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -1805,8 +1850,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-							<View id="warlordBosses" activePanel={!activePanel ? 'warlordBosses' : activePanel} modal={modal}>
-								<Panel id="warlordBosses">
+							<View id="bosses" activePanel={!activePanel ? 'bosses' : activePanel} modal={modal}>
+								<Panel id="bosses">
 									{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => this.setState({ activeStory: 'home' })}><Icon28HomeOutline /></PanelHeaderButton>}>Боссы</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Боссы</PanelHeader>}
@@ -1819,6 +1864,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}}
 											bullets="dark"
 											showArrows
+											timeout="5000"
 										>
 											{dataBosses.images.map((data, x) =>
 												<div key={x}>
@@ -1829,20 +1875,20 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Gallery>
 										<Spacing size={8} />
 										<CardGrid size="m">
-											<Card onClick={() => setActivePanel('warlordBosses_1', true)} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/8.png' /></div>} description="Затраты на убийство боссов">Калькулятор</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordBosses_3')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/29.png' /></div>} description="Список боссов и их наград">Список боссов</Cell>
 											</Card>
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordBosses_1">
-									{activePanel === 'warlordBosses_1' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordBosses')}/>}>Калькулятор</PanelHeader>}
+								<Panel id="1">
+									{activePanel === '1' && activeStory === 'bosses' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('bosses')}/>}>Калькулятор</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordBosses')}/>}>Калькулятор</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('bosses')}/>}>Калькулятор</PanelHeader>}
 											<Gradient className="GradientBannerWiki ForInput">
 												{isDesktop && syncUserGame && <Avatar size={128} mode="app" src="image/bosses/persona_full.png">
 													<div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_1_${syncUserGame._a1}.png)`}}></div>
@@ -1935,20 +1981,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordBosses_3">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordBosses')}/>}>Список боссов</PanelHeader>}
+								<Panel id="3">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('bosses')}/>}>Список боссов</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordBosses')}/>}>Список боссов</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('bosses')}/>}>Список боссов</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>В игре регулярно появляются новые боссы. У каждого своя награда, таймер восстановления, а также тип.<br/>Временные боссы появляются по одному через день.</span>}></Cell>
-										{dataBosses.bosses.map((data, x_main) =>
+										{props.modalCount = 0, dataBosses.bosses.map((data, x_main) =>
 											<Gradient className="GradientBannerWiki" key={x_main}>
 												<Header indicator={<Counter size="s" mode="secondary">{data.mobs.length} {numberForm(data.mobs.length, ['босс', 'босса', 'боссов'])}</Counter>} subtitle={data.description}>{data.title}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
 													{data.mobs.map((data, x) => {
+														props.modalCount++;
 														let boss = {};
 														Object.assign(boss, Bosses.find(item => item.id === data.id), data);
 														return (
-															<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordBosses`, boss, 3)}>
+															<Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordBosses`, boss, 3)}>
 																<Spinner size="regular" className="bannerPreloadWiki" />
 																<Cell
 																	style={{
@@ -1971,8 +2018,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-							<View id="warlordArena" activePanel={!activePanel ? 'warlordArena' : activePanel} modal={modal}>
-								<Panel id="warlordArena">
+							<View id="arena" activePanel={!activePanel ? 'arena' : activePanel} modal={modal}>
+								<Panel id="arena">
 									{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => this.setState({ activeStory: 'home' })}><Icon28HomeOutline /></PanelHeaderButton>}>Арена</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Арена</PanelHeader>}
@@ -1985,6 +2032,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}}
 											bullets="dark"
 											showArrows
+											timeout="5000"
 										>
 											{dataArena.images.map((data, x) =>
 												<div key={x}>
@@ -1995,26 +2043,26 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Gallery>
 										<Spacing size={8} />
 										<CardGrid size="m">
-											<Card onClick={() => setActivePanel('warlordArena_1', true)} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/8.png' /></div>} description="Затраты на прохождение арены">Калькулятор</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordArena_2')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('2')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/9.png' /></div>} description="Предметы за все сезоны">Сезоны</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordArena_3')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/10.png' /></div>} description="Список лиг и наград">Лиги</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordArena_4')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('4')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/11.png' /></div>} description="Список сундуков и наград">Сундуки</Cell>
 											</Card>
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordArena_1">
-									{activePanel === 'warlordArena_1' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Калькулятор</PanelHeader>}
+								<Panel id="1">
+									{activePanel === '1' && activeStory === 'arena' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Калькулятор</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Калькулятор</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Калькулятор</PanelHeader>}
 											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>На арене идёт состязание двух игроков с примерно одинаковыми характеристиками.<br/>В качестве награды за победу игрок получает: случайный сундук, 19 кубков и опыт.</span>}></Cell>
 											<Spacing size={8} />
 											<CardGrid size="m">
@@ -2056,17 +2104,18 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordArena_2">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Сезоны</PanelHeader>}
+								<Panel id="2">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Сезоны</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Сезоны</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Сезоны</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Ежемесячно в игру поступают 2 новых предмета экипировки, которые доступны в качестве награды за арену.<br/>Чем выше лига - тем лучше и больше награда с ежемесячного сундука.</span>}></Cell>
-										{dataArena.season.map((data, x_main) =>
+										{props.modalCount = 0, dataArena.season.map((data, x_main) =>
 											<Gradient className="GradientBannerWiki" key={x_main}>
 												<Header indicator={<Counter size="s" mode="secondary">{data.month.length} {numberForm(data.month.length, ['месяц', 'месяца', 'месяцев'])}</Counter>}>{data.name}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-													{data.month.map((data, x) =>
-														<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 2)}>
+													{data.month.map((data, x) => {
+														props.modalCount++;
+														return <Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordArena`, data, 2)}>
 															<Spinner size="regular" className="bannerPreloadWiki" />
 															<Cell
 																style={{
@@ -2074,21 +2123,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 																}}
 															>{data.name}<span>DMG {Items[data.items[0].id].dmg + Items[data.items[1].id].dmg} и HP {(Items[data.items[0].id].hp + Items[data.items[1].id].hp)*15}</span></Cell>
 														</Card>
-													)}
+													})}
 												</CardScroll>
 											</Gradient>
 										)}
 									</Group>
 								</Panel>
-								<Panel id="warlordArena_3">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Лиги</PanelHeader>}
+								<Panel id="3">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Лиги</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Лиги</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Лиги</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Подбор противников осуществляется из игроков в той же лиге, что и Вы.<br/>Чем выше ваша лига - тем выше шанс на выпадение более редкого сундука.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s">
 											{dataArena.league.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 3)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordArena`, data, 3)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2100,15 +2149,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordArena_4">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Сундуки</PanelHeader>}
+								<Panel id="4">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Сундуки</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordArena')}/>}>Сундуки</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('arena')}/>}>Сундуки</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Из сундуков могут выпасть вещи, заточки, а так же ценные ресурсы.<br/>Трофейные сундуки могут выпасть только с противника, который состоит в гильдии."</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"}>
 											{dataArena.chest.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordArena`, data, 4)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordArena`, data, 4)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2127,8 +2176,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-							<View id="warlordCharacter" activePanel={!activePanel ? 'warlordCharacter' : activePanel} modal={modal}>
-								<Panel id="warlordCharacter">
+							<View id="character" activePanel={!activePanel ? 'character' : activePanel} modal={modal}>
+								<Panel id="character">
 									{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => this.setState({ activeStory: 'home' })}><Icon28HomeOutline /></PanelHeaderButton>}>Персонаж</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Персонаж</PanelHeader>}
@@ -2141,6 +2190,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}}
 											bullets="dark"
 											showArrows
+											timeout="5000"
 										>
 											{dataCharacter.images.map((data, x) =>
 												<div key={x}>
@@ -2151,36 +2201,36 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Gallery>
 										<Spacing size={8} />
 										<CardGrid size="m">
-											<Card onClick={() => setActivePanel('warlordCharacter_1')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('1')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/12.png' /></div>} description="Описание талантов персонажа">Таланты</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordCharacter_2')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('2')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/13.png' /></div>} description="Список достижений и условий">Достижения</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordCharacter_3')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/14.png' /></div>} description="Список ресурсов и их получение">Ресурсы</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordCharacter_4')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('4')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/15.png' /></div>} description="Список питомцев и их награды">Питомцы</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordCharacter_6')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('6')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/16.png' /></div>} description="Список аватаров и их получение">Аватары</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordCharacter_5')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('5')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/17.png' /></div>} description="Список фонов и их получение">Фоны</Cell>
 											</Card>
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordCharacter_1">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Таланты</PanelHeader>}
+								<Panel id="1">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Таланты</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Таланты</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Таланты</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 4 вида навыков и каждый можно прокачать до 9.999 уровня, цена с каждым разом увеличивается.<br/>Также за определённые уровни прокачки навыка можно получить достижение.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"} className="size-x4">
 											{dataCharacter.talents.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 1)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordCharacter`, data, 1)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2192,17 +2242,18 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordCharacter_2">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Достижения</PanelHeader>}
+								<Panel id="2">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Достижения</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Достижения</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Достижения</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 80 достижений и почти каждое имеет 10 стадий.<br/>За каждую стадию достижения игрок получает награду в виде 1 рубина.</span>}></Cell>
-										{dataCharacter.achievements.map((data, x_main) =>
+										{props.modalCount = 0, dataCharacter.achievements.map((data, x_main) =>
 											<Gradient className="GradientBannerWiki" key={x_main}>
 												<Header indicator={<Counter size="s" mode="secondary">{data.items.length} {numberForm(data.items.length, ['достижение', 'достижения', 'достижений'])}</Counter>}>{data.title}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-													{data.items.map((data, x) => 
-														<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 2)}>
+													{data.items.map((data, x) => {
+														props.modalCount++;
+														return <Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordCharacter`, data, 2)}>
 															<Spinner size="regular" className="bannerPreloadWiki" />
 															<Cell
 																style={{
@@ -2210,21 +2261,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 																}}
 															>{data.name}<span>{data.description}</span></Cell>
 														</Card>
-													)}
+													})}
 												</CardScroll>
 											</Gradient>
 										)}
 									</Group>
 								</Panel>
-								<Panel id="warlordCharacter_3">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Ресурсы</PanelHeader>}
+								<Panel id="3">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Ресурсы</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Ресурсы</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Ресурсы</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>В игре множество ресурсов и каждый добывается своим способом.<br/>Иногда ресурсы можно получить по подарочной ссылке в официальной группе.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s" className="size-x4">
 											{dataCharacter.resources.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 3)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordCharacter`, data, 3)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2236,15 +2287,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordCharacter_4">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Питомцы</PanelHeader>}
+								<Panel id="4">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Питомцы</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Питомцы</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Питомцы</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Чем выше уровень питомца, тем больше и лучше добыча с поисков.<br/>Питомца необходимо найти и выращивать, коллекции с поисков являются личными.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"}>
 											{dataCharacter.pets.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 4)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordCharacter`, data, 4)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2258,15 +2309,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										{SortableItems}
 									</Group>
 								</Panel>
-								<Panel id="warlordCharacter_5">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Фоны</PanelHeader>}
+								<Panel id="5">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Фоны</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Фоны</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Фоны</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 9 видов фонов.<br/>Зимние фоны включаются сами в новогодние праздники.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"}>
 											{dataCharacter.backgrounds.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 5)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordCharacter`, data, 5)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2278,15 +2329,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordCharacter_6">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Аватары</PanelHeader>}
+								<Panel id="6">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Аватары</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordCharacter')}/>}>Аватары</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('character')}/>}>Аватары</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Всего в игре 27 видов аватаров.<br/>Выбранный аватар отображается в списке друзей и боя.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s" className="size-x4 auto">
 											{dataCharacter.avatars.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordCharacter`, data, 6)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordCharacter`, data, 6)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2303,8 +2354,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-							<View id="warlordGuild" activePanel={!activePanel ? 'warlordGuild' : activePanel} modal={modal}>
-								<Panel id="warlordGuild">
+							<View id="guild" activePanel={!activePanel ? 'guild' : activePanel} modal={modal}>
+								<Panel id="guild">
 								{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => this.setState({ activeStory: 'home' })}><Icon28HomeOutline /></PanelHeaderButton>}>Гильдия</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Гильдия</PanelHeader>}
@@ -2317,6 +2368,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}}
 											bullets="dark"
 											showArrows
+											timeout="5000"
 										>
 											{dataGuild.images.map((data, x) =>
 												<div key={x}>
@@ -2327,32 +2379,32 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Gallery>
 										<Spacing size={8} />
 										<CardGrid size="m">
-											<Card onClick={() => setActivePanel('warlordGuild_1', true)} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/18.png' /></div>} description="Затраты на казну гильдии">Калькулятор</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordGuild_2')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('2')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/19.png' /></div>} description="Список улучшений и цен">Улучшения</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordGuild_3')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/20.png' /></div>} description="Список экипировки и её цен">Кузница</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordGuild_4')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('4')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/21.png' /></div>} description="Список навыков и их цен">Академия</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordGuild_5')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('5')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/22.png' /></div>} description="Список набегов и их наград">Набеги</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordGuild_6')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('6')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/23.png' /></div>} description="Список рейдов и их наград">Рейды</Cell>
 											</Card>
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordGuild_1">
-									{activePanel === 'warlordGuild_1' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Калькулятор</PanelHeader>}
+								<Panel id="1">
+									{activePanel === '1' && activeStory === 'guild' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Калькулятор</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Калькулятор</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Калькулятор</PanelHeader>}
 											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Аметисты и Топазы можно получить только вкладываясь в улучшения навыков гильдии и при пополнении казны.<br/>Пополнять казну гильдии можно только в определённом количестве.</span>}></Cell>
 											<Spacing size={8} />
 											<CardGrid size="m">
@@ -2430,15 +2482,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordGuild_2">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Улучшения</PanelHeader>}
+								<Panel id="2">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Улучшения</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Улучшения</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Улучшения</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Благодаря улучшениям зданий, вам открываются новые ступени навыков, вещи в кузнице и сборщики налогов, позволяющие собирать различные бонусы.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"}>
 											{dataGuild.builds.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 2)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordGuild`, data, 2)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2450,15 +2502,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordGuild_3">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Кузница</PanelHeader>}
+								<Panel id="3">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Кузница</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Кузница</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Кузница</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Аметисты и Топазы можно получить только вкладываясь в улучшения навыков и при пополнении казны.<br/>Заточки можно купить после покупки самого предмета.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s" className="size-x4">
 											{dataGuild.items.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 3)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordGuild`, data, 3)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2470,15 +2522,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordGuild_4">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Академия</PanelHeader>}
+								<Panel id="4">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Академия</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Академия</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Академия</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Навыки гильдии это уникальные бонусы, чей бонус зависим от уровня самого навыка.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s">
 											{dataGuild.academy.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 4)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordGuild`, data, 4)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2490,15 +2542,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordGuild_5">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Набеги</PanelHeader>}
+								<Panel id="5">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Набеги</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Набеги</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Набеги</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Набеги это уникальный вид боя всех участников гильдии против вражеской гильдии или NPC.<br/>Набеги доступны всем гильдиям, начиная с 5 уровня.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size={isDesktop ? "s" : "m"} className="size-x4">
 											{dataGuild.raids.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 5)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordGuild`, data, 5)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2512,15 +2564,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 										{SortableItems}
 									</Group>
 								</Panel>
-								<Panel id="warlordGuild_6">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Рейды</PanelHeader>}
+								<Panel id="6">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Рейды</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordGuild')}/>}>Рейды</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('guild')}/>}>Рейды</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Глава гильдии или её генералы могут создавать рейдовых боссов гильдии.<br/>Золото и серебро, требуемое для создания, взимается с казны гильдии.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s">
 											{dataGuild.bosses.map((data, x) =>
-												<Card className="BannerWiki" key={x} onClick={() => OpenModal(`modal-warlordGuild`, data, 6)}>
+												<Card className="BannerWiki" key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordGuild`, data, 6)}>
 													<Spinner size="regular" className="bannerPreloadWiki" />
 													<Cell
 														style={{
@@ -2539,8 +2591,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 							
-							<View id="warlordOther" activePanel={!activePanel ? 'warlordOther' : activePanel} modal={modal}>
-								<Panel id="warlordOther">
+							<View id="other" activePanel={!activePanel ? 'other' : activePanel} modal={modal}>
+								<Panel id="other">
 								{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => this.setState({ activeStory: 'home' })}><Icon28HomeOutline /></PanelHeaderButton>}>Разное</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Разное</PanelHeader>}
@@ -2553,6 +2605,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}}
 											bullets="dark"
 											showArrows
+											timeout="5000"
 										>
 											{dataOther.images.map((data, x) =>
 												<div key={x}>
@@ -2563,35 +2616,35 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Gallery>
 										<Spacing size={8} />
 										<CardGrid size="m">
-											<Card onClick={() => setActivePanel('warlordOther_1', true)} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/26.png' /></div>} description="Затраты на улучшение предмета">Калькулятор</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordOther_3')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список ивентов и их наград">События</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordOther_2')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('2')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/27.png' /></div>} description="Список награды с лото">Лотерея</Cell>
 											</Card>
-											<Card onClick={() => setActivePanel('warlordOther_4')} className="CardWithAvatar">
+											<Card onClick={() => setActivePanel('4')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/30.png' /></div>} description="Список награды с обыска друзей">Обыск друзей</Cell>
 											</Card>
 										</CardGrid>
 									</Group>
 								</Panel>
-								<Panel id="warlordOther_1">
-									{activePanel === 'warlordOther_1' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>Калькулятор</PanelHeader>}
+								<Panel id="1">
+									{activePanel === '1' && activeStory === 'other' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Калькулятор</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>Калькулятор</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Калькулятор</PanelHeader>}
 											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Обязательно будет когда-нибудь</span>}></Cell>
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordOther_2">
-									{activePanel === 'warlordOther_2' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>Лотерея</PanelHeader>}
+								<Panel id="2">
+									{activePanel === '2' && activeStory === 'other' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Лотерея</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>Лотерея</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Лотерея</PanelHeader>}
 											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Бесплатная попытка в лотерею доступна каждые 24 часа.<br/>В лотереи можно также найти различные ресурсы.</span>}></Cell>
 											<Spacing size={8} />
 											{dataOther.lottery && <CardGrid size={isDesktop ? "m" : "m"}>
@@ -2602,11 +2655,11 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordOther_4">
-									{activePanel === 'warlordOther_4' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>Обыск друзей</PanelHeader>}
+								<Panel id="4">
+									{activePanel === '4' && activeStory === 'other' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Обыск друзей</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>Обыск друзей</PanelHeader>}
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Обыск друзей</PanelHeader>}
 											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Ежедневно к обыску доступно 15 друзей.<br/>При обыске можно найти различные ресурсы, а также элементы коллекций.</span>}></Cell>
 											<Spacing size={8} />
 											{dataOther.search && <CardGrid size={isDesktop ? "m" : "m"}>
@@ -2617,17 +2670,18 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
-								<Panel id="warlordOther_3">
-									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>События</PanelHeader>}
+								<Panel id="3">
+									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>События</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('warlordOther')}/>}>События</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>События</PanelHeader>}
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Ивенты это уникальные события, которые запускаются во время крупных праздников.<br/>Участие в ивенте доступно для каждого игрока, и не требует никаких затрат.</span>}></Cell>
-										{dataOther.events.map((data, x_main) =>
+										{props.modalCount = 0, dataOther.events.map((data, x_main) =>
 											<Gradient className="GradientBannerWiki" key={x_main}>
 												<Header indicator={<Counter size="s" mode="secondary">{data.items.length} {numberForm(data.items.length, ['событие', 'события', 'событий'])}</Counter>}>{data.title}</Header>
 												<CardScroll size="s" style={{paddingTop: 0, paddingBottom: 0}}>
-													{data.items.map((data, x) => 
-														<Card className="BannerWiki Scroll" key={x} onClick={() => OpenModal(`modal-warlordOther`, data, 3)}>
+													{data.items.map((data, x) => {
+														props.modalCount++;
+														return <Card className="BannerWiki Scroll" key={x} id={`modal_${props.modalCount}`} onClick={() => OpenModal(`modal-warlordOther`, data, 3)}>
 															<Spinner size="regular" className="bannerPreloadWiki" />
 															<Cell
 																style={{
@@ -2635,7 +2689,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																}}
 															>{data.name}<span>{data.date}</span></Cell>
 														</Card>
-													)}
+													})}
 												</CardScroll>
 											</Gradient>
 										)}

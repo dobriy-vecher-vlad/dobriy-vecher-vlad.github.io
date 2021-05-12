@@ -1,5 +1,5 @@
 {
-	"scriptUPDATE": "2.2.9",
+	"scriptUPDATE": "2.2.10",
 	"api_id": "5536422",
 	"clan_id": "292859277",
 	"clan_auth": "de73003f6d508e583e9c7f316024abbf",
@@ -18,67 +18,27 @@
 			"statusAnimate": {
 				"153968505": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				},
 				"14144431": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				},
 				"292859277": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				},
 				"178048433": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				},
 				"84002556": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				},
 				"12508536": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
-				},
-				"134528170": {
-					"nick": false,
-					"href": "https://i.gifer.com/3Nrg4.gif"
-				},
-				"390342468": {
-					"nick": false,
-					"href": "https://i.gifer.com/3NrgK.gif"
-				},
-				"284353344": {
-					"nick": true,
-					"text": "Меригуан",
-					"fontsize": "24px",
-					"fontfamily": "Impact",
-					"fontcolor": "#fff",
-					"href": "https://i.gifer.com/3O0Kd.gif"
-				},
-				"80691271": {
-					"nick": true,
-					"text": "ищу селёдку, размен в лс",
-					"fontsize": "20px",
-					"fontfamily": "cursive",
-					"fontcolor": "#fff",
-					"href": "https://i.gifer.com/3Nsw4.gif"
-				},
-				"318063403": {
-					"nick": true,
-					"text": "Особо опасен",
-					"fontsize": "16px",
-					"fontfamily": "Open Sans",
-					"fontcolor": "#fff",
-					"href": "https://i.gifer.com/3O2Yg.gif"
-				},
-				"301627063": {
-					"nick": true,
-					"text": "Эльф",
-					"fontsize": "24px",
-					"fontfamily": "Impact",
-					"fontcolor": "#4edc06",
-					"href": "https://i.gifer.com/3O2Yg.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				}
 			},
 			"clanBLOCK": {
@@ -95,7 +55,7 @@
 				"144219896": "Я-Жопорукий"
 			},
 			"statusGUILD": {
-				"29": "https://i.gifer.com/3NuDA.gif",
+				"29": "https://i.yapx.ru/MPyz6.gif",
 				"1072": "https://i.yapx.ru/Iuce2.gif"
 			}
 		}, {
@@ -112,11 +72,11 @@
 			"statusAnimate": {
 				"153968505": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				},
 				"84002556": {
 					"nick": false,
-					"href": "https://i.gifer.com/3Nu3N.gif"
+					"href": "https://i.yapx.ru/MPyz1.gif"
 				}
 			},
 			"clanBLOCK": {},
