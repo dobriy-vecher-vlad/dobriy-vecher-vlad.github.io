@@ -930,10 +930,10 @@
 	"type": 16
 }, {
 	"title": "Шлем Ордена",
-	"description": "Товар Мустафы",
+	"description": "Доступно с 14 уровня",
 	"dmg": 0,
 	"hp": 25,
-	"price": 500,
+	"price": 59,
 	"currency": 2,
 	"icon": "items/1644.png",
 	"id": 1644,
@@ -6650,10 +6650,10 @@
 	"type": 2
 }, {
 	"title": "Страж Эрмуна",
-	"description": "Награда ивента",
+	"description": "Доступно с 60 уровня",
 	"dmg": 450,
 	"hp": 50,
-	"price": 185000,
+	"price": 50000000,
 	"currency": 3,
 	"icon": "items/1225.png",
 	"id": 1225,
@@ -7538,4 +7538,114 @@
 	"title": "Перчатки Охотника",
 	"description": "Награда арены",
 	"type": 14
+}, {
+	"id": 1826,
+	"type": 2,
+	"title": "Чужеземный Тесак",
+	"description": "Доступно с 35 уровня",
+	"dmg": 375,
+	"hp": 0,
+	"currency": 2,
+	"icon": "items/1826.png",
+	"price": 550
+}, {
+	"id": 1827,
+	"type": 14,
+	"title": "Перчатки Храмовника",
+	"description": "Доступно с 35 уровня",
+	"dmg": 0,
+	"hp": 65,
+	"currency": 2,
+	"icon": "items/1827.png",
+	"price": 150
+}, {
+	"id": 1828,
+	"type": 16,
+	"title": "Кольцо Пепла",
+	"description": "Босс Магнус",
+	"dmg": 200,
+	"hp": 120,
+	"currency": 1,
+	"icon": "items/1828.png",
+	"price": 55000
+}, {
+	"id": 1829,
+	"type": 14,
+	"title": "Перчатки Освобождения",
+	"description": "Босс Магнус",
+	"dmg": 0,
+	"hp": 185,
+	"currency": 6,
+	"icon": "items/1829.png",
+	"price": 715
+}, {
+	"id": 1830,
+	"type": 2,
+	"title": "Меч Проклятого",
+	"description": "Босс Магнус",
+	"dmg": 1250,
+	"hp": 0,
+	"currency": 6,
+	"icon": "items/1830.png",
+	"price": 4000
+}, {
+	"id": 1831,
+	"type": 6,
+	"title": "Наручи Опустошения",
+	"description": "Босс Магнус",
+	"dmg": 0,
+	"hp": 205,
+	"currency": 6,
+	"icon": "items/1831.png",
+	"price": 1025
+}, {
+	"id": 1832,
+	"type": 4,
+	"title": "Шлем Душегуба",
+	"description": "Босс Магнус",
+	"dmg": 0,
+	"hp": 195,
+	"currency": 1,
+	"icon": "items/1832.png",
+	"price": 50000
+}, {
+	"id": 1833,
+	"type": 16,
+	"title": "Эбонитовое Кольцо",
+	"description": "Босс Сартана",
+	"dmg": 125,
+	"hp": 50,
+	"currency": 6,
+	"icon": "items/1833.png",
+	"price": 485
+}, {
+	"id": 1834,
+	"type": 2,
+	"title": "Эбонитовый Топор",
+	"description": "Босс Сартана",
+	"dmg": 945,
+	"hp": 50,
+	"currency": 6,
+	"icon": "items/1834.png",
+	"price": 35750
+}, {
+	"id": 1835,
+	"type": 6,
+	"title": "Эбонитовые Наручи",
+	"description": "Босс Сартана",
+	"dmg": 0,
+	"hp": 130,
+	"currency": 1,
+	"icon": "items/1835.png",
+	"price": 25000
+}, {
+	"id": 1836,
+	"type": 13,
+	"title": "Эбонитовые Ботинки",
+	"description": "Босс Сартана",
+	"dmg": 0,
+	"hp": 125,
+	"currency": 1,
+	"icon": "items/1836.png",
+	"price": 25000
 }]

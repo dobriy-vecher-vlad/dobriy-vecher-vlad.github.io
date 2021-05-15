@@ -7234,4 +7234,40 @@
 	"background": "bosses/backgrounds/13.png",
 	"image": "bosses/images/463.png",
 	"icon": "bosses/icons/463.png"
+}, {
+	"id": 464,
+	"name": "Магнус",
+	"description": "Проклятый солдат армии Эльоддура",
+	"hp": 13000000,
+	"dmg": 55000,
+	"type": 1,
+	"time": 14400,
+	"tries": 6,
+	"energy": 5,
+	"rewards": {
+		  "exp": 35000,
+		  "m1": 0,
+		  "m2": 6500
+	},
+	"background": "bosses/backgrounds/4.png",
+	"image": "bosses/images/464.png",
+	"icon": "bosses/icons/464.png"
+	}, {
+	"id": 465,
+	"name": "Сартана",
+	"description": "Тифлинг убийца",
+	"hp": 50000000,
+	"dmg": 45000,
+	"type": 0,
+	"time": 60,
+	"tries": 10,
+	"energy": 0,
+	"rewards": {
+		  "exp": 30000,
+		  "m1": 0,
+		  "m2": 3500
+	},
+	"background": "bosses/backgrounds/15.png",
+	"image": "bosses/images/465.png",
+	"icon": "bosses/icons/465.png"
 }]

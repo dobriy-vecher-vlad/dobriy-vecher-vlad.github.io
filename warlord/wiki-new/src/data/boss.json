@@ -995,6 +995,29 @@
 				"scroll": true,
 				"item": true
 			}]
+		}, {
+			"id": 464,
+			"items": [{
+				"id": 756,
+				"item": true,
+				"scroll": true
+			}, {
+				"id": 757,
+				"item": true,
+				"scroll": true
+			}, {
+				"id": 759,
+				"item": true,
+				"scroll": true
+			}, {
+				"id": 758,
+				"collection": true,
+				"personal": true
+			}, {
+				"id": 760,
+				"collection": true,
+				"personal": true
+			}]
 		}]
 	}, {
 		"title": "Рейдовые боссы",
@@ -1056,6 +1079,23 @@
 				"collection": true,
 				"scroll": true,
 				"personal": true
+			}]
+		}, {
+			"id": 465,
+			"items": [{
+				"id": 761,
+				"item": true,
+				"scroll": true
+			}, {
+				"id": 763,
+				"item": true,
+				"scroll": true
+			}, {
+				"id": 762,
+				"collection": true
+			}, {
+				"id": 764,
+				"collection": true
 			}]
 		}]
 	}, {

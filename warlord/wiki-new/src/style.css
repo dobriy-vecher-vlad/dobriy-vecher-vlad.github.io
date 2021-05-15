@@ -325,11 +325,14 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	margin-top: 0;
 }
 
-
+.Persona.x2 .Avatar__children {
+	transform: scale(0.6) translateY(-24px);
+}
 .GamePersona {
 	width: 100%;
 	height: 100%;
 	position: absolute;
+	background-position-x: center;
 }
 
 .CustomSelectOption__before .Avatar__in {

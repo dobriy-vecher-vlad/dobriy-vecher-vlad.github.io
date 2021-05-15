@@ -505,5 +505,27 @@
 			"personal": true
 		}],
 		"icon": "guild/boss_6.png"
+	}, {
+		"title": "Сартана",
+		"days": 40,
+		"hp": 50000000,
+		"dmg": 45000,
+		"price": [45000, 95000],
+		"items": [{
+			"id": 761,
+			"item": true,
+			"scroll": true
+		}, {
+			"id": 763,
+			"item": true,
+			"scroll": true
+		}, {
+			"id": 762,
+			"collection": true
+		}, {
+			"id": 764,
+			"collection": true
+		}],
+		"icon": "guild/boss_7.png"
 	}]
 }

@@ -117,11 +117,13 @@ let api_id = 5536422;
 let clan_id = 292859277;
 let clan_auth = 'de73003f6d508e583e9c7f316024abbf';
 let admins = [153968505, 14973344];
+// let admins = [14973344];
 let syncUser = null;
 let syncUserGame = null;
 let isDonut = false;
 let isDev = false;
 let syncItems = [];
+let syncItemsFull = [];
 let server = 1;
 
 let countBossAll = {
@@ -182,7 +184,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 
-	const getParse = async() => {
+	const getParseItems = async() => {
 		let xml = `<shop></shop>`;
 		let response = await x2js.xml_str2json(xml);
 		let result = [];
@@ -214,8 +216,40 @@ const App = withAdaptivity(({ viewWidth }) => {
 		});
 		console.log(response);
 		console.log(result);
+		console.log(JSON.stringify(result));
 	};
-	// getParse();
+	// getParseItems();
+	const getParseBosses = async() => {
+		let xml = `<bosses></bosses>`;
+		let response = await x2js.xml_str2json(xml);
+		console.log(response);
+		let result = [];
+		response.bosses.npc.forEach((item, x) => {
+			result.push({
+				id: Number(item.u._id),
+				name: item.u._name,
+				description: item.u._descr,
+				hp: Number(item.u._mod_hp),
+				dmg: Number(item.u._dmg),
+				type: Number(item.u._solo),
+				time: Number(item.u._rtm),
+				tries: Number(item.u._rlmt),
+				energy: Number(item.u._rq2),
+				rewards: {
+					exp: Number(item.r._exp),
+					m1: Number(item.r._m1),
+					m2: Number(item.r._m3),
+				},
+				background: `bosses/backgrounds/${Number(item.u._bg_id)}.png`,
+				image: `bosses/images/${Number(item.u._id)}.png`,
+				icon: `bosses/icons/${Number(item.u._id)}.png`
+			});
+		});
+		console.log(response);
+		console.log(result);
+		console.log(JSON.stringify(result));
+	};
+	// getParseBosses();
 	const getFix = async() => {
 		dataBosses.bosses.forEach((item, x) => {
 			item.mobs.forEach((item, x) => {
@@ -308,11 +342,14 @@ const App = withAdaptivity(({ viewWidth }) => {
 					Bosses.find(item => item.id === 457),
 					Bosses.find(item => item.id === 461),
 					Bosses.find(item => item.id === 463),
+					Bosses.find(item => item.id === 464),
 					Bosses.find(item => item.id === 287),
 					Bosses.find(item => item.id === 284),
 					Bosses.find(item => item.id === 285),
 					Bosses.find(item => item.id === 286),
+					Bosses.find(item => item.id === 342),
 					Bosses.find(item => item.id === 454),
+					Bosses.find(item => item.id === 465),
 					Bosses.find(item => item.id === 291),
 					Bosses.find(item => item.id === 453),
 					Bosses.find(item => item.id === 462)
@@ -517,11 +554,13 @@ const App = withAdaptivity(({ viewWidth }) => {
 				</Cell>
 			)
 		};
-		getItemPreview = (data, x, tooltip, item = false, coll = false) => {
+		getItemPreview = (data, x, tooltip, item = false, coll = false, levels = false) => {
 			const { activePanel, activeStory, checkItems, isCountItem } = this.state;
 			const { OpenModal } = this;
 			isDev&&console.warn('getItemPreview', activeStory, activePanel);
 			let syncItem = syncItems.indexOf(data.id) == -1 ? false : true;
+			let syncItemFull = levels ? syncItemsFull.find(x => x.id == data.id) : null;
+			console.log(syncItemFull);
 			if (checkItems.yesStock || checkItems.noStock) {
 				if (checkItems.yesStock && checkItems.noStock) {
 					
@@ -533,12 +572,23 @@ const App = withAdaptivity(({ viewWidth }) => {
 			} else {
 				return;
 			}
+			if (levels && !syncItem) {
+				return;
+			}
 			isCountItem.null = false;
 			return (
 				<Card key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordItem`, {id: Items.indexOf(data), item: item, collection: coll, description: data.description})} className="CardWithAvatar itemPreview">
-					<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={`image/${data.icon}`}/></div>} description={data.description} after={
+					<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={levels ? `image/items/0.png` : `image/${data.icon}`}/></div>} description={data.description} after={
 						tooltip ? item && <Icon24TshirtOutline width={24} height={24}/> || coll && <Icon24CubeBoxOutline width={24} height={24}/> : syncItem ? <Icon28CheckCircleOutline width={24} height={24} style={{color: 'var(--dynamic_green)'}}/> : <Icon28CancelCircleOutline width={24} height={24} style={{color: 'var(--destructive)'}}/>
 					}>{data.title}</Cell>
+					{syncItemFull && <div className="vkuiContentCard__body">
+						<div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">
+							{syncItemFull && `${syncItemFull.lvl} уровень заточки, ${(syncItemFull.stones[0][0] == 0 ? 0 : 1) + (syncItemFull.stones[1][0] == 0 ? 0 : 1) + (syncItemFull.stones[2][0] == 0 ? 0 : 1)} камней:`}
+						</div>
+								{(syncItemFull.stones[0][0] == 1 || syncItemFull.stones[1][0] == 1 || syncItemFull.stones[2][0] == 1) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">- {syncItemFull.bonus[1]} en</div>}
+								{(syncItemFull.stones[0][0] == 2 || syncItemFull.stones[1][0] == 2 || syncItemFull.stones[2][0] == 2) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">- {syncItemFull.bonus[0]} dmg</div>}
+								{(syncItemFull.stones[0][0] == 3 || syncItemFull.stones[1][0] == 3 || syncItemFull.stones[2][0] == 3) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">- {syncItemFull.bonus[3]} hp</div>}
+					</div>}
 				</Card>
 			)
 		};
@@ -589,6 +639,26 @@ const App = withAdaptivity(({ viewWidth }) => {
 					this.setState({ profileItems: array });
 				}
 			}
+			if (name == '3' && activeStory == 'profile') {
+				if (!isDonut) {
+					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Смотри уровень вещей и камней'}, null, 'card');
+					return 0;
+				} else {
+					let array = [];
+					let yesStock = 0;
+					let noStock = 0;
+					Items.map((data, x) => {
+						if (data.type == checkTabs) {
+							let syncItem = syncItems.indexOf(data.id) == -1 ? false : true;
+							syncItem ? yesStock++ : noStock++;
+							array.push(data);
+						}
+					});
+					isCountItem.yesStock = yesStock;
+					isCountItem.noStock = noStock;
+					this.setState({ profileItems: array });
+				}
+			}
 			if (name == '1' && activeStory == 'bosses') {
 				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай затраты на боссов'}, null, 'card');
@@ -621,6 +691,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 			if (name == '1' && activeStory == 'other') {
 				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай затраты на улучшения'}, null, 'card');
+					return 0;
+				}
+			}
+			if (name == '5' && activeStory == 'other') {
+				if (!isDonut) {
+					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Смотри новые предметы'}, null, 'card');
 					return 0;
 				}
 			}
@@ -755,6 +831,19 @@ const App = withAdaptivity(({ viewWidth }) => {
 							syncItems = dataGameItems.i.map((data, x) => {
 								return Number(data._id);
 							});
+							syncItemsFull = dataGameItems.i.map((data, x) => {
+								console.log(data);
+								return {
+									id: Number(data._id), // номер
+									lvl: Number(data._u), // уровень
+									stones: [
+										[Number(data._st11), Number(data._st12)], // раздел, уровень
+										[Number(data._st21), Number(data._st22)], // раздел, уровень
+										[Number(data._st31), Number(data._st32)] // раздел, уровень
+									],
+									bonus: [Number(data._st_dmg), Number(data._st_en), Number(data._st_end)]
+								};
+							});
 						} else {
 							// Ошибка при первом запуске
 						}
@@ -773,6 +862,19 @@ const App = withAdaptivity(({ viewWidth }) => {
 						syncUserGame = dataGameItems.u;
 						syncItems = dataGameItems.i.map((data, x) => {
 							return Number(data._id);
+						});
+						syncItemsFull = dataGameItems.i.map((data, x) => {
+							console.log(data);
+							return {
+								id: Number(data._id), // номер
+								lvl: Number(data._u), // уровень
+								stones: [
+									[Number(data._st11), Number(data._st12)], // раздел, уровень
+									[Number(data._st21), Number(data._st22)], // раздел, уровень
+									[Number(data._st31), Number(data._st32)] // раздел, уровень
+								],
+								bonus: [Number(data._st_dmg), Number(data._st_en), Number(data._st_end)]
+							};
 						});
 					} else {
 						OpenModal(`alert`, {header: 'Ошибка получения данных персонажа', subheader: `Авторизуйтесь на ${version} сервере и обновите приложение`}, null, 'card');
@@ -1542,10 +1644,13 @@ const App = withAdaptivity(({ viewWidth }) => {
 											<Spacing size={8} />
 											<CardGrid size="m">
 												<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
-													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/24.png' /></div>} description="Список ваших вещей">Магазин</Cell>
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/12.png' /></div>} description="Список ваших вещей">Магазин</Cell>
 												</Card>
 												<Card onClick={() => setActivePanel('2', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/25.png' /></div>} description="Список ваших коллекций">Коллекции</Cell>
+												</Card>
+												<Card onClick={() => setActivePanel('3', true)} className="CardWithAvatar">
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/32.png' /></div>} description="Список вещей и камней игрока">[TEST] Сканер инвентаря</Cell>
 												</Card>
 											</CardGrid>
 										</Group>}
@@ -1619,6 +1724,62 @@ const App = withAdaptivity(({ viewWidth }) => {
 											{!profileItems || isCountItem.null && <Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>}
 											<Spacing separator size={16} />
 											{VisibleItems('collection')}
+										</Group>
+									</React.Fragment>}
+								</Panel>
+								<Panel id="3">
+									{activePanel === '3' && activeStory === 'profile' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>В РАЗРАБОТКЕ</PanelHeader>}
+										<Group>
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>В РАЗРАБОТКЕ</PanelHeader>}
+											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>По задумке тут должен быть ввод ID игрока, с последующим сканированием его профиля (характеристики, его предметы, их уровень и бонусы). Также сводка по бонусам (весь урон, здоровье и энергия от камней). Сортировка по уровню, по количеству камней. Используются данные вашего персонажа.</span>}></Cell>
+											<Spacing size={8} />
+											<Gradient className="GradientBannerWiki ForInput">
+												{isDesktop && syncUserGame && <Avatar size={80} mode="app" className="Persona x2" src="image/bosses/persona_null.png">
+													{/* <div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_1_${syncUserGame._a1}.png)`}}></div>
+													<div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_2_${syncUserGame._a2}.png)`}}></div>
+													<div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_3_${syncUserGame._a3}.png)`}}></div> */}
+												</Avatar>}
+												<div>
+													<CardGrid size="m">
+														<Card className="CardWithAvatar ForInput">
+															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_1.png' /></div>}><Input defaultValue={Number((Number(syncUserGame._end) + Number(syncUserGame._endi)) * 15)} readOnly type="number"/></Cell>
+														</Card>
+														<Card className="CardWithAvatar ForInput">
+															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_2.png' /></div>}><Input defaultValue={Number(syncUserGame._dmgi)} readOnly type="number"/></Cell>
+														</Card>
+														<Card className="CardWithAvatar ForInput">
+															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_4.png' /></div>}><Input defaultValue={Number(syncUserGame._s3)} readOnly type="number"/></Cell>
+														</Card>
+														<Card className="CardWithAvatar ForInput">
+															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_5.png' /></div>}><Input defaultValue={Number(syncUserGame._s4)} readOnly type="number"/></Cell>
+														</Card>
+													</CardGrid>
+												</div>
+											</Gradient>
+											<Spacing size={8} />
+											<Tabs mode="buttons">
+												<HorizontalScroll getScrollToLeft={i => i - 240} getScrollToRight={i => i + 240}>
+													<TabsItem onClick={() => isCheckTabs(2, 'collection')} selected={checkTabs === 2}>Оружие</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(4, 'collection')} selected={checkTabs === 4}>Шлемы</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(3, 'collection')} selected={checkTabs === 3}>Броня</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(12, 'collection')} selected={checkTabs === 12}>Наплечники</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(6, 'collection')} selected={checkTabs === 6}>Наручи</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(14, 'collection')} selected={checkTabs === 14}>Перчатки</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(5, 'collection')} selected={checkTabs === 5}>Штаны</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(13, 'collection')} selected={checkTabs === 13}>Ботинки</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(15, 'collection')} selected={checkTabs === 15}>Щиты</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(16, 'collection')} selected={checkTabs === 16}>Бижутерия</TabsItem>
+												</HorizontalScroll>
+											</Tabs>
+											<Spacing size={8} />
+											{profileItems && <CardGrid size={isDesktop ? "m" : "m"} className="Scroll" style={{maxHeight: '387px'}}>
+												{profileItems.map((data, x) => {
+													console.log(data);
+													return getItemPreview(data, x, true, false, false, true);
+												})}
+											</CardGrid>}
+											{!profileItems || isCountItem.null && <Cell className="DescriptionWiki" style={{textAlign: 'center'}} description="Нет предметов"></Cell>}
 										</Group>
 									</React.Fragment>}
 								</Panel>
@@ -2619,6 +2780,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 											<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/26.png' /></div>} description="Затраты на улучшение предмета">Калькулятор</Cell>
 											</Card>
+											<Card onClick={() => setActivePanel('5', true)} className="CardWithAvatar">
+												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/20.png' /></div>} description="Список последних добавленных вещей">Новые предметы</Cell>
+											</Card>
 											<Card onClick={() => setActivePanel('3')} className="CardWithAvatar">
 												<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список ивентов и их наград">События</Cell>
 											</Card>
@@ -2694,6 +2858,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 											</Gradient>
 										)}
 									</Group>
+								</Panel>
+								<Panel id="5">
+									{activePanel === '5' && activeStory === 'other' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Новые предметы</PanelHeader>}
+										<Group>
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('other')}/>}>Новые предметы</PanelHeader>}
+											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>В игру регулярно поступают новые вещи, этот раздел отображает последние добавленные вещи и указывает их наличие у вас.</span>}></Cell>
+											<Spacing size={8} />
+											{dataOther.new && <CardGrid size={isDesktop ? "m" : "m"}>
+												{dataOther.new.map((data, x) => {
+													return getItemPreview(Items[data], x);
+												})}
+											</CardGrid>}
+										</Group>
+									</React.Fragment>}
 								</Panel>
 							</View>
 						</Epic>
