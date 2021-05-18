@@ -396,6 +396,14 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 
 
 
+.Flex > .Tappable {
+	justify-content: center;
+}
+.Flex > .Tappable > .SimpleCell__main {
+	flex-grow: unset;
+}
+
+
 @media screen and (orientation: landscape) {
 	.BannerWiki.Scroll {
 		width: 25%!important;
@@ -473,7 +481,7 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	.CardWithAvatar.ForInput .SimpleCell__children {
 		width: 100%;
 	}
-	.CardGrid--s.CardGrid.size-x4 > .BannerWiki {
+	.CardGrid--s.CardGrid.size-x4 > * {
 		width: calc((100% - 3*8px)/4);
 	}
 	.CardGrid--s.CardGrid.size-x4:not(.auto) .Cell {

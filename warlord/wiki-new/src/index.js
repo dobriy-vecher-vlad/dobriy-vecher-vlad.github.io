@@ -90,7 +90,10 @@ import {
 	Icon28CheckCircleOutline,
 	Icon28ReportOutline,
 	Icon28SunOutline,
-	Icon28MoonOutline
+	Icon28MoonOutline,
+	Icon24HammerOutline,
+	Icon24StatisticsOutline,
+	Icon28GhostSimleOutline
 } from '@vkontakte/icons';
 
 import '@vkontakte/vkui/dist/vkui.css';
@@ -125,6 +128,7 @@ let isDev = false;
 let syncItems = [];
 let syncItemsFull = [];
 let server = 1;
+let isMask = false;
 
 let countBossAll = {
 	skill_1: 0,
@@ -296,6 +300,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 				checkItems: {null: true, item: true, scroll: true, collection: true, personal: true, stock: true, yesStock: true, noStock: true},
 				checkTabs: 2,
 				isCountItem: {yesStock: 0, noStock: 0, null: true},
+				isBonusItem: {count: 0, lvl: 0, dmg: 0, hp: 0, en: 0},
 				profileItems: null,
 
 				newBossCount: 1,
@@ -560,7 +565,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 			isDev&&console.warn('getItemPreview', activeStory, activePanel);
 			let syncItem = syncItems.indexOf(data.id) == -1 ? false : true;
 			let syncItemFull = levels ? syncItemsFull.find(x => x.id == data.id) : null;
-			console.log(syncItemFull);
 			if (checkItems.yesStock || checkItems.noStock) {
 				if (checkItems.yesStock && checkItems.noStock) {
 					
@@ -578,22 +582,19 @@ const App = withAdaptivity(({ viewWidth }) => {
 			isCountItem.null = false;
 			return (
 				<Card key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordItem`, {id: Items.indexOf(data), item: item, collection: coll, description: data.description})} className="CardWithAvatar itemPreview">
-					<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={levels ? `image/items/0.png` : `image/${data.icon}`}/></div>} description={data.description} after={
+					<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={`image/${data.icon}`}/></div>} description={syncItemFull ? `${syncItemFull.lvl} уровень заточки` : data.description} after={
 						tooltip ? item && <Icon24TshirtOutline width={24} height={24}/> || coll && <Icon24CubeBoxOutline width={24} height={24}/> : syncItem ? <Icon28CheckCircleOutline width={24} height={24} style={{color: 'var(--dynamic_green)'}}/> : <Icon28CancelCircleOutline width={24} height={24} style={{color: 'var(--destructive)'}}/>
 					}>{data.title}</Cell>
-					{syncItemFull && <div className="vkuiContentCard__body">
-						<div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">
-							{syncItemFull && `${syncItemFull.lvl} уровень заточки, ${(syncItemFull.stones[0][0] == 0 ? 0 : 1) + (syncItemFull.stones[1][0] == 0 ? 0 : 1) + (syncItemFull.stones[2][0] == 0 ? 0 : 1)} камней:`}
-						</div>
-								{(syncItemFull.stones[0][0] == 1 || syncItemFull.stones[1][0] == 1 || syncItemFull.stones[2][0] == 1) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">- {syncItemFull.bonus[1]} en</div>}
-								{(syncItemFull.stones[0][0] == 2 || syncItemFull.stones[1][0] == 2 || syncItemFull.stones[2][0] == 2) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">- {syncItemFull.bonus[0]} dmg</div>}
-								{(syncItemFull.stones[0][0] == 3 || syncItemFull.stones[1][0] == 3 || syncItemFull.stones[2][0] == 3) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">- {syncItemFull.bonus[3]} hp</div>}
+					{syncItemFull && syncItemFull.bonus.reduce((accumulator, current) => accumulator + current) !== 0 && <div className="vkuiContentCard__body">
+						{(syncItemFull.stones[0][0] == 1 || syncItemFull.stones[1][0] == 1 || syncItemFull.stones[2][0] == 1) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">Бонус от камней +{this.numberSpaces(syncItemFull.bonus[1])} энергии</div>}
+						{(syncItemFull.stones[0][0] == 2 || syncItemFull.stones[1][0] == 2 || syncItemFull.stones[2][0] == 2) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">Бонус от камней +{this.numberSpaces(syncItemFull.bonus[0])} урона</div>}
+						{(syncItemFull.stones[0][0] == 3 || syncItemFull.stones[1][0] == 3 || syncItemFull.stones[2][0] == 3) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">Бонус от камней +{this.numberSpaces(syncItemFull.bonus[2]*15)} здоровья</div>}
 					</div>}
 				</Card>
 			)
 		};
 		setActivePanel = (name = 'home', close = false) => {
-			const { activePanel, activeStory, checkItems, checkTabs, isCountItem } = this.state;
+			const { activePanel, activeStory, checkItems, checkTabs, isCountItem, isBonusItem } = this.state;
 			const { OpenModal, CalcBoss } = this;
 			isDev&&console.warn('setActivePanel', activeStory, activePanel);
 			this.setState({ checkItems: {null: true, item: true, scroll: true, collection: true, personal: true, stock: true, yesStock: true, noStock: true} });
@@ -646,16 +647,40 @@ const App = withAdaptivity(({ viewWidth }) => {
 				} else {
 					let array = [];
 					let yesStock = 0;
-					let noStock = 0;
+					let stones = 0;
+					let lvl = 0;
+					let dmg = 0;
+					let hp = 0;
+					let en = 0;
 					Items.map((data, x) => {
 						if (data.type == checkTabs) {
 							let syncItem = syncItems.indexOf(data.id) == -1 ? false : true;
-							syncItem ? yesStock++ : noStock++;
-							array.push(data);
+							if (syncItem) {
+								yesStock++
+								let item = syncItemsFull.find(x => x.id == data.id);
+								stones += (item.stones[0][0] !== 0 ? 1 : 0) + (item.stones[1][0] !== 0 ? 1 : 0) + (item.stones[2][0] !== 0 ? 1 : 0);
+								lvl += item.lvl;
+								dmg += item.bonus[0];
+								hp += item.bonus[2];
+								en += item.bonus[1];
+								array.push(data);
+							}
 						}
 					});
+					array.sort(function(a, b) {
+						let A = syncItemsFull.find(x => x.id == a.id);
+						let B = syncItemsFull.find(x => x.id == b.id);
+						if (B.lvl < A.lvl) return -1;
+						if (B.lvl > A.lvl) return 1;
+						if (B.bonus[0]+B.bonus[1]+B.bonus[2]*15 < A.bonus[0]+A.bonus[1]+A.bonus[2]*15) return -1;
+						if (B.bonus[0]+B.bonus[1]+B.bonus[2]*15 > A.bonus[0]+A.bonus[1]+A.bonus[2]*15) return 1;
+					});
 					isCountItem.yesStock = yesStock;
-					isCountItem.noStock = noStock;
+					isBonusItem.count = stones;
+					isBonusItem.lvl = lvl;
+					isBonusItem.dmg = dmg;
+					isBonusItem.hp = hp;
+					isBonusItem.en = en;
 					this.setState({ profileItems: array });
 				}
 			}
@@ -713,14 +738,14 @@ const App = withAdaptivity(({ viewWidth }) => {
 			this.setState({ checkItems: {null: checkItems.null, item: checkItems.item, scroll: checkItems.scroll, collection: checkItems.collection, personal: checkItems.personal, stock: checkItems.stock, yesStock: checkItems.yesStock, noStock: checkItems.noStock} });
 		};
 		isCheckTabs = (id, type) => {
-			const { activePanel, activeStory, isCountItem } = this.state;
+			const { activePanel, activeStory, isCountItem, isBonusItem } = this.state;
 			isDev&&console.warn('isCheckTabs', activeStory, activePanel);
 			this.setState({ checkTabs: id });
 			isCountItem.null = true;
-			let array = [];
-			let yesStock = 0;
-			let noStock = 0;
 			if (type === 'item') {
+				let array = [];
+				let yesStock = 0;
+				let noStock = 0;
 				Items.map((data, x) => {
 					if (data.type == id) {
 						let syncItem = syncItems.indexOf(data.id) == -1 ? false : true;
@@ -728,8 +753,14 @@ const App = withAdaptivity(({ viewWidth }) => {
 						array.push(data);
 					}
 				});
+				isCountItem.yesStock = yesStock;
+				isCountItem.noStock = noStock;
+				this.setState({ profileItems: array });
 			}
 			if (type === 'collection') {
+				let array = [];
+				let yesStock = 0;
+				let noStock = 0;
 				Collections.map((data, x) => {
 					data = Items.find(x => x.id === data);
 					if (data.type == id) {
@@ -738,10 +769,49 @@ const App = withAdaptivity(({ viewWidth }) => {
 						array.push(data);
 					}
 				});
+				isCountItem.yesStock = yesStock;
+				isCountItem.noStock = noStock;
+				this.setState({ profileItems: array });
 			}
-			isCountItem.yesStock = yesStock;
-			isCountItem.noStock = noStock;
-			this.setState({ profileItems: array });
+			if (type === 'stones') {
+				let array = [];
+				let yesStock = 0;
+				let stones = 0;
+				let lvl = 0;
+				let dmg = 0;
+				let hp = 0;
+				let en = 0;
+				Items.map((data, x) => {
+					if (data.type == id) {
+						let syncItem = syncItems.indexOf(data.id) == -1 ? false : true;
+						if (syncItem) {
+							yesStock++
+							let item = syncItemsFull.find(x => x.id == data.id);
+							stones += (item.stones[0][0] !== 0 ? 1 : 0) + (item.stones[1][0] !== 0 ? 1 : 0) + (item.stones[2][0] !== 0 ? 1 : 0);
+							lvl += item.lvl;
+							dmg += item.bonus[0];
+							hp += item.bonus[2];
+							en += item.bonus[1];
+							array.push(data);
+						}
+					}
+				});
+				array.sort(function(a, b) {
+					let A = syncItemsFull.find(x => x.id == a.id);
+					let B = syncItemsFull.find(x => x.id == b.id);
+					if (B.lvl < A.lvl) return -1;
+					if (B.lvl > A.lvl) return 1;
+					if (B.bonus[0]+B.bonus[1]+B.bonus[2]*15 < A.bonus[0]+A.bonus[1]+A.bonus[2]*15) return -1;
+					if (B.bonus[0]+B.bonus[1]+B.bonus[2]*15 > A.bonus[0]+A.bonus[1]+A.bonus[2]*15) return 1;
+				});
+				isCountItem.yesStock = yesStock;
+				isBonusItem.count = stones;
+				isBonusItem.lvl = lvl;
+				isBonusItem.dmg = dmg;
+				isBonusItem.hp = hp;
+				isBonusItem.en = en;
+				this.setState({ profileItems: array });
+			}
 		};
 		OpenModal = (name, data, index, mode = 'page') => {
 			const { activePanel, activeStory, checkItems } = this.state;
@@ -813,6 +883,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 			if (syncUser == null || reload == true) {
 				isDev&&console.warn('loadProfile', activeStory, activePanel);
 				let dataVK = await getBridge('VKWebAppGetUserInfo');
+				if (isMask) {
+					dataVK.id = isMask
+				}
 				if (!reload) {
 					syncUser = true;
 					let dataDonut = await getBridge('VKWebAppCallAPIMethod', {"method": "execute.getMembers", "params": {"v": '5.130', "access_token": "844073b741823e279bab9e368fe05fc56c1af139e5b6ecde3510cb01476167b117651849ec3ced221f55d"}});
@@ -832,7 +905,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 								return Number(data._id);
 							});
 							syncItemsFull = dataGameItems.i.map((data, x) => {
-								console.log(data);
+								// console.log(data);
 								return {
 									id: Number(data._id), // номер
 									lvl: Number(data._u), // уровень
@@ -864,7 +937,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 							return Number(data._id);
 						});
 						syncItemsFull = dataGameItems.i.map((data, x) => {
-							console.log(data);
+							// console.log(data);
 							return {
 								id: Number(data._id), // номер
 								lvl: Number(data._u), // уровень
@@ -905,8 +978,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 			if (Object.keys(hashParams).indexOf('dev') != -1) {
 				isDev = true;
 			}
+			if (Object.keys(hashParams).indexOf('mask') != -1) {
+				isMask = Number(Object.values(hashParams)[Object.keys(hashParams).indexOf('mask')]);
+			}
 			await loadProfile(Object.keys(hashParams).indexOf('dev') != -1, false, 1, Object.keys(hashParams).indexOf('view') != -1);
-
 			Object.keys(hashParams).map((key) => {
 				let value = hashParams[key];
 				if (key === 'view') {
@@ -916,7 +991,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 					setActivePanel(value);
 				}
 				if (key === 'modal' && typeof hashParams.view != 'undefined' && typeof hashParams.panel != 'undefined') {
-					console.log('this modal function');
 					try {
 						document.querySelector(`#modal_${value}`).click();
 					} catch (error) {
@@ -928,7 +1002,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 		render() {
-			const { activeStory, activePanel, popout, user, modalOpened, activeModal, indexModal, dataModal, checkItems, count_guild_1, count_guild_2, count_arena_1, count_arena_2, newBossArray, count_boss, newBossHP, newBossDMG, checkTabs, isCountItem, profileItems, theme } = this.state;
+			const { activeStory, activePanel, popout, user, modalOpened, activeModal, indexModal, dataModal, checkItems, count_guild_1, count_guild_2, count_arena_1, count_arena_2, newBossArray, count_boss, newBossHP, newBossDMG, checkTabs, isCountItem, isBonusItem, profileItems, theme } = this.state;
 			const { onStoryChange, numberForm, setActivePanel, OpenModal, getTime, numberSpaces, isCheckItems, getItemCell, getItemPreview, testtest, isCalcBoss, CalcBoss, setNewBoss, VKBridge, loadProfile, isCheckTabs, setTheme, getSort } = this;
 			const SortableItems = (
 				<React.Fragment>
@@ -1439,9 +1513,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 										data-story="profile"
 										onClick={VKBridge}
 										// before={<Icon28UserCircleOutline />}
-										before={<Avatar size={28} src={user && user.vk ? user.vk.photo_200 : 'https://vk.com/images/camera_200.png'} />}
+										before={!isMask ? <Avatar size={28} src={user && user.vk ? user.vk.photo_200 : 'https://vk.com/images/camera_200.png'}/> : <Icon28GhostSimleOutline/>}
 										description={isDonut ? `${server == 1 ? 'Эрмун' : 'Антарес'}, ${isDev ? 'режим разработчика' : 'полный доступ'}` : 'Обычный доступ'}
-									>{user && user.vk ? `${user.vk.first_name} ${user.vk.last_name}` : 'Пользователь'}</Cell>
+									>{!isMask ? (user && user.vk ? `${user.vk.first_name} ${user.vk.last_name}` : 'Пользователь') : `Приватный пользователь`}</Cell>
 									<Spacing separator size={16} />
 									<Cell
 										disabled={activeStory === 'map'}
@@ -1636,8 +1710,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 												textAlign: 'center',
 												padding: 32
 											}}>
-												<Avatar size={96} src={user.vk.photo_200 ? user.vk.photo_200 : null} />
-												<Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="medium">{user.vk.first_name} {user.vk.last_name}</Title>
+												{isMask ? <Icon28GhostSimleOutline style={{color: 'var(--accent)'}} width={96} height={96}/> : <Avatar size={96} src={user.vk.photo_200 ? user.vk.photo_200 : null} />}
+												<Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="medium">{isMask ? 'Приватный пользователь' : `${user.vk.first_name} ${user.vk.last_name}`}</Title>
 												<Link style={{ marginBottom: isDonut ? 12 : 0, color: 'var(--text_secondary)' }} href={`https://vk.com/id${user.vk.id}`} target="_blank">@{user.vk.id}</Link>
 												{isDonut && <Button size="m" mode="commerce" onClick={() => loadProfile(false, true, (server === 1 ? 2 : 1))}>Сменить сервер</Button>}
 											</Gradient>
@@ -1647,10 +1721,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/12.png' /></div>} description="Список ваших вещей">Магазин</Cell>
 												</Card>
 												<Card onClick={() => setActivePanel('2', true)} className="CardWithAvatar">
-													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/25.png' /></div>} description="Список ваших коллекций">Коллекции</Cell>
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/20.png' /></div>} description="Список ваших коллекций">Коллекции</Cell>
 												</Card>
 												<Card onClick={() => setActivePanel('3', true)} className="CardWithAvatar">
-													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/32.png' /></div>} description="Список вещей и камней игрока">[TEST] Сканер инвентаря</Cell>
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/31.png' /></div>} description="Список вещей и их камней">Инкрустация</Cell>
 												</Card>
 											</CardGrid>
 										</Group>}
@@ -1729,53 +1803,36 @@ const App = withAdaptivity(({ viewWidth }) => {
 								</Panel>
 								<Panel id="3">
 									{activePanel === '3' && activeStory === 'profile' && <React.Fragment>
-										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>В РАЗРАБОТКЕ</PanelHeader>}
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Инкрустация</PanelHeader>}
 										<Group>
-											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>В РАЗРАБОТКЕ</PanelHeader>}
-											<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>По задумке тут должен быть ввод ID игрока, с последующим сканированием его профиля (характеристики, его предметы, их уровень и бонусы). Также сводка по бонусам (весь урон, здоровье и энергия от камней). Сортировка по уровню, по количеству камней. Используются данные вашего персонажа.</span>}></Cell>
-											<Spacing size={8} />
-											<Gradient className="GradientBannerWiki ForInput">
-												{isDesktop && syncUserGame && <Avatar size={80} mode="app" className="Persona x2" src="image/bosses/persona_null.png">
-													{/* <div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_1_${syncUserGame._a1}.png)`}}></div>
-													<div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_2_${syncUserGame._a2}.png)`}}></div>
-													<div className="GamePersona" style={{backgroundImage: `url(image/bosses/persona_3_${syncUserGame._a3}.png)`}}></div> */}
-												</Avatar>}
-												<div>
-													<CardGrid size="m">
-														<Card className="CardWithAvatar ForInput">
-															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_1.png' /></div>}><Input defaultValue={Number((Number(syncUserGame._end) + Number(syncUserGame._endi)) * 15)} readOnly type="number"/></Cell>
-														</Card>
-														<Card className="CardWithAvatar ForInput">
-															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_2.png' /></div>}><Input defaultValue={Number(syncUserGame._dmgi)} readOnly type="number"/></Cell>
-														</Card>
-														<Card className="CardWithAvatar ForInput">
-															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_4.png' /></div>}><Input defaultValue={Number(syncUserGame._s3)} readOnly type="number"/></Cell>
-														</Card>
-														<Card className="CardWithAvatar ForInput">
-															<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={isDesktop ? 36 : 44} className="withPreload" src='image/bosses/talent_5.png' /></div>}><Input defaultValue={Number(syncUserGame._s4)} readOnly type="number"/></Cell>
-														</Card>
-													</CardGrid>
-												</div>
-											</Gradient>
-											<Spacing size={8} />
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Инкрустация</PanelHeader>}
 											<Tabs mode="buttons">
 												<HorizontalScroll getScrollToLeft={i => i - 240} getScrollToRight={i => i + 240}>
-													<TabsItem onClick={() => isCheckTabs(2, 'collection')} selected={checkTabs === 2}>Оружие</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(4, 'collection')} selected={checkTabs === 4}>Шлемы</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(3, 'collection')} selected={checkTabs === 3}>Броня</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(12, 'collection')} selected={checkTabs === 12}>Наплечники</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(6, 'collection')} selected={checkTabs === 6}>Наручи</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(14, 'collection')} selected={checkTabs === 14}>Перчатки</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(5, 'collection')} selected={checkTabs === 5}>Штаны</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(13, 'collection')} selected={checkTabs === 13}>Ботинки</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(15, 'collection')} selected={checkTabs === 15}>Щиты</TabsItem>
-													<TabsItem onClick={() => isCheckTabs(16, 'collection')} selected={checkTabs === 16}>Бижутерия</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(2, 'stones')} selected={checkTabs === 2}>Оружие</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(4, 'stones')} selected={checkTabs === 4}>Шлемы</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(3, 'stones')} selected={checkTabs === 3}>Броня</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(12, 'stones')} selected={checkTabs === 12}>Наплечники</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(6, 'stones')} selected={checkTabs === 6}>Наручи</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(14, 'stones')} selected={checkTabs === 14}>Перчатки</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(5, 'stones')} selected={checkTabs === 5}>Штаны</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(13, 'stones')} selected={checkTabs === 13}>Ботинки</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(15, 'stones')} selected={checkTabs === 15}>Щиты</TabsItem>
+													<TabsItem onClick={() => isCheckTabs(16, 'stones')} selected={checkTabs === 16}>Бижутерия</TabsItem>
 												</HorizontalScroll>
 											</Tabs>
 											<Spacing size={8} />
+											<CardGrid size="s">
+												<Card className="DescriptionCardWiki"><Cell before={<Icon24MoneyCircleOutline width={24} height={24} />} description={<span>Куплено {isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['предмет', 'предмета', 'предметов'])}</span>}></Cell></Card>
+												<Card className="DescriptionCardWiki"><Cell before={<Icon24HammerOutline width={24} height={24} />} description={<span>Вставлено {numberSpaces(isBonusItem.count)} {numberForm(isBonusItem.count, ['камень', 'камня', 'камней'])}</span>}></Cell></Card>
+												<Card className="DescriptionCardWiki"><Cell before={<Icon24StatisticsOutline width={24} height={24} />} description={<span>Суммарно {numberSpaces(isBonusItem.lvl)} {numberForm(isBonusItem.lvl, ['уровень', 'уровня', 'уровней'])}</span>}></Cell></Card>
+												<Card className="DescriptionCardWiki"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус {numberSpaces(isBonusItem.dmg)} {numberForm(isBonusItem.dmg, ['урон', 'урона', 'урон'])}</span>}></Cell></Card>
+												<Card className="DescriptionCardWiki"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус {numberSpaces(isBonusItem.hp*15)} {numberForm(isBonusItem.hp*15, ['здоровье', 'здоровья', 'здоровья'])}</span>}></Cell></Card>
+												<Card className="DescriptionCardWiki"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус {numberSpaces(isBonusItem.en)} {numberForm(isBonusItem.en, ['энергия', 'энергии', 'энергии'])}</span>}></Cell></Card>
+											</CardGrid>
+											<Spacing separator size={16} />
 											{profileItems && <CardGrid size={isDesktop ? "m" : "m"} className="Scroll" style={{maxHeight: '387px'}}>
 												{profileItems.map((data, x) => {
-													console.log(data);
+													// console.log(data);
 													return getItemPreview(data, x, true, false, false, true);
 												})}
 											</CardGrid>}

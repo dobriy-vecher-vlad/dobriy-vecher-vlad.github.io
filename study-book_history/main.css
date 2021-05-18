@@ -293,6 +293,9 @@ body::-webkit-scrollbar {
 .main .main__container h3 + p {
 	margin-top: 20px;
 }
+.main .main__container blockquote > ul, .main .main__container blockquote > ol {
+	margin-left: 0;
+}
 .main .main__container a:not(.linkToScroll) {
 	background-color: rgba(var(--color-extra), 0.2);
 	border-bottom: 1px solid rgba(var(--color-black), 0.2);
