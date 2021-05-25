@@ -112,12 +112,12 @@ books = [{
 		}]
 	}]
 }, {
-	'title': 'Test book',
+	'title': 'Новая книга',
 	'href': 'testbook',
 	'titles': [{
-		'title': 'Тестовые страницы',
+		'title': 'Новая глава',
 		'titles': [{
-			'title': '<span class="paragraph">paragraph</span> Возможные теги'
+			'title': 'Новый раздел'
 		}]
 	}]
 }];
