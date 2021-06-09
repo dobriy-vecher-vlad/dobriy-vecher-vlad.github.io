@@ -766,6 +766,18 @@
 					}
 				],
 				"icon": "arena/season_2021_4.png"
+			}, {
+				"name": "Май 2021",
+				"items": [
+					{
+						"id": 765,
+						"item": true
+					}, {
+						"id": 766,
+						"item": true
+					}
+				],
+				"icon": "arena/season_2021_5.png"
 			}
 		]
 	}],

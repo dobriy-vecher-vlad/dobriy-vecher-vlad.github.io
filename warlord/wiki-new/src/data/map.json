@@ -314,6 +314,7 @@
 				"collection": true
 			}],
 			"icon": "map/point_8.png",
+			"pet": "Панда",
 			"chests": "Золотой и Волшебный сундук"
 		}, {
 			"title": "Ущелье Стражей",

@@ -35,6 +35,8 @@
 * {
 	margin: 0;
 	padding: 0;
+	/* border: 0;
+	box-sizing: border-box; */
 }
 a {
 	color: inherit;
@@ -221,7 +223,7 @@ body::-webkit-scrollbar {
 .main .main__container h1 {
 	font-weight: bold;
 	font-size: 60px;
-	line-height: 60px;
+	line-height: 70px;
 	color: rgba(var(--color-dark), 1);
 
 	/* white-space: nowrap;
@@ -234,7 +236,7 @@ body::-webkit-scrollbar {
 .main .main__container h2 {
 	font-weight: bold;
 	font-size: 35px;
-	line-height: 35px;
+	line-height: 45px;
 	margin-top: 45px;
 	color: rgba(var(--color-dark), 1);
 	position: relative;
@@ -255,7 +257,7 @@ body::-webkit-scrollbar {
 .main .main__container h3 {
 	font-weight: bold;
 	font-size: 25px;
-	line-height: 25px;
+	line-height: 35px;
 	margin-top: 45px;
 	color: rgba(var(--color-dark), 1);
 	position: relative;
@@ -276,15 +278,21 @@ body::-webkit-scrollbar {
 .main .main__container ul {
 	list-style: disc;
 }
+.main .main__container blockquote > *:first-child {
+	margin-top: 0!important;
+}
 .main .main__container ul, .main .main__container ol {
-	margin-top: 10px;
+	margin-top: 30px;
 	padding-left: 20px;
+}
+.main .main__container p + ul, .main .main__container p + ol {
+	margin-top: 10px;
 }
 .main .main__container * ul, .main .main__container * ol {
 	margin-left: 20px;
 	margin-top: 10px;
 }
-.main .main__container * li {
+.main .main__container * li:not(:first-child) {
 	margin-top: 10px;
 }
 .main .main__container p {
@@ -317,6 +325,21 @@ body::-webkit-scrollbar {
 h2:hover > .linkToScroll, h3:hover > .linkToScroll {
 	opacity: 1!important;
 }
+.main .main__container table {
+	margin-top: 30px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: -webkit-fill-available;
+}
+.main .main__container p + table {
+	margin-top: 20px;
+}
+.main .main__container table td {
+	padding: 5px;
+}
+.main .main__container table, .main .main__container table td, .main .main__container table th {
+	border: 1px solid #cacaca;
+}
 .main .main__container blockquote {
 	background-color: rgba(255,229,100,0.3);
 	border-left-color: #ffe564;
@@ -324,9 +347,12 @@ h2:hover > .linkToScroll, h3:hover > .linkToScroll {
 	border-left-style: solid;
 	padding: 20px 45px 20px 26px;
 	margin-bottom: 30px;
-	margin-top: 20px;
+	margin-top: 30px;
 	margin-left: -30px;
 	margin-right: -30px;
+}
+.main .main__container p + blockquote {
+	margin-top: 20px;
 }
 .main .main__container blockquote[warning] {
 	background-color: rgba(237, 51, 21, 0.2);
@@ -336,10 +362,13 @@ h2:hover > .linkToScroll, h3:hover > .linkToScroll {
 	background-color: rgba(240, 240, 240, 0.75);
 	border-left-color: #e4e4e4;
 }
-.main .main__container blockquote::before {
+.main .main__container blockquote[title]::before {
 	content: attr(title);
 	display: block;
-	font-weight: 700;
+	font-weight: bold;
+	font-size: 25px;
+	line-height: 35px;
+	margin-bottom: 30px;
 }
 .main .main__container mark {
 	padding: 0 3px;

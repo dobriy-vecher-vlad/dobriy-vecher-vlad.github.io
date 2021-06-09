@@ -24,8 +24,8 @@ data = {
 			"</li>",
 		"</ul>",
 		"<blockquote title='Важно'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</blockquote>",
-		"<blockquote warning title=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</blockquote>",
-		"<blockquote promt title=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</blockquote>",
+		"<blockquote warning>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</blockquote>",
+		"<blockquote promt>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</blockquote>",
 		"<p>Lorem ipsum dolor <mark>sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis</mark> cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</p>",
 		"<p>Lorem ipsum dolor <mark warning>sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis</mark> cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</p>",
 		"<p>Lorem ipsum dolor <mark promt>sit amet consectetur, adipisicing elit. Veniam molestiae neque fugit ducimus, esse iure eum ratione quis</mark> cum corporis. Eos enim officiis fugit illo possimus velit suscipit ipsa quibusdam?</p>"

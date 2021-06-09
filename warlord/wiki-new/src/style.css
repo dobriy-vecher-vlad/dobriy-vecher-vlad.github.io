@@ -403,6 +403,19 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	flex-grow: unset;
 }
 
+.Cell .Cell__marker--off {
+	display: block!important;
+}
+.Cell__checkbox:checked~.Cell__marker--off {
+	display: none!important;
+}
+.Cell .Cell__marker--on {
+	display: none!important;
+}
+.Cell__checkbox:checked~.Cell__marker--on {
+	display: block!important;
+}
+
 
 @media screen and (orientation: landscape) {
 	.BannerWiki.Scroll {

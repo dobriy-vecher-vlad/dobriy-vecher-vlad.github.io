@@ -7648,4 +7648,24 @@
 	"currency": 1,
 	"icon": "items/1836.png",
 	"price": 25000
+}, {
+	"id": 1837,
+	"type": 2,
+	"title": "Боевой Калаштай",
+	"description": "Награда арены",
+	"dmg": 125,
+	"hp": 0,
+	"currency": 2,
+	"icon": "items/1837.png",
+	"price": 450
+}, {
+	"id": 1838,
+	"type": 12,
+	"title": "Наплечники Каббалиста",
+	"description": "Награда арены",
+	"dmg": 0,
+	"hp": 25,
+	"currency": 2,
+	"icon": "items/1838.png",
+	"price": 250
 }]
