@@ -60,6 +60,29 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 .DescriptionCardWiki.withColor .Cell__marker {
 	display: none;
 }
+
+.DescriptionCardWiki.MiniCell .SimpleCell__main {
+	display: flex;
+	flex-direction: column-reverse;
+}
+.DescriptionCardWiki.MiniCell .Icon {
+	padding: 9px 7px 9px 0;
+}
+.DescriptionCardWiki.MiniCell .SimpleCell__main {
+	padding: 0;
+}
+.DescriptionCardWiki.MiniCell .SimpleCell__children {
+	font-size: 13px;
+	line-height: 16px;
+}
+.DescriptionCardWiki.MiniCell .SimpleCell__description {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 9px;
+	line-height: 9px;
+}
+
+
 .DescriptionWiki .vkuiSimpleCell {
 	white-space: pre-wrap;
 }
@@ -403,18 +426,7 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	flex-grow: unset;
 }
 
-.Cell .Cell__marker--off {
-	display: block!important;
-}
-.Cell__checkbox:checked~.Cell__marker--off {
-	display: none!important;
-}
-.Cell .Cell__marker--on {
-	display: none!important;
-}
-.Cell__checkbox:checked~.Cell__marker--on {
-	display: block!important;
-}
+
 
 
 @media screen and (orientation: landscape) {

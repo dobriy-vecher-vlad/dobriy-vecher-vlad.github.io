@@ -85,7 +85,7 @@ import {
 	Icon24HomeOutline,
 	Icon24PawOutline,
 	Icon24CheckCircleOutline,
-	Icon28DonateOutline,
+	Icon56DonateOutline,
 	Icon28CancelCircleOutline,
 	Icon28CheckCircleOutline,
 	Icon28ReportOutline,
@@ -124,6 +124,7 @@ let admins = [153968505, 14973344];
 let syncUser = null;
 let syncUserGame = null;
 let isDonut = false;
+let dataDonutUser = [];
 let isDev = false;
 let syncItems = [];
 let syncItemsFull = [];
@@ -684,6 +685,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 					this.setState({ profileItems: array });
 				}
 			}
+			if (name == '4' && activeStory == 'profile') {
+				if (!isDonut) {
+					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Смотри кто подписан вместе с тобой'}, null, 'card');
+					return 0;
+				}
+			}
 			if (name == '1' && activeStory == 'bosses') {
 				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай затраты на боссов'}, null, 'card');
@@ -889,6 +896,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 				if (!reload) {
 					syncUser = true;
 					let dataDonut = await getBridge('VKWebAppCallAPIMethod', {"method": "execute.getMembers", "params": {"v": '5.130', "access_token": "844073b741823e279bab9e368fe05fc56c1af139e5b6ecde3510cb01476167b117651849ec3ced221f55d"}});
+					dataDonutUser = await getBridge('VKWebAppCallAPIMethod', {"method": "execute.getMembersFull", "params": {"v": '5.130', "access_token": "844073b741823e279bab9e368fe05fc56c1af139e5b6ecde3510cb01476167b117651849ec3ced221f55d"}});
 					let isAdmin = admins.indexOf(dataVK.id) == -1 ? false : true;
 					if (dataDonut.response.items.indexOf(dataVK.id) != -1 || dev || isAdmin) {
 						let storage = await getBridge('VKWebAppStorageGet', {"keys": ["server"]});
@@ -1026,7 +1034,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					{!isDonut && <React.Fragment>
 						<Spacing separator size={16} />
 						<Card className="DescriptionCardWiki">
-							<Placeholder action={<Button href="https://vk.com/donut/wiki.warlord" target="_blank" size="m" mode="commerce">Узнать подробнее</Button>} icon={<Icon28DonateOutline width="56" height="56" style={{color: '#ffae26'}} />} header="VK Donut">Смотри наличие вещей,<br/>а также многое другое вместе с подпиской</Placeholder>
+							<Placeholder action={<Button href="https://vk.com/donut/wiki.warlord" target="_blank" size="m" mode="commerce">Узнать подробнее</Button>} icon={<Icon56DonateOutline width="56" height="56" style={{color: '#ffae26'}} />} header="VK Donut">Смотри наличие вещей,<br/>а также многое другое вместе с подпиской</Placeholder>
 						</Card>
 					</React.Fragment>}
 				</React.Fragment>
@@ -1050,7 +1058,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 						id='modal-warlord-card'
 						onClose={() => this.setState({ modalOpened: null })}
 						icon={
-							activeModal === 'donut' && <Icon28DonateOutline width="56" height="56" style={{color: '#ffae26'}} /> ||
+							activeModal === 'donut' && <Icon56DonateOutline width="56" height="56" style={{color: '#ffae26'}} /> ||
 							activeModal === 'alert' && <Icon28ReportOutline width="56" height="56" style={{color: 'var(--destructive)'}} />
 						}
 						header={dataModal && dataModal.header}
@@ -1726,6 +1734,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 												<Card onClick={() => setActivePanel('3', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/31.png' /></div>} description="Список вещей и их камней">Инкрустация</Cell>
 												</Card>
+												<Card onClick={() => setActivePanel('4', true)} className="CardWithAvatar">
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список донов">Доны</Cell>
+												</Card>
 											</CardGrid>
 										</Group>}
 								</Panel>
@@ -1840,6 +1851,26 @@ const App = withAdaptivity(({ viewWidth }) => {
 										</Group>
 									</React.Fragment>}
 								</Panel>
+								<Panel id="4">
+									{activePanel === '4' && activeStory === 'profile' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Доны</PanelHeader>}
+										<Group>
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Доны</PanelHeader>}
+											{dataDonutUser == [] && <Placeholder action={<Button href="https://vk.com/donut/wiki.warlord" target="_blank" size="m" mode="commerce">Узнать подробнее</Button>} icon={<Icon56DonateOutline width="56" height="56" style={{color: '#ffae26'}} />} header="VK Donut">Донов пока нет,<br/>но ты можешь быть первым</Placeholder>}
+											{dataDonutUser.response && dataDonutUser.response.count > 0 && 
+												<CardGrid size="m">
+												{dataDonutUser.response.items.map((data, x) => {
+													return (
+														<Card key={x} className="CardWithAvatar">
+															<Cell href={`https://vk.com/id${data.id}`} target='_blank' before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src={data.photo_200} /></div>} description={data.id}>{data.first_name} {data.last_name}</Cell>
+														</Card>
+													)
+												})}
+												</CardGrid>
+											}
+										</Group>
+									</React.Fragment>}
+								</Panel>
 							</View>
 
 
@@ -1933,6 +1964,33 @@ const App = withAdaptivity(({ viewWidth }) => {
 									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Походы</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Походы</PanelHeader>}
+
+
+										<Tabs mode="buttons">
+											<HorizontalScroll getScrollToLeft={i => i - 240} getScrollToRight={i => i + 240}>
+												<TabsItem onClick={() => isCheckTabs(2, 'stones')} selected={checkTabs === 2}>Оружие</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(4, 'stones')} selected={checkTabs === 4}>Шлемы</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(3, 'stones')} selected={checkTabs === 3}>Броня</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(12, 'stones')} selected={checkTabs === 12}>Наплечники</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(6, 'stones')} selected={checkTabs === 6}>Наручи</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(14, 'stones')} selected={checkTabs === 14}>Перчатки</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(5, 'stones')} selected={checkTabs === 5}>Штаны</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(13, 'stones')} selected={checkTabs === 13}>Ботинки</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(15, 'stones')} selected={checkTabs === 15}>Щиты</TabsItem>
+												<TabsItem onClick={() => isCheckTabs(16, 'stones')} selected={checkTabs === 16}>Бижутерия</TabsItem>
+											</HorizontalScroll>
+										</Tabs>
+										<Spacing size={8} />
+										<CardGrid size="s">
+											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24MoneyCircleOutline width={24} height={24} />} description={<span>Куплено</span>}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['предмет', 'предмета', 'предметов'])}</Cell></Card>
+											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24HammerOutline width={24} height={24} />} description={<span>Вставлено</span>}>{numberSpaces(isBonusItem.count)} {numberForm(isBonusItem.count, ['камень', 'камня', 'камней'])}</Cell></Card>
+											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24StatisticsOutline width={24} height={24} />} description={<span>Суммарно</span>}>{numberSpaces(isBonusItem.lvl)} {numberForm(isBonusItem.lvl, ['уровень', 'уровня', 'уровней'])}</Cell></Card>
+											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус</span>}>{numberSpaces(isBonusItem.dmg)} {numberForm(isBonusItem.dmg, ['урон', 'урона', 'урон'])}</Cell></Card>
+											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус</span>}>{numberSpaces(isBonusItem.hp*15)} {numberForm(isBonusItem.hp*15, ['здоровье', 'здоровья', 'здоровья'])}</Cell></Card>
+											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус</span>}>{numberSpaces(isBonusItem.en)} {numberForm(isBonusItem.en, ['энергия', 'энергии', 'энергии'])}</Cell></Card>
+										</CardGrid>
+
+
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Походы доступны с 10 уровня. В день возможно запустить поход 7 раз.<br/>В походах можно найти уникальных питомцев, а также ключи к фонам.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s">
@@ -2870,7 +2928,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 											<Spacing size={8} />
 											{dataOther.lottery && <CardGrid size={isDesktop ? "m" : "m"}>
 												{dataOther.lottery.map((data, x) => {
-													return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
+													// return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
+													return getItemPreview(Items[data.id], x);
 												})}
 											</CardGrid>}
 										</Group>
@@ -2885,7 +2944,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 											<Spacing size={8} />
 											{dataOther.search && <CardGrid size={isDesktop ? "m" : "m"}>
 												{dataOther.search.map((data, x) => {
-													return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
+													// return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
+													return getItemPreview(Items[data.id], x);
 												})}
 											</CardGrid>}
 										</Group>
