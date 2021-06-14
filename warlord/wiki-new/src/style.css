@@ -548,6 +548,9 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	.SplitCol--spaced {
 		margin: 0 0 0 16px;
 	}
+	.PanelHeader__left {
+		margin-left: -7px;
+	}
 }
 @media screen and (orientation: portrait) {
 	.GradientBannerWiki {
