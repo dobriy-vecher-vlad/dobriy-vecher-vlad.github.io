@@ -583,9 +583,11 @@ const App = withAdaptivity(({ viewWidth }) => {
 			isCountItem.null = false;
 			return (
 				<Card key={x} id={`modal_${x+1}`} onClick={() => OpenModal(`modal-warlordItem`, {id: Items.indexOf(data), item: item, collection: coll, description: data.description})} className="CardWithAvatar itemPreview">
-					<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={`image/${data.icon}`}/></div>} description={syncItemFull ? `${syncItemFull.lvl} уровень заточки` : data.description} after={
-						tooltip ? item && <Icon24TshirtOutline width={24} height={24}/> || coll && <Icon24CubeBoxOutline width={24} height={24}/> : syncItem ? <Icon28CheckCircleOutline width={24} height={24} style={{color: 'var(--dynamic_green)'}}/> : <Icon28CancelCircleOutline width={24} height={24} style={{color: 'var(--destructive)'}}/>
-					}>{data.title}</Cell>
+					<Cell 
+						before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki" /><Avatar className="withPreload" src={`image/${data.icon}`}/></div>} 
+						description={syncItemFull ? `${syncItemFull.lvl} уровень заточки` : data.description}
+						after={tooltip ? item && <Icon24TshirtOutline width={24} height={24}/> || coll && <Icon24CubeBoxOutline width={24} height={24}/> : syncItem ? <Icon28CheckCircleOutline width={24} height={24} style={{color: 'var(--dynamic_green)'}}/> : <Icon28CancelCircleOutline width={24} height={24} style={{color: 'var(--destructive)'}}/>}
+					>{data.title}</Cell>
 					{syncItemFull && syncItemFull.bonus.reduce((accumulator, current) => accumulator + current) !== 0 && <div className="vkuiContentCard__body">
 						{(syncItemFull.stones[0][0] == 1 || syncItemFull.stones[1][0] == 1 || syncItemFull.stones[2][0] == 1) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">Бонус от камней +{this.numberSpaces(syncItemFull.bonus[1])} энергии</div>}
 						{(syncItemFull.stones[0][0] == 2 || syncItemFull.stones[1][0] == 2 || syncItemFull.stones[2][0] == 2) && <div className="vkuiContentCard__caption  vkuiCaption vkuiCaption--ios vkuiCaption--w-regular vkuiCaption--l-1">Бонус от камней +{this.numberSpaces(syncItemFull.bonus[0])} урона</div>}
@@ -1764,6 +1766,31 @@ const App = withAdaptivity(({ viewWidth }) => {
 												<Card className="DescriptionCardWiki"><Cell before={<Icon28CheckCircleOutline width={24} height={24} />} description={<span>У вас {numberForm(isCountItem.yesStock, ['куплена', 'куплены', 'куплено'])} {isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</span>}></Cell></Card>
 												<Card className="DescriptionCardWiki"><Cell before={<Icon28CancelCircleOutline width={24} height={24} />} description={<span>У вас не {numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])} {isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</span>}></Cell></Card>
 											</CardGrid>
+											<Spacing size={8} />
+											<CardGrid size="m">
+												<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon28CheckCircleOutline width={24} height={24} />} description={<span>{numberForm(isCountItem.yesStock, ['Куплена', 'Куплены', 'Куплено'])}</span>}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</Cell></Card>
+												<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon28CancelCircleOutline width={24} height={24} />} description={<span>Не {numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])}</span>}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</Cell></Card>
+											</CardGrid>
+											<CardGrid size="m">
+												<Card className="DescriptionCardWiki">
+													<Cell className="DescriptionWiki" before={<Icon28CheckCircleOutline />}>
+														<InfoRow header={`У вас ${numberForm(isCountItem.yesStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</InfoRow>
+													</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell className="DescriptionWiki" before={<Icon28CancelCircleOutline />}>
+														<InfoRow header={`У вас не ${numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</InfoRow>
+													</Cell>
+												</Card>
+											</CardGrid>
+											<CardGrid size="m">
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28CheckCircleOutline width={24} height={24} />} description={`У вас ${numberForm(isCountItem.yesStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28CancelCircleOutline width={24} height={24} />} description={`У вас не ${numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</Cell>
+												</Card>
+											</CardGrid>
 											<Spacing separator size={16} />
 											{profileItems && <CardGrid size={isDesktop ? "m" : "m"} className="Scroll" style={{maxHeight: '387px'}}>
 												{profileItems.map((data, x) => {
@@ -1934,7 +1961,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											<Spacing size={8} />
 											{dataMap.shop && <CardGrid size={isDesktop ? "m" : "m"}>
 												{dataMap.shop.map((data, x) => {
-													return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
+													return getItemPreview(Items[data.id], x, null, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
 												})}
 											</CardGrid>}
 										</Group>
@@ -1964,33 +1991,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 									{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Походы</PanelHeader>}
 									<Group>
 										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('map')}/>}>Походы</PanelHeader>}
-
-
-										<Tabs mode="buttons">
-											<HorizontalScroll getScrollToLeft={i => i - 240} getScrollToRight={i => i + 240}>
-												<TabsItem onClick={() => isCheckTabs(2, 'stones')} selected={checkTabs === 2}>Оружие</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(4, 'stones')} selected={checkTabs === 4}>Шлемы</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(3, 'stones')} selected={checkTabs === 3}>Броня</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(12, 'stones')} selected={checkTabs === 12}>Наплечники</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(6, 'stones')} selected={checkTabs === 6}>Наручи</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(14, 'stones')} selected={checkTabs === 14}>Перчатки</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(5, 'stones')} selected={checkTabs === 5}>Штаны</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(13, 'stones')} selected={checkTabs === 13}>Ботинки</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(15, 'stones')} selected={checkTabs === 15}>Щиты</TabsItem>
-												<TabsItem onClick={() => isCheckTabs(16, 'stones')} selected={checkTabs === 16}>Бижутерия</TabsItem>
-											</HorizontalScroll>
-										</Tabs>
-										<Spacing size={8} />
-										<CardGrid size="s">
-											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24MoneyCircleOutline width={24} height={24} />} description={<span>Куплено</span>}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['предмет', 'предмета', 'предметов'])}</Cell></Card>
-											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24HammerOutline width={24} height={24} />} description={<span>Вставлено</span>}>{numberSpaces(isBonusItem.count)} {numberForm(isBonusItem.count, ['камень', 'камня', 'камней'])}</Cell></Card>
-											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24StatisticsOutline width={24} height={24} />} description={<span>Суммарно</span>}>{numberSpaces(isBonusItem.lvl)} {numberForm(isBonusItem.lvl, ['уровень', 'уровня', 'уровней'])}</Cell></Card>
-											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус</span>}>{numberSpaces(isBonusItem.dmg)} {numberForm(isBonusItem.dmg, ['урон', 'урона', 'урон'])}</Cell></Card>
-											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус</span>}>{numberSpaces(isBonusItem.hp*15)} {numberForm(isBonusItem.hp*15, ['здоровье', 'здоровья', 'здоровья'])}</Cell></Card>
-											<Card className="DescriptionCardWiki MiniCell"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус</span>}>{numberSpaces(isBonusItem.en)} {numberForm(isBonusItem.en, ['энергия', 'энергии', 'энергии'])}</Cell></Card>
-										</CardGrid>
-
-
 										<Cell className="DescriptionWiki" before={<Icon24InfoCircleOutline />} description={<span>Походы доступны с 10 уровня. В день возможно запустить поход 7 раз.<br/>В походах можно найти уникальных питомцев, а также ключи к фонам.</span>}></Cell>
 										<Spacing size={8} />
 										<CardGrid size="s">
@@ -2929,7 +2929,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											{dataOther.lottery && <CardGrid size={isDesktop ? "m" : "m"}>
 												{dataOther.lottery.map((data, x) => {
 													// return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
-													return getItemPreview(Items[data.id], x);
+													return getItemPreview(Items[data.id], x, null, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
 												})}
 											</CardGrid>}
 										</Group>
@@ -2945,7 +2945,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											{dataOther.search && <CardGrid size={isDesktop ? "m" : "m"}>
 												{dataOther.search.map((data, x) => {
 													// return getItemPreview(Items[data.id], x, data.tooltip, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
-													return getItemPreview(Items[data.id], x);
+													return getItemPreview(Items[data.id], x, null, data.tooltip == 'Предмет' ? true : false, data.tooltip == 'Коллекция' ? true : false);
 												})}
 											</CardGrid>}
 										</Group>

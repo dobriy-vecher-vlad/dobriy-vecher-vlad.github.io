@@ -7252,7 +7252,7 @@
 	"background": "bosses/backgrounds/4.png",
 	"image": "bosses/images/464.png",
 	"icon": "bosses/icons/464.png"
-	}, {
+}, {
 	"id": 465,
 	"name": "Сартана",
 	"description": "Тифлинг убийца",
