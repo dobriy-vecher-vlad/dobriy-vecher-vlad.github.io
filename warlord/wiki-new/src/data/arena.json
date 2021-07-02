@@ -778,6 +778,18 @@
 					}
 				],
 				"icon": "arena/season_2021_5.png"
+			}, {
+				"name": "Июнь 2021",
+				"items": [
+					{
+						"id": 767,
+						"item": true
+					}, {
+						"id": 768,
+						"item": true
+					}
+				],
+				"icon": "arena/season_2021_6.png"
 			}
 		]
 	}],

@@ -53,7 +53,8 @@ import {
 	Select,
 	CustomSelectOption,
 	Div,
-	HorizontalCell
+	HorizontalCell,
+	SimpleCell
 } from '@vkontakte/vkui';
 import {
 	Icon28HomeOutline,
@@ -91,9 +92,14 @@ import {
 	Icon28ReportOutline,
 	Icon28SunOutline,
 	Icon28MoonOutline,
-	Icon24HammerOutline,
-	Icon24StatisticsOutline,
-	Icon28GhostSimleOutline
+	Icon16UserOutline,
+	Icon28GhostSimleOutline,
+	Icon28FavoriteOutline,
+	Icon28GiftOutline,
+	Icon28DiamondOutline,
+	Icon28StatisticsOutline,
+	Icon28CoinsOutline,
+	Icon16ChevronOutline
 } from '@vkontakte/icons';
 
 import '@vkontakte/vkui/dist/vkui.css';
@@ -128,6 +134,7 @@ let dataDonutUser = [];
 let isDev = false;
 let syncItems = [];
 let syncItemsFull = [];
+let syncFriends = [];
 let server = 1;
 let isMask = false;
 
@@ -160,6 +167,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 		try {
 			data = await bridge.send(method, params);
 		} catch (error) {
+			data = error;
 			console.log(error);
 		}
 		return data;
@@ -300,9 +308,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 				checkItems: {null: true, item: true, scroll: true, collection: true, personal: true, stock: true, yesStock: true, noStock: true},
 				checkTabs: 2,
-				isCountItem: {yesStock: 0, noStock: 0, null: true},
+				isCountItem: {yesStock: 0, noStock: 0, null: true, total: 0},
 				isBonusItem: {count: 0, lvl: 0, dmg: 0, hp: 0, en: 0},
 				profileItems: null,
+
+				friendsPage: 0,
+				friendsMode: [1, true],
 
 				newBossCount: 1,
 				newBossArray: [
@@ -693,6 +704,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 					return 0;
 				}
 			}
+			if (name == '5' && activeStory == 'profile') {
+				if (!isDonut) {
+					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Смотри своих друзей'}, null, 'card');
+					return 0;
+				} else {
+					this.FriendsScanner();
+					return 1;
+				}
+			}
 			if (name == '1' && activeStory == 'bosses') {
 				if (!isDonut) {
 					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Считай затраты на боссов'}, null, 'card');
@@ -885,6 +905,53 @@ const App = withAdaptivity(({ viewWidth }) => {
 			this.setState({ activeStory: 'profile' });
 			this.setState({ popout: null });
 		};
+		FriendsScanner = async() => {
+			const { activePanel, activeStory, user } = this.state;
+			const { OpenModal } = this;
+			isDev&&console.warn('FriendsScanner', activeStory, activePanel);
+			this.setState({ popout: <ScreenSpinner /> });
+
+			syncFriends = [];
+			let data = await getBridge("VKWebAppGetAuthToken", {"app_id": 7787242, "scope": "friends"});
+			if (data.error_data) {
+				OpenModal(`alert`, {header: 'Ошибка при получении друзей', subheader: `${data.error_data.error_reason}`}, null, 'card');
+				this.setState({ popout: null });
+			} else if (data.access_token) {
+				data = await getBridge("VKWebAppCallAPIMethod", {"method": "friends.get", "params": {"user_id": user.vk.id, "fields": "photo_50", "count": 5000, "v": "5.130", "access_token": data.access_token}});
+				if (data.response.count !== 0) {
+					for (let i = 0; i < Math.ceil(data.response.count/300); i++) {
+						let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${clan_id}&api_type=vk&api_id=${api_id}&auth_key=${clan_auth}&UID=${user.vk.id}&f_data=<data>${data.response.items.slice(i*300, (i+1)*300).map((item, x) => {
+							return `<u>${item.id}</u>`;
+						}).join('')}</data>&i=7`);
+						typeof dataGame.u == 'undefined' ? dataGame.u = [] : '';
+						typeof dataGame.u.length == 'undefined' ? dataGame.u = [dataGame.u] : '';
+						dataGame.u.map((item, x) => {
+							syncFriends.push({
+								id: Number(item._vkId),
+								name: item._name == '' ? item._id : item._name,
+								vk: data.response.items.find(x => x.id === Number(item._vkId)),
+								dmg: Number(item._dmgi),
+								hp: (Number(item._endi) + Number(item._end)) * 15,
+								lvl: Number(item._lvl),
+								exp: Number(item._exp),
+								skills: [Number(item._s1), Number(item._s2), Number(item._s3), Number(item._s4)],
+								active: [new Date - Number(item._bd) * 1000, new Date - Number(item._l_t) * 1000]
+							});
+						});
+						syncFriends.splice(syncFriends.findIndex(x => x.id === user.vk.id), 1);
+					}
+					this.setState({ activeStory: 'profile' });
+					this.setState({ activePanel: '5' });
+					this.setState({ popout: null });
+				} else {
+					OpenModal(`alert`, {header: 'Ошибка при получении друзей', subheader: `У вас 0 друзей`}, null, 'card');
+					this.setState({ popout: null });
+				}
+			} else {
+				OpenModal(`alert`, {header: 'Ошибка при получении друзей', subheader: `${data}`}, null, 'card');
+				this.setState({ popout: null });
+			}
+		};
 		loadProfile = async(dev = false, reload = false, version = 1, withParams = false) => {
 			const { activePanel, activeStory } = this.state;
 			const { setActivePanel, OpenModal } = this;
@@ -1012,7 +1079,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 		render() {
-			const { activeStory, activePanel, popout, user, modalOpened, activeModal, indexModal, dataModal, checkItems, count_guild_1, count_guild_2, count_arena_1, count_arena_2, newBossArray, count_boss, newBossHP, newBossDMG, checkTabs, isCountItem, isBonusItem, profileItems, theme } = this.state;
+			const { activeStory, activePanel, popout, user, modalOpened, activeModal, indexModal, dataModal, checkItems, count_guild_1, count_guild_2, count_arena_1, count_arena_2, newBossArray, count_boss, newBossHP, newBossDMG, checkTabs, isCountItem, isBonusItem, profileItems, theme, friendsPage, friendsMode } = this.state;
 			const { onStoryChange, numberForm, setActivePanel, OpenModal, getTime, numberSpaces, isCheckItems, getItemCell, getItemPreview, testtest, isCalcBoss, CalcBoss, setNewBoss, VKBridge, loadProfile, isCheckTabs, setTheme, getSort } = this;
 			const SortableItems = (
 				<React.Fragment>
@@ -1736,6 +1803,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 												<Card onClick={() => setActivePanel('3', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/31.png' /></div>} description="Список вещей и их камней">Инкрустация</Cell>
 												</Card>
+												<Card onClick={() => setActivePanel('5', true)} className="CardWithAvatar">
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/23.png' /></div>} description="Список друзей и характеристик">Друзья</Cell>
+												</Card>
 												<Card onClick={() => setActivePanel('4', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список донов">Доны</Cell>
 												</Card>
@@ -1762,7 +1832,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 												</HorizontalScroll>
 											</Tabs>
 											<Spacing size={8} />
-											<CardGrid size="m">
+											{/* <CardGrid size="m">
 												<Card className="DescriptionCardWiki"><Cell before={<Icon28CheckCircleOutline width={24} height={24} />} description={<span>У вас {numberForm(isCountItem.yesStock, ['куплена', 'куплены', 'куплено'])} {isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</span>}></Cell></Card>
 												<Card className="DescriptionCardWiki"><Cell before={<Icon28CancelCircleOutline width={24} height={24} />} description={<span>У вас не {numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])} {isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</span>}></Cell></Card>
 											</CardGrid>
@@ -1782,13 +1852,16 @@ const App = withAdaptivity(({ viewWidth }) => {
 														<InfoRow header={`У вас не ${numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</InfoRow>
 													</Cell>
 												</Card>
-											</CardGrid>
-											<CardGrid size="m">
+											</CardGrid> */}
+											<CardGrid size="s">
 												<Card className="DescriptionCardWiki">
-													<Cell before={<Icon28CheckCircleOutline width={24} height={24} />} description={`У вас ${numberForm(isCountItem.yesStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</Cell>
+													<Cell before={<Icon28FavoriteOutline width={28} height={28} />} description={`Всего`}>{isCountItem.yesStock+isCountItem.noStock} {numberForm(isCountItem.yesStock+isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</Cell>
 												</Card>
 												<Card className="DescriptionCardWiki">
-													<Cell before={<Icon28CancelCircleOutline width={24} height={24} />} description={`У вас не ${numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</Cell>
+													<Cell before={<Icon28CheckCircleOutline width={28} height={28} />} description={`${numberForm(isCountItem.yesStock, ['Куплена', 'Куплены', 'Куплено'])}`}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28CancelCircleOutline width={28} height={28} />} description={`Не ${numberForm(isCountItem.noStock, ['куплена', 'куплены', 'куплено'])}`}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['вещь', 'вещи', 'вещей'])}</Cell>
 												</Card>
 											</CardGrid>
 											<Spacing separator size={16} />
@@ -1823,9 +1896,16 @@ const App = withAdaptivity(({ viewWidth }) => {
 												</HorizontalScroll>
 											</Tabs>
 											<Spacing size={8} />
-											<CardGrid size="m">
-												<Card className="DescriptionCardWiki"><Cell before={<Icon28CheckCircleOutline width={24} height={24} />} description={<span>У вас {numberForm(isCountItem.yesStock, ['собрана', 'собраны', 'собрано'])} {isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['коллекция', 'коллекции', 'коллекций'])}</span>}></Cell></Card>
-												<Card className="DescriptionCardWiki"><Cell before={<Icon28CancelCircleOutline width={24} height={24} />} description={<span>У вас не {numberForm(isCountItem.noStock, ['собрана', 'собраны', 'собрано'])} {isCountItem.noStock} {numberForm(isCountItem.noStock, ['коллекция', 'коллекции', 'коллекций'])}</span>}></Cell></Card>
+											<CardGrid size="s">
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28FavoriteOutline width={28} height={28} />} description={`Всего`}>{isCountItem.yesStock+isCountItem.noStock} {numberForm(isCountItem.yesStock+isCountItem.noStock, ['коллекция', 'коллекции', 'коллекций'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28CheckCircleOutline width={28} height={28} />} description={`${numberForm(isCountItem.yesStock, ['Собрана', 'Собраны', 'Собрано'])}`}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['коллекция', 'коллекции', 'коллекций'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28CancelCircleOutline width={28} height={28} />} description={`Не ${numberForm(isCountItem.noStock, ['собрана', 'собраны', 'собрано'])}`}>{isCountItem.noStock} {numberForm(isCountItem.noStock, ['коллекция', 'коллекции', 'коллекций'])}</Cell>
+												</Card>
 											</CardGrid>
 											<Spacing separator size={16} />
 											{profileItems && <CardGrid size={isDesktop ? "m" : "m"} className="Scroll" style={{maxHeight: '387px'}}>
@@ -1860,12 +1940,24 @@ const App = withAdaptivity(({ viewWidth }) => {
 											</Tabs>
 											<Spacing size={8} />
 											<CardGrid size="s">
-												<Card className="DescriptionCardWiki"><Cell before={<Icon24MoneyCircleOutline width={24} height={24} />} description={<span>Куплено {isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['предмет', 'предмета', 'предметов'])}</span>}></Cell></Card>
-												<Card className="DescriptionCardWiki"><Cell before={<Icon24HammerOutline width={24} height={24} />} description={<span>Вставлено {numberSpaces(isBonusItem.count)} {numberForm(isBonusItem.count, ['камень', 'камня', 'камней'])}</span>}></Cell></Card>
-												<Card className="DescriptionCardWiki"><Cell before={<Icon24StatisticsOutline width={24} height={24} />} description={<span>Суммарно {numberSpaces(isBonusItem.lvl)} {numberForm(isBonusItem.lvl, ['уровень', 'уровня', 'уровней'])}</span>}></Cell></Card>
-												<Card className="DescriptionCardWiki"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус {numberSpaces(isBonusItem.dmg)} {numberForm(isBonusItem.dmg, ['урон', 'урона', 'урон'])}</span>}></Cell></Card>
-												<Card className="DescriptionCardWiki"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус {numberSpaces(isBonusItem.hp*15)} {numberForm(isBonusItem.hp*15, ['здоровье', 'здоровья', 'здоровья'])}</span>}></Cell></Card>
-												<Card className="DescriptionCardWiki"><Cell before={<Icon24GiftOutline width={24} height={24} />} description={<span>Бонус {numberSpaces(isBonusItem.en)} {numberForm(isBonusItem.en, ['энергия', 'энергии', 'энергии'])}</span>}></Cell></Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28CoinsOutline width={28} height={28} />} description={`${numberForm(isCountItem.yesStock, ['Куплена', 'Куплены', 'Куплено'])}`}>{isCountItem.yesStock} {numberForm(isCountItem.yesStock, ['вещь', 'вещи', 'вещей'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28DiamondOutline width={28} height={28} />} description={`${numberForm(isBonusItem.count, ['Вставлен', 'Вставлено', 'Вставлено'])}`}>{isBonusItem.count} {numberForm(isBonusItem.count, ['камень', 'камня', 'камней'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28StatisticsOutline width={28} height={28} />} description={`${numberForm(isBonusItem.lvl, ['Улучшен', 'Улучшено', 'Улучшено'])}`}>{isBonusItem.lvl} {numberForm(isBonusItem.lvl, ['уровень', 'уровня', 'уровней'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28GiftOutline width={28} height={28} />} description={`Бонус от камней`}>{numberSpaces(isBonusItem.dmg)} {numberForm(isBonusItem.dmg, ['урон', 'урона', 'урона'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28GiftOutline width={28} height={28} />} description={`Бонус от камней`}>{numberSpaces(isBonusItem.hp*15)} {numberForm(isBonusItem.hp*15, ['здоровье', 'здоровья', 'здоровья'])}</Cell>
+												</Card>
+												<Card className="DescriptionCardWiki">
+													<Cell before={<Icon28GiftOutline width={28} height={28} />} description={`Бонус от камней`}>{numberSpaces(isBonusItem.en)} {numberForm(isBonusItem.en, ['энергия', 'энергии', 'энергии'])}</Cell>
+												</Card>
 											</CardGrid>
 											<Spacing separator size={16} />
 											{profileItems && <CardGrid size={isDesktop ? "m" : "m"} className="Scroll" style={{maxHeight: '387px'}}>
@@ -1894,6 +1986,134 @@ const App = withAdaptivity(({ viewWidth }) => {
 													)
 												})}
 												</CardGrid>
+											}
+										</Group>
+									</React.Fragment>}
+								</Panel>
+								<Panel id="5">
+									{activePanel === '5' && activeStory === 'profile' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Друзья</PanelHeader>}
+										<Group>
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Друзья</PanelHeader>}
+											{syncFriends == [] && <Placeholder action={<Button href="https://vk.com/donut/wiki.warlord" target="_blank" size="m" mode="commerce">Узнать подробнее</Button>} icon={<Icon56DonateOutline width="56" height="56" style={{color: '#ffae26'}} />} header="VK Donut">Донов пока нет,<br/>но ты можешь быть первым</Placeholder>}
+											{/* {syncFriends.length > 0 && 
+												<CardGrid size="m">
+												{syncFriends.map((data, x) => {
+													return (
+														<Card key={x} className="CardWithAvatar">
+															<Cell href={`https://vk.com/id${data.id}`} target='_blank' before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src={data.vk.photo_50} /></div>} description={`${data.dmg} DMG ${data.hp} HP`}>{data.vk.first_name} {data.vk.last_name}</Cell>
+														</Card>
+													)
+												})}
+												</CardGrid>
+											} */}
+											{syncFriends.length > 0 && 
+												<React.Fragment>
+													<div className={syncFriends.length > 8 ? "tableGrid__Scroll" : ''}>
+														<SimpleCell
+															disabled
+															className="tableGrid __head"
+															before={<Avatar size={32} mode="app" ><Icon16UserOutline width={16} height={16} /></Avatar>}
+														>
+															<div className="__grid">
+																<div className="__main">
+																	<div className="__description">Имя</div>
+																</div>
+																<div className="__main">
+																	<div className="__description" onClick={() => this.setState({ friendsMode: [1, friendsMode[0] == 1 ? !friendsMode[1] : 1] })}>Урон{friendsMode[0] == 1 && <Icon16ChevronOutline style={{transform: !friendsMode[1] ? 'rotate(90deg)' : 'rotate(-90deg)'}}/>}</div>
+																</div>
+																<div className="__main">
+																	<div className="__description" onClick={() => this.setState({ friendsMode: [2, friendsMode[0] == 2 ? !friendsMode[1] : 1] })}>Здоровье{friendsMode[0] == 2 && <Icon16ChevronOutline style={{transform: !friendsMode[1] ? 'rotate(90deg)' : 'rotate(-90deg)'}}/>}</div>
+																</div>
+																<div className="__main">
+																	<div className="__description" onClick={() => this.setState({ friendsMode: [3, friendsMode[0] == 3 ? !friendsMode[1] : 1] })}>Уровень{friendsMode[0] == 3 && <Icon16ChevronOutline style={{transform: !friendsMode[1] ? 'rotate(90deg)' : 'rotate(-90deg)'}}/>}</div>
+																</div>
+																<div className="__main">
+																	<div className="__description" onClick={() => this.setState({ friendsMode: [4, friendsMode[0] == 4 ? !friendsMode[1] : 1] })}>Последний вход{friendsMode[0] == 4 && <Icon16ChevronOutline style={{transform: !friendsMode[1] ? 'rotate(90deg)' : 'rotate(-90deg)'}}/>}</div>
+																</div>
+															</div>
+														</SimpleCell>
+													</div>
+													<Spacing separator size={16} />
+													<div className={syncFriends.length > 8 ? "tableGrid__Scroll" : ''}>
+														{syncFriends.sort(function(a, b) {
+															if (friendsMode[0] == 1) {
+																if (friendsMode[1]) {
+																	return b.dmg < a.dmg ? -1 : 1;
+																} else {
+																	return a.dmg < b.dmg ? -1 : 1;
+																}
+															}
+															if (friendsMode[0] == 2) {
+																if (friendsMode[1]) {
+																	return b.hp < a.hp ? -1 : 1;
+																} else {
+																	return a.hp < b.hp ? -1 : 1;
+																}
+															}
+															if (friendsMode[0] == 3) {
+																if (friendsMode[1]) {
+																	return b.exp < a.exp ? -1 : 1;
+																} else {
+																	return a.exp < b.exp ? -1 : 1;
+																}
+															}
+															if (friendsMode[0] == 4) {
+																if (friendsMode[1]) {
+																	return b.active[1] < a.active[1] ? -1 : 1;
+																} else {
+																	return a.active[1] < b.active[1] ? -1 : 1;
+																}
+															}
+														}).slice(friendsPage*100, (friendsPage+1)*100).map((data, x) => {
+															return (
+																<SimpleCell
+																	className="tableGrid"
+																	key={x}
+																	href={`https://vk.com/id${data.id}`}
+																	target='_blank'
+																	before={<Avatar size={32} mode="app" src={data.vk.photo_50} />}
+																>
+																	<div className="__grid">
+																		<div className="__main">
+																			<div className="__content">{data.name}</div>
+																			<div className="__description">{data.vk.first_name} {data.vk.last_name}</div>
+																		</div>
+																		<div className="__main">
+																			<div className="__content">{numberSpaces(data.dmg)}</div>
+																			<div className="__description">Урон</div>
+																		</div>
+																		<div className="__main">
+																			<div className="__content">{numberSpaces(data.hp)}</div>
+																			<div className="__description">Здоровье</div>
+																		</div>
+																		<div className="__main">
+																			<div className="__content">{data.lvl}</div>
+																			<div className="__description">Уровень</div>
+																		</div>
+																		<div className="__main">
+																			<div className="__content">{new Date(data.active[1]).toLocaleString("ru", {
+																				timezone: 'UTC',
+																				year: 'numeric',
+																				month: 'numeric',
+																				day: 'numeric',
+																				hour: 'numeric',
+																				minute: 'numeric'
+																			})}</div>
+																			<div className="__description">Последний вход</div>
+																		</div>
+																	</div>
+																</SimpleCell>
+															)
+														})}
+													</div>
+													<Spacing separator size={16} />
+													<div style={{display: 'flex', alignItems: 'center'}}>
+														<Button before={<Icon16ChevronOutline style={{transform: 'scale(-1, 1)'}}/>} disabled={friendsPage<=0} size="l" stretched mode="secondary" onClick={() => this.setState({ friendsPage: friendsPage-1 })}/>
+														<div style={{width: '100%', textAlign: 'center'}}>{friendsPage+1} / {Math.ceil(syncFriends.length/100)}</div>
+														<Button after={<Icon16ChevronOutline/>} disabled={friendsPage>=Math.ceil(syncFriends.length/100)-1} size="l" stretched mode="secondary" onClick={() => this.setState({ friendsPage: friendsPage+1 })}/>
+													</div>
+												</React.Fragment>
 											}
 										</Group>
 									</React.Fragment>}

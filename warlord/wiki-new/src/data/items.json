@@ -7668,4 +7668,24 @@
 	"currency": 2,
 	"icon": "items/1838.png",
 	"price": 250
+}, {
+	"id": 1839,
+	"type": 16,
+	"title": "Боевой Перстень",
+	"description": "Награда арены",
+	"dmg": 125,
+	"hp": 0,
+	"currency": 2,
+	"icon": "items/1839.png",
+	"price": 450
+}, {
+	"id": 1840,
+	"type": 6,
+	"title": "Наручи Укротителя",
+	"description": "Награда арены",
+	"dmg": 0,
+	"hp": 25,
+	"currency": 2,
+	"icon": "items/1840.png",
+	"price": 250
 }]
