@@ -488,6 +488,12 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	cursor: pointer;
 }
 
+.Checkbox__content {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 @media screen and (orientation: landscape) {
 	.BannerWiki.Scroll {
 		width: 25%!important;
@@ -527,7 +533,7 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 		padding-top: 2px;
 		transform: scale(0.65);
 	}
-	.vkuiCardGrid--m .DescriptionCardWiki:not(.withColor) {
+	.vkuiCardGrid--m .DescriptionCardWiki:not(.withColor):not(.Clear) {
 		margin: 0!important;
 		width: calc((100%)/2);
 	}
@@ -612,6 +618,9 @@ body::-webkit-scrollbar, .ModalPage__content::-webkit-scrollbar {
 	}
 	.vkuiSimpleCell>.vkuiIcon, .vkuiSimpleCell>.vkuiAvatar {
 		padding-right: 16px;
+	}
+	.PanelHeaderContent__children > .Headline {
+		font-weight: 800;
 	}
 }
 @media screen and (orientation: portrait) {

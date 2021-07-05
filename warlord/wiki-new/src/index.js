@@ -54,7 +54,11 @@ import {
 	CustomSelectOption,
 	Div,
 	HorizontalCell,
-	SimpleCell
+	SimpleCell,
+	Textarea,
+	Checkbox,
+	Snackbar,
+	PanelHeaderContent
 } from '@vkontakte/vkui';
 import {
 	Icon28HomeOutline,
@@ -99,7 +103,11 @@ import {
 	Icon28DiamondOutline,
 	Icon28StatisticsOutline,
 	Icon28CoinsOutline,
-	Icon16ChevronOutline
+	Icon16ChevronOutline,
+	Icon28CheckCircleFill,
+	Icon28CancelCircleFillRed,
+	Icon28DonateCircleFillYellow,
+	Icon28ListCircleFillGray
 } from '@vkontakte/icons';
 
 import '@vkontakte/vkui/dist/vkui.css';
@@ -135,6 +143,10 @@ let isDev = false;
 let syncItems = [];
 let syncItemsFull = [];
 let syncFriends = [];
+let syncBot = {
+	raids: null,
+	isStart: false
+};
 let server = 1;
 let isMask = false;
 
@@ -148,6 +160,8 @@ let countBossAll = {
 	spell_3: 0
 };
 let newBossID = 5;
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+const wikiVersion = '1.2.0'
 
 
 
@@ -175,10 +189,22 @@ const App = withAdaptivity(({ viewWidth }) => {
 	const getData = async(type, link) => {
 		if (type && link) {
 			try {
-				let dataResponse = await fetch(link);
-				let data = type === 'xml' ? await x2js.xml_str2json(await dataResponse.text()).data : type === 'json' ? await dataResponse.json() : null;
+				let data = await fetch(link);
+				if (type === 'xml') {
+					data = await data.text();
+					// console.warn(data.replace(/\r?\n/g, ""));
+					data = await x2js.xml_str2json(data);
+					// console.warn(data);
+					data = data.data;
+				} else if (type === 'json') {
+					data = await data.json();
+				} else {
+					data = null;
+				}
+				// let data = type === 'xml' ? await x2js.xml_str2json(await dataResponse.text()).data : type === 'json' ? await dataResponse.json() : null;
 				return data;
 			} catch (error) {
+				// console.log(error);
 				return null;
 			}
 		}
@@ -289,6 +315,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 		constructor(props) {
 			super(props);
 			this.state = {
+				snackbar: null,
 				popout: <ScreenSpinner />, // <ScreenSpinner />
 				activeStory: null, // warlordBosses
 				activePanel: null, // profile_1
@@ -314,6 +341,49 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 				friendsPage: 0,
 				friendsMode: [1, true],
+
+				auth: null,
+				botLog: '',
+				botRaidsSettings: {
+					barrels: true,
+					chestsTier1: true,
+					chestsTier2: true,
+					chestsTier3: true,
+					chestsTier4: true,
+					chestsTier5: true,
+					selectedRaid: 1,
+					selectRaid: [{
+						id: 1,
+						title: 'Подземелье форта',
+						icon: 'bot/raids/6.png'
+					}, {
+						id: 2,
+						title: 'Подвал часовни',
+						icon: 'bot/raids/25.png'
+					}, {
+						id: 3,
+						title: 'Паучий лес',
+						icon: 'bot/raids/28.png'
+					}],
+					selectedMode: 0,
+					selectMode: [{
+						id: 0,
+						title: 'Лёгкий режим',
+						icon: 'bot/raids/30.png'
+					}, {
+						id: 1,
+						title: 'Обычный режим',
+						icon: 'bot/raids/31.png'
+					}, {
+						id: 2,
+						title: 'Героический режим',
+						icon: 'bot/raids/32.png'
+					}, {
+						id: 3,
+						title: 'Легендарный режим',
+						icon: 'bot/raids/33.png'
+					}]
+				},
 
 				newBossCount: 1,
 				newBossArray: [
@@ -418,7 +488,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 				Bosses.push({
 					id: Bosses.length,
 					name: `Свой противник #${newBossCount}`,
-					description: 'Долбоёб автор! Хуйня у тебя получилась!',
+					description: 'Новая угроза Эрмуна',
 					hp: newBossHP,
 					dmg: newBossDMG,
 					background: 'bosses/backgrounds/19.png',
@@ -430,6 +500,28 @@ const App = withAdaptivity(({ viewWidth }) => {
 				newBossArray.push(Bosses[Bosses.length-1]);
 				CalcBoss();
 			}
+		};
+		openSnackbar = (data = {text: 'Text', action: null, icon: null, avatar: null, vertical: false, duration: 3000}) => {
+			const { activePanel, activeStory } = this.state;
+			isDev&&console.warn('openSnackbar', activeStory, activePanel, data);
+			if (this.state.snackbar || !data) return;
+			this.setState({ snackbar:
+				<Snackbar
+					layout={data.vertical}
+					duration={data.duration}
+					onClose={() => this.setState({ snackbar: null })}
+					action={data.action}
+					before={data.icon && 
+						data.icon == 'done' ? <Icon28CheckCircleFill/> :
+						data.icon == 'error' ? <Icon28CancelCircleFillRed/> :
+						data.icon == 'donut' ? <Icon28DonateCircleFillYellow/> :
+						<Icon28ListCircleFillGray/>
+					}
+					after={data.avatar && <Avatar src={data.avatar} size={32} />}
+				>
+					{data.text}
+				</Snackbar>
+			});
 		};
 		onStoryChange = (e) => {
 			const { checkItems } = this.state;
@@ -507,6 +599,14 @@ const App = withAdaptivity(({ viewWidth }) => {
 		};
 		numberRandom = (min = 1, max = 2) => {
 			return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + Math.ceil(min);
+		};
+		getRealTime = () => {
+			return new Date().toLocaleString("ru", {
+				timezone: 'UTC',
+				hour: 'numeric',
+				minute: 'numeric',
+				second: 'numeric'
+			});	
 		};
 		getTime = (s = 0) => {
 			let hours = Math.floor(s/(60*60));
@@ -611,6 +711,9 @@ const App = withAdaptivity(({ viewWidth }) => {
 			const { activePanel, activeStory, checkItems, checkTabs, isCountItem, isBonusItem } = this.state;
 			const { OpenModal, CalcBoss } = this;
 			isDev&&console.warn('setActivePanel', activeStory, activePanel);
+			this.setState({ botLog: '' });
+			this.setState({ snackbar: '' });
+			this.setState({ snackbar: '' });
 			this.setState({ checkItems: {null: true, item: true, scroll: true, collection: true, personal: true, stock: true, yesStock: true, noStock: true} });
 			checkItems.null = true;
 			if (name == '1' && activeStory == 'profile') {
@@ -710,6 +813,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 					return 0;
 				} else {
 					this.FriendsScanner();
+					return 1;
+				}
+			}
+			if (name == '6' && activeStory == 'profile') {
+				if (!isDonut) {
+					OpenModal(`donut`, {header: 'VK Donut', subheader: 'Автоматизируй прохождение рейдов'}, null, 'card');
+					return 0;
+				} else {
+					this.BotRaids('load');
 					return 1;
 				}
 			}
@@ -905,6 +1017,702 @@ const App = withAdaptivity(({ viewWidth }) => {
 			this.setState({ activeStory: 'profile' });
 			this.setState({ popout: null });
 		};
+
+		setBotLog = (message = 'update...') => {
+			const { activePanel, activeStory, botLog } = this.state;
+			const { getRealTime } = this;
+			isDev&&console.warn('setBotLog', activeStory, activePanel);
+			this.setState({ botLog: botLog + `[${getRealTime()}] ${message}\n`});
+		};
+		BotAPI = async(mode, auth_key, id, sslt = 0, data = {}) => {
+			const { activePanel, activeStory } = this.state;
+			isDev&&console.warn('BotAPI', activeStory, activePanel, mode);
+			if (mode == 'getAuth' && data && data.stage) {
+				let auth = null;
+				if (data.stage == 'modal') {
+					this.setState({ auth: auth });
+					this.OpenModal(`modal-getSettings`);
+				} 
+				if (data.stage == 'save') {
+					auth = this.state.auth;
+					this.setState({ modalOpened: null });
+					await getBridge('VKWebAppStorageSet', {"key": "auth", "value": auth});
+					this.openSnackbar({text: 'Настройки сохранены', icon: 'done', action: `auth_key: ${auth}`});
+				}
+				if (data.stage == 'get') {
+					let storage = await getBridge('VKWebAppStorageGet', {"keys": ["auth"]});
+					if (storage.keys[0].value == "") {
+						this.BotAPI('getAuth', null, null, null, {stage: 'modal'});
+						auth = 'modal';
+					} else {
+						auth = storage.keys[0].value;
+					}
+				}
+				return auth;
+			}
+			if (mode == 'getStats' && auth_key && id) {
+				let data = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${id}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}`);
+				return data.u;
+			}
+			if (mode == 'getFightHash' && data && data.key) {
+				var Jb = function(a) {
+					this.length = a.byteLength;
+					this.b = new Uint8Array(a);
+					this.b.bufferValue = a;
+					a.hxBytes = this;
+					a.bytes = this.b
+				};
+				Jb.ofString = function(a, b) {
+					b = [];
+					for (var c = 0; c < a.length; ) {
+						var e = a.charCodeAt(c++);
+						55296 <= e && 56319 >= e && (e = e - 55232 << 10 | a.charCodeAt(c++) & 1023);
+						127 >= e ? b.push(e) : (2047 >= e ? b.push(192 | e >> 6) : (65535 >= e ? b.push(224 | e >> 12) : (b.push(240 | e >> 18),
+						b.push(128 | e >> 12 & 63)),
+						b.push(128 | e >> 6 & 63)),
+						b.push(128 | e & 63))
+					}
+					return new Jb((new Uint8Array(b)).buffer)
+				};
+				Jb.prototype = {
+					length: null,
+					b: null,
+					data: null,
+					blit: function(a, b, c, e) {
+						if (0 > a || 0 > c || 0 > e || a + e > this.length || c + e > b.length)
+							throw R.thrown(wf.OutsideBounds);
+						0 == c && e == b.b.byteLength ? this.b.set(b.b, a) : this.b.set(b.b.subarray(c, c + e), a)
+					},
+					getString: function(a, b, c) {
+						if (0 > a || 0 > b || a + b > this.length)
+							throw R.thrown(wf.OutsideBounds);
+						c = "";
+						var e = this.b
+						  , k = ar.fromCharCode
+						  , d = a;
+						for (a += b; d < a; )
+							if (b = e[d++],
+							128 > b) {
+								if (0 == b)
+									break;
+								c += k(b)
+							} else if (224 > b)
+								c += k((b & 63) << 6 | e[d++] & 127);
+							else if (240 > b) {
+								var f = e[d++];
+								c += k((b & 31) << 12 | (f & 127) << 6 | e[d++] & 127)
+							} else {
+								f = e[d++];
+								var g = e[d++];
+								b = (b & 15) << 18 | (f & 127) << 12 | (g & 127) << 6 | e[d++] & 127;
+								c += k((b >> 10) + 55232);
+								c += k(b & 1023 | 56320)
+							}
+						return c
+					},
+					toString: function() {
+						return this.getString(0, this.length)
+					},
+					__class__: Jb
+				};
+				class ar {
+					constructor() { }
+					static fromCharCode(a) {
+						return String.fromCodePoint(a);
+					}
+				}
+				class Sl {
+					constructor(a) {
+						for (var b = a.length, c = 1; b > 1 << c;)
+							++c;
+						if (8 < c || b != 1 << c)
+							throw R.thrown("BaseCode : base length must be a power of two.");
+						this.base = a;
+						this.nbits = c;
+					}
+					encodeBytes(a) {
+						for (var b = this.nbits, c = this.base, e = 8 * a.length / b | 0, k = new Jb(new ArrayBuffer(e + (0 == 8 * a.length % b ? 0 : 1))), d = 0, f = 0, g = (1 << b) - 1, t = 0, l = 0; l < e;) {
+							for (; f < b;)
+								f += 8,
+									d <<= 8,
+									d |= a.b[t++];
+							f -= b;
+							k.b[l++] = c.b[d >> f & g] & 255;
+						}
+						0 < f && (k.b[l++] = c.b[d << b - f & g] & 255);
+						return k;
+					}
+				};
+				class Xd {
+					static encode(a, b = true) {
+						null == b && (b = !0);
+						var c = (new Sl(Xd.BYTES)).encodeBytes(a).toString();
+						if (b)
+							switch (a.length % 3) {
+								case 1:
+									c += "==";
+									break;
+								case 2:
+									c += "=";
+							}
+						return c;
+					}
+				};
+				Xd.CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+				Xd.BYTES = Jb.ofString(Xd.CHARS);
+				let hash = Jb.ofString(data.key);
+				hash = Xd.encode(hash) + "Bd" + Math.ceil(9 * Math.random()) + "rP";
+				hash = hash.split("").reverse().join("");
+				hash = Jb.ofString(hash);
+				hash = Xd.encode(hash);
+				return hash;
+			}
+		};
+		BotRaids = async(mode = 'load') => {
+			const { activePanel, activeStory, user, botRaidsSettings } = this.state;
+			const { OpenModal, setBotLog, BotAPI } = this;
+			isDev&&console.warn('BotRaids', activeStory, activePanel, mode);
+
+			if (mode == 'pause') {
+				syncBot.isStart = false;
+				setBotLog(`Рейд поставлен на паузу, завершаем последнее действие...`);
+				this.BotRaids('reload');
+				return;
+			}
+			
+			// let auth_key = 'de73003f6d508e583e9c7f316024abbf';
+			let sslt = 0;
+			// let api_uid = 369821795;
+			let api_uid = user.vk.id;
+			let auth_key = this.state.auth;
+			if (!auth_key) {
+				auth_key = await BotAPI('getAuth', null, null, null, {stage: 'get'});
+				if (auth_key == 'modal') {
+					return
+				} else if (!auth_key) {
+					OpenModal(`alert`, {header: 'Ошибка при получении auth_key', subheader: `Перезайдите в приложение и укажите новый auth_key`}, null, 'card');
+					return
+				}
+			}
+
+			
+			
+
+			this.setState({ popout: <ScreenSpinner /> });
+
+
+			
+
+			
+
+			let data = {
+				chests: [],
+				barrels: [],
+				bosses: [],
+				reward: [],
+				id: 0,
+				mode: 0,
+				point: false,
+				hp: 0,
+				limit: 0,
+				player: null
+			};
+
+
+
+			function PriorityQueue () {
+				this._nodes = [];
+				this.enqueue = function (priority, key) {
+					this._nodes.push({key: key, priority: priority });
+					this.sort();
+				};
+				this.dequeue = function () {
+					return this._nodes.shift().key;
+				};
+				this.sort = function () {
+					this._nodes.sort(function (a, b) {
+						return a.priority - b.priority;
+					});
+				};
+				this.isEmpty = function () {
+					return !this._nodes.length;
+				};
+			}
+			function Graph(){
+				var INFINITY = 1/0;
+				this.vertices = {};
+				this.addVertex = function(name, edges){
+					this.vertices[name] = edges;
+				};
+				this.shortestPath = function (start, finish) {
+					var nodes = new PriorityQueue(),
+						distances = {},
+						previous = {},
+						path = [],
+						smallest, vertex, neighbor, alt;
+					for(vertex in this.vertices) {
+						if(vertex === start) {
+							distances[vertex] = 0;
+							nodes.enqueue(0, vertex);
+						} else {
+							distances[vertex] = INFINITY;
+							nodes.enqueue(INFINITY, vertex);
+						}
+						previous[vertex] = null;
+					}
+					while(!nodes.isEmpty()) {
+						smallest = nodes.dequeue();
+						if(smallest === finish) {
+							path = [];
+							while(previous[smallest]) {
+								path.push(smallest);
+								smallest = previous[smallest];
+							}
+							break;
+						}
+						if(!smallest || distances[smallest] === INFINITY){
+							continue;
+						}
+						for(neighbor in this.vertices[smallest]) {
+							alt = distances[smallest] + this.vertices[smallest][neighbor];
+							if(alt < distances[neighbor]) {
+								distances[neighbor] = alt;
+								previous[neighbor] = smallest;
+								nodes.enqueue(alt, neighbor);
+							}
+						}
+					}
+					return path;
+				};
+			}
+			const pathToMove = [[
+				{from: 1, to: [2]},
+				{from: 2, to: [1, 6, 3]},
+				{from: 6, to: [2, 18]},
+				{from: 18, to: [6, 20]},
+				{from: 20, to: [18, 5, 4]},
+				{from: 5, to: [20, 4, 13]},
+				{from: 4, to: [20, 5, 13]},
+				{from: 13, to: [5, 4, 21]},
+				{from: 21, to: [13, 7, 22, 23]},
+				{from: 22, to: [21]},
+				{from: 7, to: [21]},
+				{from: 23, to: [21, 24, 26, 31]},
+				{from: 24, to: [23, 25]},
+				{from: 26, to: [23, 25]},
+				{from: 25, to: [24, 26, 27]},
+				{from: 27, to: [25, 28]},
+				{from: 28, to: [27, 30, 29]},
+				{from: 29, to: [28]},
+				{from: 30, to: [28]},
+				{from: 31, to: [23, 32, 33]},
+				{from: 32, to: [31, 34]},
+				{from: 34, to: [32, 35]},
+				{from: 35, to: [34, 33]},
+				{from: 33, to: [35, 31]},
+				{from: 3, to: [2, 9]},
+				{from: 9, to: [3, 8, 10]},
+				{from: 8, to: [9, 19]},
+				{from: 19, to: [8, 16]},
+				{from: 16, to: [19]},
+				{from: 10, to: [9, 11]},
+				{from: 11, to: [10, 14, 12]},
+				{from: 14, to: [11, 15]},
+				{from: 15, to: [14, 44]},
+				{from: 44, to: [15, 45, 42]},
+				{from: 45, to: [44, 12, 47]},
+				{from: 12, to: [11, 45, 46]},
+				{from: 46, to: [12, 48]},
+				{from: 47, to: [45, 48]},
+				{from: 48, to: [46, 47, 49]},
+				{from: 49, to: [48]},
+				{from: 42, to: [44, 43, 41]},
+				{from: 43, to: [42, 41, 58]},
+				{from: 41, to: [42, 43, 40]},
+				{from: 40, to: [41, 37, 39]},
+				{from: 39, to: [40, 38]},
+				{from: 38, to: [39]},
+				{from: 37, to: [40, 36]},
+				{from: 36, to: [37, 17]},
+				{from: 17, to: [36]},
+				{from: 58, to: [43, 57]},
+				{from: 57, to: [58, 59, 56]},
+				{from: 56, to: [57, 61]},
+				{from: 61, to: [56, 62, 60]},
+				{from: 59, to: [57, 60]},
+				{from: 60, to: [59, 61]},
+				{from: 62, to: [61, 63]},
+				{from: 63, to: [62, 55, 64]},
+				{from: 55, to: [63, 54]},
+				{from: 54, to: [55, 53]},
+				{from: 53, to: [54, 51]},
+				{from: 51, to: [53, 50, 52]},
+				{from: 52, to: [51]},
+				{from: 50, to: [51]},
+				{from: 64, to: [63, 65]},
+				{from: 65, to: [64, 66]},
+				{from: 66, to: [65, 67, 68]},
+				{from: 67, to: [66]},
+				{from: 68, to: [66, 70, 69]},
+				{from: 69, to: [68, 70]},
+				{from: 70, to: [68, 69, 71]},
+				{from: 71, to: [70, 72]},
+				{from: 72, to: [71, 73]},
+				{from: 73, to: [72, 74]},
+				{from: 74, to: [73, 75]},
+				{from: 75, to: [74, 76]},
+				{from: 76, to: [75, 78]},
+				{from: 78, to: [76, 77, 79]},
+				{from: 77, to: [78]},
+				{from: 79, to: [78]}
+			]];
+			const pathFinder = async(from, to, path) => {
+				isDev&&console.warn('BotRaids > pathFinder', activeStory, activePanel);
+				let graph = new Graph();
+				path.map((item, x) => {
+					let data = {};
+					item.to.map((item, x) => {
+						data[item] = 1;
+					});
+					graph.addVertex(item.from, data);
+				});
+				// console.log(from, to, path);
+				// return graph.shortestPath(String(from), String(to)).concat([String(from)]).reverse();
+				return graph.shortestPath(String(from), String(to)).reverse();
+			};
+			const updateInfo = async(dataGame) => {
+				isDev&&console.warn('BotRaids > updateInfo', activeStory, activePanel);
+				dataGame.rc.map((item, x) => {
+					data.chests.push({
+						point: Number(item._p),
+						type: Number(item._t),
+						status: Number(item._s),
+						en: Number(item._t) == 1 ? 8 :
+							Number(item._t) == 2 ? 14 :
+							Number(item._t) == 3 ? 17 :
+							Number(item._t) == 4 ? 18 :
+							Number(item._t) == 5 ? 20 :
+							0
+					});
+				});
+				dataGame.bp.map((item, x) => {
+					data.barrels.push({
+						point: Number(item._p),
+						status: Number(item._s)
+					});
+				});
+				dataGame.rb.map((item, x) => {
+					data.bosses.push({
+						id: Number(item._id),
+						point: Number(item._p),
+						type: 
+							[304].includes(Number(item._id)) ? 1 :
+							[292, 301, 303, 310].includes(Number(item._id)) ? 2 :
+							[298, 306, 307, 311].includes(Number(item._id)) ? 3 :
+							[293, 294, 297, 299, 309].includes(Number(item._id)) ? 4 :
+							[295, 302, 308, 312].includes(Number(item._id)) ? 5 :
+							[296, 300, 305].includes(Number(item._id)) ? 6 :
+							0,
+						status: Number(item._s)
+					});
+				});
+				data.reward = dataGame.r;
+				data.id = Number(dataGame._id);
+				data.mode = Number(dataGame._mode);
+				data.point = Number(dataGame._pos);
+				data.hp = Number(dataGame._hp);
+				// console.log(data);
+			};
+			const updatePath = async(mode = 'navigation', id = 1, from = 1, to = 1) => {
+				isDev&&console.warn('BotRaids > updatePath', activeStory, activePanel, mode, data.point);
+				if (mode == 'navigation') {
+					let marks = [];
+					if (botRaidsSettings.barrels) {
+						data.barrels.map((item, x) => {
+							if (item.status == 1) {
+								marks.push({point: item.point, isVisited: false});
+							}
+						});
+					}
+					if (botRaidsSettings.chestsTier1 || botRaidsSettings.chestsTier2 || botRaidsSettings.chestsTier3 || botRaidsSettings.chestsTier4 || botRaidsSettings.chestsTier5) {
+						data.chests.map((item, x) => {
+							if (item.status == 1 && ((item.type == 1 && botRaidsSettings.chestsTier1) || (item.type == 2 && botRaidsSettings.chestsTier2) || (item.type == 3 && botRaidsSettings.chestsTier3) || (item.type == 4 && botRaidsSettings.chestsTier4) || (item.type == 5 && botRaidsSettings.chestsTier5))) {
+								marks.push({point: item.point, isVisited: false});
+							}
+						});
+					}
+					// marks = [{point: 74, isVisited: false}, {point: 72, isVisited: false}];
+					// console.log(marks);
+					marks.sort(function(a, b) {
+						return a.point < b.point ? -1 : 1;
+					});
+					// console.log(marks);
+					// console.log(pathToMove[id-1]);
+					for (const item of marks) {
+						// console.log(marks);
+						if (syncBot.isStart && !item.isVisited) {
+							let paths = await pathFinder(data.point, item.point, pathToMove[id-1]);
+							// console.log(paths);
+							for (const item of paths) {
+								if (syncBot.isStart) {
+									await updatePath('move', id, null, Number(item));
+									let mark = marks.find(x => x.point === Number(item));
+									if (mark !== undefined && !mark.isVisited) {
+										mark.isVisited = true;
+										isDev&&console.warn('Посетили ориентир', Number(item));
+									}
+								}
+							}
+						} else {
+							isDev&&console.warn('Ориентир пропущен, был посещён ранее', item.point);
+						}
+					}
+					if (syncBot.isStart) {
+						syncBot.isStart = false;
+						setBotLog(`Собраны все возможные награды, рейд можно завершить`);
+						this.BotRaids('reload');
+					}
+				}
+				if (mode == 'move') {
+					if (await updatePath('boss', null, null, to)) {
+						let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=77&t=${to}`);
+						// console.log(dataGame);
+						if (Number(dataGame.res._v) == 1) {
+							dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=81`);
+							// console.log(dataGame);
+							setBotLog(`Успешно переместились в точку ${to}`);
+							data.point = to;
+							await updatePath('barrel', null, null, null);
+							await updatePath('chest', null, null, null);
+						} else {
+							setBotLog(`Невозможно перейти в точку ${to}`);
+							this.BotRaids('pause');
+						}
+					}
+				}
+				if (mode == 'barrel' && botRaidsSettings.barrels) {
+					// console.log('Проверяем бочку...');
+					let barrel = data.barrels.find(item => item.point === data.point);
+					if (barrel && barrel.status == 1) {
+						let player = await BotAPI('getStats', auth_key, api_uid, sslt);
+						if (Number(player._en >= 3)) {
+							let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=82`);
+							// console.log(dataGame);
+							barrel.status = 0;
+							setBotLog(`Успешно открыли бочку {point: ${barrel.point}, status: ${barrel.status}}`);
+						} else {
+							setBotLog(`Не хватает энергии на открытие бочки`);
+							this.BotRaids('pause');
+						}
+					} else if (barrel && barrel.status == 0) {
+						// setBotLog(`Бочка уже открыта {point: ${barrel.point}, status: ${barrel.status}}`);
+					} else if (barrel) {
+						setBotLog(`Невозможно открыть бочку {point: ${barrel.point}, status: ${barrel.status}}`);
+						this.BotRaids('pause');
+					} else {
+						// setBotLog(`Бочка не найдена {point: ${data.point}}`);
+					}
+				}
+				if (mode == 'boss') {
+					// console.log('Проверяем босса...');
+					let boss = data.bosses.find(item => item.point === to);
+					if (boss && boss.status == 0) {
+						let player = await BotAPI('getStats', auth_key, api_uid, sslt);
+						if ((boss.type == 1 && Number(player._en >= 6) || boss.type != 1 && Number(player._en >= 3))) {
+							let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=11&t=${boss.id}&t2=3&t3=0&t4=0&t5=0`);
+							// console.log(dataGame);
+							if ((dataGame == null) || (dataGame && !dataGame.fight)) {
+								isDev&&console.warn(`Повторная попытка создать босса {point: ${boss.point}, status: ${boss.status}}`);
+								setBotLog(`Ошибка при создании босса, пробуем снова... {point: ${boss.point}, status: ${boss.status}}`);
+								await wait(5000);
+								dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=11&t=${boss.id}&t2=3&t3=0&t4=0&t5=0`);
+							}
+							if (dataGame && dataGame.fight) {
+								let hp = Number(dataGame.fight._hp);
+								let dmg = Number(dataGame.fight._dmg);
+								let myhp = Number(dataGame.fight._myhp);
+								let mydmg = Number(data.player._dmgi);
+								let количествоУдаров = Math.ceil(hp/mydmg);
+								let количествоУдаровВозможных = Math.ceil(myhp/dmg);
+								let пропуск = количествоУдаров <= количествоУдаровВозможных;
+								if (пропуск) {
+									let hash = await BotAPI('getFightHash', null, null, null, {key: `<data><d s0="${количествоУдаров}" s1="0" s2="0" s3="0" s4="1" c1="0" c2="0" c3="0" c4="0" c5="0" m0="3" r="${количествоУдаров}" dd="${количествоУдаров*mydmg}" dg="${количествоУдаров*dmg}"/></data>`});
+									// console.log(hash);
+									dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=12&t=${hash}`);
+									// console.log(dataGame);
+									if (dataGame && dataGame.fight && Number(dataGame.fight._hp) <= 0) {
+										boss.status = 1;
+										setBotLog(`Успешно убили босса {point: ${boss.point}, status: ${boss.status}}`);
+										return true;
+									} else {
+										setBotLog(`Ошибка при убийстве босса {point: ${boss.point}, status: ${boss.status}}`);
+										this.BotRaids('pause');
+										return false;
+									}
+								} else {
+									setBotLog(`Невозможно убить босса, вы умрёте {point: ${boss.point}, status: ${boss.status}}`);
+									this.BotRaids('pause');
+									return false;
+								}
+							} else {
+								setBotLog(`Невозможно создать босса {point: ${boss.point}, status: ${boss.status}}`);
+								this.BotRaids('pause');
+								return false;
+							}
+						} else {
+							setBotLog(`Не хватает энергии на убийство босса`);
+							this.BotRaids('pause');
+							return false;
+						}
+					} else if (boss && boss.status == 1) {
+						// setBotLog(`Босс уже убит {point: ${boss.point}, status: ${boss.status}}`);
+						return true;
+					} else if (boss) {
+						// setBotLog(`Невозможно убить босса {point: ${boss.point}, status: ${boss.status}}`);
+						this.BotRaids('pause');
+						return false;
+					} else {
+						return true;
+						// setBotLog(`Босс не найден {point: ${to}}`);
+					}
+				}
+				if (mode == 'chest' && (botRaidsSettings.chestsTier1 || botRaidsSettings.chestsTier2 || botRaidsSettings.chestsTier3 || botRaidsSettings.chestsTier4 || botRaidsSettings.chestsTier5)) {
+					// console.log('Проверяем сундук...');
+					let chests = data.chests.find(item => item.point === data.point);
+					let isChest = chests ? (chests.type == 1 && botRaidsSettings.chestsTier1) || (chests.type == 2 && botRaidsSettings.chestsTier2) || (chests.type == 3 && botRaidsSettings.chestsTier3) || (chests.type == 4 && botRaidsSettings.chestsTier4) || (chests.type == 5 && botRaidsSettings.chestsTier5) : false;
+					// console.log('isChest', isChest);
+					if (chests && chests.status == 1 && isChest) {
+						let player = await BotAPI('getStats', auth_key, api_uid, sslt);
+						if (Number(player._en >= chests.en)) {
+							let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&t1=1&i=79`);
+							// console.log(dataGame);
+							chests.status = 0;
+							setBotLog(`Успешно открыли сундук {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+						} else {
+							setBotLog(`Не хватает энергии на открытие сундука`);
+							this.BotRaids('pause');
+						}
+					} else if (chests && (chests.status == 0 || chests.status == 2) && isChest) {
+						// setBotLog(`Сундук уже открыт {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+					} else if (chests && isChest) {
+						setBotLog(`Невозможно открыть сундук {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+						this.BotRaids('pause');
+					} else if (isChest) {
+						// setBotLog(`Сундук не найден {point: ${data.point}}`);
+					}
+				}
+			};
+			
+			/*
+
+			TODO	-	Сделать ввод auth_key
+			TODO	-	Сделать холодный start
+			//TODO	-	Сделать load
+			//TODO	-	Сделать reload
+			//TODO	-	Сделать start
+			//TODO	-	Сделать pause
+			//TODO	-	Сделать exit
+			//TODO	-	Сделать проверку энергии
+			//TODO	-	Сделать распознавание награды
+			//TODO	-	Сделать алгоритм ориентиров
+			//TODO	-	Сделать движение к точке
+			//TODO	-	Сделать сбор бочек
+			//TODO	-	Сделать сбор сундуков
+			//TODO	-	Сделать убийство босса
+			//TODO	-	Сделать retry убийство босса
+			TODO	-	Сделать карту Часовни и Леса
+			TODO	-	Сделать боссов Часовни и Леса
+			// TODO	-	Исправить двойной ориентир при бочке и сундуке в одной позиции (сортировка от 1 до max + fix)
+			//TODO	-	Значения энергии для сундуков, бочек, боссов, завершения
+
+			[292, 301, 303, 310] // слепой
+			[298, 306, 307, 311] // зелёный
+			[293, 294, 297, 299, 309] // обычный
+			[295, 302, 308, 312] // красный
+			[296, 300, 305] // синий
+			[304] // босс
+			*/
+			
+			let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}`);
+			// console.log(dataGame);
+			if (!dataGame) {
+				this.setState({ popout: null });
+				this.openSnackbar({text: 'Ключ авторизации игры неисправен, введите новый', icon: 'error', action: `auth_key: ${auth_key}`});
+				this.BotAPI('getAuth', null, null, null, {stage: 'modal'});
+				return
+			}
+			data.player = dataGame.u;
+			data.limit = Number(dataGame.raids_cnt._v);
+			dataGame = dataGame.uraid;
+			// console.log(dataGame);
+			// console.log(data);
+
+			if (mode == 'start') {
+				syncBot.raids = data;
+				if (dataGame == undefined && data.limit < 3) {
+					dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&t=${botRaidsSettings.selectedRaid}&t1=${botRaidsSettings.selectedMode}&i=76`);
+					// console.log(dataGame);
+					if (dataGame !== undefined && dataGame.uraid !== undefined) {
+						this.setState({ popout: null });
+						syncBot.isStart = true;
+						updateInfo(dataGame.uraid);
+						setBotLog(`Рейд успешно начат`);
+						//! ВЫБРАТЬ РЕЙД, НАЧАТЬ ЕГО И ПЕРЕДАТЬ ID
+						// console.warn(botRaidsSettings);
+						await updatePath('navigation', botRaidsSettings.selectedRaid, 1, null);
+					} else {
+						this.setState({ popout: null });
+						syncBot.isStart = false;
+						setBotLog(`Невозможно начать рейд, ошибка при создании`);
+					}
+				} else if (dataGame !== undefined) {
+					this.setState({ popout: null });
+					syncBot.isStart = true;
+					updateInfo(dataGame);
+					setBotLog(`Рейд успешно продолжен`);
+					await updatePath('navigation', data.id, data.point, null);
+				} else {
+					this.setState({ popout: null });
+					syncBot.isStart = false;
+					setBotLog(`Невозможно начать рейд, лимит попыток`);
+				}
+			}
+			if (mode == 'exit') {
+				syncBot.raids = data;
+				if (dataGame !== undefined) {
+					updateInfo(dataGame);
+					let player = await BotAPI('getStats', auth_key, api_uid, sslt);
+					if (Number(player._en >= 5)) {
+						dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=80`);
+						if (Number(dataGame.res._v) == 1) {
+							setBotLog(`Рейд успешно завершён`);
+							this.BotRaids('reload');
+						} else {
+							setBotLog(`Невозможно завершить рейд`);
+						}
+					} else {
+						setBotLog(`Не хватает энергии на завершение рейда`);
+					}
+				} else {
+					setBotLog(`Нет активного рейда`);
+				}
+			}
+			if (mode == 'load' || mode == 'reload') {
+				if (dataGame !== undefined) {
+					updateInfo(dataGame);
+				}
+				syncBot.raids = data;
+				if (mode == 'load') {
+					this.setState({ activeStory: 'profile' });
+					this.setState({ activePanel: '6' });
+				}
+				if (mode == 'reload') {
+					setBotLog(`Данные обновлены`);
+				}
+			}
+			mode !== 'start'&&this.setState({ popout: null });
+		};
+
 		FriendsScanner = async() => {
 			const { activePanel, activeStory, user } = this.state;
 			const { OpenModal } = this;
@@ -1079,8 +1887,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 
 
 		render() {
-			const { activeStory, activePanel, popout, user, modalOpened, activeModal, indexModal, dataModal, checkItems, count_guild_1, count_guild_2, count_arena_1, count_arena_2, newBossArray, count_boss, newBossHP, newBossDMG, checkTabs, isCountItem, isBonusItem, profileItems, theme, friendsPage, friendsMode } = this.state;
-			const { onStoryChange, numberForm, setActivePanel, OpenModal, getTime, numberSpaces, isCheckItems, getItemCell, getItemPreview, testtest, isCalcBoss, CalcBoss, setNewBoss, VKBridge, loadProfile, isCheckTabs, setTheme, getSort } = this;
+			const { activeStory, activePanel, popout, user, modalOpened, activeModal, indexModal, dataModal, checkItems, count_guild_1, count_guild_2, count_arena_1, count_arena_2, newBossArray, count_boss, newBossHP, newBossDMG, checkTabs, isCountItem, isBonusItem, profileItems, theme, friendsPage, friendsMode, botLog, botRaidsSettings } = this.state;
+			const { onStoryChange, numberForm, setActivePanel, OpenModal, getTime, numberSpaces, isCheckItems, getItemCell, getItemPreview, testtest, isCalcBoss, CalcBoss, setNewBoss, VKBridge, loadProfile, isCheckTabs, setTheme, getSort, getRealTime, BotRaids } = this;
 			const SortableItems = (
 				<React.Fragment>
 					<CardGrid size="m">
@@ -1160,6 +1968,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 								{activeModal === 'modal-warlordMap' && dataModal && indexModal === 7 && dataModal.title}
 		
 								{activeModal === 'modal-warlordBossCreate' && 'Создание своего противника'}
+								{activeModal === 'modal-getSettings' && 'Настройки'}
 								{activeModal === 'modal-warlordBosses' && dataModal && indexModal === 3 && dataModal.name}
 		
 								{activeModal === 'modal-warlordArena' && dataModal && indexModal === 2 && dataModal.name}
@@ -1337,6 +2146,21 @@ const App = withAdaptivity(({ viewWidth }) => {
 									<Spacing size={8} />
 									<Div>
 										<Button stretched size="l" mode="commerce" onClick={() => setNewBoss('create')}>Подтвердить</Button>
+									</Div>
+								</Group>
+							}
+							{activeModal === 'modal-getSettings' &&
+								<Group>
+									<CardGrid size="l">
+										<Card>
+											<FormItem top="Ключ авторизации игры" bottom="Введите auth_key вашего профиля">
+												<Input placeholder="auth_key" onChange={e => this.setState({ auth: e.target.value })} type="text"/>
+											</FormItem>
+										</Card>
+									</CardGrid>
+									<Spacing size={8} />
+									<Div>
+										<Button stretched size="l" mode="commerce" disabled={String(this.state.auth).length != 32} onClick={() => this.BotAPI('getAuth', null, null, null, {stage: 'save'})}>Подтвердить</Button>
 									</Div>
 								</Group>
 							}
@@ -1719,7 +2543,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 								<Panel id="home">
 									{!isDesktop && <PanelHeader left={<PanelHeaderButton onClick={() => VKBridge()}><Avatar size={28} src={user && user.vk ? user.vk.photo_200 : 'https://vk.com/images/camera_200.png'} /></PanelHeaderButton>}>Warlord Helper</PanelHeader>}
 									<Group>
-										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}>Warlord Helper</PanelHeader>}
+										{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true}><PanelHeaderContent status={`Версия ${wikiVersion}`}>Warlord Helper</PanelHeaderContent></PanelHeader>}
 										<Gallery
 											slideWidth="100%"
 											style={{ 
@@ -1788,9 +2612,15 @@ const App = withAdaptivity(({ viewWidth }) => {
 												padding: 32
 											}}>
 												{isMask ? <Icon28GhostSimleOutline style={{color: 'var(--accent)'}} width={96} height={96}/> : <Avatar size={96} src={user.vk.photo_200 ? user.vk.photo_200 : null} />}
-												<Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="medium">{isMask ? 'Приватный пользователь' : `${user.vk.first_name} ${user.vk.last_name}`}</Title>
-												<Link style={{ marginBottom: isDonut ? 12 : 0, color: 'var(--text_secondary)' }} href={`https://vk.com/id${user.vk.id}`} target="_blank">@{user.vk.id}</Link>
-												{isDonut && <Button size="m" mode="commerce" onClick={() => loadProfile(false, true, (server === 1 ? 2 : 1))}>Сменить сервер</Button>}
+												<Title style={{ marginTop: 20 }} level="2" weight="medium">{isMask ? 'Приватный пользователь' : `${user.vk.first_name} ${user.vk.last_name}`}</Title>
+												<Link style={{ marginTop: 8, color: 'var(--text_secondary)' }} href={`https://vk.com/id${user.vk.id}`} target="_blank">@{user.vk.id}</Link>
+												{isDonut && <React.Fragment>
+													<Spacing size={16} />
+													<CardGrid size="m">
+														<Button style={{ marginRight: 8 }} size="m" mode="secondary" onClick={() => loadProfile(false, true, (server === 1 ? 2 : 1))}>Сменить сервер</Button>
+														<Button size="m" mode="secondary" onClick={() => this.BotAPI('getAuth', null, null, null, {stage: 'modal'})}>Сменить ключ</Button>
+													</CardGrid>
+												</React.Fragment>}
 											</Gradient>
 											<Spacing size={8} />
 											<CardGrid size="m">
@@ -1809,8 +2639,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 												<Card onClick={() => setActivePanel('4', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список донов">Доны</Cell>
 												</Card>
+												<Card onClick={() => setActivePanel('6', true)} className="CardWithAvatar">
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/4.png' /></div>} description="Автоматизация">Рейды</Cell>
+												</Card>
 											</CardGrid>
 										</Group>}
+										{this.state.snackbar}
 								</Panel>
 								<Panel id="1">
 									{activePanel === '1' && activeStory === 'profile' && <React.Fragment>
@@ -2113,6 +2947,376 @@ const App = withAdaptivity(({ viewWidth }) => {
 														<div style={{width: '100%', textAlign: 'center'}}>{friendsPage+1} / {Math.ceil(syncFriends.length/100)}</div>
 														<Button after={<Icon16ChevronOutline/>} disabled={friendsPage>=Math.ceil(syncFriends.length/100)-1} size="l" stretched mode="secondary" onClick={() => this.setState({ friendsPage: friendsPage+1 })}/>
 													</div>
+												</React.Fragment>
+											}
+										</Group>
+									</React.Fragment>}
+								</Panel>
+								<Panel id="6">
+									{activePanel === '6' && activeStory === 'profile' && <React.Fragment>
+										{!isDesktop && <PanelHeader left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Рейды</PanelHeader>}
+										<Group>
+											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Рейды</PanelHeader>}
+											{syncBot.raids && 
+												<React.Fragment>
+													<CardGrid size="s">
+														<Card className='DescriptionCardWiki'>
+															<SimpleCell
+																before={isMask ? <Icon28GhostSimleOutline style={{color: 'var(--accent)'}} width={32} height={32}/> : <Avatar size={32} mode="app" src={user.vk.photo_200 ? user.vk.photo_200 : null} />}
+																description={isMask ? 'Приватный пользователь' : `${user.vk.first_name} ${user.vk.last_name}`}
+															>
+																{syncBot.raids.player._name !== '' ? syncBot.raids.player._name : syncBot.raids.player._vkId}
+															</SimpleCell>
+														</Card>
+														{/* <Card className='DescriptionCardWiki'>
+															<SimpleCell
+																before={<Avatar size={32} mode="app" src='image/bot/raids/7.png' />}
+																description={`${numberSpaces(syncBot.raids.hp)} из ${numberSpaces((Number(syncBot.raids.player._end) + Number(syncBot.raids.player._endi)) * 15)}`}
+															>
+																Здоровье
+															</SimpleCell>
+														</Card> */}
+														{!syncBot.raids.point && <React.Fragment>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/9.png' />}
+																	description={`${syncBot.raids.limit} из 3`}
+																>
+																	Попытки
+																</SimpleCell>
+															</Card>
+														</React.Fragment>}
+														{syncBot.raids.point && <React.Fragment>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/34.png' />}
+																	description={`${numberSpaces(syncBot.raids.player._dmgi)}`}
+																>
+																	Атака
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/7.png' />}
+																	description={`${numberSpaces(syncBot.raids.hp)}`}
+																>
+																	Здоровье
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/36.png' />}
+																	description={`${numberSpaces(syncBot.raids.player._en)}`}
+																>
+																	Энергия
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/35.png' />}
+																	description={`${syncBot.raids.point} точка`}
+																>
+																	Позиция
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/8.png' />}
+																	description={`${botRaidsSettings.selectMode[syncBot.raids.mode].title}`}
+																>
+																	{botRaidsSettings.selectRaid[syncBot.raids.id-1].title}
+																</SimpleCell>
+															</Card>
+														</React.Fragment>}
+													</CardGrid>
+													<Spacing separator size={16} />
+													<CardGrid size="m">
+														<Select
+															disabled={syncBot.raids.point}
+															value={botRaidsSettings.selectedRaid}
+															onChange={(e) => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	selectedRaid: Number(e.target.value)
+																}
+															}))}
+															style={{width: 'calc(50% - 4px)', marginRight: 8}}
+															placeholder="Не выбрано" 
+															options={botRaidsSettings.selectRaid.map((data, x) => ({ label: data.title, value: data.id, avatar: `image/${data.icon}` }))}
+															renderOption={({ option, ...restProps }) => (
+																<CustomSelectOption {...restProps} before={<Avatar size={24} src={option.avatar} />} />
+															)}
+														/>
+														<Select
+															disabled={syncBot.raids.point}
+															value={botRaidsSettings.selectedMode}
+															onChange={(e) => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	selectedMode: Number(e.target.value)
+																}
+															}))}
+															style={{width: 'calc(50% - 4px)'}}
+															placeholder="Не выбрано" 
+															options={botRaidsSettings.selectMode.map((data, x) => ({ label: data.title, value: data.id, avatar: `image/${data.icon}` }))}
+															renderOption={({ option, ...restProps }) => (
+																<CustomSelectOption {...restProps} before={<Avatar size={24} src={option.avatar} />} />
+															)}
+														/>
+													</CardGrid>
+													<Spacing separator size={16} />
+													<CardGrid size="m">
+														<Card className='DescriptionCardWiki Clear'>
+															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	barrels: !botRaidsSettings.barrels
+																}
+															}))} checked={botRaidsSettings.barrels}>Собирать бочки</Checkbox>
+														</Card>
+														<Card className='DescriptionCardWiki Clear'>
+															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	chestsTier1: !botRaidsSettings.chestsTier1
+																}
+															}))} checked={botRaidsSettings.chestsTier1}>Собирать старые сундуки</Checkbox>
+														</Card>
+														<Card className='DescriptionCardWiki Clear'>
+															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	chestsTier2: !botRaidsSettings.chestsTier2
+																}
+															}))} checked={botRaidsSettings.chestsTier2}>Собирать железные сундуки</Checkbox>
+														</Card>
+														<Card className='DescriptionCardWiki Clear'>
+															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	chestsTier3: !botRaidsSettings.chestsTier3
+																}
+															}))} checked={botRaidsSettings.chestsTier3}>Собирать сапфировые сундуки</Checkbox>
+														</Card>
+														<Card className='DescriptionCardWiki Clear'>
+															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	chestsTier4: !botRaidsSettings.chestsTier4
+																}
+															}))} checked={botRaidsSettings.chestsTier4}>Собирать древние сундуки</Checkbox>
+														</Card>
+														<Card className='DescriptionCardWiki Clear'>
+															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
+																botRaidsSettings: {
+																	...prevState.botRaidsSettings,
+																	chestsTier5: !botRaidsSettings.chestsTier5
+																}
+															}))} checked={botRaidsSettings.chestsTier5}>Собирать эпические сундуки</Checkbox>
+														</Card>
+													</CardGrid>
+													<Spacing size={8} />
+													<Textarea placeholder={`Лог действий`} readOnly value={botLog}/>
+													<Spacing size={8} />
+													<div style={{display: 'flex'}}>
+														<Button size="m" onClick={() => BotRaids('start')} disabled={syncBot.isStart} stretched mode="commerce" style={{ marginRight: 8 }}>Запустить</Button>
+														<Button size="m" onClick={() => BotRaids('pause')} disabled={!syncBot.isStart} stretched mode="destructive" style={{ marginRight: 8 }}>Остановить</Button>
+														<Button size="m" onClick={() => BotRaids('exit')} disabled={!syncBot.isStart && syncBot.raids.point ? false : true} stretched mode="secondary" style={{ marginRight: 8 }}>Завершить</Button>
+														<Button size="m" onClick={() => BotRaids('reload')} disabled={syncBot.isStart} stretched mode="secondary">Обновить</Button>
+													</div>
+													{syncBot.raids.point && <React.Fragment>
+														<Spacing separator size={16} />
+														{syncBot.raids.id == 1 && <CardGrid size="s">
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/6.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 1).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 1).length}`}
+																>
+																	Страж Подземелья
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/1.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 2).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 2).length}`}
+																>
+																	Слепая Тварь
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/5.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 3).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 3).length}`}
+																>
+																	Инсектоид
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/2.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 4).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 4).length}`}
+																>
+																	Скорпион Падальщик
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/3.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 5).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 5).length}`}
+																>
+																	Кровавый Скорпион
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/4.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 6).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 6).length}`}
+																>
+																	Ледяной Скорпион
+																</SimpleCell>
+															</Card>
+														</CardGrid>}
+														{syncBot.raids.id == 2 && <CardGrid size="s">
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/6.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 1).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 1).length}`}
+																>
+																	Страж Подземелья
+																</SimpleCell>
+															</Card>
+														</CardGrid>}
+														{syncBot.raids.id == 3 && <CardGrid size="s">
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/6.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 1).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 1).length}`}
+																>
+																	Страж Подземелья
+																</SimpleCell>
+															</Card>
+														</CardGrid>}
+														<Spacing separator size={16} />
+														<CardGrid size="s">
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/108.png' />}
+																	description={`Открыто ${syncBot.raids.barrels.filter(item => item.status == 0).length} из ${syncBot.raids.barrels.length}`}
+																>
+																	Бочки подземелья
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/92.png' />}
+																	description={`Открыто ${syncBot.raids.chests.filter(item => item.type == 1).filter(item => item.status == 0).length + syncBot.raids.chests.filter(item => item.type == 1).filter(item => item.status == 2).length} из ${syncBot.raids.chests.filter(item => item.type == 1).length}`}
+																>
+																	Старые сундуки
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/94.png' />}
+																	description={`Открыто ${syncBot.raids.chests.filter(item => item.type == 2).filter(item => item.status == 0).length + syncBot.raids.chests.filter(item => item.type == 2).filter(item => item.status == 2).length} из ${syncBot.raids.chests.filter(item => item.type == 2).length}`}
+																>
+																	Железные сундуки
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/96.png' />}
+																	description={`Открыто ${syncBot.raids.chests.filter(item => item.type == 3).filter(item => item.status == 0).length + syncBot.raids.chests.filter(item => item.type == 3).filter(item => item.status == 2).length} из ${syncBot.raids.chests.filter(item => item.type == 3).length}`}
+																>
+																	Сапфировые сундуки
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/98.png' />}
+																	description={`Открыто ${syncBot.raids.chests.filter(item => item.type == 4).filter(item => item.status == 0).length + syncBot.raids.chests.filter(item => item.type == 4).filter(item => item.status == 2).length} из ${syncBot.raids.chests.filter(item => item.type == 4).length}`}
+																>
+																	Древние сундуки
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/100.png' />}
+																	description={`Открыто ${syncBot.raids.chests.filter(item => item.type == 5).filter(item => item.status == 0).length + syncBot.raids.chests.filter(item => item.type == 5).filter(item => item.status == 2).length} из ${syncBot.raids.chests.filter(item => item.type == 5).length}`}
+																>
+																	Эпические сундуки
+																</SimpleCell>
+															</Card>
+														</CardGrid>
+														{syncBot.raids.reward == 2 && <React.Fragment>
+															<Spacing separator size={16} />
+															<CardGrid size="s">
+																{Number(syncBot.raids.reward._exp) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/10.png' />}
+																		description={`${syncBot.raids.reward._exp} ед.`}
+																	>
+																		Опыт
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._m1) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/12.png' />}
+																		description={`${syncBot.raids.reward._m1} ед.`}
+																	>
+																		Серебро
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._m3) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/11.png' />}
+																		description={`${syncBot.raids.reward._m3} ед.`}
+																	>
+																		Золото
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._m6) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/21.png' />}
+																		description={`${syncBot.raids.reward._m6} ед.`}
+																	>
+																		Турмалины
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._pf1) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/20.png' />}
+																		description={`${syncBot.raids.reward._pf1} ед.`}
+																	>
+																		Еда
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._i2) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/18.png' />}
+																		description={`${syncBot.raids.reward._i2} ед.`}
+																	>
+																		Целебные зелья
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._i1) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/17.png' />}
+																		description={`${syncBot.raids.reward._i1} ед.`}
+																	>
+																		Свитки молнии
+																	</SimpleCell>
+																</Card>}
+																{Number(syncBot.raids.reward._i3) !== 0 && <Card className='DescriptionCardWiki'>
+																	<SimpleCell
+																		before={<Avatar size={32} mode="app" src='image/bot/raids/16.png' />}
+																		description={`${syncBot.raids.reward._i3} ед.`}
+																	>
+																		Свитки огня
+																	</SimpleCell>
+																</Card>}
+															</CardGrid>
+														</React.Fragment>}
+													</React.Fragment>}
 												</React.Fragment>
 											}
 										</Group>
@@ -2431,7 +3635,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 													renderOption={({ option, ...restProps }) => (
 														<CustomSelectOption {...restProps} before={<Avatar size={24} src={option.avatar} />} />
 													)}
-													/>
+												/>
 												<Button style={{width: 'calc(50% - 4px)'}} stretched size="l" mode="secondary" onClick={() => setNewBoss('open')}>Создать своего</Button>
 											</CardGrid>
 											<Spacing size={8} />
