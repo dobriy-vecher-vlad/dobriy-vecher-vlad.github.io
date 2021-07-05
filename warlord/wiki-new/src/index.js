@@ -161,7 +161,7 @@ let countBossAll = {
 };
 let newBossID = 5;
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-const wikiVersion = '1.2.1';
+const wikiVersion = '1.2.2';
 
 
 
@@ -504,7 +504,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 		openSnackbar = (data = {text: 'Text', action: null, icon: null, avatar: null, vertical: false, duration: 3000}) => {
 			const { activePanel, activeStory } = this.state;
 			isDev&&console.warn('openSnackbar', activeStory, activePanel, data);
-			if (this.state.snackbar || !data) return;
+			if (this.state.snackbar) {
+				this.setState({ snackbar: null });
+			}
+			if (!data) return;
 			this.setState({ snackbar:
 				<Snackbar
 					layout={data.vertical}
@@ -1168,22 +1171,44 @@ const App = withAdaptivity(({ viewWidth }) => {
 				return hash;
 			}
 		};
-		BotRaids = async(mode = 'load') => {
-			const { activePanel, activeStory, user, botRaidsSettings } = this.state;
+		BotRaids = async(mode = 'load', needSnackbar = false) => {
+			const { activePanel, activeStory, botRaidsSettings } = this.state;
 			const { OpenModal, setBotLog, BotAPI } = this;
 			isDev&&console.warn('BotRaids', activeStory, activePanel, mode);
-
+			if (mode == 'energy' && syncBot.raids.point) {
+				let energy = 0;
+				syncBot.raids.chests.filter(item => item.status == 1).map((item, x) => {
+					if ((item.type == 1 && botRaidsSettings.chestsTier1) || (item.type == 2 && botRaidsSettings.chestsTier2) || (item.type == 3 && botRaidsSettings.chestsTier3) || (item.type == 4 && botRaidsSettings.chestsTier4) || (item.type == 5 && botRaidsSettings.chestsTier5)) {
+						energy += item.en;
+					}
+				});
+				syncBot.raids.barrels.filter(item => item.status == 1).map((item, x) => {
+					if (botRaidsSettings.barrels) {
+						energy += 3;
+					}
+				});
+				syncBot.raids.bosses.filter(item => item.status == 0).map((item, x) => {
+					if (item.type == 1) {
+						energy += 6;
+					} else {
+						energy += 1;
+					}
+				});
+				// console.log(energy);
+				syncBot.raids.energy = energy;
+				needSnackbar&&this.openSnackbar({text: `Настройки успешно применены, на рейд необходимо ${energy} ${this.numberForm(energy, ['энергия', 'энергии', 'энергии'])}`, icon: 'done'});
+				return;
+			}
 			if (mode == 'pause') {
 				syncBot.isStart = false;
 				setBotLog(`Рейд поставлен на паузу, завершаем последнее действие...`);
 				this.BotRaids('reload');
 				return;
 			}
-			
 			// let auth_key = 'aff25f6764f3c548a2cc8a2bdc919c4e';
 			let sslt = 0;
-			// let api_uid = 161422320;
-			let api_uid = user.vk.id;
+			let api_uid = 161422320;
+			// let api_uid = user.vk.id;
 			let auth_key = this.state.auth;
 			if (!auth_key) {
 				auth_key = await BotAPI('getAuth', null, null, null, {stage: 'get'});
@@ -1194,22 +1219,13 @@ const App = withAdaptivity(({ viewWidth }) => {
 					return
 				}
 			}
-
-			
-			
-
 			this.setState({ popout: <ScreenSpinner /> });
-
-
-			
-
-			
-
 			let data = {
 				chests: [],
 				barrels: [],
 				bosses: [],
 				reward: [],
+				energy: 0,
 				id: 0,
 				mode: 0,
 				point: false,
@@ -1217,9 +1233,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 				limit: 0,
 				player: null
 			};
-
-
-
 			function PriorityQueue () {
 				this._nodes = [];
 				this.enqueue = function (priority, key) {
@@ -1365,6 +1378,187 @@ const App = withAdaptivity(({ viewWidth }) => {
 				{from: 78, to: [76, 77, 79]},
 				{from: 77, to: [78]},
 				{from: 79, to: [78]}
+			], [
+				{from: 1, to: [2]},
+				{from: 2, to: [1, 6]},
+				{from: 6, to: [2, 5]},
+				{from: 5, to: [6, 7, 9]},
+				{from: 7, to: [5, 4]},
+				{from: 4, to: [7, 3]},
+				{from: 3, to: [4]},
+				{from: 9, to: [5, 8, 16, 19]},
+				{from: 8, to: [9, 10]},
+				{from: 10, to: [8, 11, 12]},
+				{from: 12, to: [11, 10, 14]},
+				{from: 14, to: [15, 12]},
+				{from: 15, to: [14]},
+				{from: 11, to: [12, 10, 31, 22]},
+				{from: 31, to: [11]},
+				{from: 22, to: [11, 26]},
+				{from: 26, to: [22, 49]},
+				{from: 49, to: [26, 48]},
+				{from: 48, to: [49, 47, 39, 50]},
+				{from: 50, to: [48, 46]},
+				{from: 46, to: [50, 41, 25]},
+				{from: 25, to: [46, 24]},
+				{from: 24, to: [25, 23, 77]},
+				{from: 23, to: [24, 21]},
+				{from: 21, to: [23, 16]},
+				{from: 16, to: [21, 9]},
+				{from: 41, to: [46, 43, 58]},
+				{from: 43, to: [41, 58]},
+				{from: 58, to: [41, 43, 77]},
+				{from: 77, to: [24, 58, 79, 69]},
+				{from: 79, to: [77, 69]},
+				{from: 69, to: [77, 79, 54]},
+				{from: 54, to: [69, 30]},
+				{from: 30, to: [54, 63, 56]},
+				{from: 56, to: [30, 29, 55]},
+				{from: 55, to: [56, 64]},
+				{from: 64, to: [55, 61]},
+				{from: 61, to: [64]},
+				{from: 29, to: [56, 36, 27]},
+				{from: 27, to: [29, 67]},
+				{from: 67, to: [27]},
+				{from: 36, to: [29, 34]},
+				{from: 34, to: [36, 28, 35]},
+				{from: 28, to: [34]},
+				{from: 35, to: [34, 32]},
+				{from: 32, to: [35, 33]},
+				{from: 33, to: [32, 20]},
+				{from: 20, to: [33, 18, 17, 13]},
+				{from: 18, to: [20]},
+				{from: 13, to: [20]},
+				{from: 17, to: [20, 19]},
+				{from: 19, to: [17, 9]},
+				{from: 63, to: [30, 65]},
+				{from: 65, to: [63, 66]},
+				{from: 66, to: [65, 68, 70]},
+				{from: 68, to: [66]},
+				{from: 70, to: [66, 71]},
+				{from: 71, to: [70, 74, 62, 60]},
+				{from: 74, to: [71, 62, 73]},
+				{from: 60, to: [71, 62, 73]},
+				{from: 62, to: [71, 74, 60, 73]},
+				{from: 73, to: [74, 62, 60, 72]},
+				{from: 72, to: [73]},
+				{from: 47, to: [48, 51]},
+				{from: 51, to: [47, 45, 52]},
+				{from: 52, to: [51]},
+				{from: 45, to: [51, 42]},
+				{from: 42, to: [45, 37, 53]},
+				{from: 37, to: [42, 38]},
+				{from: 38, to: [37]},
+				{from: 53, to: [42, 44]},
+				{from: 44, to: [53]},
+				{from: 39, to: [48, 78, 40]},
+				{from: 40, to: [39, 76]},
+				{from: 76, to: [40, 75]},
+				{from: 75, to: [76, 57, 59]},
+				{from: 59, to: [75, 57]},
+				{from: 57, to: [59, 75]},
+				{from: 78, to: [80, 39]},
+				{from: 80, to: [78, 81, 83]},
+				{from: 81, to: [80, 82]},
+				{from: 82, to: [81]},
+				{from: 83, to: [80, 84]},
+				{from: 84, to: [83, 85, 91]},
+				{from: 91, to: [84, 92]},
+				{from: 92, to: [91, 93]},
+				{from: 93, to: [92]},
+				{from: 85, to: [84, 86, 88, 90]},
+				{from: 86, to: [85, 87]},
+				{from: 87, to: [86, 88]},
+				{from: 88, to: [87, 85, 89]},
+				{from: 89, to: [88, 90]},
+				{from: 90, to: [89, 85]}
+			], [
+				{from: 1, to: [54, 17]},
+				{from: 17, to: [1, 70]},
+				{from: 70, to: [17, 2]},
+				{from: 2, to: [70, 18]},
+				{from: 18, to: [2, 68]},
+				{from: 68, to: [18, 65]},
+				{from: 54, to: [1, 3]},
+				{from: 3, to: [54, 66]},
+				{from: 66, to: [3, 65]},
+				{from: 65, to: [68, 66, 34]},
+				{from: 34, to: [65, 31]},
+				{from: 31, to: [34, 79]},
+				{from: 79, to: [31, 87]},
+				{from: 87, to: [79, 73]},
+				{from: 73, to: [87, 50, 74]},
+				{from: 50, to: [73, 93]},
+				{from: 93, to: [50, 89]},
+				{from: 89, to: [93, 49]},
+				{from: 49, to: [89, 92]},
+				{from: 92, to: [49, 39, 41]},
+				{from: 39, to: [92, 82]},
+				{from: 82, to: [39]},
+				{from: 41, to: [92, 28]},
+				{from: 28, to: [41, 58]},
+				{from: 58, to: [28, 77]},
+				{from: 77, to: [58, 7, 19]},
+				{from: 19, to: [77, 30]},
+				{from: 30, to: [19, 52]},
+				{from: 52, to: [30]},
+				{from: 7, to: [77, 20]},
+				{from: 20, to: [7, 33, 21]},
+				{from: 33, to: [20, 29]},
+				{from: 29, to: [33, 21, 55]},
+				{from: 21, to: [29, 20, 35]},
+				{from: 35, to: [21, 9, 15]},
+				{from: 15, to: [55, 35]},
+				{from: 55, to: [15, 29]},
+				{from: 63, to: [55, 71, 4]},
+				{from: 9, to: [35, 14]},
+				{from: 14, to: [9, 43, 56, 42]},
+				{from: 42, to: [14, 27]},
+				{from: 27, to: [42]},
+				{from: 43, to: [14, 75]},
+				{from: 75, to: [43, 81]},
+				{from: 81, to: [75, 16]},
+				{from: 16, to: [81, 67, 32]},
+				{from: 67, to: [16, 61]},
+				{from: 61, to: [67]},
+				{from: 32, to: [16, 56]},
+				{from: 56, to: [32, 26, 14]},
+				{from: 26, to: [56, 46]},
+				{from: 46, to: [26, 22]},
+				{from: 22, to: [46, 78]},
+				{from: 78, to: [22, 83]},
+				{from: 83, to: [78, 24, 45, 44]},
+				{from: 44, to: [83, 8]},
+				{from: 8, to: [44, 45]},
+				{from: 45, to: [8, 83]},
+				{from: 24, to: [83, 10, 12]},
+				{from: 10, to: [24, 13]},
+				{from: 12, to: [24, 13]},
+				{from: 13, to: [12, 10]},
+				{from: 47, to: [8, 5]},
+				{from: 5, to: [47, 37]},
+				{from: 37, to: [5, 88]},
+				{from: 88, to: [37, 53]},
+				{from: 53, to: [88, 6]},
+				{from: 6, to: [53, 40]},
+				{from: 40, to: [6, 4]},
+				{from: 4, to: [40, 63, 90]},
+				{from: 90, to: [4, 64]},
+				{from: 64, to: [90, 86, 84]},
+				{from: 86, to: [64]},
+				{from: 84, to: [64, 25]},
+				{from: 25, to: [84, 38]},
+				{from: 38, to: [25]},
+				{from: 71, to: [63, 60, 57]},
+				{from: 60, to: [71, 51]},
+				{from: 57, to: [71, 51]},
+				{from: 51, to: [57, 60]},
+				{from: 72, to: [51, 62]},
+				{from: 62, to: [72, 74, 76]},
+				{from: 74, to: [73, 62]},
+				{from: 76, to: [62, 23]},
+				{from: 23, to: [76, 69]},
+				{from: 69, to: [23]}
 			]];
 			const pathFinder = async(from, to, path) => {
 				isDev&&console.warn('BotRaids > pathFinder', activeStory, activePanel);
@@ -1406,12 +1600,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 						id: Number(item._id),
 						point: Number(item._p),
 						type: 
-							[304].includes(Number(item._id)) ? 1 :
-							[292, 301, 303, 310].includes(Number(item._id)) ? 2 :
-							[298, 306, 307, 311].includes(Number(item._id)) ? 3 :
-							[293, 294, 297, 299, 309].includes(Number(item._id)) ? 4 :
-							[295, 302, 308, 312].includes(Number(item._id)) ? 5 :
-							[296, 300, 305].includes(Number(item._id)) ? 6 :
+							[304, 315, 380].includes(Number(item._id)) ? 1 :
+							[292, 301, 303, 310, 314, 317, 319, 325, 326, 328, 371, 376, 377, 384, 387].includes(Number(item._id)) ? 2 :
+							[298, 306, 307, 311, 316, 318, 320, 321, 323, 324, 372, 378, 379, 385, 388].includes(Number(item._id)) ? 3 :
+							[293, 294, 297, 299, 309, 329, 330, 332, 336, 373, 374, 381, 386, 389].includes(Number(item._id)) ? 4 :
+							[295, 302, 308, 312, 334, 375, 382, 383].includes(Number(item._id)) ? 5 :
+							[296, 300, 305, 327, 331, 333, 335].includes(Number(item._id)) ? 6 :
 							0,
 						status: Number(item._s)
 					});
@@ -1611,37 +1805,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 					}
 				}
 			};
-			
-			/*
-
-			// TODO	-	Сделать ввод auth_key
-			// TODO	-	Сделать холодный start
-			//TODO	-	Сделать load
-			//TODO	-	Сделать reload
-			//TODO	-	Сделать start
-			//TODO	-	Сделать pause
-			//TODO	-	Сделать exit
-			//TODO	-	Сделать проверку энергии
-			//TODO	-	Сделать распознавание награды
-			//TODO	-	Сделать алгоритм ориентиров
-			//TODO	-	Сделать движение к точке
-			//TODO	-	Сделать сбор бочек
-			//TODO	-	Сделать сбор сундуков
-			//TODO	-	Сделать убийство босса
-			//TODO	-	Сделать retry убийство босса
-			TODO	-	Сделать карту Часовни и Леса
-			TODO	-	Сделать боссов Часовни и Леса
-			// TODO	-	Исправить двойной ориентир при бочке и сундуке в одной позиции (сортировка от 1 до max + fix)
-			//TODO	-	Значения энергии для сундуков, бочек, боссов, завершения
-
-			[292, 301, 303, 310] // слепой
-			[298, 306, 307, 311] // зелёный
-			[293, 294, 297, 299, 309] // обычный
-			[295, 302, 308, 312] // красный
-			[296, 300, 305] // синий
-			[304] // босс
-			*/
-			
 			let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}`);
 			// console.log(dataGame);
 			if (!dataGame) {
@@ -1655,7 +1818,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 			dataGame = dataGame.uraid;
 			// console.log(dataGame);
 			// console.log(data);
-
 			if (mode == 'start') {
 				syncBot.raids = data;
 				if (dataGame == undefined && data.limit < 3) {
@@ -1665,8 +1827,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 						this.setState({ popout: null });
 						syncBot.isStart = true;
 						updateInfo(dataGame.uraid);
+						this.BotRaids('energy');
 						setBotLog(`Рейд успешно начат`);
-						//! ВЫБРАТЬ РЕЙД, НАЧАТЬ ЕГО И ПЕРЕДАТЬ ID
 						// console.warn(botRaidsSettings);
 						await updatePath('navigation', botRaidsSettings.selectedRaid, 1, null);
 					} else {
@@ -1678,6 +1840,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 					this.setState({ popout: null });
 					syncBot.isStart = true;
 					updateInfo(dataGame);
+					this.BotRaids('energy');
 					setBotLog(`Рейд успешно продолжен`);
 					await updatePath('navigation', data.id, data.point, null);
 				} else {
@@ -1690,6 +1853,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 				syncBot.raids = data;
 				if (dataGame !== undefined) {
 					updateInfo(dataGame);
+					this.BotRaids('energy');
 					let player = await BotAPI('getStats', auth_key, api_uid, sslt);
 					if (Number(player._en >= 5)) {
 						dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=80`);
@@ -1709,6 +1873,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 			if (mode == 'load' || mode == 'reload') {
 				if (dataGame !== undefined) {
 					updateInfo(dataGame);
+					botRaidsSettings.selectedRaid = data.id;
+					botRaidsSettings.selectedMode = data.mode;
 				}
 				syncBot.raids = data;
 				if (mode == 'load') {
@@ -1718,6 +1884,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 				if (mode == 'reload') {
 					setBotLog(`Данные обновлены`);
 				}
+				this.BotRaids('energy');
 			}
 			mode !== 'start'&&this.setState({ popout: null });
 		};
@@ -3015,7 +3182,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
 																	before={<Avatar size={32} mode="app" src='image/bot/raids/36.png' />}
-																	description={`${numberSpaces(syncBot.raids.player._en)}`}
+																	description={`${numberSpaces(syncBot.raids.player._en)} из ${syncBot.raids.energy}`}
 																>
 																	Энергия
 																</SimpleCell>
@@ -3081,7 +3248,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																	...prevState.botRaidsSettings,
 																	barrels: !botRaidsSettings.barrels
 																}
-															}))} checked={botRaidsSettings.barrels}>Собирать бочки</Checkbox>
+															}), () => BotRaids('energy', true))} checked={botRaidsSettings.barrels}>Собирать бочки</Checkbox>
 														</Card>
 														<Card className='DescriptionCardWiki Clear'>
 															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
@@ -3089,7 +3256,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																	...prevState.botRaidsSettings,
 																	chestsTier1: !botRaidsSettings.chestsTier1
 																}
-															}))} checked={botRaidsSettings.chestsTier1}>Собирать старые сундуки</Checkbox>
+															}), () => BotRaids('energy', true))} checked={botRaidsSettings.chestsTier1}>Собирать старые сундуки</Checkbox>
 														</Card>
 														<Card className='DescriptionCardWiki Clear'>
 															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
@@ -3097,7 +3264,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																	...prevState.botRaidsSettings,
 																	chestsTier2: !botRaidsSettings.chestsTier2
 																}
-															}))} checked={botRaidsSettings.chestsTier2}>Собирать железные сундуки</Checkbox>
+															}), () => BotRaids('energy', true))} checked={botRaidsSettings.chestsTier2}>Собирать железные сундуки</Checkbox>
 														</Card>
 														<Card className='DescriptionCardWiki Clear'>
 															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
@@ -3105,7 +3272,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																	...prevState.botRaidsSettings,
 																	chestsTier3: !botRaidsSettings.chestsTier3
 																}
-															}))} checked={botRaidsSettings.chestsTier3}>Собирать сапфировые сундуки</Checkbox>
+															}), () => BotRaids('energy', true))} checked={botRaidsSettings.chestsTier3}>Собирать сапфировые сундуки</Checkbox>
 														</Card>
 														<Card className='DescriptionCardWiki Clear'>
 															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
@@ -3113,7 +3280,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																	...prevState.botRaidsSettings,
 																	chestsTier4: !botRaidsSettings.chestsTier4
 																}
-															}))} checked={botRaidsSettings.chestsTier4}>Собирать древние сундуки</Checkbox>
+															}), () => BotRaids('energy', true))} checked={botRaidsSettings.chestsTier4}>Собирать древние сундуки</Checkbox>
 														</Card>
 														<Card className='DescriptionCardWiki Clear'>
 															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
@@ -3121,14 +3288,14 @@ const App = withAdaptivity(({ viewWidth }) => {
 																	...prevState.botRaidsSettings,
 																	chestsTier5: !botRaidsSettings.chestsTier5
 																}
-															}))} checked={botRaidsSettings.chestsTier5}>Собирать эпические сундуки</Checkbox>
+															}), () => BotRaids('energy', true))} checked={botRaidsSettings.chestsTier5}>Собирать эпические сундуки</Checkbox>
 														</Card>
 													</CardGrid>
 													<Spacing size={8} />
 													<Textarea placeholder={`Лог действий`} readOnly value={botLog}/>
 													<Spacing size={8} />
 													<div style={{display: 'flex'}}>
-														<Button size="m" onClick={() => this.setState({botLog: `[${this.getRealTime()}] Лог отчищен\n`})} stretched mode="secondary">Отчистить лог действий</Button>
+														<Button size="m" onClick={() => this.setState({botLog: `[${this.getRealTime()}] Лог очищен\n`})} stretched mode="secondary">Отчистить лог действий</Button>
 													</div>
 													<Spacing size={8} />
 													<div style={{display: 'flex'}}>
@@ -3192,20 +3359,92 @@ const App = withAdaptivity(({ viewWidth }) => {
 														{syncBot.raids.id == 2 && <CardGrid size="s">
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
-																	before={<Avatar size={32} mode="app" src='image/bot/raids/6.png' />}
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/25.png' />}
 																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 1).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 1).length}`}
 																>
-																	Страж Подземелья
+																	Жнец Душ
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/24.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 2).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 2).length}`}
+																>
+																	Последователь Культа
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/23.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 3).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 3).length}`}
+																>
+																	Адепт Культа
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/2.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 4).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 4).length}`}
+																>
+																	Скорпион Падальщик
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/3.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 5).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 5).length}`}
+																>
+																	Кровавый Скорпион
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/4.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 6).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 6).length}`}
+																>
+																	Ледяной Скорпион
 																</SimpleCell>
 															</Card>
 														</CardGrid>}
 														{syncBot.raids.id == 3 && <CardGrid size="s">
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
-																	before={<Avatar size={32} mode="app" src='image/bot/raids/6.png' />}
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/28.png' />}
 																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 1).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 1).length}`}
 																>
-																	Страж Подземелья
+																	Магический паук
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/26.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 2).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 2).length}`}
+																>
+																	Земляной паук
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/27.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 3).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 3).length}`}
+																>
+																	Ледяной паук
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/29.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 4).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 4).length}`}
+																>
+																	Ядовитый паук
+																</SimpleCell>
+															</Card>
+															<Card className='DescriptionCardWiki'>
+																<SimpleCell
+																	before={<Avatar size={32} mode="app" src='image/bot/raids/37.png' />}
+																	description={`Убито ${syncBot.raids.bosses.filter(item => item.type == 5).filter(item => item.status == 1).length} из ${syncBot.raids.bosses.filter(item => item.type == 5).length}`}
+																>
+																	Солдат Паук
 																</SimpleCell>
 															</Card>
 														</CardGrid>}
@@ -3334,6 +3573,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											}
 										</Group>
 									</React.Fragment>}
+									{this.state.snackbar}
 								</Panel>
 							</View>
 
