@@ -1,5 +1,10 @@
 {
 	"news": [{
+		"link": "https://vk.com/wall-138604865_",
+		"title": "Автоматизация рейдов",
+		"description": "05 мая 2021",
+		"icon": "main/news_7.png"
+	}, {
 		"link": "https://vk.com/wall-138604865_2908",
 		"title": "Сканер друзей",
 		"description": "01 мая 2021",

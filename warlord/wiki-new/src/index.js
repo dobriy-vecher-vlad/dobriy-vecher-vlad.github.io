@@ -161,7 +161,7 @@ let countBossAll = {
 };
 let newBossID = 5;
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-const wikiVersion = '1.2.0'
+const wikiVersion = '1.2.1';
 
 
 
@@ -1180,10 +1180,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 				return;
 			}
 			
-			// let auth_key = 'de73003f6d508e583e9c7f316024abbf';
+			// let auth_key = 'aff25f6764f3c548a2cc8a2bdc919c4e';
 			let sslt = 0;
-			// let api_uid = 369821795;
-			let api_uid = user.vk.id;
+			let api_uid = 161422320;
+			// let api_uid = user.vk.id;
 			let auth_key = this.state.auth;
 			if (!auth_key) {
 				auth_key = await BotAPI('getAuth', null, null, null, {stage: 'get'});
@@ -1499,7 +1499,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 							let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=82`);
 							// console.log(dataGame);
 							barrel.status = 0;
-							setBotLog(`Успешно открыли бочку {point: ${barrel.point}, status: ${barrel.status}}`);
+							// setBotLog(`Успешно открыли бочку {point: ${barrel.point}, status: ${barrel.status}}`);
+							setBotLog(`Успешно открыли бочку`);
 						} else {
 							setBotLog(`Не хватает энергии на открытие бочки`);
 							this.BotRaids('pause');
@@ -1507,7 +1508,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 					} else if (barrel && barrel.status == 0) {
 						// setBotLog(`Бочка уже открыта {point: ${barrel.point}, status: ${barrel.status}}`);
 					} else if (barrel) {
-						setBotLog(`Невозможно открыть бочку {point: ${barrel.point}, status: ${barrel.status}}`);
+						// setBotLog(`Невозможно открыть бочку {point: ${barrel.point}, status: ${barrel.status}}`);
+						setBotLog(`Невозможно открыть бочку`);
 						this.BotRaids('pause');
 					} else {
 						// setBotLog(`Бочка не найдена {point: ${data.point}}`);
@@ -1523,7 +1525,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 							// console.log(dataGame);
 							if ((dataGame == null) || (dataGame && !dataGame.fight)) {
 								isDev&&console.warn(`Повторная попытка создать босса {point: ${boss.point}, status: ${boss.status}}`);
-								setBotLog(`Ошибка при создании босса, пробуем снова... {point: ${boss.point}, status: ${boss.status}}`);
+								// setBotLog(`Ошибка при создании босса, пробуем снова... {point: ${boss.point}, status: ${boss.status}}`);
+								setBotLog(`Ошибка при создании босса, пробуем снова...`);
 								await wait(5000);
 								dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&i=11&t=${boss.id}&t2=3&t3=0&t4=0&t5=0`);
 							}
@@ -1542,20 +1545,24 @@ const App = withAdaptivity(({ viewWidth }) => {
 									// console.log(dataGame);
 									if (dataGame && dataGame.fight && Number(dataGame.fight._hp) <= 0) {
 										boss.status = 1;
-										setBotLog(`Успешно убили босса {point: ${boss.point}, status: ${boss.status}}`);
+										// setBotLog(`Успешно убили босса {point: ${boss.point}, status: ${boss.status}}`);
+										setBotLog(`Успешно убили босса`);
 										return true;
 									} else {
-										setBotLog(`Ошибка при убийстве босса {point: ${boss.point}, status: ${boss.status}}`);
+										// setBotLog(`Ошибка при убийстве босса {point: ${boss.point}, status: ${boss.status}}`);
+										setBotLog(`Ошибка при убийстве босса`);
 										this.BotRaids('pause');
 										return false;
 									}
 								} else {
-									setBotLog(`Невозможно убить босса, вы умрёте {point: ${boss.point}, status: ${boss.status}}`);
+									// setBotLog(`Невозможно убить босса, вы умрёте {point: ${boss.point}, status: ${boss.status}}`);
+									setBotLog(`Невозможно убить босса, вы умрёте`);
 									this.BotRaids('pause');
 									return false;
 								}
 							} else {
-								setBotLog(`Невозможно создать босса {point: ${boss.point}, status: ${boss.status}}`);
+								// setBotLog(`Невозможно создать босса {point: ${boss.point}, status: ${boss.status}}`);
+								setBotLog(`Невозможно создать босса`);
 								this.BotRaids('pause');
 								return false;
 							}
@@ -1587,7 +1594,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 							let dataGame = await getData('xml', `https://backup1.geronimo.su/${server === 1 ? 'warlord_vk' : 'warlord_vk2'}/game.php?api_uid=${api_uid}&api_type=vk&api_id=${api_id}&auth_key=${auth_key}&sslt=${sslt}&UID=${data.player._id}&t1=1&i=79`);
 							// console.log(dataGame);
 							chests.status = 0;
-							setBotLog(`Успешно открыли сундук {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+							// setBotLog(`Успешно открыли сундук {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+							setBotLog(`Успешно открыли сундук`);
 						} else {
 							setBotLog(`Не хватает энергии на открытие сундука`);
 							this.BotRaids('pause');
@@ -1595,7 +1603,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 					} else if (chests && (chests.status == 0 || chests.status == 2) && isChest) {
 						// setBotLog(`Сундук уже открыт {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
 					} else if (chests && isChest) {
-						setBotLog(`Невозможно открыть сундук {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+						// setBotLog(`Невозможно открыть сундук {point: ${chests.point}, status: ${chests.status}, type: ${chests.type}}`);
+						setBotLog(`Невозможно открыть сундук`);
 						this.BotRaids('pause');
 					} else if (isChest) {
 						// setBotLog(`Сундук не найден {point: ${data.point}}`);
@@ -1605,8 +1614,8 @@ const App = withAdaptivity(({ viewWidth }) => {
 			
 			/*
 
-			TODO	-	Сделать ввод auth_key
-			TODO	-	Сделать холодный start
+			// TODO	-	Сделать ввод auth_key
+			// TODO	-	Сделать холодный start
 			//TODO	-	Сделать load
 			//TODO	-	Сделать reload
 			//TODO	-	Сделать start
@@ -3064,7 +3073,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 															)}
 														/>
 													</CardGrid>
-													<Spacing separator size={16} />
+													<Spacing size={8} />
 													<CardGrid size="m">
 														<Card className='DescriptionCardWiki Clear'>
 															<Checkbox disabled={syncBot.isStart} onChange={() => this.setState(prevState => ({
@@ -3117,6 +3126,10 @@ const App = withAdaptivity(({ viewWidth }) => {
 													</CardGrid>
 													<Spacing size={8} />
 													<Textarea placeholder={`Лог действий`} readOnly value={botLog}/>
+													<Spacing size={8} />
+													<div style={{display: 'flex'}}>
+														<Button size="m" onClick={() => this.setState({botLog: `[${this.getRealTime()}] Лог отчищен\n`})} stretched mode="secondary">Отчистить лог действий</Button>
+													</div>
 													<Spacing size={8} />
 													<div style={{display: 'flex'}}>
 														<Button size="m" onClick={() => BotRaids('start')} disabled={syncBot.isStart} stretched mode="commerce" style={{ marginRight: 8 }}>Запустить</Button>
@@ -3247,7 +3260,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																</SimpleCell>
 															</Card>
 														</CardGrid>
-														{syncBot.raids.reward == 2 && <React.Fragment>
+														{syncBot.raids.reward && <React.Fragment>
 															<Spacing separator size={16} />
 															<CardGrid size="s">
 																{Number(syncBot.raids.reward._exp) !== 0 && <Card className='DescriptionCardWiki'>
