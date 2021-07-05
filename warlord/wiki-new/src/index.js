@@ -1208,7 +1208,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 			// let auth_key = 'aff25f6764f3c548a2cc8a2bdc919c4e';
 			let sslt = 0;
 			// let api_uid = 161422320;
-			let api_uid = user.vk.id;
+			let api_uid = this.state.user.vk.id;
 			let auth_key = this.state.auth;
 			if (!auth_key) {
 				auth_key = await BotAPI('getAuth', null, null, null, {stage: 'get'});
