@@ -1205,9 +1205,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 				this.BotRaids('reload');
 				return;
 			}
-			// let auth_key = 'aff25f6764f3c548a2cc8a2bdc919c4e';
 			let sslt = 0;
-			// let api_uid = 161422320;
 			let api_uid = this.state.user.vk.id;
 			let auth_key = this.state.auth;
 			if (!auth_key) {
@@ -2800,6 +2798,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 											</Gradient>
 											<Spacing size={8} />
 											<CardGrid size="m">
+												<Card onClick={() => setActivePanel('6', true)} className="CardWithAvatar">
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/4.png' /></div>} description="Автоматизация">Рейды</Cell>
+												</Card>
+											</CardGrid>
+											<Spacing separator size={16} />
+											<CardGrid size="m">
 												<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/12.png' /></div>} description="Список ваших вещей">Магазин</Cell>
 												</Card>
@@ -2814,9 +2818,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 												</Card>
 												<Card onClick={() => setActivePanel('4', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список донов">Доны</Cell>
-												</Card>
-												<Card onClick={() => setActivePanel('6', true)} className="CardWithAvatar">
-													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/4.png' /></div>} description="Автоматизация">Рейды</Cell>
 												</Card>
 											</CardGrid>
 										</Group>}
