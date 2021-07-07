@@ -161,7 +161,7 @@ let countBossAll = {
 };
 let newBossID = 5;
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-const wikiVersion = '1.2.2';
+const wikiVersion = '1.3';
 
 
 
@@ -2798,12 +2798,6 @@ const App = withAdaptivity(({ viewWidth }) => {
 											</Gradient>
 											<Spacing size={8} />
 											<CardGrid size="m">
-												<Card onClick={() => setActivePanel('6', true)} className="CardWithAvatar">
-													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/4.png' /></div>} description="Автоматизация">Рейды</Cell>
-												</Card>
-											</CardGrid>
-											<Spacing separator size={16} />
-											<CardGrid size="m">
 												<Card onClick={() => setActivePanel('1', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/12.png' /></div>} description="Список ваших вещей">Магазин</Cell>
 												</Card>
@@ -2818,6 +2812,12 @@ const App = withAdaptivity(({ viewWidth }) => {
 												</Card>
 												<Card onClick={() => setActivePanel('4', true)} className="CardWithAvatar">
 													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/28.png' /></div>} description="Список донов">Доны</Cell>
+												</Card>
+											</CardGrid>
+											<Spacing separator size={16} />
+											<CardGrid size="m">
+												<Card onClick={() => setActivePanel('6', true)} className="CardWithAvatar">
+													<Cell before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src='image/labels/4.png' /></div>} description="Автоматизация">Рейды</Cell>
 												</Card>
 											</CardGrid>
 										</Group>}
@@ -2988,11 +2988,18 @@ const App = withAdaptivity(({ viewWidth }) => {
 											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Доны</PanelHeader>}
 											{dataDonutUser == [] && <Placeholder action={<Button href="https://vk.com/donut/wiki.warlord" target="_blank" size="m" mode="commerce">Узнать подробнее</Button>} icon={<Icon56DonateOutline width="56" height="56" style={{color: '#ffae26'}} />} header="VK Donut">Донов пока нет,<br/>но ты можешь быть первым</Placeholder>}
 											{dataDonutUser.response && dataDonutUser.response.count > 0 && 
-												<CardGrid size="m">
+												<CardGrid size={isDesktop ? "s" : "m"}>
 												{dataDonutUser.response.items.map((data, x) => {
 													return (
-														<Card key={x} className="CardWithAvatar">
-															<Cell href={`https://vk.com/id${data.id}`} target='_blank' before={<div className="cardAvatar"><Spinner size="regular" className="cardAvatarPreloadWiki Head" /><Avatar size={72} className="withPreload" src={data.photo_200} /></div>} description={data.id}>{data.first_name} {data.last_name}</Cell>
+														<Card className='DescriptionCardWiki'>
+															<SimpleCell
+																href={`https://vk.com/id${data.id}`}
+																target='_blank'
+																before={<Avatar size={32} mode="app" src={data.photo_200} />}
+																description={data.id}
+															>
+																{data.first_name} {data.last_name}
+															</SimpleCell>
 														</Card>
 													)
 												})}
@@ -3136,7 +3143,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 											{isDesktop && <PanelHeader className='HeaderFix' fixed={false} separator={true} left={<PanelHeaderBack onClick={() => setActivePanel('profile')}/>}>Рейды</PanelHeader>}
 											{syncBot.raids && 
 												<React.Fragment>
-													<CardGrid size="s">
+													<CardGrid size={isDesktop ? "s" : "m"}>
 														<Card className='DescriptionCardWiki'>
 															<SimpleCell
 																before={isMask ? <Icon28GhostSimleOutline style={{color: 'var(--accent)'}} width={32} height={32}/> : <Avatar size={32} mode="app" src={user.vk.photo_200 ? user.vk.photo_200 : null} />}
@@ -3293,21 +3300,51 @@ const App = withAdaptivity(({ viewWidth }) => {
 														</Card>
 													</CardGrid>
 													<Spacing size={8} />
-													<Textarea placeholder={`Лог действий`} readOnly value={botLog}/>
+													<Textarea style={{
+														marginRight: isDesktop ? 0 : 8,
+														marginLeft: isDesktop ? 0 : 8
+													}} placeholder={`Лог действий`} readOnly value={botLog}/>
 													<Spacing size={8} />
-													<div style={{display: 'flex'}}>
+													<div style={{
+														display: 'flex',
+														marginRight: isDesktop ? 0 : 8,
+														marginLeft: isDesktop ? 0 : 8
+													}}>
 														<Button size="m" onClick={() => this.setState({botLog: `[${this.getRealTime()}] Лог очищен\n`})} stretched mode="secondary">Отчистить лог действий</Button>
 													</div>
 													<Spacing size={8} />
-													<div style={{display: 'flex'}}>
+													{isDesktop && <div style={{
+														display: 'flex',
+														marginRight: isDesktop ? 0 : 8,
+														marginLeft: isDesktop ? 0 : 8
+													}}>
 														<Button size="m" onClick={() => BotRaids('start')} disabled={syncBot.isStart} stretched mode="commerce" style={{ marginRight: 8 }}>Запустить</Button>
 														<Button size="m" onClick={() => BotRaids('pause')} disabled={!syncBot.isStart} stretched mode="destructive" style={{ marginRight: 8 }}>Остановить</Button>
 														<Button size="m" onClick={() => BotRaids('exit')} disabled={!syncBot.isStart && syncBot.raids.point ? false : true} stretched mode="secondary" style={{ marginRight: 8 }}>Завершить</Button>
 														<Button size="m" onClick={() => BotRaids('reload')} disabled={syncBot.isStart} stretched mode="secondary">Обновить</Button>
-													</div>
+													</div>}
+													{!isDesktop && <React.Fragment>
+														<div style={{
+															display: 'flex',
+															marginRight: isDesktop ? 0 : 8,
+															marginLeft: isDesktop ? 0 : 8
+														}}>
+															<Button size="m" onClick={() => BotRaids('start')} disabled={syncBot.isStart} stretched mode="commerce" style={{ marginRight: 8 }}>Запустить</Button>
+															<Button size="m" onClick={() => BotRaids('pause')} disabled={!syncBot.isStart} stretched mode="destructive">Остановить</Button>
+														</div>
+														<Spacing size={8} />
+														<div style={{
+															display: 'flex',
+															marginRight: isDesktop ? 0 : 8,
+															marginLeft: isDesktop ? 0 : 8
+														}}>
+															<Button size="m" onClick={() => BotRaids('exit')} disabled={!syncBot.isStart && syncBot.raids.point ? false : true} stretched mode="secondary" style={{ marginRight: 8 }}>Завершить</Button>
+															<Button size="m" onClick={() => BotRaids('reload')} disabled={syncBot.isStart} stretched mode="secondary">Обновить</Button>
+														</div>
+													</React.Fragment>}
 													{syncBot.raids.point && <React.Fragment>
 														<Spacing separator size={16} />
-														{syncBot.raids.id == 1 && <CardGrid size="s">
+														{syncBot.raids.id == 1 && <CardGrid size={isDesktop ? "s" : "m"}>
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
 																	before={<Avatar size={32} mode="app" src='image/bot/raids/6.png' />}
@@ -3357,7 +3394,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																</SimpleCell>
 															</Card>
 														</CardGrid>}
-														{syncBot.raids.id == 2 && <CardGrid size="s">
+														{syncBot.raids.id == 2 && <CardGrid size={isDesktop ? "s" : "m"}>
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
 																	before={<Avatar size={32} mode="app" src='image/bot/raids/25.png' />}
@@ -3407,7 +3444,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 																</SimpleCell>
 															</Card>
 														</CardGrid>}
-														{syncBot.raids.id == 3 && <CardGrid size="s">
+														{syncBot.raids.id == 3 && <CardGrid size={isDesktop ? "s" : "m"}>
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
 																	before={<Avatar size={32} mode="app" src='image/bot/raids/28.png' />}
@@ -3450,7 +3487,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 															</Card>
 														</CardGrid>}
 														<Spacing separator size={16} />
-														<CardGrid size="s">
+														<CardGrid size={isDesktop ? "s" : "m"}>
 															<Card className='DescriptionCardWiki'>
 																<SimpleCell
 																	before={<Avatar size={32} mode="app" src='image/bot/raids/108.png' />}
@@ -3502,7 +3539,7 @@ const App = withAdaptivity(({ viewWidth }) => {
 														</CardGrid>
 														{syncBot.raids.reward && <React.Fragment>
 															<Spacing separator size={16} />
-															<CardGrid size="s">
+															<CardGrid size={isDesktop ? "s" : "m"}>
 																{Number(syncBot.raids.reward._exp) !== 0 && <Card className='DescriptionCardWiki'>
 																	<SimpleCell
 																		before={<Avatar size={32} mode="app" src='image/bot/raids/10.png' />}
