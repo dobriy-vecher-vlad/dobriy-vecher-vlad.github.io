@@ -161,7 +161,7 @@ let countBossAll = {
 };
 let newBossID = 5;
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-const wikiVersion = '1.3';
+const wikiVersion = '1.3.1';
 
 
 

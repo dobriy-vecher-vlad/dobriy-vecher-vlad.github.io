@@ -7688,4 +7688,14 @@
 	"currency": 2,
 	"icon": "items/1840.png",
 	"price": 250
+}, {
+	"id": 1841,
+	"type": 15,
+	"title": "Юбилейный Щит",
+	"description": "Награда ивента",
+	"dmg": 0,
+	"hp": 25,
+	"currency": 2,
+	"icon": "items/1841.png",
+	"price": 250
 }]
