@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+	--font: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	--font: 'Inter', sans-serif;
+	--time: 0.20s;
+}
+:root {
+	--SystemRed: #ff3b30;
+	--SystemOrange: #ff9500;
+	--SystemYellow: #ffcc00;
+	--SystemGreen: #34c759;
+	--SystemTeal: #5ac8fa;
+	--SystemBlue: #007aff;
+	--SystemIndigo: #5856d6;
+	--SystemPurple: #af52de;
+	--SystemPink: #ff2d55;
+	--SystemGrey-100: #8e8e93;
+	--SystemGrey-200: #aeaeb2;
+	--SystemGrey-300: #c7c7cc;
+	--SystemGrey-400: #d1d1d6;
+	--SystemGrey-500: #e5e5ea;
+	--SystemGrey-600: #f3f2f8;
+	--SystemBackground-Primary: #ffffff;
+	--SystemBackground-Secondary: #f1f2f7;
+	--SystemBackground-Tertiary: #ffffff;
+	--SystemLabel-Primary: #000000;
+	--SystemLabel-Secondary: rgba(60, 60, 67, .6);
+	--SystemLabel-Tertiary: rgba(60, 60, 67, .3);
+}
+[dark] {
+	--SystemRed: #ff453a;
+	--SystemOrange: #ff9f0a;
+	--SystemYellow: #ffd60a;
+	--SystemGreen: #32d74b;
+	--SystemTeal: #64d2ff;
+	--SystemBlue: #0a84ff;
+	--SystemIndigo: #5e5ce6;
+	--SystemPurple: #bf5af2;
+	--SystemPink: #ff375f;
+	--SystemGrey-100: #8e8e93;
+	--SystemGrey-200: #636366;
+	--SystemGrey-300: #48484a;
+	--SystemGrey-400: #3a3a3c;
+	--SystemGrey-500: #2c2c2e;
+	--SystemGrey-600: #1c1c1e;
+	--SystemBackground-Primary: #1c1c1e;
+	--SystemBackground-Secondary: #2c2c2e;
+	--SystemBackground-Tertiary: #3a3a3c;
+	--SystemLabel-Primary: #ffffff;
+	--SystemLabel-Secondary: rgba(235, 235, 245, .6);
+	--SystemLabel-Tertiary: rgba(235, 235, 245, .3);
+}
+body {
+	margin: 0px;
+	user-select: none;
+	background: var(--background-secondary);
+	background: var(--background-main-white);
+	font-family: var(--font);
+	color: var(--color-main-black);
+	overflow-x: hidden;
+	overflow-y: overlay;
+	overflow: overlay;
+}
+body::-webkit-scrollbar {
+	width: 0;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+
+
+
+.image_3d {
+	display: block;
+	position: relative;
+	list-style: none;
+	margin: auto;
+	padding: 0;
+	width: fit-content;
+}
+.image_3d > li {
+	display: block;
+	position: absolute;
+}
+.image_3d > li:nth-of-type(5) {
+	position: relative;
+}
+.image_3d > li > img {
+	--shadow_3d_image: rgb(15, 15, 16);
+	display: block;
+	position: relative;
+	border-radius: 45px;
+	transform: translateY(0px) scale(0.5) rotate(-30deg) skew(25deg);
+	transition: var(--time);
+	height: 100rem;
+}
+.image_3d > li:not(:nth-of-type(5)) > img {
+	opacity: 0;
+}
+.image_3d:hover > li:nth-of-type(5) > img {
+	transform: translateY(-100px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 1;
+	filter: blur(0px);
+}
+.image_3d:hover > li:nth-of-type(4) > img {
+	transform: translateY(-80px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.60;
+	filter: blur(2px);
+}
+.image_3d:hover > li:nth-of-type(3) > img {
+	transform: translateY(-60px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.45;
+	filter: blur(4px);
+}
+.image_3d:hover > li:nth-of-type(2) > img {
+	transform: translateY(-40px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.30;
+	filter: blur(6px);
+}
+.image_3d:hover > li:nth-of-type(1) > img {
+	transform: translateY(-20px) scale(0.5) rotate(-30deg) skew(25deg);
+	opacity: 0.15;
+	filter: blur(8px);
+}
+
+
+
+
+
+
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 150;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -35;
+	}
+	100% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -124;
+	}
+}
+.cYLuAZ {
+	animation: 2s linear 0s infinite normal none running rotate;
+	width: 50px;
+	height: 50px;
+}
+.cYLuAZ .path {
+	stroke: rgb(255, 102, 102);
+	stroke-linecap: round;
+	animation: 1.5s ease-in-out 0s infinite normal none running dash;
+}
+
+
+
+
+
+.buttons .button.disabled {
+	opacity: .5!important;
+	cursor: not-allowed!important;
+	user-select: none!important;
+}
+.buttons .button.scale .wrap {
+	transition: transform var(--time);
+	user-select: none;
+}
+.buttons .button.scale:active .wrap {
+	transform: scale(0.95);
+}
+
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg)
+	} to {
+		transform: rotate(1turn)
+	}
+}
+.buttons-prew {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 0 40px;
+	width: fit-content;
+	/* margin: 4% auto; */
+	/* background-color: #FBFBFB; */
+	padding: 0 20px 20px 20px;
+	/* border-radius: 12px; */
+	/* box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); */
+}
+.buttons-bottom {
+	padding: 20px;
+	position: sticky;
+	bottom: 0;
+	width: -webkit-fill-available;
+	width: calc(100% - 40px);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	background-color: rgba(16 18 27 / 40%);
+	border-top: 1px solid rgba(113 119 144 / 25%);
+}
+.buttons-prew > .title {
+	margin: 20px 0 10px 0;
+	display: block;
+	height: fit-content;
+	font-size: 14px;
+	font-weight: 500;
+	opacity: .5;
+}
+.buttons {
+	display: flex;
+	position: relative;
+}
+.buttons:not(.fill) .button:not(:last-child) {
+	margin-right: 10px;
+}
+.buttons.fill {
+	display: block;
+}
+.buttons.fill .button {
+	width: auto;
+}
+.buttons.fill .button .wrap, .buttons .button.loader .wrap::before, .buttons .button.icon .wrap[icon-left]::before {
+	margin: auto!important;
+}
+.buttons.fill .button[icon-left]:not(.card) > .title {
+	margin-left: 0!important;
+}
+.buttons.fill .button[icon-right]:not(.card) > .title {
+	margin-right: 0!important;
+}
+.buttons.fill .button:not(:last-child) {
+	margin-bottom: 10px;
+}
+.buttons.fill .button[icon-left]:not(.card):not(.icon):not(.loader):before {
+	content: attr(icon-left);
+	margin: auto 10px auto auto;
+}
+.buttons.fill .button[icon-right]:not(.card):not(.icon):not(.loader):after {
+	content: attr(icon-right);
+	margin: auto auto auto 10px;
+}
+.buttons.flex {
+	display: flex;
+}
+.buttons.flex .button {
+	flex: 1;
+}
+.buttons.flex .button .wrap {
+	margin: 0 auto;
+}
+.buttons .button {
+	background-color: var(--SystemBlue);
+	color: #fff;
+	border-radius: 12px;
+	cursor: pointer;
+	width: fit-content;
+	height: fit-content;
+}
+.buttons .button .wrap {
+	display: flex;
+	position: relative;
+	align-items: center;
+	width: fit-content;
+	height: fit-content;
+}
+.buttons .button.round {
+	border-radius: 45px;
+}
+.buttons .button.big .wrap {
+	padding: 18px 20px;
+}
+.buttons .button.medium .wrap {
+	padding: 15px 18px;
+}
+.buttons .button.small .wrap {
+	padding: 11px 14px;
+}
+.buttons .button .wrap[icon-left]::before, .buttons .button .wrap[icon-right]::after {
+	display: flex;
+	justify-content: center;
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 900;
+}
+.buttons .button.big .wrap[icon-left]::before, .buttons .button.big .wrap[icon-right]::after, .buttons .button.big.loader .wrap::before {
+	font-size: 20px;
+	width: 23px;
+	height: 23px;
+}
+.buttons .button.medium .wrap[icon-left]::before, .buttons .button.medium .wrap[icon-right]::after, .buttons .button.medium.loader .wrap::before {
+	font-size: 18px;
+	width: 20px;
+	height: 20px;
+}
+.buttons .button.small .wrap[icon-left]::before, .buttons .button.small .wrap[icon-right]::after, .buttons .button.small.loader .wrap::before {
+	font-size: 15px;
+	width: 16px;
+	height: 16px;
+}
+.buttons .button .wrap[icon-left]::before {
+	content: attr(icon-left);
+	margin: auto 10px auto 0;
+}
+.buttons .button .wrap[icon-right]::after {
+	content: attr(icon-right);
+	margin: auto 0 auto 10px;
+}
+.buttons .button .title {
+	display: block;
+	font-style: normal;
+	font-weight: 500;
+}
+.buttons .button.big .title {
+	font-size: 18px;
+	line-height: 23px;
+}
+.buttons .button.medium .title {
+	font-size: 16px;
+	line-height: 20px;
+}
+.buttons .button.small .title {
+	font-size: 14px;
+	line-height: 16px;
+}
+.buttons .button.big.icon .wrap[icon-left], .buttons .button.big.loader .wrap {
+	padding: 18px;
+}
+.buttons .button.medium.icon .wrap[icon-left], .buttons .button.medium.loader .wrap {
+	padding: 15px;
+}
+.buttons .button.small.icon .wrap[icon-left], .buttons .button.small.loader .wrap {
+	padding: 11px;
+}
+.buttons .button.icon .wrap[icon-left] .title, .buttons .button.loader .wrap .title {
+	display: none;
+}
+.buttons .button.icon .wrap[icon-left]::before {
+	margin: 0;
+}
+.buttons .button.icon .wrap[icon-left]::after, .buttons .button.loader .wrap::after, .buttons .button.card .wrap::after {
+	display: none;
+}
+.buttons .button.loader .wrap::before {
+	display: block;
+	animation: spinner .5s linear infinite;
+	content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><g><path style='opacity: .4' fill='%23fff' d='M478.71 364.58zm-22 6.11l-27.83-15.9a15.92 15.92 0 0 1-6.94-19.2A184 184 0 1 1 256 72c5.89 0 11.71.29 17.46.83-.74-.07-1.48-.15-2.23-.21-8.49-.69-15.23-7.31-15.23-15.83v-32a16 16 0 0 1 15.34-16C266.24 8.46 261.18 8 256 8 119 8 8 119 8 256s111 248 248 248c98 0 182.42-56.95 222.71-139.42-4.13 7.86-14.23 10.55-22 6.11z'></path><path fill='%23fff' d='M271.23 72.62c-8.49-.69-15.23-7.31-15.23-15.83V24.73c0-9.11 7.67-16.78 16.77-16.17C401.92 17.18 504 124.67 504 256a246 246 0 0 1-25 108.24c-4 8.17-14.37 11-22.26 6.45l-27.84-15.9c-7.41-4.23-9.83-13.35-6.2-21.07A182.53 182.53 0 0 0 440 256c0-96.49-74.27-175.63-168.77-183.38z'></path></g></svg>");
+}
+.buttons .button.card .wrap::after {
+	display: none;
+}
+.buttons .button.card .wrap::before {
+	margin: 0 auto 5px auto;
+}
+.buttons .button.card .wrap {
+	flex-direction: column;
+}
+.buttons .button.big.card .wrap {
+	padding: 28px;
+}
+.buttons .button.medium.card .wrap {
+	padding: 24px;
+}
+.buttons .button.small.card .wrap {
+	padding: 20px;
+}
+.buttons .button.big.card .wrap[icon-left] {
+	padding: 14px 28px;
+}
+.buttons .button.medium.card .wrap[icon-left] {
+	padding: 11.5px 24px;
+}
+.buttons .button.small.card .wrap[icon-left] {
+	padding: 9.5px 20px;
+}
+.buttons .button.big.card.icon .wrap, .buttons .button.big.card.loader .wrap {
+	padding: 25.5px 28px;
+}
+.buttons .button.medium.card.icon .wrap, .buttons .button.medium.card.loader .wrap {
+	padding: 21px 24px;
+}
+.buttons .button.small.card.icon .wrap, .buttons .button.small.card.loader .wrap {
+	padding: 18px 20px;
+}
+.buttons .button.big.card .title {
+	font-size: 14px;
+	line-height: 18px;
+}
+.buttons .button.medium.card .title {
+	font-size: 12px;
+	line-height: 14px;
+}
+.buttons .button.small.card .title {
+	font-size: 10px;
+	line-height: 12px;
+}

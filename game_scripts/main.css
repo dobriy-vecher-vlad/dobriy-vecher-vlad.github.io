@@ -1,0 +1,374 @@
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    src: url('../fonts/ProximaNova-Regular.eot');
+    src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ProximaNova-Regular.woff') format('woff'),
+    url('../fonts/ProximaNova-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Proxima Nova Semibold';
+    src: url('../fonts/ProximaNova-Semibold.eot');
+    src: url('../fonts/ProximaNova-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ProximaNova-Semibold.woff') format('woff'),
+    url('../fonts/ProximaNova-Semibold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Proxima Nova Bold';
+    src: url('../fonts/ProximaNova-Bold.eot');
+    src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ProximaNova-Bold.woff') format('woff'),
+    url('../fonts/ProximaNova-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.bodyglav::-webkit-scrollbar {
+	width: 10px;
+}
+.bodyglav::-webkit-scrollbar-thumb:vertical {
+    background-color: #ccc; /*ползунок*/
+}
+.bodyglav::-webkit-scrollbar-track {
+    background-color: #ddd; /*позади*/
+}
+.scroll::-webkit-scrollbar {
+	width: 10px;
+}
+.scroll::-webkit-scrollbar-thumb:vertical {
+    background-color: rgba(0,0,0,0.03); /*ползунок*/
+	border-radius: 4px;
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.03), inset 0px 0px 0px 1px rgba(0,0,0,0.03);
+}
+.scroll::-webkit-scrollbar-track {
+    background-color: transparent; /*позади*/
+	border-radius: 4px;
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.03), inset 0px 0px 0px 1px rgba(0,0,0,0.03);
+	margin: 40px;
+}
+.scroll {
+    position: relative;
+	overflow: scroll;
+	overflow-x: hidden;
+    height: 300px;
+	margin: 5px -25px 5px 5px;
+}
+.hidemod {
+    opacity: 0.2!important;
+	cursor: default!important;
+    text-decoration: none!important;
+}
+body {
+	background: #edeef0;
+	padding: 0px;
+	margin: 0px;
+	overflow: scroll;
+	overflow-x: hidden;
+	cursor: default;
+}
+.panel {
+	margin: auto;
+	width: 100%;
+    font-family: 'Proxima Nova Semibold';
+}
+.script {
+	top: 0px;
+	padding: 20px 74px 50px 50px;
+	display: inline-block;
+	vertical-align: top;
+}
+.name_script {
+    font-family: 'Proxima Nova Bold';
+	font-size: 16px;
+	letter-spacing: 1px;
+	font-weight: bold;
+    border-radius: 4px;
+	overflow: overlay;
+	white-space: nowrap;
+    box-shadow: 0px 5px 25px 0px rgba(0,0,0,0.05);
+    background: #5c9ce6;
+	color: #FFF;
+	text-align: center;
+	padding: 10px;
+	width: 350px;
+	margin: 10px auto;
+	position: relative;
+	z-index: 1;
+	user-select: none;
+}
+.save_script {
+    font-family: 'Proxima Nova Bold';
+	font-size: 16px;
+	letter-spacing: 1px;
+	font-weight: bold;
+    border-radius: 4px;
+	overflow: overlay;
+	white-space: nowrap;
+    box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.1), 0px 5px 25px 0px rgba(0,0,0,0.05);
+    background: #4CA64C;
+	color: #FFF;
+	text-align: center;
+	padding: 10px;
+	width: 350px;
+	margin: 10px auto;
+	position: relative;
+	z-index: 1;
+	user-select: none;
+	cursor: pointer;
+    transition: 0.3s;
+}
+.save_script:hover {
+    box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.1), 0px 5px 25px 0px rgba(0,0,0,0.05);
+    background: #5DAE5D;
+    transition: 0.3s;
+}
+.save_script:active{
+    box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.1), 0px 5px 25px 0px rgba(0,0,0,0.05);
+	background: #449544;
+    transition: 0.3s;
+}
+.install_script {
+    font-family: 'Proxima Nova Bold';
+	font-size: 16px;
+	letter-spacing: 1px;
+	font-weight: bold;
+    border-radius: 4px;
+	overflow: overlay;
+	white-space: nowrap;
+    box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.1), 0px 5px 25px 0px rgba(0,0,0,0.05);
+    background: #E9967A;
+	color: #FFF;
+	text-align: center;
+	padding: 10px;
+	width: 350px;
+	margin: 10px auto;
+	position: relative;
+	z-index: 1;
+	user-select: none;
+	cursor: pointer;
+    transition: 0.3s;
+}
+.install_script:hover {
+    box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.1), 0px 5px 25px 0px rgba(0,0,0,0.05);
+    background: #EBA087;
+    transition: 0.3s;
+}
+.install_script:active{
+    box-shadow: inset 0px 3px 0px 0px rgba(0,0,0,0.1), 0px 5px 25px 0px rgba(0,0,0,0.05);
+	background: #D1876D;
+    transition: 0.3s;
+}
+.image_script {
+    border-radius: 4px;
+	background: #fff;
+	height: 200px;
+	width: 350px;
+	margin: 10px auto;
+	position: relative;
+	z-index: 2;
+    box-shadow: inset 0 1px 0 0 #d7d8db, inset 0 0 0 1px #d7d8db, 0px 5px 25px 0px rgba(0,0,0,0.05);
+	user-select: none;
+	cursor: pointer;
+}
+.header {
+	background: #fff;
+	padding: 1px;
+}
+.tabs {
+    border-radius: 4px;
+	overflow: overlay;
+	white-space: nowrap;
+    box-shadow: inset 0 1px 0 0 #d7d8db, inset 0 0 0 1px #d7d8db, 0px 5px 25px 0px rgba(0,0,0,0.05);
+    background: #e3e4e8;
+	width: 350px;
+	margin: 10px auto;
+	user-select: none;
+}
+.tab {
+	margin: 0px;
+    border-radius: 4px;
+	width: 172px;
+	height: 32px;
+	text-decoration: none;
+	font-size: 12.5px;
+	line-height: 21px;
+	padding: 6px 0px;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	color: #939699;
+}
+.tab:hover {
+	text-decoration: underline;
+}
+.tab.active {
+	color: #000;
+    background-color: #FFF;
+	font-weight: bold;
+	text-decoration: none;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #d7d8db, 0px 5px 25px 0px rgba(0,0,0,0.05);
+}
+.tab_body {
+	padding: 1px 1px 1px 1px;
+	display: none;
+	background: #FFF;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8, 0px 5px 25px 0px rgba(0,0,0,0.05);
+	width: 350px;
+	margin: 10px auto;
+}
+.tab_body.active {
+	display: block;
+}
+.list {
+    font-family: 'Proxima Nova Regular';
+    border-radius: 4px;
+	max-width: 350px;
+	padding: 10px;
+	position: relative;
+	display: block;
+	color: #000;
+	text-decoration: none;
+	font-size: 13px;
+	height: 36px;
+	line-height: 21px;
+	text-align: left;
+}
+.list_type_2srt {
+	height: 57px;
+}
+.list_type_3srt {
+	height: 78px;
+}
+.hr {
+	padding: 15px 75px 11px 75px; /*верхний, правый, нижний, левый */
+	height: 1px;
+}
+.list_hr {
+	height: 1px;
+	width: 200px;
+	background: rgba(0,0,0,0.05);
+}
+.mark {
+    font-family: 'Proxima Nova Semibold';
+	font-size: 14px;
+	border-radius: 11px;
+	height: 21px;
+	width: 80px;
+	float: left;
+	line-height: 21px;
+	margin: 0px 5px 5px 0;
+	text-align: center;
+	user-select: none;
+}
+.mark_type_1 {
+	background-color: #faead8;
+	color: #764f14;
+}
+.mark_type_2 {
+	background-color: #e8f2dc;
+	color: #37702a;
+}
+.mark_type_3 {
+	background-color: #FFE7E7;
+	color: #8E0000;
+}
+.mark_type_4 {
+    background-color: #e0ecea;
+    color: #4c7171;
+}
+.mark_type_none {
+    background-color: #FFF;
+    color: #FFF;
+}
+.mark_type_2str {
+	box-shadow: inset 0px -21px 0px 0px rgba(255,255,255,1);
+	height: 42px;
+}
+.mark_type_3str {
+	box-shadow: inset 0px -42px 0px 0px rgba(255,255,255,1);
+	height: 63px;
+}
+* {
+	box-sizing: border-box;
+}
+#tabs_content_0 {
+	display: none;
+}
+#tabs_content_3 {
+	display: none;
+}
+#tabs_content_4 {
+	display: none;
+}
+#tabs_content_5 {
+	display: none;
+}
+#tabs_content_6 {
+	display: none;
+}
+#tabs_content_7 {
+	display: none;
+}
+#tabs_content_8 {
+	display: none;
+}
+.intall_help {
+	cursor: help;
+	border-radius: 4px;
+	width: 240px;
+	height: 200px;
+	background-repeat: no-repeat;
+    background-color: #e0ecea;
+	margin-left: 85px;
+    background-color: #000;
+}
+a {
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    background-color: #fff;
+    padding: 5px;
+	border-radius: 4px;
+	text-decoration: none;
+	color: #000;
+	font-size: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+a:hover {
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    background-color: #eee;
+    transition: 0.3s;
+}
+.tooltip{
+	position: relative;
+	display: inline-block;
+	cursor: help;
+}
+.tooltip .tip{
+	opacity: 0;
+	transition: 0.3s;
+	position: absolute;
+	visibility: hidden;
+	white-space: nowrap;
+	text-align: left;
+	padding: 6px;
+	color: #fff;
+	bottom: 30px;
+	background:#000;
+	border-radius: 4px;
+	font-size: 13px;
+	line-height: 1.4;
+	text-transform: none;
+	font-weight: normal;
+	user-select: none;
+}
+.tooltip .tip::after, .tooltip .tip::before {
+    content: '';
+    position: absolute;
+    background: #000;
+    left: 16px; bottom: -4px;
+    width: 8px; height: 8px;
+    transform: rotate(45deg);
+}

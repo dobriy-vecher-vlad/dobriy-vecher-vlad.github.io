@@ -1,0 +1,248 @@
+<html>
+    <head>
+		<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon"/>
+		<title>Game scripts</title>
+		<meta charset="UTF-8">
+		<link id="stylesheet" href="main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="bodyglav">
+        <div class="panel">
+            <div class="script">
+                <div class="name_script" style="opacity: 0;">secret</div>
+            </div>
+            <div class="script">
+                <div class="name_script">Invasion Script</div>
+                <div class="image_script" style="background-image: url(img/logo_invasion.png);" onclick="window.open('https://vk.com/app3932147', '_blank')"></div>
+                <div class="header tabs" for="tabs_content_1">
+                    <div class="tab active">Функции</div>
+                    <div class="tab">Обновления</div>
+                </div>
+                <div class="body" id="tabs_content_1">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>ID ВКонтакте
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Игровой ник
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Характеристики
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Принадлежность к клану
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Уровень навыков
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Дата первого и последнего входа
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Местоположение на карте
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Уровень машины, задний фон
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_2">Клан</span>ID лидера клана
+                        <li class="list"><span class="mark mark_type_2">Клан</span>Суммарный опыт клана
+                        <li class="list"><span class="mark mark_type_2">Клан</span>Ранговые очки
+                        <li class="list"><span class="mark mark_type_2">Клан</span>Количество людей в составе
+                        <li class="list"><span class="mark mark_type_2">Клан</span>Количество ресурсов в казне
+                        <li class="list"><span class="mark mark_type_2">Клан</span>Уровень построек клана
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_3">Бой</span>Название и характеристики босса
+                        <li class="list"><span class="mark mark_type_3">Бой</span>Номер, ID, ник и урон игроков на боссе
+                        <li class="list" style="padding-bottom: 31px"><span class="mark mark_type_3">Бой</span>Создатель боя, время до конца боя
+                    </div></ul>
+                    <ul class="tab_body"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_4">1.3</span>Переписан код скрипта
+                        <li class="list"><span class="mark mark_type_4">1.3</span>Исправлены ошибки функций
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Вывод типа ошибки при загрузке
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Исправление ошибок кода
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Доработка интерфейса
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_4">1.1</span>Отображение клановых войн
+                        <li class="list"><span class="mark mark_type_4">1.1</span>Исправление ошибок кода
+                        <li class="list"><span class="mark mark_type_4">1.1</span>Доработка интерфейса
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list" style="padding-bottom: 31px"><span class="mark mark_type_4">1.0</span>Запуск
+                    </div></ul>
+                </div>
+				<div class="save_script" onclick="gotoinstall_inv_1();">Установить через Google Webstore</div>
+                <div class="body" id="tabs_content_3">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list list_type_2srt"><span class="mark mark_type_1 mark_type_2str">Шаг 1</span>Перейти на страницу расширения в Google Webstore по ссылке ниже
+                        <li class="list"><span class="mark mark_type_none"></span><a href="https://vk.cc/9wPB8B" target="_blank">chrome.google.com/invasion-script</a>
+                        <li class="list"><span class="mark mark_type_1">Шаг 2</span>В магазине нажать кнопку «Установить»
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/8.png);"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 3</span>Необязательно: перезапустить браузер
+                    </div></ul>
+                </div>
+                <div class="save_script" onclick="gotoinstall_inv_2();">Установить через Tampermonkey</div>
+                <div class="body" id="tabs_content_4">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_1">Шаг 1</span>Установить расширение Tampermonkey<br>
+                        <li class="list"><span class="mark mark_type_none"></span><a href="https://vk.cc/7TuESk" target="_blank">chrome.google.com/tampermonkey</a>
+                        <li class="list"><span class="mark mark_type_1">Шаг 2</span>Перейти в настройки плагина<br>
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/1.png);"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 3</span>Перейти в «утилиты»<br>
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/2.png);"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 4</span>Вставить ссылку в поле «URL» и импорт
+                        <li class="list"><span class="mark mark_type_none"></span><div class="tooltip"><t id="tip_1" class="tip">Скопировано в буфер обмена!</t><a class="btn" onclick="tip_1();" data-clipboard-text="https://dobriy-vecher-vlad.github.io/game_scripts/invasion_url.js">../game_scripts/invasion_url.js</a></div>
+                        <li class="list" style="height: 101px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/3.png); height: 80px"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 5</span>В новом окне выбрать «установить»<br>
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/4.png);"></div>
+                    </div></ul>
+                </div>
+				<div class="save_script" onclick="gotoinstall_inv_3();">Установить вручную</div>
+                <div class="body" id="tabs_content_5">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_1">Шаг 1</span>Скачать архив со скриптом
+                        <li class="list"><span class="mark mark_type_none"></span><a href="https://vk.com/doc-73853349_492772286" target="_blank">vk.com/doc-73853349_492772286</a>
+                        <li class="list list_type_3srt"><span class="mark mark_type_1 mark_type_3str">Шаг 2</span>Папку «Invasion Script» из архива переместить в любое место (в дальнейшем не перемещая)
+                        <li class="list list_type_2srt"><span class="mark mark_type_1 mark_type_2str">Шаг 3</span>Вставить ссылку ниже в адресную строку и перейти в окно расширений
+                        <li class="list"><span class="mark mark_type_none"></span><div class="tooltip"><t id="tip_3" class="tip">Скопировано в буфер обмена!</t><a class="btn" onclick="tip_3();" data-clipboard-text="chrome://extensions/">chrome://extensions/</a></div>
+                        <li class="list list_type_2srt"><span class="mark mark_type_1 mark_type_2str">Шаг 4</span>Включить режим разработчика в верхнем правом углу экрана
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/6.png);"></div>
+                        <li class="list list_type_3srt"><span class="mark mark_type_1 mark_type_3str">Шаг 5</span>Нажать кнопку «Загрузить распакованное расширение» и выбрать папку со скриптом из 2 шага
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/7.png);"></div>
+                    </div></ul>
+                </div>
+            </div>
+            <div class="script">
+                <div class="name_script">Warlord Script</div>
+                <div class="image_script" style="background-image: url(img/logo_warlord.png);" onclick="window.open('https://vk.com/app5536422', '_blank')"></div>
+                <div class="header tabs" for="tabs_content_2">
+                    <div class="tab active">Функции</div>
+                    <div class="tab">Обновления</div>
+                </div>
+                <div class="body" id="tabs_content_2">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>ID ВКонтакте
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Игровой ник
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Характеристики
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Принадлежность к гильдии
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Уровень навыков
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Дата первого и последнего входа
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Местоположение на карте
+                        <li class="list"><span class="mark mark_type_1">Профиль</span>Питомец, задний фон
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_2">Гильдия</span>ID лидера гильдии
+                        <li class="list"><span class="mark mark_type_2">Гильдия</span>Количество людей в составе
+                        <li class="list"><span class="mark mark_type_2">Гильдия</span>Количество ресурсов в казне
+                        <li class="list"><span class="mark mark_type_2">Гильдия</span>Уровень навыков гильдии
+                        <li class="list"><span class="mark mark_type_2">Гильдия</span>Уровень тарана и стража
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_3">Бой</span>Название и характеристики босса
+                        <li class="list"><span class="mark mark_type_3">Бой</span>Номер, ID, ник и урон игроков на боссе
+                        <li class="list" style="padding-bottom: 31px"><span class="mark mark_type_3">Бой</span>Создатель боя, время до конца боя
+                    </div></ul>
+                    <ul class="tab_body"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Показ чужих боёв
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Показ стажа в гильдии
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Показ порядкового номера боя
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Переписан код скрипта
+                        <li class="list"><span class="mark mark_type_4">1.2</span>Исправлены ошибки функций
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list"><span class="mark mark_type_4">1.1</span>Вывод типа ошибки при загрузке
+                        <li class="list"><span class="mark mark_type_4">1.1</span>Исправление ошибок кода
+                        <li class="list"><span class="mark mark_type_4">1.1</span>Доработка интерфейса
+                        <li class="list hr"><div class="list_hr"></div>
+                        <li class="list" style="padding-bottom: 31px"><span class="mark mark_type_4">1.0</span>Запуск
+                    </div></ul>
+                </div>
+				<div class="save_script" onclick="gotoinstall_wl_1();">Установить через Google Webstore</div>
+                <div class="body" id="tabs_content_6">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list list_type_2srt"><span class="mark mark_type_1 mark_type_2str">Шаг 1</span>Перейти на страницу расширения в Google Webstore по ссылке ниже
+                        <li class="list"><span class="mark mark_type_none"></span><a href="https://vk.cc/9wPJ6E" target="_blank">chrome.google.com/warlord-script</a>
+                        <li class="list"><span class="mark mark_type_1">Шаг 2</span>В магазине нажать кнопку «Установить»
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/8.png);"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 3</span>Необязательно: перезапустить браузер
+                    </div></ul>
+                </div>
+                <div class="save_script" onclick="gotoinstall_wl_2();">Установить через Tampermonkey</div>
+                <div class="body" id="tabs_content_7">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_1">Шаг 1</span>Установить расширение Tampermonkey<br>
+                        <li class="list"><span class="mark mark_type_none"></span><a href="https://vk.cc/7TuESk" target="_blank">chrome.google.com/tampermonkey</a>
+                        <li class="list"><span class="mark mark_type_1">Шаг 2</span>Перейти в настройки плагина<br>
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/1.png);"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 3</span>Перейти в «утилиты»<br>
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/2.png);"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 4</span>Вставить ссылку в поле «URL» и импорт
+                        <li class="list"><span class="mark mark_type_none"></span><div class="tooltip"><t id="tip_2" class="tip">Скопировано в буфер обмена!</t><a class="btn" onclick="tip_2();" data-clipboard-text="https://dobriy-vecher-vlad.github.io/game_scripts/warlord_url.js">../game_scripts/warlord_url.js</a></div>
+                        <li class="list" style="height: 101px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/3.png); height: 80px"></div>
+                        <li class="list"><span class="mark mark_type_1">Шаг 5</span>В новом окне выбрать «установить»<br>
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/5.png);"></div>
+                    </div></ul>
+                </div>
+				<div class="save_script" onclick="gotoinstall_wl_3();">Установить вручную</div>
+                <div class="body" id="tabs_content_8">
+                    <ul class="tab_body active"><div class="scroll">
+                        <li class="list"><span class="mark mark_type_1">Шаг 1</span>Скачать архив со скриптом
+                        <li class="list"><span class="mark mark_type_none"></span><a href="https://vk.com/doc-138604865_503179981" target="_blank">vk.com/doc-138604865_503179981</a>
+                        <li class="list list_type_3srt"><span class="mark mark_type_1 mark_type_3str">Шаг 2</span>Папку «Warlord Script» из архива переместить в любое место (в дальнейшем не перемещая)
+                        <li class="list list_type_2srt"><span class="mark mark_type_1 mark_type_2str">Шаг 3</span>Вставить ссылку ниже в адресную строку и перейти в окно расширений
+                        <li class="list"><span class="mark mark_type_none"></span><div class="tooltip"><t id="tip_4" class="tip">Скопировано в буфер обмена!</t><a class="btn" onclick="tip_4();" data-clipboard-text="chrome://extensions/">chrome://extensions/</a></div>
+                        <li class="list list_type_2srt"><span class="mark mark_type_1 mark_type_2str">Шаг 4</span>Включить режим разработчика в верхнем правом углу экрана
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/6.png);"></div>
+                        <li class="list list_type_3srt"><span class="mark mark_type_1 mark_type_3str">Шаг 5</span>Нажать кнопку «Загрузить распакованное расширение» и выбрать папку со скриптом из 2 шага
+                        <li class="list" style="height: 221px"><span class="mark mark_type_none"></span><div class="intall_help" style="background-image: url(img/7.png);"></div>
+                    </div></ul>
+                </div>
+            </div>
+            <div class="script">
+                <div class="name_script" style="opacity: 0;">secret</div>
+            </div>
+        </div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="../js/clipboard.min.js"></script>
+		<script>
+		function gotoinstall_inv_1() {
+            document.getElementById('tabs_content_3').style.display == 'block' ? document.getElementById('tabs_content_3').style.display = 'none' : document.getElementById('tabs_content_3').style.display = 'block';
+		}
+		function gotoinstall_inv_2() {
+            document.getElementById('tabs_content_4').style.display == 'block' ? document.getElementById('tabs_content_4').style.display = 'none' : document.getElementById('tabs_content_4').style.display = 'block';
+		}
+		function gotoinstall_inv_3() {
+            document.getElementById('tabs_content_5').style.display == 'block' ? document.getElementById('tabs_content_5').style.display = 'none' : document.getElementById('tabs_content_5').style.display = 'block';
+		}
+		function gotoinstall_wl_1() {
+			document.getElementById('tabs_content_6').style.display == 'block' ? document.getElementById('tabs_content_6').style.display = 'none' : document.getElementById('tabs_content_6').style.display = 'block';
+		}
+		function gotoinstall_wl_2() {
+			document.getElementById('tabs_content_7').style.display == 'block' ? document.getElementById('tabs_content_7').style.display = 'none' : document.getElementById('tabs_content_7').style.display = 'block';
+		}
+		function gotoinstall_wl_3() {
+			document.getElementById('tabs_content_8').style.display == 'block' ? document.getElementById('tabs_content_8').style.display = 'none' : document.getElementById('tabs_content_8').style.display = 'block';
+		}
+		Array.from(document.querySelectorAll(".tabs > .tab")).map(function(a){
+			var tab_id = Array.prototype.indexOf.call(a.parentNode.querySelectorAll(".tabs > .tab"),a);
+			var contents = document.getElementById(a.parentNode.getAttribute("for")).getElementsByClassName("tab_body");
+			a.onclick = function(){
+				Array.from(contents).concat(Array.from(a.parentNode.getElementsByClassName("tab"))).map(function(e){e.className  = e.className.replace(" active","")});
+				a.className += " active";
+				contents[tab_id].className += " active";
+			}
+		});
+		</script>
+        <script>
+        function tip_1() {
+            document.getElementById('tip_1').style.visibility = 'visible';
+            document.getElementById('tip_1').style.opacity = '0.8';
+            setTimeout("document.getElementById('tip_1').style.visibility = 'hidden';", 2000);
+            setTimeout("document.getElementById('tip_1').style.opacity = '0.0';", 2000);
+        }
+        function tip_2() {
+            document.getElementById('tip_2').style.visibility = 'visible';
+            document.getElementById('tip_2').style.opacity = '0.8';
+            setTimeout("document.getElementById('tip_2').style.visibility = 'hidden';", 2000);
+            setTimeout("document.getElementById('tip_2').style.opacity = '0.0';", 2000);
+        }
+        function tip_3() {
+            document.getElementById('tip_3').style.visibility = 'visible';
+            document.getElementById('tip_3').style.opacity = '0.8';
+            setTimeout("document.getElementById('tip_3').style.visibility = 'hidden';", 2000);
+            setTimeout("document.getElementById('tip_3').style.opacity = '0.0';", 2000);
+        }
+        function tip_4() {
+            document.getElementById('tip_4').style.visibility = 'visible';
+            document.getElementById('tip_4').style.opacity = '0.8';
+            setTimeout("document.getElementById('tip_4').style.visibility = 'hidden';", 2000);
+            setTimeout("document.getElementById('tip_4').style.opacity = '0.0';", 2000);
+        }
+        var clipboard = new ClipboardJS('.btn');
+        clipboard.on('success', function(e) {
+            console.log(e);
+            e.clearSelection();
+        });
+        </script>
+	</body>
+</html>
