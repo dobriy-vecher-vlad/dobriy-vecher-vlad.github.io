@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+	<body>
+		<textarea class="body 1" style="width: 100%; height: 50%; font-size: 1em;"></textarea>
+		<textarea class="body 2" style="width: 100%; height: 50%; font-size: 1em;"></textarea>
+		<script>
+			let count = 0;
+			setInterval(() => {
+				let newCount = document.querySelectorAll('.body')[0].value.length;
+				if (count != newCount) {
+					console.log(newCount);
+					count = newCount;
+					// let mytext = '		"<p>'
+					let mytext = '		"<h2>Вопросы и задания</h2>\n'
+					mytext += '<ol>\n';
+					mytext += document.querySelectorAll('.body')[0].value;
+					mytext += '\n</ol>"';
+					mytext = mytext.replace(/\d.	/g, ''); // двойные пробелы
+					mytext = mytext.replace(/   /g, ' '); // двойные пробелы
+					mytext = mytext.replace(/  /g, ' '); // двойные пробелы
+					mytext = mytext.replace(/-(\n\n|\n)(\d*)\n( |)\n/g, '- '); // номер страницы с тире
+					mytext = mytext.replace(/(\n\n|\n)(\d*)\n( |)\n/g, '\n'); // номер страницы без тире
+					mytext = mytext.replace(/\n\n/g, '\n'); // двойные переносы
+					mytext = mytext.replace(/\n([а-я]|,| )/g, ' $1'); // двойные переносы
+					mytext = mytext.replace(/([а-я])\n/g, '$1. '); // двойные переносы
+					mytext = mytext.replace(/,\n/g, ', '); // запятая с переносом
+					mytext = mytext.replace(/\n/g, '</li>",\n		"<li>'); // преобразование в строки json
+					mytext = mytext.replace(/- /g, ''); // дефисы убираются
+					// mytext = mytext.replace(/,\n		"<li><\/li>"/g, ''); // лишняя строка в конце
+					mytext = mytext.replace(/<h2>Вопросы и задания<\/h2><\/li>/g, '<h2>Вопросы и задания<\/h2>');
+					mytext = mytext.replace(/<li><ol><\/li>/g, '<ol>');
+					mytext = mytext.replace(/<li><\/ol>/g, '<\/ol>');
+					document.querySelectorAll('.body')[1].value = mytext;
+				}
+			}, 100);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,230 @@
+<html>
+	<head>
+		<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon"/>
+		<title>Кубик Сепеги</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+			body {
+				font-family: Roboto, -apple-system, BlinkMacSystemFont;
+				padding: 0px;
+				margin: 0px;
+			}
+			.role {
+				padding: 25px;
+				margin: 4% auto;
+				width: 250px;
+			}
+			.kub {
+				width: 250px;
+				height: 250px;
+				box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,1), inset 0px 10px 0px 0px rgba(255,255,255,1), inset 0px -10px 0px 0px rgba(0,0,0,0.1);
+				border-radius: 15px;
+				display: block;
+				position: relative;
+				background-color: #F3F3F3;
+				transition: 0.2s;
+				font-size: 16px;
+			}
+			.kubik {
+				width: 50%;
+				height: 50%;
+				display: inline-flex;
+				position: relative;
+				align-items: center;
+				justify-content: center;
+				font-size: 3.5em;
+				line-height: 0.35em;
+				user-select: none;
+				vertical-align: top;
+			}
+			.num {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				display: inline-flex;
+				text-shadow: none;
+				font-weight: 700;
+				font-size: 4em;
+				box-shadow: none;
+			}
+			.start {
+				background-color: #ddd;
+				font-size: 10px;
+				box-shadow: inset 0px 0px 0px 3px rgba(0,0,0,1), inset 0px 6px 0px 0px rgba(255,255,255,1), inset 0px -6px 0px 0px rgba(0,0,0,0.1);
+				opacity: 0.25;
+			}
+			#log {
+				font-size: 14px;
+				box-shadow: none;
+				background-color: #fff;
+				padding: 10px 20px 10px 20px;
+				width: calc(250px - 0px);
+				height: calc(100px - 0px);
+				overflow-x: hidden;
+				overflow-y: auto;
+				border: 1px solid #d3d9de;
+				word-wrap: break-word;
+				box-sizing: border-box;
+				border-radius: 4px;
+				line-height: 20px;
+				outline: none;
+				resize: none;
+				vertical-align: top;
+			}
+			#log::-webkit-scrollbar {
+				width: 12px;
+			}
+			#log::-webkit-scrollbar-thumb:vertical {
+				background-color: #dae1e8;
+				border-radius: 8px;
+				border: 3px solid #fff;
+			}
+			#log::-webkit-scrollbar-track {
+				background-color: #fff;
+				border-radius: 8px;
+			}
+			.button {
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 400;
+				border-radius: 4px;
+				cursor: pointer;
+				width: 100%;
+				height: 40px;
+				vertical-align: top;
+				line-height: 40px;
+				text-align: center;
+				user-select: none;
+				
+			}
+			.button:active {
+				line-height: 42px;
+			}
+			.button_green {
+				background-color: #4BB34B;
+				color: #fff;
+				transition: 0.2s;
+			}
+			.button_green:hover {
+				background-color: #51B851;
+				transition: 0.2s;
+			}
+			.button_green:active {
+				background-color: #43A843;
+				transition: 0.2s;
+				line-height: 42px;
+			}
+			.button_blue {
+				background-color: #5181b8;
+				color: #fff;
+				transition: 0.2s;
+			}
+			.button_blue:hover {
+				background-color: #5B88BD;
+				transition: 0.2s;
+			}
+			.button_blue:active {
+				background-color: #4872A3;
+				transition: 0.2s;
+			}
+			.button_grey {
+				background-color: #e5ebf1;
+				color: #55677d;
+				transition: 0.2s;
+			}
+			.button_grey:hover {
+				background-color: #DFE6ED;
+				transition: 0.2s;
+			}
+			.button_grey:active {
+				background-color: #DAE2EA;
+				transition: 0.2s;
+			}
+			em {
+				color: rgba(0,0,0,0.05);
+				display: contents;
+			}
+			@media screen and (max-width: 1168px) {
+				.role {
+					width: 750px;
+				}
+				.kub {
+					width: 750px;
+					height: 750px;
+					font-size: 50px;
+					border-radius: 25px;
+					box-shadow: inset 0px 0px 0px 15px rgba(0,0,0,1), inset 0px 30px 0px 0px rgba(255,255,255,1), inset 0px -30px 0px 0px rgba(0,0,0,0.1);
+				}
+				#log {
+					width: 750px;
+					font-size: 40px;
+					height: 250px;
+					padding: 30px 40px 30px 40px;
+					line-height: 50px;
+					border: 3px solid #d3d9de;
+				}
+				.button {
+					height: 80px;
+					font-size: 40px;
+					line-height: 80px;
+				}
+				.button:active {
+					line-height: 86px;
+				}
+				.start {
+					font-size: 2em;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="role"><div id="kub" class="kub" onclick="kubik();"><div class="kubik num">36</div><div class="kubik r1">•••<br>•••<br>•••</div><div class="kubik r2">•••<br>•••<br>•••</div><div class="kubik r3">•••<br>•••<br>•••</div><div class="kubik r4">•••<br>•••<br>•••</div></div><br><div id="log" class="kub"></div><br><div id="btn" class="button button_green" onclick="kubik();">Сепега работать!</div></div>
+		<script>
+			function kubik() {
+				setTimeout("document.querySelector('#kub').classList.add('start');", 0);
+				setTimeout("document.querySelector('#kub').removeAttribute('onclick');", 0);
+				setTimeout("document.querySelector('#btn').classList.add('button_grey');", 0);
+				setTimeout("document.querySelector('#btn').classList.remove('button_green');", 0);
+				setTimeout("document.querySelector('#btn').removeAttribute('onclick');", 0);
+				setTimeout("document.querySelector('#btn').innerHTML = 'Сепега крутит кубик';", 0);
+				setTimeout(kub, 0);
+				setTimeout(kub, 500);
+				setTimeout(kub, 1000);
+				setTimeout(kub, 1500);
+				setTimeout(kub, 2000);
+				setTimeout("document.querySelector('#btn').innerHTML = 'ушёл в туалет'", 2000);
+				setTimeout(kub, 2250);
+				setTimeout(kub, 2500);
+				setTimeout(kub, 2650);
+				setTimeout(kub, 2750);
+				setTimeout(kub, 2800);
+				setTimeout("document.querySelector('#kub').classList.remove('start');", 2800);
+				setTimeout("document.querySelector('#kub').setAttribute('onclick', 'kubik();');", 2800);
+				setTimeout("document.querySelector('#btn').classList.add('button_green');", 2800);
+				setTimeout("document.querySelector('#btn').classList.remove('button_grey');", 2800);
+				setTimeout("document.querySelector('#btn').setAttribute('onclick', 'kubik();');", 2800);
+				setTimeout("document.querySelector('#btn').innerHTML = 'Сепега работать!';", 2800);
+				setTimeout("var count = document.querySelector('.num').textContent; document.querySelector('#log').innerHTML += 'Ваш результат: '+count+' из 36.<br>';", 2800);
+			}
+			function kub() {
+				for ( var x = 1; x <= 1; x++ ) {
+					var rand1 = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+					var rand2 = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+					var rand3 = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+					var rand4 = Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+					var num1 = rand1 == 9 ? '•••<br>•••<br>•••' : rand1 == 8 ? '•••<br>•••<br>••<em>•</em>' : rand1 == 7 ? '•••<br>•••<br>•<em>••</em>' : rand1 == 6 ? '•••<br>•••<em><br>•••</em>' : rand1 == 5 ? '•••<br>••<em>•<br>•••</em>' : rand1 == 4 ? '•••<br>•<em>••<br>•••</em>' : rand1 == 3 ? '•••<br><em>•••<br>•••</em>' : rand1 == 2 ? '••<em>•<br>•••<br>•••</em>' : '•<em>••<br>•••<br>•••</em>';
+					var num2 = rand2 == 9 ? '•••<br>•••<br>•••' : rand2 == 8 ? '•••<br>•••<br>••<em>•</em>' : rand2 == 7 ? '•••<br>•••<br>•<em>••</em>' : rand2 == 6 ? '•••<br>•••<em><br>•••</em>' : rand2 == 5 ? '•••<br>••<em>•<br>•••</em>' : rand2 == 4 ? '•••<br>•<em>••<br>•••</em>' : rand2 == 3 ? '•••<br><em>•••<br>•••</em>' : rand2 == 2 ? '••<em>•<br>•••<br>•••</em>' : '•<em>••<br>•••<br>•••</em>';
+					var num3 = rand3 == 9 ? '•••<br>•••<br>•••' : rand3 == 8 ? '•••<br>•••<br>••<em>•</em>' : rand3 == 7 ? '•••<br>•••<br>•<em>••</em>' : rand3 == 6 ? '•••<br>•••<em><br>•••</em>' : rand3 == 5 ? '•••<br>••<em>•<br>•••</em>' : rand3 == 4 ? '•••<br>•<em>••<br>•••</em>' : rand3 == 3 ? '•••<br><em>•••<br>•••</em>' : rand3 == 2 ? '••<em>•<br>•••<br>•••</em>' : '•<em>••<br>•••<br>•••</em>';
+					var num4 = rand4 == 9 ? '•••<br>•••<br>•••' : rand4 == 8 ? '•••<br>•••<br>••<em>•</em>' : rand4 == 7 ? '•••<br>•••<br>•<em>••</em>' : rand4 == 6 ? '•••<br>•••<em><br>•••</em>' : rand4 == 5 ? '•••<br>••<em>•<br>•••</em>' : rand4 == 4 ? '•••<br>•<em>••<br>•••</em>' : rand4 == 3 ? '•••<br><em>•••<br>•••</em>' : rand4 == 2 ? '••<em>•<br>•••<br>•••</em>' : '•<em>••<br>•••<br>•••</em>';
+					var summ = rand1+rand2+rand3+rand4;
+					document.querySelector('.r1').innerHTML = num1;
+					document.querySelector('.r2').innerHTML = num2;
+					document.querySelector('.r3').innerHTML = num3;
+					document.querySelector('.r4').innerHTML = num4;
+					document.querySelector('.num').innerHTML = summ;
+					console.log(summ);
+				}
+			}
+		</script>
+	</body>
+</html>

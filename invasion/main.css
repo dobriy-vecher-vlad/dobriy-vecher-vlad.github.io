@@ -1,0 +1,113 @@
+  body {
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Segoe WP,Helvetica Neue,Lucida Grande,Verdana,Tahoma,Arial,sans-serif!important;
+  display: flex;
+  justify-content: center;
+  background-color: none;
+  overflow: scroll;
+  overflow-x: hidden;
+  user-select: none;
+  z-index: -200;
+  margin-top: 50px;
+  }
+  body::-webkit-scrollbar {
+  width: 10px;
+  height: 0px;
+  }
+  body::-webkit-scrollbar-thumb:vertical {
+  background-color: #111;
+  }
+  body::-webkit-scrollbar-track {
+  background-color: #222;
+  }
+  #help {
+  background-color: rgba(0,0,0,0.75);
+  border: 1px solid rgba(0,0,0,0.75);
+  font-size: 10px;
+  border-radius: 15px;
+  }
+  #hr {
+  width: 100px;
+  display: inline-block;
+  border: 0.5px solid #535353;
+  }
+  #podpis {
+  opacity: 0.3;
+  color: white;
+  font-size: 10px;
+  z-index: 3;
+  position: relative;
+  margin-top: 10px;
+  }
+  input {
+  background-color: #313131!important;
+  border: 1px solid #535353!important;
+  box-shadow: inset 0px 0px 0px 1px rgba(25,23,23,1), inset 0px 0px 15px rgba(0,0,0,0.35);
+  border-radius: 4px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  font-size: 14px;
+  color: white;
+  width: 200px;
+  transition: 0.5s;
+  }
+  input:hover {
+  transition: 0.5s;
+  box-shadow: inset 0px 0px 0px 1px rgba(25,23,23,1), inset 0px 0px 15px rgba(0,0,0,0.35), 0px 5px 15px rgba(0,0,0,0.35);;
+  }
+  #profile_full {
+  font-size: 14px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.75);
+  color: #777;
+  }
+  #script {
+  min-height: 175px;
+  }
+  a {
+  text-decoration: none;
+  color: black;
+  }
+  #head {
+  display: block;
+  text-align: center;
+  z-index: 3;
+  }
+  html {
+  background-color: black;
+  }
+  .overlayhelp{
+  z-index: -99;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  opacity: 1;
+  box-shadow: inset 0px 0px 100px 50px rgba(0,0,0,1);
+  background: url(https://html5book.ru/wp-content/uploads/2017/01/stripe-black.png), rgba(0,0,0,0.25);
+  }
+  .overlay{  
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  overflow: hidden;
+  z-index: -100;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  }
+  .fullscreen-bg__video {  
+  align-items: top;
+  justify-content: center;
+  opacity: 1.5;
+  filter: blur(0px);
+  position: absolute;
+  width: 1280px;
+  background: url(invasionBack.jpg);
+  }
+  @media (max-width: 1280px) {
+  .fullscreen-bg {
+  }
+  }

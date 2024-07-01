@@ -1,0 +1,42 @@
+<html>
+	<head>
+	<link rel="shortcut icon" href="../img/inv.ico" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="main.css" />
+	<title>Invasion Script</title>
+	<script src="script.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("body").css("display", "none");
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("body").css("display", "none");
+
+			$("body").fadeIn(1000);
+
+			$("a.transition").click(function(event){
+				event.preventDefault();
+				linkLocation = this.href;
+				$("body").fadeOut(1000, redirectPage);
+			});
+
+			function redirectPage() {
+				window.location = linkLocation;
+			}
+		});
+	</script>
+	</head>
+	<body>
+		<div id="head"><br><br><div id="help" style="padding: 10px; color: #939699"><div id="script"><div id="profile_full">Просматриваемый ID:<br><hr id="hr"><input id="MyID" type="text" size="40" value="153968505" style="display: none" placeholder="ID"><input id="VashID" type="text" size="40" value="" placeholder="ID"><hr id="hr"></div></div></div>
+			<div id="podpis">Oleg Davydov</div>
+		</div>
+		<div class="overlayhelp"></div>
+		<div class="overlay">
+			<video loop muted autoplay poster="invasionBack.jpg" class="fullscreen-bg__video">
+				<source src="invasionBack.webm" type="video/webm">
+			</video>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,478 @@
+@font-face {
+	font-weight: 500;
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("../fonts/VK_Sans.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 100;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Thin.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 200;
+	font-display: swap;
+	src: url("../fonts/TTCommons-ExtraLight.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Light.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Regular.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Medium.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("../fonts/TTCommons-DemiBold.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Bold.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url("../fonts/TTCommons-ExtraBold.woff") format("truetype");
+}
+@font-face {
+	font-family: 'TTCommons';
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("../fonts/TTCommons-Black.woff") format("truetype");
+}
+:root {
+	--font: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	/* --font: 'TTCommons'; */
+	--time: 0.20s;
+	--container-width: 65%;
+}
+:root {
+	--color-main-black: #050505;
+	--color-main-white: #fff;
+	--color-secondary: #65676b;
+	--color-hint: #a5afbd;
+	--color-line-x05: #f5f6f7;
+	--color-line-x1: #eaecee;
+	--color-line-x2: #d6dade;
+	--color-line-x3: #c1c7cd;
+	--color-extra: #1877f2;
+	--background-main-black: #050505;
+	--background-main-white: #fff;
+	--background-hint: #f7fafc;
+	--background-secondary: #eee;
+	--background-extra: #1877f2;
+	--background-positive: #4bb34b;
+	--background-negative: #e64646;
+	--shadow-x05: rgba(0, 0, 0, 0.05);
+	--shadow-x1: rgba(0, 0, 0, 0.1);
+	--shadow-x2: rgba(0, 0, 0, 0.2);
+	--shadow-x5: rgba(255, 255, 255, 0.5);
+}
+body {
+	margin: 0px;
+	user-select: none;
+	background: var(--background-main-white);
+	font-family: var(--font);
+	color: var(--color-main-black);
+	line-height: 1.5;
+	font-size: 16px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+header {
+	width: 100%;
+	border-bottom: 1px solid var(--background-secondary);
+}
+header .container {
+	width: var(--container-width);
+	margin: auto;
+	display: flex;
+	margin: auto;
+	padding: 20px 0;
+}
+header .logo {
+	margin: auto auto auto 0;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	font-weight: 600;
+}
+header .container::before {
+	content: '';
+	width: 40px;
+	height: 40px;
+	background-image: url(../img/favicon.png);
+	background-position: center;
+	background-size: cover;
+	margin: auto 10px auto 0;
+	box-shadow: inset 0 0 0 1px var(--background-secondary);
+	border-radius: 6px;
+}
+header .navigation {
+	margin: auto 0 auto auto;
+	font-weight: 400;
+	font-size: 1em;
+	display: flex;
+	grid-gap: 20px;
+	color: var(--color-secondary);
+}
+header .navigation > .link {
+	margin: auto;
+}
+header .navigation > .button {
+	background-color: var(--background-hint);
+	padding: 5px 10px;
+	border-radius: 6px;
+}
+header .navigation > .button > i {
+	margin-left: 10px;
+}
+main {
+	width: 100%;
+	border-bottom: 1px solid var(--background-secondary);
+	position: relative;
+}
+main .container {
+	width: var(--container-width);
+	margin: auto;
+	display: flex;
+	margin: auto;
+	padding: 80px 0;
+	position: relative;
+}
+main .title__ .content {
+	width: 50%;
+	margin: auto auto auto 0;
+}
+main .title__ .title {
+	font-size: 1.75em;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+main .title__ .text {
+	font-size: 1em;
+	margin-bottom: 20px;
+	color: var(--color-secondary);
+}
+main .title__ .controls {
+	display: flex;
+	grid-gap: 20px;
+	color: var(--color-secondary);
+}
+main .title__ .button {
+	background-color: var(--background-hint);
+	padding: 10px 20px;
+	border-radius: 6px;
+}
+main .title__ img {
+	display: block;
+	margin: auto 0 auto 20px;
+	width: 500px;
+	height: 500px;
+}
+main .cards__ {
+	display: block;
+}
+main .cards__ > .description {
+	font-size: .75em;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	color: var(--color-extra);
+	font-weight: 500;
+	text-align: center;
+}
+main .cards__ > .title {
+	font-size: 1.75em;
+	font-weight: 500;
+	margin-bottom: 80px;
+	text-align: center;
+}
+main .cards__ .content {
+	display: grid;
+	grid-template-columns: repeat(3, calc((100% / 3) - (20px * (3 - 1) / 3)));
+	grid-gap: 20px;
+}
+main .cards__ .content .card {
+	background-color: var(--background-hint);
+	padding: 30px;
+	border-radius: 6px;
+}
+main .cards__ .content .title {
+	font-size: 1.15em;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+main .cards__ .content .text {
+	margin-bottom: 10px;
+	color: var(--color-secondary);
+}
+main .cards__ .content .button {
+	color: var(--color-extra);
+	font-weight: 500;
+}
+main .cards__ .content .button > i {
+	margin-left: 10px;
+}
+main .stats__ .content {
+	width: 50%;
+	margin: auto 0 auto auto;
+}
+main .stats__ .content {
+	display: grid;
+	grid-template-columns: repeat(1, 100%);
+	grid-gap: 40px;
+}
+main .stats__ .content .title {
+	font-size: 1.15em;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+main .stats__ .content .text {
+	margin-bottom: 10px;
+	color: var(--color-secondary);
+}
+main .stats__ .content .button {
+	color: var(--color-extra);
+	font-weight: 500;
+}
+main .stats__ .content .button > i {
+	margin-left: 10px;
+}
+main .stats__ img {
+	display: block;
+	margin: auto 20px auto 0;
+	width: 500px;
+	height: 500px;
+}
+main .items__ {
+	display: block;
+}
+main .items__ > .title {
+	font-size: 1.75em;
+	font-weight: 500;
+	margin-bottom: 10px;
+	text-align: center;
+}
+main .items__ > .description {
+	margin-bottom: 80px;
+	color: var(--color-secondary);
+	text-align: center;
+}
+main .items__ .content {
+	display: grid;
+	grid-template-columns: repeat(3, calc((100% / 3) - (20px * (3 - 1) / 3)));
+	grid-gap: 20px;
+}
+main .items__ .content .card {
+	box-shadow: inset 0 0 0 1px var(--background-secondary);
+	padding: 30px;
+	border-radius: 6px;
+}
+main .items__ .content .title {
+	font-size: 1.15em;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+main .items__ .content .text {
+	color: var(--color-secondary);
+}
+main .team__ {
+	display: block;
+}
+main .team__ > .title {
+	font-size: 1.75em;
+	font-weight: 500;
+	margin-bottom: 10px;
+	text-align: center;
+}
+main .team__ > .description {
+	margin-bottom: 80px;
+	color: var(--color-secondary);
+	text-align: center;
+}
+main .team__ .content {
+	display: grid;
+	grid-template-columns: repeat(3, calc((100% / 3) - (20px * (3 - 1) / 3)));
+	grid-gap: 20px;
+}
+main .team__ .content .card {
+	box-shadow: inset 0 0 0 1px var(--background-secondary);
+	padding: 30px;
+	border-radius: 6px;
+	display: grid;
+	grid-template-columns: 60px auto;
+	grid-column-gap: 10px;
+}
+main .team__ .content .title {
+	font-size: 1.15em;
+	font-weight: 500;
+	grid-area: 1 / 2 / 2 / 2;
+}
+main .team__ .content .text {
+	color: var(--color-secondary);
+	grid-area: 2 / 2 / 2 / 2;
+}
+main .team__ .content img {
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	border-radius: 45px;
+}
+main .quote__ {
+	display: block;
+}
+main .quote__ .quote {
+	width: 50%;
+	margin: auto;
+	text-align: center;
+	font-size: 1.25em;
+	color: var(--color-secondary);
+	margin-bottom: 20px;
+}
+main .quote__ .quote > i {
+	display: block;
+}
+main .quote__ .quote > i:first-child {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+	color: var(--color-hint);
+}
+main .quote__ .quote > i:last-child {
+	font-size: 1.75em;
+	margin-top: 20px;
+	color: var(--color-extra);
+}
+main .quote__ > .title {
+	font-size: .85em;
+	font-weight: 500;
+	text-align: center;
+	text-transform: uppercase;
+}
+main .quote__ > .description {
+	color: var(--color-hint);
+	text-align: center;
+}
+
+
+
+
+main .categories__ {
+	display: flex;
+	grid-gap: 80px;
+	margin: auto;
+	width: fit-content;
+}
+main .categories__ .category {
+	
+}
+main .categories__ .title {
+	font-weight: 500;
+	font-size: 0.85em;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+main .categories__ .text {
+	color: var(--color-secondary);
+}
+
+
+
+main .social__ {
+	padding: 40px 0;
+}
+main .social__ input {
+	background-color: var(--background-hint);
+	padding: 2px 20px;
+	border-radius: 6px;
+	height: fit-content;
+	margin: auto 20px auto 0;
+	border: 1px solid var(--background-secondary);
+	font-size: 1em;
+	line-height: 40px;
+	font-family: var(--font);
+}
+main .social__ input::placeholder {
+	color: var(--color-hint);
+	line-height: 1em;
+	font-size: 1em;
+}
+main .social__ .title {
+	margin: auto auto auto 0;
+	color: var(--color-hint);
+	width: 15%;
+	font-size: 0.85em;
+}
+main .social__ .button {
+	background-color: var(--background-hint);
+	padding: 2px 20px;
+	border-radius: 6px;
+	height: fit-content;
+	margin: auto 20px auto 0;
+	line-height: 40px;
+}
+main .social__ .description {
+	display: flex;
+	grid-gap: 20px;
+	color: var(--color-hint);
+	height: fit-content;
+	margin: auto 0 auto auto;
+	font-size: 1.25em;
+}
+
+
+
+
+
+
+
+footer {
+	width: 100%;
+	background-color: var(--background-hint);
+}
+footer .container {
+	width: var(--container-width);
+	margin: auto;
+	display: flex;
+	margin: auto;
+	padding: 20px 0;
+	color: var(--color-hint);
+}
+footer .title {
+	margin: auto auto auto 0;
+}
+footer .description {
+	margin: auto 0 auto auto;
+}
+
+.button.extra {
+	background-color: var(--background-extra)!important;
+	color: white!important;
+}
